@@ -102,3 +102,8 @@ body {
 .column {
   max-width: 450px;
 }
+
+.leaflet-container {
+  height: 400px;
+  width: 700px;
+}

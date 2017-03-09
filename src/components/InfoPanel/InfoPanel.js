@@ -1,4 +1,5 @@
 import React from 'react';
+import { Map, TileLayer } from 'react-leaflet';
 
 const InfoPanel = () => (
   <div className="ui vertical stripe segment">
@@ -14,12 +15,21 @@ const InfoPanel = () => (
             but even bananas can be bioengineered.</p>
         </div>
         <div className="ten wide">
-          <img
-            alt="white"
-            src="http://www.madmanblog.com/wp-content/uploads/2012/08/Rome-Google-Map.jpg"
-            className="ui big bordered rounded image"
-            role="presentation"
-          />
+          <div id="map">
+            <div className="leaflet-container">
+              <Map
+                center={[53.66946, 23.824368]}
+                zoom={12}
+                maxZoom={13}
+                minZoom={11}
+                zoomControl={false}
+              >
+                <TileLayer
+                  url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+                />
+              </Map>
+            </div>
+          </div>
         </div>
       </div>
       <div className="row">

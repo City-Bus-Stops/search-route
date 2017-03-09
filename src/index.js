@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 
+import 'leaflet/dist/leaflet.css';
 import '../public/css/index.css';
 import '../node_modules/semantic-ui/dist/semantic.min.css';
 
