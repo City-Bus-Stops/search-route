@@ -1,11 +1,11 @@
 import React from 'react';
 
 const SearchRoute = () => (
-  <div className="ui middle aligned center aligned grid search-route">
+  <div className="ui two column middle aligned centered grid padded search-route">
     <div className="six wide column">
       <h2 className="ui image header">
         <div className="content">
-          Search your best route
+          Search your route
         </div>
       </h2>
       <form className="ui form segment stacked">

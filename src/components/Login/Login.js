@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Login = () => (
-  <div className="ui middle aligned center aligned grid">
-    <div className="column">
+  <div className="ui middle aligned center aligned grid segment padded">
+    <div className="five wide column">
       <h2 className="ui blue image header">
         <div className="content">
           Log-in to your account
