@@ -8,13 +8,15 @@ import '../node_modules/semantic-ui/dist/semantic.min.css';
 
 import Root from './components/Root';
 import Dashboard from './components/Dashboard';
+import SearchRoute from './components/SearchRoute';
 import Login from './components/Login/Login';
 
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={Root}>
       <IndexRedirect to="/dashboard" />
-      <Route path="/dashboard" component={Dashboard} />
+      <Route path="dashboard" component={Dashboard} />
+      <Route path="search-route" component={SearchRoute} />
     </Route>
     <Route path="/login" component={Login} />
   </Router>,
