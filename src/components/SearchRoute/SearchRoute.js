@@ -1,4 +1,5 @@
 import React from 'react';
+import InputField from '../InputField';
 
 const SearchRoute = () => (
   <div className="ui two column middle aligned centered grid padded search-route">
@@ -8,16 +9,24 @@ const SearchRoute = () => (
           Search your route
         </div>
       </h2>
-      <form className="ui form segment stacked">
-        <div className="field">
-          <label htmlFor="from">From</label>
-          <input type="text" name="first-name" placeholder="From" id="from" />
-        </div>
-        <div className="field">
-          <label htmlFor="to">To</label>
-          <input type="text" name="last-name" placeholder="To" id="to" />
-        </div>
-        <button className="ui button blue fluid" type="submit">Search</button>
+      <form className="ui form segment stacked big">
+        <InputField
+          type="text"
+          name="From"
+          placeholder="From"
+          id="from"
+          customContent={<i className="location arrow link icon red" />}
+          customContentPosition="right"
+        />
+        <InputField
+          type="text"
+          name="To"
+          placeholder="To"
+          id="to"
+          customContent={<i className="location arrow link icon red" />}
+          customContentPosition="right"
+        />
+        <button className="ui button blue large fluid" type="submit">Search</button>
       </form>
     </div>
   </div>

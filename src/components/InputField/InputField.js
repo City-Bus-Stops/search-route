@@ -4,12 +4,11 @@ const InputField = ({
   type, name, placeholder, id, customContent, customContentPosition,
 }) => (
   <div className="field">
-    <label htmlFor="from">From</label>
+    <label htmlFor="from">{name}</label>
     <div className={`ui ${customContentPosition} icon input`}>
       {customContent}
       <input
         type={type}
-        name={name}
         placeholder={placeholder}
         id={id}
       />
@@ -22,7 +21,7 @@ InputField.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   id: PropTypes.string.isRequired,
-  customContent: PropTypes.shape,
+  customContent: PropTypes.node,
   customContentPosition: PropTypes.string,
 };
 
