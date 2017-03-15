@@ -4,12 +4,11 @@ const InputField = ({
   type, name, placeholder, id, customContent, customContentPosition,
 }) => (
   <div className="field">
-    <label htmlFor="from">From</label>
+    <label htmlFor="from">{name}</label>
     <div className={`ui ${customContentPosition} icon input`}>
       {customContent}
       <input
         type={type}
-        name={name}
         placeholder={placeholder}
         id={id}
       />
