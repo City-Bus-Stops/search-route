@@ -21,7 +21,7 @@ InputField.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   id: PropTypes.string.isRequired,
-  customContent: PropTypes.shape,
+  customContent: PropTypes.node,
   customContentPosition: PropTypes.string,
 };
 
