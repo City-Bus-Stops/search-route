@@ -9,7 +9,7 @@ const SearchRoute = () => (
           Search your route
         </div>
       </h2>
-      <form className="ui form segment stacked big">
+      <form className="ui form segment big">
         <InputField
           type="text"
           name="From"

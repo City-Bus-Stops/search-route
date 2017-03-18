@@ -17,10 +17,13 @@ const Menu = () => (
         <a className="ui item">Careers</a>
         <div className="right menu">
           <Link to="/login" className="ui item" activeClassName="ui active item">
-            <i className="user outline icon" />
+            <i className="sign in icon" />
             Log In
           </Link>
-          <a className="ui item">Sign Up</a>
+          <Link to="/signup" className="ui item" activeClassName="ui active item">
+            <i className="user outline icon" />
+            Sign Up
+          </Link>
         </div>
       </div>
     </div>
