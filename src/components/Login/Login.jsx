@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const Login = () => (
   <div className="ui raised very padded text container segment">
     <div className="five wide column">
-      <h2 className="ui blue image header">
+      <h2 className="ui blue header">
         <div className="content">
           Log-in to your account
         </div>

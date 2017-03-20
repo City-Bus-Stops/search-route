@@ -5,5 +5,7 @@ import Login from '../src/components/Login';
 
 storiesOf('Login', module)
   .add('Default login', () => (
-    <Login />
+    <div>
+      <Login />
+    </div>
   ));

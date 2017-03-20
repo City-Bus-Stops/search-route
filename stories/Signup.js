@@ -5,5 +5,7 @@ import Signup from '../src/components/Signup';
 
 storiesOf('Signup', module)
   .add('Default signup', () => (
-    <Signup />
+    <div>
+      <Signup />
+    </div>
   ));

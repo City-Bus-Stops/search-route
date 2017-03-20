@@ -4,5 +4,7 @@ import Menu from '../src/components/Menu';
 
 storiesOf('Menu', module)
   .add('Default menu', () => (
-    <Menu />
+    <div>
+      <Menu />
+    </div>
   ));

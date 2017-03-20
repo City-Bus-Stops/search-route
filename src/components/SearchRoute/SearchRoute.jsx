@@ -6,7 +6,7 @@ const SearchRoute = () => (
   <div>
     <div className="ui two column middle aligned centered grid padded search-route">
       <div className="six wide column">
-        <h2 className="ui image header">
+        <h2 className="ui header">
           <div className="content">
             Search your route
           </div>

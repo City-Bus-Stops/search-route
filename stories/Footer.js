@@ -4,5 +4,7 @@ import Footer from '../src/components/Footer';
 
 storiesOf('Footer', module)
   .add('Default footer', () => (
-    <Footer />
+    <div>
+      <Footer />
+    </div>
   ));
