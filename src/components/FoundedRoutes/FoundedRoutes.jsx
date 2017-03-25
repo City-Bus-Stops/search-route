@@ -24,10 +24,17 @@ const FoundedRoutes = () => (
             </div>
           </div>
           <div className="extra content">
-            <a>
+            <span
+              className="right floated"
+              data-tooltip="Watch on the map"
+              data-position="bottom right"
+            >
+              <i className="link map outline icon" />
+            </span>
+            <span>
               <i className="info circle icon" />
               More info
-            </a>
+            </span>
           </div>
         </div>
       </div>
@@ -52,10 +59,17 @@ const FoundedRoutes = () => (
             </div>
           </div>
           <div className="extra content">
-            <a>
+            <span
+              className="right floated"
+              data-tooltip="Watch on the map"
+              data-position="bottom right"
+            >
+              <i className="link map outline icon" />
+            </span>
+            <span>
               <i className="info circle icon" />
               More info
-            </a>
+            </span>
           </div>
         </div>
       </div>
@@ -80,10 +94,17 @@ const FoundedRoutes = () => (
             </div>
           </div>
           <div className="extra content">
-            <a>
+            <span
+              className="right floated"
+              data-tooltip="Watch on the map"
+              data-position="bottom right"
+            >
+              <i className="link map outline icon" />
+            </span>
+            <span>
               <i className="info circle icon" />
               More info
-            </a>
+            </span>
           </div>
         </div>
       </div>
@@ -108,10 +129,17 @@ const FoundedRoutes = () => (
             </div>
           </div>
           <div className="extra content">
-            <a>
+            <span
+              className="right floated"
+              data-tooltip="Watch on the map"
+              data-position="bottom right"
+            >
+              <i className="link map outline icon" />
+            </span>
+            <span>
               <i className="info circle icon" />
               More info
-            </a>
+            </span>
           </div>
         </div>
       </div>
