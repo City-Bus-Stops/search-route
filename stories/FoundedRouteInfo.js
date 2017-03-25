@@ -3,6 +3,6 @@ import { storiesOf } from '@kadira/storybook';
 import FoundedRouteInfo from '../src/components/FoundedRouteInfo';
 
 storiesOf('FoundedRouteInfo', module)
-  .add('Default foundedRouteInfo', () => (
+  .add('Default FoundedRouteInfo', () => (
     <FoundedRouteInfo />
   ));

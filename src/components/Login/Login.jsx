@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import InputField from '../InputField';
+
 const Login = () => (
   <div className="ui raised very padded text container segment">
     <div className="five wide column">
@@ -10,28 +12,26 @@ const Login = () => (
         </div>
       </h2>
       <form className="ui large form">
-        <div className="field">
-          <div
-            className="ui left icon input"
-            data-tooltip="Your email or username"
-            data-delay="500"
-            data-position="top left"
-          >
-            <i className="user link icon" />
-            <input type="text" name="email" placeholder="email or username" />
-          </div>
-        </div>
-        <div className="field">
-          <div
-            className="ui left icon input"
-            data-tooltip="Password must have length greater than 8"
-            data-delay="500"
-            data-position="top left"
-          >
-            <i className="lock link icon" />
-            <input type="password" name="password" placeholder="password" />
-          </div>
-        </div>
+        <InputField
+          dataTooltip="Your email or username"
+          dataDelay="500"
+          dataPosition="top left"
+          type="password"
+          placeholder="email or username"
+          id="email"
+          customContent={<i className="user link icon" />}
+          customContentPosition="left"
+        />
+        <InputField
+          dataTooltip="Password must have length greater than 8"
+          dataDelay="500"
+          dataPosition="top left"
+          type="password"
+          placeholder="password"
+          id="password"
+          customContent={<i className="lock icon" />}
+          customContentPosition="left"
+        />
         <div className="ui fluid large blue submit button">Login</div>
       </form>
       <div className="ui warning message">

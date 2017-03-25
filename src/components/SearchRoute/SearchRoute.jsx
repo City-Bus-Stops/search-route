@@ -14,7 +14,7 @@ const SearchRoute = () => (
         <form className="ui form segment big">
           <InputField
             type="text"
-            name="From"
+            label="From"
             placeholder="From"
             id="from"
             customContent={<i className="location arrow link icon red" />}
@@ -22,7 +22,7 @@ const SearchRoute = () => (
           />
           <InputField
             type="text"
-            name="To"
+            label="To"
             placeholder="To"
             id="to"
             customContent={<i className="location arrow link icon red" />}
