@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Modal } from 'semantic-ui-react';
 
-const FoundedRouteInfo = () => (
+const FoundedRouteInfo = ({ isOpen }) => (
   <Modal
-    open
+    open={isOpen}
     closeIcon="close"
     dimmer="blurring"
     closeOnEscape={false}
@@ -86,5 +86,13 @@ const FoundedRouteInfo = () => (
     </div>
   </Modal>
 );
+
+FoundedRouteInfo.propTypes = {
+  isOpen: PropTypes.bool,
+};
+
+FoundedRouteInfo.defaultProps = {
+  isOpen: false,
+};
 
 export default FoundedRouteInfo;
