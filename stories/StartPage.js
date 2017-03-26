@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
-import StartPage from '../src/components/StartPage';
+import StartPage from '../src/components/StartPage/StartPage';
 
 storiesOf('StartPage', module)
   .add('Default StartPage', () => (

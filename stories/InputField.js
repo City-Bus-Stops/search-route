@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
-import InputField from '../src/components/InputField';
+import InputField from '../src/components/InputField/InputField';
 
 storiesOf('InputField', module)
   .add('default', () => (

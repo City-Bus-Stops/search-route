@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import InputField from '../InputField';
+import InputField from '../InputField/InputField';
 
 const Login = () => (
   <div className="ui raised very padded text container segment">

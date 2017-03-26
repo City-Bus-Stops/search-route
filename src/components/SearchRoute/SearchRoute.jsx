@@ -1,6 +1,6 @@
 import React from 'react';
-import InputField from '../InputField';
-import FoundedRoutes from '../FoundedRoutes';
+import InputField from '../InputField/InputField';
+import FoundedRoutes from '../FoundedRoutes/FoundedRoutes';
 
 const SearchRoute = () => (
   <div>
