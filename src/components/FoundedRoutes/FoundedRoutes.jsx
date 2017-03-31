@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const FoundedRoutes = () => (
   <div>
@@ -29,7 +30,9 @@ const FoundedRoutes = () => (
               data-tooltip="Watch on the map"
               data-position="bottom right"
             >
-              <i className="link map outline icon" />
+              <Link to="/map">
+                <i className="link map outline icon" />
+              </Link>
             </span>
             <span>
               <i className="info circle icon" />
@@ -64,7 +67,9 @@ const FoundedRoutes = () => (
               data-tooltip="Watch on the map"
               data-position="bottom right"
             >
-              <i className="link map outline icon" />
+              <Link to="/map">
+                <i className="link map outline icon" />
+              </Link>
             </span>
             <span>
               <i className="info circle icon" />
@@ -99,7 +104,9 @@ const FoundedRoutes = () => (
               data-tooltip="Watch on the map"
               data-position="bottom right"
             >
-              <i className="link map outline icon" />
+              <Link to="/map">
+                <i className="link map outline icon" />
+              </Link>
             </span>
             <span>
               <i className="info circle icon" />
@@ -134,7 +141,9 @@ const FoundedRoutes = () => (
               data-tooltip="Watch on the map"
               data-position="bottom right"
             >
-              <i className="link map outline icon" />
+              <Link to="/map">
+                <i className="link map outline icon" />
+              </Link>
             </span>
             <span>
               <i className="info circle icon" />
