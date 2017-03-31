@@ -10,11 +10,13 @@ const Menu = () => (
           Home
         </Link>
         <Link to="/search-route" className="ui item" activeClassName="ui active item">
-          <i className="road icon" />
+          <i className="search icon" />
           Search route
         </Link>
-        <a className="ui item">Company</a>
-        <a className="ui item">Careers</a>
+        <Link to="/map" className="ui item" activeClassName="ui active item">
+          <i className="world icon" />
+          Map
+        </Link>
         <div className="right menu">
           <Link to="/login" className="ui item" activeClassName="ui active item">
             <i className="sign in icon" />
