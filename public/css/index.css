@@ -17,10 +17,19 @@ body {
   display: none;
 }
 
+.masthead {
+  position: relative;
+  background-image: url("../assets/app-bg.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
 .masthead > div.segment {
   margin: 0;
   border-radius: 0;
-  min-height: 300px;
+  min-height: 600px;
   padding: 5em 0em;
 }
 .masthead .logo.item img {
@@ -142,4 +151,8 @@ body {
 
 .color-danger, .color-danger:hover, .color-danger:focus, .color-danger:visited, .color-danger:active {
   color: #f0515a;
+}
+
+.white-link, .white-link:hover, .white-link:focus, .white-link:visited, .white-link:active {
+  color: white;
 }
