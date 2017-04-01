@@ -20,6 +20,19 @@ const FoundedRouteInfo = ({ isOpen }) => (
           <div className="right aligned column">
             <div
               className="ui icon"
+              data-tooltip="Save to favorites"
+              data-delay="500"
+              data-variation="small"
+              data-position="right center"
+            >
+              <i className="green large circular link save icon" />
+            </div>
+          </div>
+        </div>
+        <div className="one column row">
+          <div className="column">
+            <div
+              className="ui icon"
               data-tooltip="Refresh"
               data-delay="500"
               data-variation="small"
@@ -76,12 +89,13 @@ const FoundedRouteInfo = ({ isOpen }) => (
             </div>
           </div>
         </div>
+        <h3 className="ui header blue">
+          Bus stops count: 7
+        </h3>
       </div>
     </Modal.Content>
     <div className="actions">
-      <h3 className="ui header blue">
-        Bus stops count: 7
-      </h3>
+      <button className="ui positive large button">Close</button>
     </div>
   </Modal>
 );

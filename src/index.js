@@ -14,6 +14,7 @@ import SearchRoute from './components/SearchRoute/SearchRoute';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import MapComponent from './components/Map/Map';
+import NotFound from './components/NotFound/NotFound';
 
 ReactDOM.render(
   <Router history={browserHistory}>
@@ -24,6 +25,7 @@ ReactDOM.render(
       <Route path="login" component={Login} />
       <Route path="signup" component={Signup} />
       <Route path="map" component={MapComponent} />
+      <Route path="*" component={NotFound} />
     </Route>
   </Router>,
   document.getElementById('root'),

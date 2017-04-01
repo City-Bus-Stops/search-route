@@ -126,3 +126,20 @@ body {
 .ui[class*="small padded"].vertical.segment {
   padding: 0.3em 0;
 }
+
+.not-found {
+  height: 90vh;
+}
+
+.not-found-status {
+  font-size: 96px;
+  color: #f0515a;
+}
+
+.not-found-text {
+  font-size: 50px;
+}
+
+.color-danger, .color-danger:hover, .color-danger:focus, .color-danger:visited, .color-danger:active {
+  color: #f0515a;
+}
