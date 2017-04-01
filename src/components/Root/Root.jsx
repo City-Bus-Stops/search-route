@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import Menu from '../Menu';
+import Menu from '../Menu/Menu';
 
 const Root = props => (
   <div>

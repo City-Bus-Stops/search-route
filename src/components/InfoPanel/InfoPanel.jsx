@@ -16,7 +16,7 @@ const InfoPanel = () => (
         </div>
         <div className="ten wide">
           <div id="map">
-            <div className="leaflet-container">
+            <div className="leaflet-container-info">
               <Map
                 center={[53.66946, 23.824368]}
                 zoom={12}
@@ -30,11 +30,6 @@ const InfoPanel = () => (
               </Map>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="center aligned column">
-          <a className="ui huge button">Check Them Out</a>
         </div>
       </div>
     </div>

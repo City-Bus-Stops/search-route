@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import InputField from './InputField';
+import Signup from './Signup';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<InputField type="text" id="testId" />, div);
+  ReactDOM.render(<Signup />, div);
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Menu = () => (
-  <div className="ui inverted vertical center aligned segment">
+  <div className="ui inverted vertical center aligned small padded segment">
     <div className="ui container">
       <div className="ui large secondary inverted pointing menu">
         <Link to="/dashboard" className="ui item" activeClassName="ui active item">
@@ -10,17 +10,22 @@ const Menu = () => (
           Home
         </Link>
         <Link to="/search-route" className="ui item" activeClassName="ui active item">
-          <i className="road icon" />
+          <i className="search icon" />
           Search route
         </Link>
-        <a className="ui item">Company</a>
-        <a className="ui item">Careers</a>
+        <Link to="/map" className="ui item" activeClassName="ui active item">
+          <i className="world icon" />
+          Map
+        </Link>
         <div className="right menu">
           <Link to="/login" className="ui item" activeClassName="ui active item">
-            <i className="user outline icon" />
+            <i className="sign in icon" />
             Log In
           </Link>
-          <a className="ui item">Sign Up</a>
+          <Link to="/signup" className="ui item" activeClassName="ui active item">
+            <i className="user outline icon" />
+            Sign Up
+          </Link>
         </div>
       </div>
     </div>
