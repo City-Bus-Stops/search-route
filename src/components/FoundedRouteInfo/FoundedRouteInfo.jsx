@@ -9,12 +9,11 @@ const FoundedRouteInfo = ({ isOpen }) => (
     closeOnEscape={false}
     closeOnRootNodeClick={false}
   >
-    <i className="ui blue left corner label" />
     <Modal.Header as="h3" className="ui">
       <div className="ui grid">
         <div className="two column row">
           <div className="column">
-            <h2 className="ui header green">
+            <h2 className="ui header blue">
               Фолюш
             </h2>
           </div>

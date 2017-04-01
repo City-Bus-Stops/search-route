@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Map, TileLayer, GeoJSON } from 'react-leaflet';
 import '../../../public/mapkey-icons/L.Icon.Mapkey';
 
 import { pointToLayer } from '../../utils';
-import mockGeoJson from '../../mockData/mockGeoJson';
 
-const MapComponent = () => (
+const MapComponent = ({ data, center, zoom, maxZoom, minZoom, zoomControl }) => (
   <div id="map">
     <div className="leaflet-container-main">
       <Map
-        center={[53.66946, 23.824368]}
-        zoom={13}
-        maxZoom={16}
-        zoomControl={false}
+        center={center}
+        zoom={zoom}
+        maxZoom={maxZoom}
+        minZoom={minZoom}
+        zoomControl={zoomControl}
       >
         <TileLayer
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
         />
         <GeoJSON
-          data={mockGeoJson}
+          data={data}
           pointToLayer={pointToLayer}
           style={{ color: 'black', weight: 5, opacity: 0.65 }}
         />
@@ -26,5 +26,24 @@ const MapComponent = () => (
     </div>
   </div>
 );
+
+MapComponent.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape),
+  center: PropTypes.arrayOf(PropTypes.number),
+  zoom: PropTypes.number,
+  maxZoom: PropTypes.number,
+  minZoom: PropTypes.number,
+  zoomControl: PropTypes.bool,
+};
+
+MapComponent.defaultProps = {
+  data: [],
+  center: [53.66946, 23.824368],
+  zoom: 13,
+  maxZoom: 16,
+  minZoom: 11,
+  zoomControl: false,
+
+};
 
 export default MapComponent;
