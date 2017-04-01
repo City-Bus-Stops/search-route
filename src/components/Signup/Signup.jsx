@@ -4,11 +4,11 @@ import { Link } from 'react-router';
 import InputField from '../InputField/InputField';
 
 const Signup = () => (
-  <div className="ui raised very padded text container segment">
+  <div id="signup" className="ui middle aligned center aligned grid">
     <div className="five wide column">
-      <h2 className="ui blue image header">
+      <h2 className="ui image header">
         <div className="content">
-          Create your account
+          Create account
         </div>
       </h2>
       <form className="ui large form">
@@ -42,7 +42,7 @@ const Signup = () => (
           customContent={<i className="lock icon" />}
           customContentPosition="left"
         />
-        <div className="ui fluid large blue submit button">Login</div>
+        <div className="ui fluid large blue submit button">Sign Up</div>
       </form>
       <div className="ui warning message">
         <h4 className="ui header">

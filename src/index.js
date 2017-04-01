@@ -22,11 +22,11 @@ ReactDOM.render(
       <IndexRedirect to="/dashboard" />
       <Route path="dashboard" component={Dashboard} />
       <Route path="search-route" component={SearchRoute} />
-      <Route path="login" component={Login} />
-      <Route path="signup" component={Signup} />
       <Route path="map" component={MapComponent} />
-      <Route path="*" component={NotFound} />
     </Route>
+    <Route path="login" component={Login} />
+    <Route path="/signup" component={Signup} />
+    <Route path="*" component={NotFound} />
   </Router>,
   document.getElementById('root'),
 );

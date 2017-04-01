@@ -4,9 +4,9 @@ import { Link } from 'react-router';
 import InputField from '../InputField/InputField';
 
 const Login = () => (
-  <div className="ui raised very padded text container segment">
+  <div id="login" className="ui middle aligned center aligned grid">
     <div className="five wide column">
-      <h2 className="ui blue header">
+      <h2 className="ui header">
         <div className="content">
           Log-in to your account
         </div>
@@ -38,7 +38,7 @@ const Login = () => (
         <h4 className="ui header">
           New to us?
           <Link to="/signup" className="ui item">
-              Sign Upasd
+              Sign Up
           </Link>
         </h4>
       </div>

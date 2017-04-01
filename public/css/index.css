@@ -156,3 +156,15 @@ body {
 .white-link, .white-link:hover, .white-link:focus, .white-link:visited, .white-link:active {
   color: white;
 }
+
+#login, #signup {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-image: url("../assets/registration-bg.svg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
