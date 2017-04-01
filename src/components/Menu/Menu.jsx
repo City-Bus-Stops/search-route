@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Menu = () => (
-  <div className="ui inverted vertical center aligned segment">
+  <div className="ui inverted vertical center aligned small padded segment">
     <div className="ui container">
       <div className="ui large secondary inverted pointing menu">
         <Link to="/dashboard" className="ui item" activeClassName="ui active item">

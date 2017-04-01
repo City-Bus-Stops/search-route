@@ -1,29 +1,37 @@
 import React, { PropTypes } from 'react';
+import { Sidebar } from 'semantic-ui-react';
 import { Map, TileLayer, GeoJSON } from 'react-leaflet';
 import '../../../public/mapkey-icons/L.Icon.Mapkey';
 
 import { pointToLayer } from '../../utils';
 
+import MapSidebar from '../MapSidebar/MapSidebar';
+
 const MapComponent = ({ data, center, zoom, maxZoom, minZoom, zoomControl }) => (
-  <div id="map">
-    <div className="leaflet-container-main">
-      <Map
-        center={center}
-        zoom={zoom}
-        maxZoom={maxZoom}
-        minZoom={minZoom}
-        zoomControl={zoomControl}
-      >
-        <TileLayer
-          url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-        />
-        <GeoJSON
-          data={data}
-          pointToLayer={pointToLayer}
-          style={{ color: 'black', weight: 5, opacity: 0.65 }}
-        />
-      </Map>
-    </div>
+  <div className="leaflet-pushable">
+    <Sidebar.Pushable>
+      <MapSidebar />
+      <Sidebar.Pusher id="map">
+        <div className="leaflet-container-main">
+          <Map
+            center={center}
+            zoom={zoom}
+            maxZoom={maxZoom}
+            minZoom={minZoom}
+            zoomControl={zoomControl}
+          >
+            <TileLayer
+              url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+            />
+            <GeoJSON
+              data={data}
+              pointToLayer={pointToLayer}
+              style={{ color: 'black', weight: 5, opacity: 0.65 }}
+            />
+          </Map>
+        </div>
+      </Sidebar.Pusher>
+    </Sidebar.Pushable>
   </div>
 );
 

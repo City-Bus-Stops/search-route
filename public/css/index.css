@@ -105,11 +105,24 @@ body {
 }
 
 .leaflet-container-main {
-  height: 92vh;
+  height: 94vh;
   width: 100vw;
 }
 
 .leaflet-container-info {
   height: 400px;
   width: 35vw;
+}
+
+.leaflet-pushable {
+  height: 94vh;
+}
+
+.leaflet-pushable > div.menu {
+  height: 94vh;
+}
+
+.ui.padded.segment.vertical.segment,
+.ui[class*="small padded"].vertical.segment {
+  padding: 0.3em 0;
 }
