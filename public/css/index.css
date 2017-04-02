@@ -185,3 +185,7 @@ body {
 .footer.segment {
   background-color: #E0E0E0;
 }
+
+.float-right {
+  float: right;
+}
