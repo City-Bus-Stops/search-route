@@ -69,6 +69,12 @@ const FoundedRouteInfo = ({ isOpen }) => (
               <div className="ui big relaxed divided list">
                 <div className="item">
                   <div className="content">
+                    <div className="header">Фолюш</div>
+                    1 min
+                  </div>
+                </div>
+                <div className="item">
+                  <div className="content">
                     <div className="header">Улица Поповича</div>
                     2 min
                   </div>
