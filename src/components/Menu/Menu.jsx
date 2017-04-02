@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Menu = () => (
-  <div className="ui inverted vertical center aligned small padded segment">
+  <div className="ui vertical center aligned small padded segment">
     <div className="ui container">
-      <div className="ui large secondary inverted pointing menu">
+      <div className="ui large secondary menu">
         <Link to="/dashboard" className="ui item" activeClassName="ui active item">
           <i className="home icon" />
           Home
@@ -19,7 +19,7 @@ const Menu = () => (
         </Link>
         <div className="right menu">
           <Link to="/login" className="ui item" activeClassName="ui active item">
-            <i className="sign in icon" />
+            <i className="sign in icon red" />
             Log In
           </Link>
           <Link to="/signup" className="ui item" activeClassName="ui active item">
