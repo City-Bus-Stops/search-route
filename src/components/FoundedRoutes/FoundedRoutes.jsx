@@ -31,7 +31,7 @@ const FoundedRoutes = () => (
               data-position="bottom right"
             >
               <Link to="/map">
-                <i className="link map outline icon" />
+                <i className="link map outline red icon" />
               </Link>
             </span>
             <span>
@@ -68,7 +68,7 @@ const FoundedRoutes = () => (
               data-position="bottom right"
             >
               <Link to="/map">
-                <i className="link map outline icon" />
+                <i className="link map outline red icon" />
               </Link>
             </span>
             <span>
@@ -105,7 +105,7 @@ const FoundedRoutes = () => (
               data-position="bottom right"
             >
               <Link to="/map">
-                <i className="link map outline icon" />
+                <i className="link map outline red icon" />
               </Link>
             </span>
             <span>
@@ -142,7 +142,7 @@ const FoundedRoutes = () => (
               data-position="bottom right"
             >
               <Link to="/map">
-                <i className="link map outline icon" />
+                <i className="link map outline red icon" />
               </Link>
             </span>
             <span>
