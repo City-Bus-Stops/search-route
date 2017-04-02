@@ -24,7 +24,7 @@ ReactDOM.render(
       <Route path="search-route" component={SearchRoute} />
       <Route path="map" component={MapComponent} />
     </Route>
-    <Route path="login" component={Login} />
+    <Route path="/login" component={Login} />
     <Route path="/signup" component={Signup} />
     <Route path="*" component={NotFound} />
   </Router>,

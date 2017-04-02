@@ -16,7 +16,7 @@ const Login = () => (
           dataTooltip="Your email or username"
           dataDelay="500"
           dataPosition="top left"
-          type="password"
+          type="text"
           placeholder="email or username"
           id="email"
           customContent={<i className="user link icon" />}
