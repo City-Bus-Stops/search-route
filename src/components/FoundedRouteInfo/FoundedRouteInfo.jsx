@@ -4,7 +4,6 @@ import { Modal } from 'semantic-ui-react';
 const FoundedRouteInfo = ({ isOpen }) => (
   <Modal
     open={isOpen}
-    closeIcon="close"
     dimmer="blurring"
     closeOnEscape={false}
     closeOnRootNodeClick={false}
@@ -13,9 +12,9 @@ const FoundedRouteInfo = ({ isOpen }) => (
       <div className="ui grid">
         <div className="two column row">
           <div className="column">
-            <h2 className="ui header blue">
-              Фолюш
-            </h2>
+            <h3 className="ui header red">
+              <i className="red circular bus icon" /> 23
+            </h3>
           </div>
           <div className="right aligned column">
             <div
@@ -38,8 +37,8 @@ const FoundedRouteInfo = ({ isOpen }) => (
               data-variation="small"
               data-position="right center"
             >
-              Response sended: 15:18:23 a.m.
-            <i className="blue link repeat icon" />
+              Last update: 15:18:23 a.m.
+            <i className="green link repeat icon" />
             </div>
           </div>
         </div>
@@ -66,11 +65,11 @@ const FoundedRouteInfo = ({ isOpen }) => (
         <div className="one column row">
           <div className="sixteen wide column">
             <div className="ui basic segment">
-              <div className="ui big relaxed divided list">
+              <div className="ui big relaxed animated celled list">
                 <div className="item">
                   <div className="content">
                     <div className="header">Фолюш</div>
-                    1 min
+                    <div className="description">1 min</div>
                   </div>
                 </div>
                 <div className="item">
@@ -95,7 +94,7 @@ const FoundedRouteInfo = ({ isOpen }) => (
             </div>
           </div>
         </div>
-        <h3 className="ui header blue">
+        <h3 className="ui header red">
           Bus stops count: 7
         </h3>
       </div>
