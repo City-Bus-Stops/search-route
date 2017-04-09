@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Modal } from 'semantic-ui-react';
+import { Modal, Accordion, List, Grid, Step, Icon, Header } from 'semantic-ui-react';
 
 const FoundedRouteInfo = ({ isOpen }) => (
   <Modal
@@ -9,95 +9,85 @@ const FoundedRouteInfo = ({ isOpen }) => (
     closeOnRootNodeClick={false}
   >
     <Modal.Header as="h3" className="ui">
-      <div className="ui grid">
-        <div className="two column row">
-          <div className="column">
-            <h3 className="ui header red">
-              <i className="red circular bus icon" /> 23
-            </h3>
+      <Grid columns={2} container>
+        <Grid.Column>
+          <Icon size="large" name="bus" color="red" circular link /> 23
+        </Grid.Column>
+        <Grid.Column textAlign="right">
+          <div
+            className="ui icon"
+            data-tooltip="Save to favorites"
+            data-delay="500"
+            data-variation="small"
+            data-position="right center"
+          >
+            <Icon size="large" name="save" color="green" circular link />
           </div>
-          <div className="right aligned column">
-            <div
-              className="ui icon"
-              data-tooltip="Save to favorites"
-              data-delay="500"
-              data-variation="small"
-              data-position="right center"
-            >
-              <i className="green large circular link save icon" />
-            </div>
+        </Grid.Column>
+        <Grid.Column>
+          <div
+            className="ui icon"
+            data-tooltip="Refresh"
+            data-delay="500"
+            data-variation="small"
+            data-position="right center"
+          >
+            Response time: 15:18:23 a.m.
+            <Icon name="repeat" color="blue" link />
           </div>
-        </div>
-        <div className="one column row">
-          <div className="column">
-            <div
-              className="ui icon"
-              data-tooltip="Refresh"
-              data-delay="500"
-              data-variation="small"
-              data-position="right center"
-            >
-              Last update: 15:18:23 a.m.
-            <i className="green link repeat icon" />
-            </div>
-          </div>
-        </div>
-      </div>
+        </Grid.Column>
+      </Grid>
     </Modal.Header>
     <Modal.Content>
-      <div className="ui grid">
-        <div className="ui large steps fluid">
-          <div className="step">
-            <i className="user icon" />
-            <div className="content">
-              <div className="title">From</div>
-              <div className="description">Улица О.Соломовой 135</div>
-            </div>
-          </div>
-          <div className="step">
-            <i className="flag checkered icon" />
-            <div className="content">
-              <div className="title">To</div>
-              <div className="description">Проспект Янки Купалы 26а</div>
-            </div>
-          </div>
-        </div>
-        <div className="one column row">
-          <div className="sixteen wide column">
-            <div className="ui basic segment">
-              <div className="ui big relaxed animated celled list">
-                <div className="item">
-                  <div className="content">
-                    <div className="header">Фолюш</div>
-                    <div className="description">1 min</div>
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="content">
-                    <div className="header">Улица Поповича</div>
-                    2 min
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="content">
-                    <div className="header">Улица Декабристов</div>
-                    4 min
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="content">
-                    <div className="header">Улица Горновых</div>
-                      7 min
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <h3 className="ui header red">
-          Bus stops count: 7
-        </h3>
-      </div>
+      <Grid padded>
+        <Step.Group vertical fluid ordered>
+          <Step icon="user" title="From" description="Улица О.Соломовой 135" />
+          <Step icon="road" title="6 min" description="Go to'Фолюш' bus stop." />
+          <Step
+            icon="bus"
+            title="15 min"
+            description="Go by bus for 15 minutes and get off at the 'Советская' bus stop."
+          />
+          <Step icon="road" title="7 min" description="Go to 'Универмаг'." />
+          <Step icon="flag checkered" title="To" description="Улица Советская 18" />
+        </Step.Group>
+      </Grid>
+      <Accordion fluid>
+        <Accordion.Title>
+          <Header as="h3" color="blue">
+            <Icon name="dropdown icon" />
+            Bus stops(7)
+            </Header>
+        </Accordion.Title>
+        <Accordion.Content>
+          <List divided relaxed animated celled size="big">
+            <List.Item>
+              <List.Content>
+                <List.Header>Фолюш</List.Header>
+                <List.Description>1 minutes</List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Content>
+                <List.Header>Улица Лизы Чайкиной</List.Header>
+                <List.Description>3 minutes</List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Content>
+                <List.Header>Улица Декабристов</List.Header>
+                <List.Description>6 minutes</List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Content>
+                <List.Header>Улица Поповича</List.Header>
+                <List.Description>10 minutes</List.Description>
+              </List.Content>
+            </List.Item>
+          </List>
+        </Accordion.Content>
+      </Accordion>
     </Modal.Content>
     <div className="actions">
       <button className="ui positive large button">Close</button>
