@@ -11,14 +11,10 @@ const FoundedRoute = () => (
         </div>
         <div className="description">
           <div>
-            <h3 className="ui header">
-                  From: Фолюш
-                </h3>
+            <h3 className="ui header">From: Фолюш</h3>
           </div>
           <div>
-            <h3 className="ui header">
-                  To: Советская
-                </h3>
+            <h3 className="ui header">To: Советская</h3>
           </div>
         </div>
       </div>
