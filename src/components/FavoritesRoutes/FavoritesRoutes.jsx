@@ -1,11 +1,21 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Input, Icon } from 'semantic-ui-react';
 
 import FavoriteRoute from '../FavoriteRoute/FavoriteRoute';
 
 const FavoritesRoutes = () => (
   <div>
-    <Grid columns={3} padded stackable>
+    <Grid centered>
+      <Grid.Column width="5">
+        <Input
+          icon={<Icon name="search" color="blue" link circular />}
+          size="large"
+          placeholder="Search..."
+          fluid
+        />
+      </Grid.Column>
+    </Grid>
+    <Grid columns={3} padded stackable relaxed>
       <FavoriteRoute />
       <FavoriteRoute />
       <FavoriteRoute />
