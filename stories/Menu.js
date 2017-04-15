@@ -7,4 +7,16 @@ storiesOf('Menu', module)
     <div>
       <Menu pathname="search-route" />
     </div>
+  ))
+  .add('when user is authenticated', () => (
+    <div>
+      <Menu
+        isUserAuth
+        pathname="search-route"
+        userCredentials={{
+          firstName: 'John',
+          lastName: 'Doe',
+        }}
+      />
+    </div>
   ));

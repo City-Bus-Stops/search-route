@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Sidebar, Button } from 'semantic-ui-react';
 import { Map, TileLayer, GeoJSON } from 'react-leaflet';
 import Collapse from 'react-collapse';
