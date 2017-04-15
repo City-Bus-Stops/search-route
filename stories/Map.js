@@ -27,4 +27,16 @@ storiesOf('Map', module)
         minZoom={14}
       />
     </div>
+  ))
+  .add('with sidebar', () => (
+    <div>
+      <MapComponent
+        data={nearestBusStops}
+        center={[53.6729683, 23.79417658]}
+        zoom={17}
+        maxZoom={18}
+        minZoom={14}
+        isSidebarOpen
+      />
+    </div>
   ));

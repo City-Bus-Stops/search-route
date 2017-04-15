@@ -1,10 +1,13 @@
-import React from 'react';
-import { Sidebar, Menu } from 'semantic-ui-react';
+import React, { PropTypes } from 'react';
+import { Sidebar, Menu, Icon } from 'semantic-ui-react';
 
-const MapSidebar = () => (
-  <Sidebar as={Menu} animation="overlay" visible vertical size="large">
+const MapSidebar = ({ isSidebarOpen }) => (
+  <Sidebar as={Menu} visible={isSidebarOpen} animation="overlay" vertical>
     <Menu.Item>
-      <Menu.Header>Display</Menu.Header>
+      <Menu.Header>
+        Display
+        <Icon name="close" link className="float-right" color="red" size="large" />
+      </Menu.Header>
       <Menu.Menu>
         <Menu.Item link >
           Show nearest stops
@@ -27,5 +30,13 @@ const MapSidebar = () => (
     </Menu.Item>
   </Sidebar>
 );
+
+MapSidebar.propTypes = {
+  isSidebarOpen: PropTypes.bool,
+};
+
+MapSidebar.defaultProps = {
+  isSidebarOpen: false,
+};
 
 export default MapSidebar;

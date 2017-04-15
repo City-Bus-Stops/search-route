@@ -122,21 +122,13 @@ body {
 }
 
 .leaflet-container-main {
-  height: 94vh;
+  height: 100vh;
   width: 100vw;
 }
 
 .leaflet-container-info {
   height: 400px;
   width: 35vw;
-}
-
-.leaflet-pushable {
-  height: 94vh;
-}
-
-.leaflet-pushable > div.menu {
-  height: 94vh;
 }
 
 .ui.padded.segment.vertical.segment,
@@ -188,4 +180,14 @@ body {
 
 .float-right {
   float: right;
+}
+
+.sidebar-trigger-button {
+  margin: 20px;
+  position: absolute;
+  z-index: 9999;
+}
+
+.pushable > div > div > .sidebar-trigger-button {
+  margin: 20px;
 }
