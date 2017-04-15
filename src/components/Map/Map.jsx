@@ -1,16 +1,27 @@
 import React, { PropTypes } from 'react';
-import { Sidebar } from 'semantic-ui-react';
+import { Sidebar, Button } from 'semantic-ui-react';
 import { Map, TileLayer, GeoJSON } from 'react-leaflet';
+import Collapse from 'react-collapse';
+
 import '../../../public/mapkey-icons/L.Icon.Mapkey';
 
 import { pointToLayer } from '../../utils';
 
 import MapSidebar from '../MapSidebar/MapSidebar';
 
-const MapComponent = ({ data, center, zoom, maxZoom, minZoom, zoomControl }) => (
+const MapComponent = ({ data, center, zoom, maxZoom, minZoom, zoomControl, isSidebarOpen }) => (
   <div className="leaflet-pushable">
     <Sidebar.Pushable>
-      <MapSidebar />
+      <Collapse isOpened={!isSidebarOpen}>
+        <Button
+          circular
+          color="grey"
+          icon="list"
+          size="huge"
+          className="sidebar-trigger-button"
+        />
+      </Collapse>
+      <MapSidebar isSidebarOpen={isSidebarOpen} />
       <Sidebar.Pusher id="map">
         <div className="leaflet-container-main">
           <Map
@@ -42,6 +53,7 @@ MapComponent.propTypes = {
   maxZoom: PropTypes.number,
   minZoom: PropTypes.number,
   zoomControl: PropTypes.bool,
+  isSidebarOpen: PropTypes.bool,
 };
 
 MapComponent.defaultProps = {
@@ -51,7 +63,7 @@ MapComponent.defaultProps = {
   maxZoom: 16,
   minZoom: 11,
   zoomControl: false,
-
+  isSidebarOpen: false,
 };
 
 export default MapComponent;

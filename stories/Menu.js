@@ -5,6 +5,6 @@ import Menu from '../src/components/Menu/Menu';
 storiesOf('Menu', module)
   .add('Default menu', () => (
     <div>
-      <Menu />
+      <Menu pathname="search-route" />
     </div>
   ));

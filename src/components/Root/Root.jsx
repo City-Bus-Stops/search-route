@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 
 import Menu from '../Menu/Menu';
 
-const Root = props => (
+const Root = ({ children, location }) => (
   <div>
-    <Menu />
-    {props.children}
+    <Menu pathname={location.pathname} />
+    {children}
   </div>
 );
 
@@ -14,6 +14,7 @@ Root.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+  location: PropTypes.shape().isRequired,
 };
 Root.defaultProps = {
   children: [],
