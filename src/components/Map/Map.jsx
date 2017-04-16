@@ -6,11 +6,20 @@ import Collapse from 'react-collapse';
 
 import '../../../public/mapkey-icons/L.Icon.Mapkey';
 
-import { pointToLayer } from '../../utils';
+import { generateMarker } from '../../utils';
 
 import MapSidebar from '../MapSidebar/MapSidebar';
 
-const MapComponent = ({ data, center, zoom, maxZoom, minZoom, zoomControl, isSidebarOpen }) => (
+const MapComponent = ({
+  data,
+  center,
+  zoom,
+  maxZoom,
+  minZoom,
+  zoomControl,
+  isSidebarOpen,
+  onClick,
+}) => (
   <div className="leaflet-pushable">
     <Sidebar.Pushable>
       <Collapse isOpened={!isSidebarOpen}>
@@ -37,7 +46,7 @@ const MapComponent = ({ data, center, zoom, maxZoom, minZoom, zoomControl, isSid
             />
             <GeoJSON
               data={data}
-              pointToLayer={pointToLayer}
+              pointToLayer={(feature, latlng) => generateMarker(feature, latlng, onClick)}
               style={{ color: 'black', weight: 5, opacity: 0.65 }}
             />
           </Map>
@@ -55,6 +64,7 @@ MapComponent.propTypes = {
   minZoom: PropTypes.number,
   zoomControl: PropTypes.bool,
   isSidebarOpen: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 MapComponent.defaultProps = {
@@ -65,6 +75,7 @@ MapComponent.defaultProps = {
   minZoom: 11,
   zoomControl: false,
   isSidebarOpen: false,
+  onClick: () => {},
 };
 
 export default MapComponent;

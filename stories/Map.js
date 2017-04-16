@@ -9,12 +9,17 @@ import nearestBusStops from '../src/mockData/NearestBusStops.json';
 storiesOf('Map', module)
   .add('Default map', () => (
     <div>
-      <MapComponent />
+      <MapComponent
+        onClick={() => {}}
+      />
     </div>
   ))
   .add('with route', () => (
     <div>
-      <MapComponent data={mockGeoJsonRoute} />
+      <MapComponent
+        data={mockGeoJsonRoute}
+        onClick={(id, name) => console.log(`ID: ${id}, name: ${name}`)}
+      />
     </div>
   ))
   .add('with nearest bus stops', () => (
@@ -25,6 +30,7 @@ storiesOf('Map', module)
         zoom={17}
         maxZoom={18}
         minZoom={14}
+        onClick={(id, name) => console.log(`ID: ${id}, name: ${name}`)}
       />
     </div>
   ))
@@ -37,6 +43,7 @@ storiesOf('Map', module)
         maxZoom={18}
         minZoom={14}
         isSidebarOpen
+        onClick={(id, name) => console.log(`ID: ${id}, name: ${name}`)}
       />
     </div>
   ));
