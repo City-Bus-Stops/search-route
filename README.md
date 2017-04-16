@@ -4,10 +4,13 @@ Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ## Start
-   - yarn --ignore-scripts
-   - yarn global add gulp   
-   - cd node_modules/semantic-ui && gulp build
-   - cd .. && yarn start
+   - git clone https://github.com/City-Bus-Stops/get-route-components.git
+   - cd ./project
+   - *yarn*(You should install [yarn](https://yarnpkg.com/lang/en/) package manager)
+   - yarn start
+## Storybook
+   You can open storybook to watch all component states
+   - yarn storybook(open browser on `localhost:9001`)
 
 ## Table of Contents
 
