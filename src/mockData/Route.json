@@ -2,9 +2,10 @@
   {
     "type": "Feature",
     "properties": {
+      "id": 1,
       "name": "start point",
-      "type": "start_point",
-      "popupContent": "Some popup!"
+      "type": "start",
+      "address": "Start popup!"
     },
     "geometry": {
       "type": "Point",
@@ -14,9 +15,9 @@
   {
     "type": "Feature",
     "properties": {
+      "id": 2,
       "name": "bus stop",
-      "type": "bus_stop",
-      "popupContent": "Some popup!"
+      "type": "bus_stop"
     },
     "geometry": {
       "type": "Point",
@@ -26,9 +27,9 @@
   {
     "type": "Feature",
     "properties": {
+      "id": 3,
       "name": "bus stop",
-      "type": "bus_stop",
-      "popupContent": "Some popup!"
+      "type": "bus_stop"
     },
     "geometry": {
       "type": "Point",
@@ -38,9 +39,9 @@
   {
     "type": "Feature",
     "properties": {
+      "id": 4,
       "name": "bus stop",
-      "type": "bus_stop",
-      "popupContent": "Some popup!"
+      "type": "bus_stop"
     },
     "geometry": {
       "type": "Point",
@@ -50,9 +51,10 @@
   {
     "type": "Feature",
     "properties": {
+      "id": 5,
       "name": "end point",
-      "type": "end_point",
-      "popupContent": "Some popup!"
+      "type": "end",
+      "address": "End popup!"
     },
     "geometry": {
       "type": "Point",
