@@ -12,6 +12,11 @@ You can find the most recent version of this guide [here](https://github.com/fac
    You can open storybook to watch all component states
    - yarn storybook(open browser on `localhost:9001`)
 
+## JSON-SERVER
+  You can start json-server with mock data
+    - yarn global add json-server
+    - yarn json-server(open browser on `localhost:9002`)
+
 ## Table of Contents
 
 - [Updating to New Releases](#updating-to-new-releases)
