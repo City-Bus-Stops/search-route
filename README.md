@@ -14,8 +14,8 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ## JSON-SERVER
   You can start json-server with mock data
-    - yarn global add json-server
-    - yarn json-server(open browser on `localhost:9002`)
+  - yarn global add json-server
+  - yarn json-server(open browser on `localhost:9002`)
 
 ## Table of Contents
 
