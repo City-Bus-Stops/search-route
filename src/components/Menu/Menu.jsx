@@ -20,7 +20,7 @@ const Menu = ({ pathname, isUserAuth, userCredentials }) => (
             <i className="world icon" />
             Map
           </Link>
-            {
+          {
               isUserAuth ?
                 <div className="right menu">
                   <div className="ui item">
@@ -59,6 +59,6 @@ Menu.defaultProps = {
     firstName: '',
     lastName: '',
   },
-}
+};
 
 export default Menu;
