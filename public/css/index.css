@@ -169,11 +169,6 @@ body {
   background-size: cover;
 }
 
-.ui.secondary.menu > a.active.item, a.active.item:focus, a.active.item:hover, a.active.item:visited, a.active.item:active {
-  background-color: white;
-  color: #db2828!important
-}
-
 .footer.segment {
   background-color: #E0E0E0;
 }
@@ -194,4 +189,36 @@ body {
 
 .font-size-20 {
   font-size: 20px;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+label sup {
+  font-size: 16px;
+  top: 0;
+  color: #f0515a;
+}
+
+.menu-item {
+  color: #222222;
+}
+
+.menu-item:focus, .menu-item:active, .menu-item:hover, .menu-item:visited {
+  color: #222222;
+}
+
+.menu-item-active, .menu-item-active:focus, .menu-item-active:active, .menu-item-active:hover ,.menu-item-active:visited {
+  background-color: white;
+  color: #db2828!important
+}
+
+.padded-menu {
+  padding: 0 15%;
+  border-bottom: 2px solid #222222;
+}
+
+.padding-left-5 {
+  padding-left: 5px;
 }

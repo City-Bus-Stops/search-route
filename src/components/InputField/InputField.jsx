@@ -3,17 +3,14 @@ import PropTypes from 'prop-types';
 
 const InputField = ({
   type, label, placeholder, id, customContent, customContentPosition,
-  hasError, error, dataTooltip, dataDelay, dataPosition,
+  hasError, error,
 }) => (
   <div className="field">
     {
-      label && <label htmlFor={label}>{label}</label>
+      label && <label className="text-align-left" htmlFor={label}>{label}</label>
     }
     <div
       className={`ui ${customContentPosition} icon input ${hasError ? 'error' : ''}`}
-      data-tooltip={dataTooltip}
-      data-delay={dataDelay}
-      data-position={dataPosition}
     >
       {customContent}
       <input
@@ -31,11 +28,8 @@ const InputField = ({
 );
 
 InputField.propTypes = {
-  dataTooltip: PropTypes.string,
-  dataDelay: PropTypes.string,
-  dataPosition: PropTypes.string,
   type: PropTypes.string.isRequired,
-  label: PropTypes.string,
+  label: PropTypes.shape(),
   placeholder: PropTypes.string,
   id: PropTypes.string.isRequired,
   customContent: PropTypes.element,
@@ -49,7 +43,7 @@ InputField.defaultProps = {
   dataDelay: '0',
   dataPosition: '',
   placeholder: '',
-  label: '',
+  label: null,
   customContent: null,
   customContentPosition: 'left',
   hasError: false,
