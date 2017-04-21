@@ -4,5 +4,10 @@ import Root from './Root';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Root />, div);
+  ReactDOM.render(
+    <Root
+      location={{
+        pathname: 'testPath',
+      }}
+    />, div);
 });
