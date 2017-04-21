@@ -4,5 +4,8 @@ import Menu from './Menu';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Menu />, div);
+  ReactDOM.render(
+    <Menu
+      pathname="testPath"
+    />, div);
 });

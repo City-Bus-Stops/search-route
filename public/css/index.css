@@ -13,14 +13,31 @@ body {
   height: 100%;
 }
 
+#root > div > div {
+  background-image: url("../assets/app-bg.svg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
 .hidden.menu {
   display: none;
+}
+
+.masthead {
+  position: relative;
+  background-image: url("../assets/dashboard.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 .masthead > div.segment {
   margin: 0;
   border-radius: 0;
-  min-height: 300px;
+  min-height: 600px;
   padding: 5em 0em;
 }
 .masthead .logo.item img {
@@ -100,6 +117,108 @@ body {
 }
 
 .leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.leaflet-container-main {
+  height: 100vh;
+  width: 100vw;
+}
+
+.leaflet-container-info {
   height: 400px;
-  width: 700px;
+  width: 35vw;
+}
+
+.ui.padded.segment.vertical.segment,
+.ui[class*="small padded"].vertical.segment {
+  padding: 0.3em 0;
+}
+
+.not-found {
+  height: 90vh;
+}
+
+.not-found-status {
+  font-size: 96px;
+  color: #f0515a;
+}
+
+.not-found-text {
+  font-size: 50px;
+}
+
+.color-danger, .color-danger:hover, .color-danger:focus, .color-danger:visited, .color-danger:active {
+  color: #f0515a;
+}
+
+.white-link, .white-link:hover, .white-link:focus, .white-link:visited, .white-link:active {
+  color: white;
+}
+
+#login, #signup {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-image: url("../assets/app-bg.svg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.footer.segment {
+  background-color: #E0E0E0;
+}
+
+.float-right {
+  float: right;
+}
+
+.sidebar-trigger-button {
+  margin: 20px;
+  position: absolute;
+  z-index: 9999;
+}
+
+.pushable > div > div > .sidebar-trigger-button {
+  margin: 20px;
+}
+
+.font-size-20 {
+  font-size: 20px;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+label sup {
+  font-size: 16px;
+  top: 0;
+  color: #f0515a;
+}
+
+.menu-item {
+  color: #222222;
+}
+
+.menu-item:focus, .menu-item:active, .menu-item:hover, .menu-item:visited {
+  color: #222222;
+}
+
+.menu-item-active, .menu-item-active:focus, .menu-item-active:active, .menu-item-active:hover ,.menu-item-active:visited {
+  background-color: white;
+  color: #db2828!important
+}
+
+.padded-menu {
+  padding: 0 15%;
+  border-bottom: 2px solid #222222;
+}
+
+.padding-left-5 {
+  padding-left: 5px;
 }
