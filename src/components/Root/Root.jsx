@@ -5,7 +5,10 @@ import Menu from '../Menu/Menu';
 
 const Root = ({ children, location }) => (
   <div>
-    <Menu pathname={location.pathname} />
+    <Menu
+      pathname={location.pathname}
+      userName="Denis Krivichanin"
+    />
     {children}
   </div>
 );
