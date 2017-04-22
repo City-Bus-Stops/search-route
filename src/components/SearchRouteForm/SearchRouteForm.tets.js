@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Menu from './Menu';
+import SearchRouteForm from './SearchRouteForm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(
-    <Menu
-      pathname="testPath"
-      userName="testUser"
-    />, div);
+  ReactDOM.render(<SearchRouteForm />, div);
 });

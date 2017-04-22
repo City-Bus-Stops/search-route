@@ -39,9 +39,6 @@ InputField.propTypes = {
 };
 
 InputField.defaultProps = {
-  dataTooltip: null,
-  dataDelay: '0',
-  dataPosition: '',
   placeholder: '',
   label: null,
   customContent: null,
