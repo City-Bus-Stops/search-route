@@ -1,10 +1,38 @@
 {
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" },
-    { "id": 2, "title": "json-server", "author": "typicode" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode1" }
+  "address": {
+    "address": "Гродно, Улица О. Соломовой 135"
+  },
+  "search-route": {
+      "routes": [{
+      "id": "1",
+      "from": "Фолюш",
+      "to": "Советская",
+      "busNumber": "28",
+      "timeInTravel": "33"
+    }, {
+      "id": "2",
+      "from": "Фолюш",
+      "to": "Советская",
+      "busNumber": "2",
+      "timeInTravel": "25"
+    }, {
+      "id": "3",
+      "from": "Фолюш",
+      "to": "Советская",
+      "busNumber": "3",
+      "timeInTravel": "15"
+    }, {
+      "id": "4",
+      "from": "Фолюш",
+      "to": "Советская",
+      "busNumber": "4",
+      "timeInTravel": "19"
+    }, {
+      "id": "5",
+      "from": "Фолюш",
+      "to": "Советская",
+      "busNumber": "8",
+      "timeInTravel": "13"
+    }]
+  }
 }

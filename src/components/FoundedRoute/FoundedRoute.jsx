@@ -1,41 +1,52 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
+import { Grid, Card, Label, Popup, Icon } from 'semantic-ui-react';
 
-const FoundedRoute = () => (
-  <div className="column">
-    <div className="ui card fluid blue">
-      <div className="content">
-        <div className="header">
-          <div className="right floated meta">Time in travel: 15 minutes</div>
-          <a className="ui blue ribbon label">Bus number: 3</a>
-        </div>
-        <div className="description">
-          <div>
-            <h3 className="ui header">From: Фолюш</h3>
-          </div>
-          <div>
-            <h3 className="ui header">To: Советская</h3>
-          </div>
-        </div>
-      </div>
-      <div className="extra content">
-        <span
-          className="right floated"
-          data-tooltip="Watch on the map"
-          data-position="bottom right"
-        >
-          <Link to="/map">
-            <i className="link map outline red icon" />
-          </Link>
+const FoundedRoute = ({ route }) => (
+  <Grid.Column>
+    <Card fluid color="blue">
+      <Card.Content>
+        <Card.Header>
+          <Card.Meta>
+            <Label ribbon color="blue" size="large">Bus number: {route.busNumber}</Label>
+            <p className="float-right">Time in travel: {route.timeInTravel} minutes</p>
+          </Card.Meta>
+        </Card.Header>
+        <Card.Description>
+          <p className="font-size-18"><strong>From: </strong>{route.from}</p>
+          <p className="font-size-18"><strong>To: </strong>{route.to}</p>
+        </Card.Description>
+      </Card.Content>
+      <Card.Content extra>
+        <Popup
+          hideOnScroll
+          on="hover"
+          trigger={
+            <Link to="/map" className="float-right">
+              <i className="link map outline red icon" />
+            </Link>
+          }
+          content="Watch on the map"
+          position="bottom right"
+        />
+        <span className="cursor-pointer">
+          <Icon name="info circle" />
+          More info
         </span>
-        <span>
-          <i className="info circle icon" />
-              More info
-            </span>
-      </div>
-    </div>
-  </div>
+      </Card.Content>
+    </Card>
+  </Grid.Column>
 );
 
+FoundedRoute.propTypes = {
+  route: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    from: PropTypes.string.isRequired,
+    to: PropTypes.string.isRequired,
+    busNumber: PropTypes.string.isRequired,
+    timeInTravel: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default FoundedRoute;
