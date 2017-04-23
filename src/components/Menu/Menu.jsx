@@ -29,7 +29,7 @@ const MenuComponent = ({ pathname, userName }) => (
         <Menu.Item>
           {userName}
           <Link to="/logout">
-            <i className="sign out icon link red" />
+            <i className="sign out icon link red padding-left-5" />
           </Link>
         </Menu.Item>
       </Menu.Menu>

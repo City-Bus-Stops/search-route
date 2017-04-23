@@ -222,3 +222,29 @@ label sup {
 .padding-left-5 {
   padding-left: 5px;
 }
+
+.input-label {
+  font-size: 20px;
+}
+
+.font-style-oblique {
+  font-style: oblique;
+}
+
+.font-size-18 {
+  font-size: 18px;
+}
+
+.color-beige {
+  color: #e9c6a7;
+}
+
+@media (min-width: 1200px) {
+  .founded-routes {
+    padding: 0 50px;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

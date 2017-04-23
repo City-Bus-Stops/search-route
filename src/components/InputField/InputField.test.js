@@ -4,5 +4,10 @@ import InputField from './InputField';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<InputField type="text" id="testId" />, div);
+  ReactDOM.render(
+    <InputField
+      type="text"
+      id="testId"
+      onChange={() => {}}
+    />, div);
 });

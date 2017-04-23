@@ -16,3 +16,10 @@ export const generateMarker = (feature, latlng, onClick) => {
     marker.bindPopup(properties.address) :
     marker.on('click', () => onClick(id, name));
 };
+
+export const createNamedWrapperReducer = (reducerFunction, predicate) => (state, action) => {
+  const isInitializationCall = state === undefined;
+  return typeof predicate === 'function' && !predicate(action) && !isInitializationCall ?
+    state :
+    reducerFunction(state, action);
+};

@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@kadira/storybook": "^2.35.3",
+    "axios": "^0.16.1",
     "husky": "^0.13.2",
     "leaflet": "^1.0.3",
+    "lodash": "^4.17.4",
     "prop-types": "^15.5.8",
     "react": "^15.4.2",
     "react-collapse": "^2.3.3",
@@ -13,18 +15,27 @@
     "react-height": "^2.2.0",
     "react-leaflet": "^1.1.1",
     "react-motion": "^0.4.7",
+    "react-notification-system": "^0.2.13",
+    "react-notification-system-redux": "^1.0.11",
+    "react-redux": "^5.0.4",
     "react-router": "^3.0.2",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.0",
+    "redux-logger": "^3.0.1",
+    "redux-saga": "^0.14.7",
     "semantic-ui-css": "^2.2.9",
-    "semantic-ui-react": "^0.67.1"
+    "semantic-ui-react": "^0.67.1",
+    "validate.js": "^0.11.1"
   },
   "devDependencies": {
-    "eslint": "^",
+    "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^",
     "eslint-plugin-jsx-a11y": "^",
     "eslint-plugin-react": "^6.10.3",
     "react-scripts": "0.9.3"
   },
+  "proxy": "http://localhost:9002",
   "scripts": {
     "json-server": "json-server --watch ./src/json-server/db.json --port 9002",
     "lint": "eslint .",
