@@ -10,10 +10,11 @@ import '../public/mapkey-icons/MapkeyIcons.css';
 import '../public/mapkey-icons/L.Icon.Mapkey.css';
 
 import RootContainer from './containers/RootContainer/RootContainer';
+import UserManagementContainer from './containers/UserManagementContainer/UserManagementContainer';
 import Dashboard from './components/Dashboard/Dashboard';
 import SearchRouteContainer from './containers/SearchRouteContainer/SearchRouteContainer';
-import Login from './components/Login/Login';
-import Signup from './components/Signup/Signup';
+import LoginContainer from './containers/LoginContainer/LoginContainer';
+import SignupContainer from './containers/SignupContainer/SignupContainer';
 import MapComponent from './components/Map/Map';
 import NotFound from './components/NotFound/NotFound';
 
@@ -28,8 +29,10 @@ ReactDOM.render(
         <Route path="search-route" component={SearchRouteContainer} />
         <Route path="map" component={MapComponent} />
       </Route>
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={Signup} />
+      <Route path="/" component={UserManagementContainer}>
+        <Route path="/login" component={LoginContainer} />
+        <Route path="/signup" component={SignupContainer} />
+      </Route>
       <Route path="*" component={NotFound} />
     </Router>
   </Provider>,

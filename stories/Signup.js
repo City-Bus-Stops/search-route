@@ -6,6 +6,15 @@ import Signup from '../src/components/Signup/Signup';
 storiesOf('Signup', module)
   .add('Default signup', () => (
     <div>
-      <Signup />
+      <Signup
+        email={[]}
+        password=""
+        confirmPassword=""
+        error={{}}
+        actions={{
+          signUp: () => {},
+          setFormField: () => {},
+        }}
+      />
     </div>
   ));
