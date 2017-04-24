@@ -5,7 +5,7 @@ import { isEmpty } from 'lodash';
 import FoundedRoutes from '../FoundedRoutes/FoundedRoutes';
 import SeachRouteForm from '../SearchRouteForm/SearchRouteForm';
 
-import validateSearchRouteForm from '../../validation';
+import { validateSearchRouteForm } from '../../validation';
 
 const SearchRoute = ({ from, to, routes, errors, actions }) => (
   <div>

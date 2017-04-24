@@ -6,6 +6,14 @@ import Login from '../src/components/Login/Login';
 storiesOf('Login', module)
   .add('Default login', () => (
     <div>
-      <Login />
+      <Login
+        email={[]}
+        password=""
+        error={{}}
+        actions={{
+          logIn: () => {},
+          setFormField: () => {},
+        }}
+      />
     </div>
   ));

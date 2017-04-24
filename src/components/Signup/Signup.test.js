@@ -4,5 +4,15 @@ import Signup from './Signup';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Signup />, div);
+  ReactDOM.render(
+    <Signup
+      email="testEmail"
+      password="testPassword"
+      confirmPassword="testConfirmPassword"
+      errors={{}}
+      actions={{
+        signUp: () => {},
+        setFormField: () => {},
+      }}
+    />, div);
 });
