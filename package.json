@@ -37,7 +37,7 @@
   },
   "proxy": "http://localhost:9002",
   "scripts": {
-    "json-server": "json-server --watch ./src/json-server/db.json --port 9002",
+    "json-server": "json-server --watch ./src/json-server/db.json --port 9002 --routes ./src/json-server/routes.json",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
     "precommit": "yarn run lint",

@@ -4,11 +4,16 @@ import { isEmpty } from 'lodash';
 
 import FoundedRoutes from '../FoundedRoutes/FoundedRoutes';
 import SeachRouteForm from '../SearchRouteForm/SearchRouteForm';
+import FoundedRouteInfo from '../FoundedRouteInfo/FoundedRouteInfo';
 
 import { validateSearchRouteForm } from '../../validation';
 
-const SearchRoute = ({ from, to, routes, errors, actions }) => (
+const SearchRoute = ({ from, to, routes, errors, actions, routeInfo }) => (
   <div>
+    <FoundedRouteInfo
+      routeInfo={routeInfo}
+      clearRouteInfo={() => actions.clearRouteInfo('searchRoute')}
+    />
     <SeachRouteForm
       from={from}
       to={to}
@@ -26,6 +31,7 @@ const SearchRoute = ({ from, to, routes, errors, actions }) => (
     />
     <FoundedRoutes
       routes={routes}
+      getRouteInfo={routeId => actions.getRouteInfo(routeId, 'searchRoute')}
     />
   </div>
 );
@@ -35,11 +41,14 @@ SearchRoute.propTypes = {
   to: PropTypes.string.isRequired,
   routes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   errors: PropTypes.shape().isRequired,
+  routeInfo: PropTypes.shape().isRequired,
   actions: PropTypes.shape({
     setFormField: PropTypes.func.isRequired,
     findUserLocation: PropTypes.func.isRequired,
     searchRoutes: PropTypes.func.isRequired,
     formSubmitFailed: PropTypes.func.isRequired,
+    getRouteInfo: PropTypes.func.isRequired,
+    clearRouteInfo: PropTypes.func.isRequired,
   }).isRequired,
 };
 

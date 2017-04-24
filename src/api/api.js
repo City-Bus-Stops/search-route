@@ -21,3 +21,7 @@ export const fetchFindUserAddress = (lat, lon) =>
 export const fetchSearchRoute = (from, to) =>
   axios.get(`/search-route?from=${from}&to=${to}`)
     .then(verifyStatus);
+
+export const fetchRouteInfo = routeId =>
+  axios.get(`/routes/${routeId}/info`)
+    .then(verifyStatus);

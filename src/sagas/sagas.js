@@ -1,9 +1,11 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest, take, race, fork } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
 
 import {
   fetchFindUsertLocation,
   fetchFindUserAddress,
   fetchSearchRoute,
+  fetchRouteInfo,
 } from '../api/api';
 import {
   FIND_USER_LOCATION,
@@ -11,6 +13,9 @@ import {
   FIND_USER_ADDRESS_SUCCESS,
   SEARCH_ROUTES,
   SEARCH_ROUTES_SUCCESS,
+  GET_ROUTE_INFO,
+  GET_ROUTE_INFO_SUCCESS,
+  CLEAR_ROUTE_INFO,
   showNotification,
 } from '../actions/actions';
 
@@ -40,11 +45,41 @@ function* searchRoutes(action) {
   const { routesType, params } = action;
   const { from, to } = params;
   try {
-    const reponse = yield call(fetchSearchRoute, from, to);
-    const { routes } = reponse.data;
+    const response = yield call(fetchSearchRoute, from, to);
+    const { routes } = response.data;
     yield put({ type: SEARCH_ROUTES_SUCCESS, routes, routesType });
   } catch (err) {
     yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
+function* getRouteInfo(action) {
+  const { routeId, routeType } = action;
+  try {
+    const response = yield call(fetchRouteInfo, routeId);
+    const { info } = response.data;
+    yield put({ type: GET_ROUTE_INFO_SUCCESS, info, routeType, routeId });
+  } catch (err) {
+    yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
+function* pollRouteInfo(routeType, routeId) {
+  try {
+    yield call(delay, 60000);
+    yield put({ type: GET_ROUTE_INFO, routeType, routeId });
+  } catch (err) {
+    yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
+function* watchPollRouteInfo() {
+  while (true) {
+    const { routeType, routeId } = yield take(GET_ROUTE_INFO_SUCCESS);
+    yield race([
+      call(pollRouteInfo, routeType, routeId),
+      take(CLEAR_ROUTE_INFO),
+    ]);
   }
 }
 
@@ -52,5 +87,7 @@ function* appSaga() {
   yield takeLatest(FIND_USER_LOCATION, findUserLocation);
   yield takeLatest(FIND_USER_LOCATION_SUCCESS, findUserAddress);
   yield takeLatest(SEARCH_ROUTES, searchRoutes);
+  yield takeLatest(GET_ROUTE_INFO, getRouteInfo);
+  yield [fork(watchPollRouteInfo)];
 }
 export default appSaga;

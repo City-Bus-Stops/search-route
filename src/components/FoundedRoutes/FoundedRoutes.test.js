@@ -7,5 +7,6 @@ it('renders without crashing', () => {
   ReactDOM.render(
     <FoundedRoutes
       routes={[]}
+      getRouteInfo={() => {}}
     />, div);
 });

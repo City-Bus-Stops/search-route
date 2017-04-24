@@ -1,0 +1,3 @@
+{
+  "/routes/:id/info": "/routes-info/:id"
+}
