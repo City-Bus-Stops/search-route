@@ -1,107 +1,162 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Accordion, List, Grid, Step, Icon, Header } from 'semantic-ui-react';
+import { Modal, Accordion, List, Grid, Step, Icon, Header, Label, Button } from 'semantic-ui-react';
+import { isEmpty } from 'lodash';
 
-const FoundedRouteInfo = ({ isOpen }) => (
+const instructionIconTypes = {
+  start: 'user',
+  foot: 'road',
+  bus: 'bus',
+  end: 'flag checkered',
+};
+
+
+const FoundedRouteInfo = ({ clearRouteInfo, routeInfo }) => (
   <Modal
-    open={isOpen}
+    open={!isEmpty(routeInfo)}
     dimmer="blurring"
     closeOnEscape={false}
     closeOnRootNodeClick={false}
+    onClose={clearRouteInfo}
   >
     <Modal.Header as="h3" className="ui">
-      <Grid columns={2} container>
-        <Grid.Column>
-          <Icon size="large" name="bus" color="red" circular link /> 23
-        </Grid.Column>
-        <Grid.Column textAlign="right">
-          <div
-            className="ui icon"
-            data-tooltip="Save to favorites"
-            data-delay="500"
-            data-variation="small"
-            data-position="right center"
-          >
-            <Icon size="large" name="save" color="green" circular link />
-          </div>
-        </Grid.Column>
-        <Grid.Column>
-          <div
-            className="ui icon"
-            data-tooltip="Refresh"
-            data-delay="500"
-            data-variation="small"
-            data-position="right center"
-          >
-            Response time: 15:18:23 a.m.
-            <Icon name="repeat" color="blue" link />
-          </div>
-        </Grid.Column>
+      <Grid container>
+        <Grid.Row columns={2}>
+          <Grid.Column>
+            <div
+              className="ui icon"
+              data-tooltip="Watch bus schedule"
+              data-delay="500"
+              data-variation="small"
+              data-position="top left"
+            >
+              <Icon size="large" name="bus" color="red" circular link /> 23
+            </div>
+          </Grid.Column>
+          <Grid.Column textAlign="right">
+            <div
+              className="ui icon"
+              data-tooltip="Save to favorites"
+              data-delay="500"
+              data-variation="small"
+              data-position="top left"
+            >
+              <Icon size="large" name="save" color="green" circular link />
+            </div>
+          </Grid.Column>
+        </Grid.Row>
       </Grid>
     </Modal.Header>
     <Modal.Content>
-      <Grid padded>
-        <Step.Group vertical fluid ordered>
-          <Step icon="user" title="From" description="Улица О.Соломовой 135" />
-          <Step icon="road" title="6 min" description="Go to'Фолюш' bus stop." />
-          <Step
-            icon="bus"
-            title="15 min"
-            description="Go by bus for 15 minutes and get off at the 'Советская' bus stop."
-          />
-          <Step icon="road" title="7 min" description="Go to 'Универмаг'." />
-          <Step icon="flag checkered" title="To" description="Улица Советская 18" />
-        </Step.Group>
+      <Grid >
+        <Grid.Row>
+          <Grid.Column className="font-size-18">
+            <strong>From:</strong> {routeInfo.from}
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column className="font-size-18">
+            <strong>To:</strong> {routeInfo.to}
+          </Grid.Column>
+        </Grid.Row>
+        {
+          routeInfo.nearestBuses &&
+          <Grid.Row>
+            <Grid.Column className="font-size-18">
+              <strong>Nearest buses:</strong>
+              {
+              routeInfo.nearestBuses.map(nearestBus =>
+                <Label key={nearestBus.id} color="red" size="large" horizontal>
+                  {nearestBus.time}
+                </Label>,
+              )
+            }
+            </Grid.Column>
+          </Grid.Row>
+        }
+        {
+          routeInfo.instruction &&
+          <Grid.Row>
+            <Grid.Column>
+              <Accordion fluid>
+                <Accordion.Title>
+                  <Header as="h3">
+                    <Icon name="dropdown" />
+                    Instruction
+                  </Header>
+                </Accordion.Title>
+                <Accordion.Content>
+                  <Step.Group vertical fluid size="large">
+                    {
+                      routeInfo.instruction.map(step =>
+                        <Step key={step.id}>
+                          <Icon name={instructionIconTypes[step.type] || 'road'} />
+                          <Step.Title>
+                            <span className="color-danger">
+                              {step.title}
+                            </span>
+                          </Step.Title>
+                          <Step.Description>
+                            <span className="font-size-18">
+                              {step.description}
+                            </span>
+                          </Step.Description>
+                        </Step>,
+                      )
+                    }
+                  </Step.Group>
+                </Accordion.Content>
+              </Accordion>
+            </Grid.Column>
+          </Grid.Row>
+        }
+        {
+          routeInfo.busStops &&
+          <Grid.Row >
+            <Grid.Column>
+              <Accordion fluid>
+                <Accordion.Title>
+                  <Header as="h3">
+                    <Icon name="dropdown" />
+                    Bus stops({routeInfo.busStops.length})
+                  </Header>
+                </Accordion.Title>
+                <Accordion.Content>
+                  <List divided relaxed animated celled size="big">
+                    {
+                      routeInfo.busStops.map(busStop =>
+                        <List.Item key={busStop.id} className="cursor-pointer">
+                          <List.Icon link name="bus" color="green" size="big" />
+                          <List.Content>
+                            <List.Header>{busStop.title}</List.Header>
+                            <List.Description>{busStop.description}</List.Description>
+                          </List.Content>
+                        </List.Item>,
+                      )
+                    }
+                  </List>
+                </Accordion.Content>
+              </Accordion>
+            </Grid.Column>
+          </Grid.Row>
+        }
       </Grid>
-      <Accordion fluid>
-        <Accordion.Title>
-          <Header as="h3" color="blue">
-            <Icon name="dropdown icon" />
-            Bus stops(7)
-            </Header>
-        </Accordion.Title>
-        <Accordion.Content>
-          <List divided relaxed animated celled size="big">
-            <List.Item>
-              <List.Content>
-                <List.Header>Фолюш</List.Header>
-                <List.Description>1 minutes</List.Description>
-              </List.Content>
-            </List.Item>
-            <List.Item>
-              <List.Content>
-                <List.Header>Улица Лизы Чайкиной</List.Header>
-                <List.Description>3 minutes</List.Description>
-              </List.Content>
-            </List.Item>
-            <List.Item>
-              <List.Content>
-                <List.Header>Улица Декабристов</List.Header>
-                <List.Description>6 minutes</List.Description>
-              </List.Content>
-            </List.Item>
-            <List.Item>
-              <List.Content>
-                <List.Header>Улица Поповича</List.Header>
-                <List.Description>10 minutes</List.Description>
-              </List.Content>
-            </List.Item>
-          </List>
-        </Accordion.Content>
-      </Accordion>
     </Modal.Content>
     <div className="actions">
-      <button className="ui positive large button">Close</button>
+      <Button
+        positive
+        size="large"
+        onClick={clearRouteInfo}
+      >
+        Close
+      </Button>
     </div>
   </Modal>
 );
 
 FoundedRouteInfo.propTypes = {
-  isOpen: PropTypes.bool,
-};
-
-FoundedRouteInfo.defaultProps = {
-  isOpen: false,
+  routeInfo: PropTypes.shape().isRequired,
+  clearRouteInfo: PropTypes.func.isRequired,
 };
 
 export default FoundedRouteInfo;

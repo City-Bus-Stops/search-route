@@ -13,6 +13,7 @@ it('renders without crashing', () => {
         busNumber: '3',
         timeInTravel: '15',
       }}
+      getRouteInfo={() => {}}
     />, div);
 });
 

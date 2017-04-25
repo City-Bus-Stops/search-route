@@ -5,16 +5,30 @@ import Signup from '../src/components/Signup/Signup';
 
 storiesOf('Signup', module)
   .add('Default signup', () => (
-    <div>
-      <Signup
-        email={[]}
-        password=""
-        confirmPassword=""
-        error={{}}
-        actions={{
-          signUp: () => {},
-          setFormField: () => {},
-        }}
-      />
-    </div>
+    <Signup
+      email=""
+      password=""
+      confirmPassword=""
+      errors={{}}
+      actions={{
+        signUp: () => {},
+        setFormField: () => {},
+      }}
+    />
+  ))
+  .add('with errors', () => (
+    <Signup
+      email=""
+      password=""
+      confirmPassword=""
+      errors={{
+        email: ['Email is not a valid email'],
+        password: ['Password must be at least 8 characters'],
+        confirmPassword: ['Confirm password is not equal to password'],
+      }}
+      actions={{
+        signUp: () => {},
+        setFormField: () => {},
+      }}
+    />
   ));

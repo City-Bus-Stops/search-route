@@ -10,11 +10,14 @@ it('renders without crashing', () => {
       to=""
       routes={[]}
       errors={{}}
+      routeInfo={{}}
       actions={{
         setFormField: () => {},
         findUserLocation: () => {},
         searchRoutes: () => {},
         formSubmitFailed: () => {},
+        getRouteInfo: () => {},
+        clearRouteInfo: () => {},
       }}
     />, div);
 });

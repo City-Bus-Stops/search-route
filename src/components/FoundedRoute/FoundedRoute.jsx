@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { Grid, Card, Label, Popup, Icon } from 'semantic-ui-react';
 
-const FoundedRoute = ({ route }) => (
+const FoundedRoute = ({ route, getRouteInfo }) => (
   <Grid.Column>
     <Card fluid color="blue">
       <Card.Content>
@@ -30,7 +30,7 @@ const FoundedRoute = ({ route }) => (
           content="Watch on the map"
           position="bottom right"
         />
-        <span className="cursor-pointer">
+        <span className="cursor-pointer" onClick={() => getRouteInfo(route.id)}>
           <Icon name="info circle" />
           More info
         </span>
@@ -47,6 +47,7 @@ FoundedRoute.propTypes = {
     busNumber: PropTypes.string.isRequired,
     timeInTravel: PropTypes.string.isRequired,
   }).isRequired,
+  getRouteInfo: PropTypes.func.isRequired,
 };
 
 export default FoundedRoute;

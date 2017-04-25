@@ -5,15 +5,27 @@ import Login from '../src/components/Login/Login';
 
 storiesOf('Login', module)
   .add('Default login', () => (
-    <div>
-      <Login
-        email={[]}
-        password=""
-        error={{}}
-        actions={{
-          logIn: () => {},
-          setFormField: () => {},
-        }}
-      />
-    </div>
+    <Login
+      email=""
+      password=""
+      errors={{}}
+      actions={{
+        logIn: () => {},
+        setFormField: () => {},
+      }}
+    />
+  ))
+  .add('with errors', () => (
+    <Login
+      email=""
+      password=""
+      errors={{
+        email: ['Email is not a valid email'],
+        password: ['Password must be at least 8 characters'],
+      }}
+      actions={{
+        logIn: () => {},
+        setFormField: () => {},
+      }}
+    />
   ));
