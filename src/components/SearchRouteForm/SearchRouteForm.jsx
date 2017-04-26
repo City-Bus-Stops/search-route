@@ -6,7 +6,7 @@ import { isEmpty, head } from 'lodash';
 import InputField from '../InputField/InputField';
 
 const SearchRouteForm = ({
-  from, to, setFormField, findUserLocation, searchRoutes, errors,
+  from, to, setFormField, findUserAddress, searchRoutes, errors,
 }) => (
   <Segment padded basic>
     <Grid centered padded>
@@ -31,7 +31,7 @@ const SearchRouteForm = ({
                     link
                     name="location arrow"
                     color="red"
-                    onClick={() => findUserLocation('from')}
+                    onClick={() => findUserAddress('from')}
                   />
                   }
                 content="Search your location automatically"
@@ -62,7 +62,7 @@ const SearchRouteForm = ({
                     link
                     name="location arrow"
                     color="red"
-                    onClick={() => findUserLocation('to')}
+                    onClick={() => findUserAddress('to')}
                   />
                   }
                 content="Search your location automatically"
@@ -95,7 +95,7 @@ SearchRouteForm.propTypes = {
   from: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
   setFormField: PropTypes.func.isRequired,
-  findUserLocation: PropTypes.func.isRequired,
+  findUserAddress: PropTypes.func.isRequired,
   searchRoutes: PropTypes.func.isRequired,
   errors: PropTypes.shape().isRequired,
 };
