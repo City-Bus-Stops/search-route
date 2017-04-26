@@ -25,3 +25,11 @@ export const fetchSearchRoute = (from, to) =>
 export const fetchRouteInfo = routeId =>
   axios.get(`/routes/${routeId}/info`)
     .then(verifyStatus);
+
+export const fetchRouteGeoData = routeId =>
+  axios.get(`/routes/${routeId}/geo`)
+    .then(verifyStatus);
+
+export const fetchMapPointInfo = pointId =>
+  axios.get(`/points/${pointId}/info`)
+    .then(verifyStatus);

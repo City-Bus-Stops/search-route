@@ -23,7 +23,7 @@ const FoundedRoute = ({ route, getRouteInfo }) => (
           hideOnScroll
           on="hover"
           trigger={
-            <Link to="/map" className="float-right">
+            <Link to={`/map/${route.id}`} className="float-right">
               <i className="link map outline red icon" />
             </Link>
           }

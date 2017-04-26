@@ -15,7 +15,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import SearchRouteContainer from './containers/SearchRouteContainer/SearchRouteContainer';
 import LoginContainer from './containers/LoginContainer/LoginContainer';
 import SignupContainer from './containers/SignupContainer/SignupContainer';
-import MapComponent from './components/Map/Map';
+import SearchRouteMapContainer from './containers/SearchRouteMapContainer/SearchRouteMapContainer';
 import NotFound from './components/NotFound/NotFound';
 
 import configureStore from './configureStore';
@@ -27,7 +27,7 @@ ReactDOM.render(
         <IndexRedirect to="/dashboard" />
         <Route path="dashboard" component={Dashboard} />
         <Route path="search-route" component={SearchRouteContainer} />
-        <Route path="map" component={MapComponent} />
+        <Route path="map/:id" component={SearchRouteMapContainer} />
       </Route>
       <Route path="/" component={UserManagementContainer}>
         <Route path="/login" component={LoginContainer} />

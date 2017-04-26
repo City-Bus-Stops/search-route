@@ -8,13 +8,10 @@ export const markerTypes = {
 
 export const generateIcon = markerType => L.icon.mapkey(markerTypes[markerType]);
 
-export const generateMarker = (feature, latlng, onClick) => {
-  const { properties } = feature;
-  const { id, name } = properties;
-  const marker = L.marker(latlng, { icon: generateIcon(feature.properties.type) });
-  return properties.type === 'start' || properties.type === 'end' ?
-    marker.bindPopup(properties.address) :
-    marker.on('click', () => onClick(id, name));
+export const generateMarker = (feature, latlng, getPointInfo) => {
+  const { id } = feature.properties;
+  return L.marker(latlng, { icon: generateIcon(feature.properties.type) })
+    .on('click', () => getPointInfo(id));
 };
 
 export const createNamedWrapperReducer = (reducerFunction, predicate) => (state, action) => {

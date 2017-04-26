@@ -4,5 +4,9 @@ import Map from './Map';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Map />, div);
+  ReactDOM.render(
+    <Map
+      data={[]}
+      getMapPointInfo={() => {}}
+    />, div);
 });

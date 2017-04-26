@@ -4,5 +4,9 @@ import MapSidebar from './MapSidebar';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<MapSidebar />, div);
+  ReactDOM.render(
+    <MapSidebar
+      isSidebarOpen={false}
+      toggleSideBar={() => {}}
+    />, div);
 });

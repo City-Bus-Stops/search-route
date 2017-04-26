@@ -6,7 +6,7 @@ import { Menu } from 'semantic-ui-react';
 
 const MenuComponent = ({ pathname, userName }) => (
   <Collapse isOpened={!pathname.includes('map')}>
-    <Menu size="huge" className="padded-menu" stackable>
+    <Menu className="padded-menu" stackable>
       <Menu.Item>
         <Link to="/dashboard" className="menu-item" activeClassName="menu-item-active">
           <i className="home icon" />
@@ -17,12 +17,6 @@ const MenuComponent = ({ pathname, userName }) => (
         <Link to="/search-route" className="menu-item" activeClassName="menu-item-active">
           <i className="search icon" />
           Search route
-        </Link>
-      </Menu.Item>
-      <Menu.Item>
-        <Link to="/map" className="menu-item" activeClassName="menu-item-active">
-          <i className="world icon" />
-          Map
         </Link>
       </Menu.Item>
       <Menu.Menu position="right">
