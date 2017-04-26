@@ -4,6 +4,7 @@ const field = (state = '', action) => {
   switch (action.type) {
     case SET_FORM_FIELD:
       return action.value;
+
     default:
       return state;
   }

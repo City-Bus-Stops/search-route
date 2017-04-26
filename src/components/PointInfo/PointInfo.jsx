@@ -1,102 +1,73 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Icon, Grid, Header, Card, Segment, Label } from 'semantic-ui-react';
+import { Modal, Icon, Card, Segment, Label, Button } from 'semantic-ui-react';
+import { isEmpty } from 'lodash';
 
-const PointInfo = ({ isOpen }) => (
+const PointInfo = ({ pointInfo, clearMapPointInfo }) => (
   <Modal
-    open={isOpen}
+    open={!isEmpty(pointInfo)}
     size="small"
     dimmer="blurring"
     closeOnEscape={false}
     closeOnRootNodeClick={false}
   >
-    <Modal.Header>
-      <Grid columns={3} container>
-        <Grid.Column verticalAlign="middle">
-          <Icon name="arrow left" color="blue" link />
-        </Grid.Column>
-        <Grid.Column verticalAlign="middle" textAlign="center">
-          <Header as="h2">
-            Фолюш
-         </Header>
-        </Grid.Column>
-        <Grid.Column verticalAlign="middle" textAlign="right">
-          <Icon name="arrow right" color="blue" link />
-        </Grid.Column>
-      </Grid>
+    <Modal.Header >
+      <h2 className="color-beige">
+        {pointInfo.name}
+      </h2>
     </Modal.Header>
     <Modal.Content>
       <Segment padded basic>
         <Card.Group stackable itemsPerRow={3}>
-          <Card>
-            <Card.Content>
-              <Card.Description className="font-size-20">
-                <Icon name="bus" color="green" link />
-                23
-                <Label color="red" size="large" horizontal className="float-right">15 min</Label>
-              </Card.Description>
-            </Card.Content>
-          </Card>
-          <Card>
-            <Card.Content>
-              <Card.Description className="font-size-20">
-                <Icon name="bus" color="green" link />
-                3
-                <Label color="red" size="large" horizontal className="float-right">7 min</Label>
-              </Card.Description>
-            </Card.Content>
-          </Card>
-          <Card>
-            <Card.Content>
-              <Card.Description className="font-size-20">
-                <Icon name="bus" color="green" link />
-                23
-                <Label color="red" size="large" horizontal className="float-right">1 min</Label>
-              </Card.Description>
-            </Card.Content>
-          </Card>
-          <Card>
-            <Card.Content>
-              <Card.Description className="font-size-20">
-                <Icon name="bus" color="green" link />
-                36
-                <Label color="red" size="large" horizontal className="float-right">5 min</Label>
-              </Card.Description>
-            </Card.Content>
-          </Card>
+          {
+          pointInfo.buses &&
+          pointInfo.buses.map(bus =>
+            <Card key={bus.id}>
+              <Card.Content>
+                <Card.Description className="font-size-20">
+                  <Icon name="bus" color="green" link />
+                  {bus.number}
+                  <Label
+                    horizontal
+                    color="red"
+                    size="large"
+                    className="float-right"
+                  >
+                    {bus.time} min
+                  </Label>
+                </Card.Description>
+              </Card.Content>
+            </Card>,
+          )
+        }
         </Card.Group>
+        {
+          pointInfo.address &&
+          <span className="font-size-16">
+            <Icon name="point" color="red" circular />
+            <strong>Address:</strong> {pointInfo.address}
+          </span>
+        }
       </Segment>
     </Modal.Content>
     <Modal.Actions>
-      <Grid columns={2} container>
-        <Grid.Column verticalAlign="middle" textAlign="left">
-          <Header size="small">
-            <div
-              className="ui icon"
-              data-tooltip="Refresh"
-              data-delay="500"
-              data-variation="small"
-              data-position="left center"
-            >
-              <Icon name="repeat" color="blue" link />
-            </div>
-            Response time: 15:18:23 a.m.
-          </Header>
-        </Grid.Column>
-        <Grid.Column>
-          <button className="ui positive large button">Close</button>
-        </Grid.Column>
-      </Grid>
+      <Button
+        positive
+        size="large"
+        onClick={clearMapPointInfo}
+      >
+        Close
+      </Button>
     </Modal.Actions>
   </Modal>
 );
 
 PointInfo.propTypes = {
-  isOpen: PropTypes.bool,
-};
-
-PointInfo.defaultProps = {
-  isOpen: false,
+  pointInfo: PropTypes.shape({
+    type: PropTypes.string,
+    info: PropTypes.shape(),
+  }).isRequired,
+  clearMapPointInfo: PropTypes.func.isRequired,
 };
 
 export default PointInfo;

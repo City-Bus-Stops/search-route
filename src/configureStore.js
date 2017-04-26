@@ -3,7 +3,11 @@ import logger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers';
-import { findUserAddressSuccess, getRouteInfoSuccess } from './middlewares';
+import {
+  findUserAddressSuccess,
+  getRouteInfoSuccess,
+  loadRouteGeoDataFailure,
+} from './middlewares';
 
 import sagas from './sagas/sagas';
 
@@ -13,6 +17,7 @@ const configureStore = () => {
     sagaMiddleware,
     findUserAddressSuccess,
     getRouteInfoSuccess,
+    loadRouteGeoDataFailure,
   ];
   if (process.env.NODE_ENV !== ('production' && 'test')) {
     middlewares = [...middlewares, logger];

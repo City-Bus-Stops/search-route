@@ -1,24 +1,25 @@
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf, action } from '@kadira/storybook';
 
 import MapComponent from '../src/components/Map/Map';
 
-import mockGeoJsonRoute from '../src/mockData/Route.json';
+import mockData from '../src/json-server/db.json';
 import nearestBusStops from '../src/mockData/NearestBusStops.json';
 
 storiesOf('Map', module)
   .add('Default map', () => (
     <div>
       <MapComponent
-        onClick={() => {}}
+        data={[]}
+        getMapPointInfo={action('Load point info')}
       />
     </div>
   ))
   .add('with route', () => (
     <div>
       <MapComponent
-        data={mockGeoJsonRoute}
-        onClick={(id, name) => console.log(`ID: ${id}, name: ${name}`)}
+        data={mockData['routes-geo'][0].geoData}
+        getMapPointInfo={action('Load point info')}
       />
     </div>
   ))
@@ -26,11 +27,11 @@ storiesOf('Map', module)
     <div>
       <MapComponent
         data={nearestBusStops}
+        getMapPointInfo={action('Load point info')}
         center={[53.6729683, 23.79417658]}
         zoom={17}
         maxZoom={18}
         minZoom={14}
-        onClick={(id, name) => console.log(`ID: ${id}, name: ${name}`)}
       />
     </div>
   ))
@@ -38,12 +39,12 @@ storiesOf('Map', module)
     <div>
       <MapComponent
         data={nearestBusStops}
+        getMapPointInfo={action('Load point info')}
         center={[53.6729683, 23.79417658]}
         zoom={17}
         maxZoom={18}
         minZoom={14}
         isSidebarOpen
-        onClick={(id, name) => console.log(`ID: ${id}, name: ${name}`)}
       />
     </div>
   ));
