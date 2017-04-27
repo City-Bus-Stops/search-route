@@ -3,6 +3,7 @@ import Notifications from 'react-notification-system-redux';
 /** Search Routes actions **/
 export const FIND_USER_LOCATION = 'FIND_USER_LOCATION';
 export const FIND_USER_LOCATION_SUCCESS = 'FIND_USER_LOCATION_SUCCESS';
+export const FIND_USER_ADDRESS = 'FIND_USER_ADDRESS';
 export const FIND_USER_ADDRESS_SUCCESS = 'FIND_USER_ADDRESS_SUCCESS';
 export const SEARCH_ROUTES = 'SEARCH_ROUTES';
 export const SEARCH_ROUTES_SUCCESS = 'SEARCH_ROUTES_SUCCESS';
@@ -41,8 +42,12 @@ export const setFormField = (formName, field, value) => ({
   value,
 });
 
-export const findUserLocation = (formName, field) => ({
+export const findUserLocation = () => ({
   type: FIND_USER_LOCATION,
+});
+
+export const findUserAddress = (formName, field) => ({
+  type: FIND_USER_ADDRESS,
   formName,
   field,
 });

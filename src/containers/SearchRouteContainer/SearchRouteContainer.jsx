@@ -6,7 +6,7 @@ import SearchRoute from '../../components/SearchRoute/SearchRoute';
 
 import {
   setFormField,
-  findUserLocation,
+  findUserAddress,
   searchRoutes,
   formSubmitFailed,
   getRouteInfo,
@@ -26,7 +26,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     setFormField,
-    findUserLocation,
+    findUserAddress,
     searchRoutes,
     formSubmitFailed,
     getRouteInfo,

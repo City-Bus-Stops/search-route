@@ -12,6 +12,7 @@ import {
 import {
   FIND_USER_LOCATION,
   FIND_USER_LOCATION_SUCCESS,
+  FIND_USER_ADDRESS,
   FIND_USER_ADDRESS_SUCCESS,
   SEARCH_ROUTES,
   SEARCH_ROUTES_SUCCESS,
@@ -27,18 +28,18 @@ import {
   showNotification,
 } from '../actions/actions';
 
-function* findUserLocation(action) {
-  const { formName, field } = action;
+function* findUserLocation() {
   try {
     const location = yield call(fetchFindUsertLocation);
-    yield put({ type: FIND_USER_LOCATION_SUCCESS, location, formName, field });
+    yield put({ type: FIND_USER_LOCATION_SUCCESS, location });
   } catch (err) {
     yield put(showNotification('error', 'Error', err.message));
   }
 }
 
 function* findUserAddress(action) {
-  const { location, formName, field } = action;
+  const { formName, field } = action;
+  const location = yield call(fetchFindUsertLocation);
   const { latitude, longitude } = location.coords;
   try {
     const response = yield call(fetchFindUserAddress, latitude, longitude);
@@ -135,7 +136,7 @@ function* loadMapPointInfo(action) {
 
 function* appSaga() {
   yield takeLatest(FIND_USER_LOCATION, findUserLocation);
-  yield takeLatest(FIND_USER_LOCATION_SUCCESS, findUserAddress);
+  yield takeLatest(FIND_USER_ADDRESS, findUserAddress);
   yield takeLatest(SEARCH_ROUTES, searchRoutes);
   yield takeLatest(LOAD_ROUTE_INFO, loadRouteInfo);
   yield takeLatest(LOAD_ROUTE_GEODATA, loadRouteGeoData);

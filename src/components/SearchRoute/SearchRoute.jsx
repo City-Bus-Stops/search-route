@@ -19,7 +19,7 @@ const SearchRoute = ({ from, to, routes, errors, actions, routeInfo }) => (
       to={to}
       errors={errors}
       setFormField={(value, field) => actions.setFormField('searchRoute', field, value)}
-      findUserLocation={field => actions.findUserLocation('searchRoute', field)}
+      findUserAddress={field => actions.findUserAddress('searchRoute', field)}
       searchRoutes={(params) => {
         const validateErorrs = validateSearchRouteForm(params);
         if (isEmpty(validateErorrs)) {
@@ -44,7 +44,7 @@ SearchRoute.propTypes = {
   routeInfo: PropTypes.shape().isRequired,
   actions: PropTypes.shape({
     setFormField: PropTypes.func.isRequired,
-    findUserLocation: PropTypes.func.isRequired,
+    findUserAddress: PropTypes.func.isRequired,
     searchRoutes: PropTypes.func.isRequired,
     formSubmitFailed: PropTypes.func.isRequired,
     getRouteInfo: PropTypes.func.isRequired,
