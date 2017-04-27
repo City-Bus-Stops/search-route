@@ -5,6 +5,7 @@ import searchRoute from './searchRoute/searchRoute';
 import login from './login/login';
 import signup from './signup/signup';
 import searchRouteMap from './searchRouteMap/searchRouteMap';
+import spinner from './spinner';
 
 export default combineReducers({
   searchRoute,
@@ -12,4 +13,5 @@ export default combineReducers({
   login,
   signup,
   searchRouteMap,
+  spinner,
 });

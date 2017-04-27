@@ -14,7 +14,7 @@ export const generateMarker = (feature, latlng, getPointInfo) => {
     .on('click', () => getPointInfo(id));
 };
 
-export const createNamedWrapperReducer = (reducerFunction, predicate) => (state, action) => {
+export const createWrapperReducer = (reducerFunction, predicate) => (state, action) => {
   const isInitializationCall = state === undefined;
   return typeof predicate === 'function' && !predicate(action) && !isInitializationCall ?
     state :

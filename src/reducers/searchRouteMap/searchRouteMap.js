@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux';
 
-import { createNamedWrapperReducer } from '../../utils';
+import { createWrapperReducer } from '../../utils';
 
 import geoRoute from '../geoRoute';
 import sidebar from '../sidebar';
 import pointInfo from '../pointInfo';
 
 export default combineReducers({
-  geoData: createNamedWrapperReducer(geoRoute, action => action.routeType === 'searchRoute'),
-  sidebarIsOpen: createNamedWrapperReducer(sidebar, action => action.sidebarType === 'searchRoute'),
-  pointInfo: createNamedWrapperReducer(pointInfo, action => action.pointType === 'searchRoute'),
+  geoData: createWrapperReducer(geoRoute, action => action.routeType === 'searchRoute'),
+  sidebarIsOpen: createWrapperReducer(sidebar, action => action.sidebarType === 'searchRoute'),
+  pointInfo: createWrapperReducer(pointInfo, action => action.pointType === 'searchRoute'),
 });
 
 export const getGeoData = state => state.geoData;
