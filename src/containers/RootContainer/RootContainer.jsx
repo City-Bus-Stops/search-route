@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => ({
   children: ownProps.children,
   location: ownProps.location,
   notifications: state.notifications,
+  IsSpinnerActive: state.spinner,
 });
 
 export default connect(mapStateToProps, null)(Root);

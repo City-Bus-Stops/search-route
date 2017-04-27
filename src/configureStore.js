@@ -7,6 +7,7 @@ import {
   findUserAddressSuccess,
   getRouteInfoSuccess,
   loadRouteGeoDataFailure,
+  spinnerMiddleware,
 } from './middlewares';
 
 import sagas from './sagas/sagas';
@@ -18,6 +19,7 @@ const configureStore = () => {
     findUserAddressSuccess,
     getRouteInfoSuccess,
     loadRouteGeoDataFailure,
+    spinnerMiddleware,
   ];
   if (process.env.NODE_ENV !== ('production' && 'test')) {
     middlewares = [...middlewares, logger];
