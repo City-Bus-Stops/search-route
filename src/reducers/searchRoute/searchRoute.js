@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
 
-import { createNamedWrapperReducer } from '../../utils';
+import { createWrapperReducer } from '../../utils';
 
 import routes from '../routes';
 import form from './form';
 import routeInfo from '../routeInfo';
 
 export default combineReducers({
-  routes: createNamedWrapperReducer(routes, action => action.routesType === 'searchRoute'),
-  routeInfo: createNamedWrapperReducer(routeInfo, action => action.modalType === 'searchRoute'),
+  routes: createWrapperReducer(routes, action => action.routesType === 'searchRoute'),
+  routeInfo: createWrapperReducer(routeInfo, action => action.modalType === 'searchRoute'),
   form,
 });
 
