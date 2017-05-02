@@ -1,8 +1,8 @@
 import {
   TOGGLE_SIDEBAR,
-} from '../actions/actions';
+} from '../../actions/actions';
 
-const sidebar = (state = false, action) => {
+const isSidebarOpen = (state = false, action) => {
   switch (action.type) {
     case TOGGLE_SIDEBAR:
       return !state;
@@ -12,4 +12,4 @@ const sidebar = (state = false, action) => {
   }
 };
 
-export default sidebar;
+export default isSidebarOpen;

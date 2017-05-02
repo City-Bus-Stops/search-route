@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 import { Provider } from 'react-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
 
 import 'leaflet/dist/leaflet.css';
 import '../public/css/index.css';
@@ -15,19 +16,22 @@ import Dashboard from './components/Dashboard/Dashboard';
 import SearchRouteContainer from './containers/SearchRouteContainer/SearchRouteContainer';
 import LoginContainer from './containers/LoginContainer/LoginContainer';
 import SignupContainer from './containers/SignupContainer/SignupContainer';
-import SearchRouteMapContainer from './containers/SearchRouteMapContainer/SearchRouteMapContainer';
+import MapContainer from './containers/MapContainer/MapContainer';
 import NotFound from './components/NotFound/NotFound';
 
 import configureStore from './configureStore';
 
+const store = configureStore();
+const history = syncHistoryWithStore(browserHistory, store);
+
 ReactDOM.render(
-  <Provider store={configureStore()}>
-    <Router history={browserHistory}>
+  <Provider store={store}>
+    <Router history={history}>
       <Route path="/" component={RootContainer}>
         <IndexRedirect to="/dashboard" />
         <Route path="dashboard" component={Dashboard} />
         <Route path="search-route" component={SearchRouteContainer} />
-        <Route path="map/:id" component={SearchRouteMapContainer} />
+        <Route path="map" component={MapContainer} />
       </Route>
       <Route path="/" component={UserManagementContainer}>
         <Route path="/login" component={LoginContainer} />

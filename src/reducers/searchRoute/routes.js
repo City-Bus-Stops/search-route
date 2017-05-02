@@ -1,10 +1,10 @@
 import {
-  SEARCH_ROUTES_SUCCESS,
-} from '../actions/actions';
+  SEARCH_ROUTE_SUCCESS,
+} from '../../actions/actions';
 
 const routes = (state = [], action) => {
   switch (action.type) {
-    case SEARCH_ROUTES_SUCCESS:
+    case SEARCH_ROUTE_SUCCESS:
       return action.routes;
 
     default:

@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
+import { Grid } from 'semantic-ui-react';
 
-import FoundedRoutes from '../FoundedRoutes/FoundedRoutes';
 import SeachRouteForm from '../SearchRouteForm/SearchRouteForm';
-import FoundedRouteInfo from '../FoundedRouteInfo/FoundedRouteInfo';
+import FoundedRouteInfo from '../RouteInfo/RouteInfo';
+import Route from '../Route/Route';
 
 import { validateSearchRouteForm } from '../../validation';
 
@@ -20,19 +21,29 @@ const SearchRoute = ({ from, to, routes, errors, actions, routeInfo }) => (
       errors={errors}
       setFormField={(value, field) => actions.setFormField('searchRoute', field, value)}
       findUserAddress={field => actions.findUserAddress('searchRoute', field)}
-      searchRoutes={(params) => {
+      searchRoute={(params) => {
         const validateErorrs = validateSearchRouteForm(params);
         if (isEmpty(validateErorrs)) {
-          actions.searchRoutes('searchRoute', params);
+          actions.searchRoute(params);
         } else {
           actions.formSubmitFailed('searchRoute', validateErorrs);
         }
       }}
     />
-    <FoundedRoutes
-      routes={routes}
-      getRouteInfo={routeId => actions.getRouteInfo(routeId, 'searchRoute')}
-    />
+    <div className="founded-routes">
+      <Grid columns={4} stackable doubling>
+        {
+          routes && routes.map(route =>
+            <Route
+              key={route.id}
+              route={route}
+              getRouteInfo={routeId => actions.getRouteInfo(routeId)}
+              getRouteGeoData={routeId => actions.getRouteGeoData(routeId)}
+            />,
+          )
+        }
+      </Grid>
+    </div>
   </div>
 );
 
@@ -45,10 +56,11 @@ SearchRoute.propTypes = {
   actions: PropTypes.shape({
     setFormField: PropTypes.func.isRequired,
     findUserAddress: PropTypes.func.isRequired,
-    searchRoutes: PropTypes.func.isRequired,
+    searchRoute: PropTypes.func.isRequired,
     formSubmitFailed: PropTypes.func.isRequired,
     getRouteInfo: PropTypes.func.isRequired,
     clearRouteInfo: PropTypes.func.isRequired,
+    getRouteGeoData: PropTypes.func.isRequired,
   }).isRequired,
 };
 

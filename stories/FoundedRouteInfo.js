@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import FoundedRouteInfo from '../src/components/FoundedRouteInfo/FoundedRouteInfo';
+import FoundedRouteInfo from '../src/components/RouteInfo/RouteInfo';
 
 const mockRouteInfo = {
   from: 'Фолюш',
@@ -64,7 +64,7 @@ const mockRouteInfo = {
 };
 
 storiesOf('FoundedRouteInfo', module)
-  .add('default FoundedRouteInfo', () => (
+  .add('default RouteInfo', () => (
     <FoundedRouteInfo
       routeInfo={{}}
       clearRouteInfo={action('Clear route info')}

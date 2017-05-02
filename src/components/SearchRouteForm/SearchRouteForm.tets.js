@@ -11,6 +11,6 @@ it('renders without crashing', () => {
       errors={{}}
       setFormField={() => {}}
       findUserAddress={() => {}}
-      searchRoutes={() => {}}
+      searchRoute={() => {}}
     />, div);
 });

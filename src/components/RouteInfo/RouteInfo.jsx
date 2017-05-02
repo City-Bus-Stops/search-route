@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Accordion, List, Grid, Step, Icon, Header, Label, Button } from 'semantic-ui-react';
+import { Modal, Accordion, List, Grid, Step, Icon, Label, Button } from 'semantic-ui-react';
 import { isEmpty } from 'lodash';
 
 const instructionIconTypes = {
@@ -8,6 +8,13 @@ const instructionIconTypes = {
   foot: 'road',
   bus: 'bus',
   end: 'flag checkered',
+};
+
+const instructionIconColors = {
+  start: 'green',
+  foot: 'yellow',
+  bus: 'blue',
+  end: 'red',
 };
 
 
@@ -23,26 +30,10 @@ const FoundedRouteInfo = ({ clearRouteInfo, routeInfo }) => (
       <Grid container>
         <Grid.Row columns={2}>
           <Grid.Column>
-            <div
-              className="ui icon"
-              data-tooltip="Watch bus schedule"
-              data-delay="500"
-              data-variation="small"
-              data-position="top left"
-            >
-              <Icon size="large" name="bus" color="red" circular link /> 23
-            </div>
+            <Icon size="large" name="bus" color="blue" circular link /> 23
           </Grid.Column>
           <Grid.Column textAlign="right">
-            <div
-              className="ui icon"
-              data-tooltip="Save to favorites"
-              data-delay="500"
-              data-variation="small"
-              data-position="top left"
-            >
-              <Icon size="large" name="save" color="green" circular link />
-            </div>
+            <Icon size="large" name="save" color="green" circular link />
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -50,20 +41,22 @@ const FoundedRouteInfo = ({ clearRouteInfo, routeInfo }) => (
     <Modal.Content>
       <Grid >
         <Grid.Row>
-          <Grid.Column className="font-size-18">
+          <Grid.Column className="font-size-15">
             <strong>From:</strong> {routeInfo.from}
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Grid.Column className="font-size-18">
+          <Grid.Column className="font-size-15">
             <strong>To:</strong> {routeInfo.to}
           </Grid.Column>
         </Grid.Row>
         {
           routeInfo.nearestBuses &&
           <Grid.Row>
-            <Grid.Column className="font-size-18">
-              <strong>Nearest buses:</strong>
+            <Grid.Column>
+              <strong className="padding-right-5 font-size-15">
+                Nearest buses:
+              </strong>
               {
               routeInfo.nearestBuses.map(nearestBus =>
                 <Label key={nearestBus.id} color="red" size="large" horizontal>
@@ -76,28 +69,31 @@ const FoundedRouteInfo = ({ clearRouteInfo, routeInfo }) => (
         }
         {
           routeInfo.instruction &&
-          <Grid.Row>
+          <Grid.Row className="padding-0">
             <Grid.Column>
               <Accordion fluid>
                 <Accordion.Title>
-                  <Header as="h3">
-                    <Icon name="dropdown" />
+                  <Icon name="dropdown" />
+                  <strong className="font-size-15">
                     Instruction
-                  </Header>
+                  </strong>
                 </Accordion.Title>
                 <Accordion.Content>
-                  <Step.Group vertical fluid size="large">
+                  <Step.Group vertical>
                     {
                       routeInfo.instruction.map(step =>
                         <Step key={step.id}>
-                          <Icon name={instructionIconTypes[step.type] || 'road'} />
-                          <Step.Title>
-                            <span className="color-danger">
+                          <Icon
+                            name={instructionIconTypes[step.type] || 'road'}
+                            color={instructionIconColors[step.type] || 'blue'}
+                          />
+                          <Step.Title className="initial-width">
+                            <span>
                               {step.title}
                             </span>
                           </Step.Title>
                           <Step.Description>
-                            <span className="font-size-18">
+                            <span className="font-size-15">
                               {step.description}
                             </span>
                           </Step.Description>
@@ -112,17 +108,17 @@ const FoundedRouteInfo = ({ clearRouteInfo, routeInfo }) => (
         }
         {
           routeInfo.busStops &&
-          <Grid.Row >
+          <Grid.Row className="padding-0">
             <Grid.Column>
               <Accordion fluid>
                 <Accordion.Title>
-                  <Header as="h3">
-                    <Icon name="dropdown" />
+                  <Icon name="dropdown" />
+                  <strong className="font-size-15">
                     Bus stops({routeInfo.busStops.length})
-                  </Header>
+                  </strong>
                 </Accordion.Title>
                 <Accordion.Content>
-                  <List divided relaxed animated celled size="big">
+                  <List divided relaxed animated celled size="medium">
                     {
                       routeInfo.busStops.map(busStop =>
                         <List.Item key={busStop.id} className="cursor-pointer">

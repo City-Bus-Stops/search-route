@@ -255,5 +255,58 @@
         "name": "End Point",
         "address": "Elnora Center, 25"
       }
-    }]
+    }],
+    "user-info": {
+      "name": "Your Location",
+      "busStops": [{
+        "id": 1,
+        "name": "Университет Имени Янки Купалы",
+        "distance": 1000,
+        "timeToReach": "5",
+        "coords": [53.6729683, 23.79417658]
+      }, {
+        "id": 2,
+        "name": "Девятовка",
+        "distance": 500,
+        "timeToReach": "2.5",
+        "coords": [53.6729683, 23.79417658]
+      }, {
+        "id": 3,
+        "name": "Улица Советских Пограничников",
+        "distance": 750,
+        "timeToReach": "3.3",
+        "coords": [53.6729683, 23.79417658]
+      }, {
+        "id": 4,
+        "name": "Площадь Советская",
+        "distance": 150,
+        "timeToReach": "1.5",
+        "coords": [53.6729683, 23.79417658]
+      }]
+    },
+  "path": [{
+    "type": "Feature",
+    "properties": {
+      "id": 2,
+      "type": "bus_stop"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [23.78439188, 53.66429825]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "name": "Lines"
+    },
+    "geometry": {
+      "type": "LineString",
+      "coordinates": [
+        [23.79417658, 53.6729683],
+        [23.78851175, 53.66706981],
+        [23.78439188, 53.66429825],
+        [23.78190279, 53.65911062],
+        [23.78194571, 53.65791534]]
+    }
+  }]
 }
