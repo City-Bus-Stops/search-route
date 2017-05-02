@@ -1,31 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Label } from 'semantic-ui-react';
+import { Label, Input } from 'semantic-ui-react';
 
 const InputField = ({
-  type, label, placeholder, id, customContent, customContentPosition,
-  hasError, error, initialValue, onChange,
+  type, label, placeholder, id, customContent, hasError, error, value, onChange, info
 }) => (
   <div>
     {
       label && <label className="text-align-left input-label" htmlFor={label}>{label}</label>
     }
-    <div
-      className={`ui ${customContentPosition} icon  input fluid ${hasError ? 'error' : ''}`}
-    >
-      {customContent}
-      <input
-        type={type}
-        placeholder={placeholder}
-        id={id}
-        value={initialValue}
-        onChange={e => onChange(e.target.value.trim())}
-      />
-    </div>
+    <Input
+      fluid
+      error={hasError}
+      icon={customContent}
+      type={type}
+      placeholder={placeholder}
+      id={id}
+      value={value}
+      onChange={e => onChange(e.target.value.trim())}
+    />
     {
       hasError &&
       <Label basic color="red" pointing>{error}</Label>
     }
+    {info}
   </div>
 );
 
@@ -36,20 +34,20 @@ InputField.propTypes = {
   label: PropTypes.shape(),
   placeholder: PropTypes.string,
   customContent: PropTypes.element,
-  customContentPosition: PropTypes.string,
   hasError: PropTypes.bool,
   error: PropTypes.string,
-  initialValue: PropTypes.string,
+  value: PropTypes.string,
+  info: PropTypes.element,
 };
 
 InputField.defaultProps = {
   placeholder: '',
   label: null,
   customContent: null,
-  customContentPosition: 'left',
   hasError: false,
   error: 'Please enter a value',
-  initialValue: '',
+  value: '',
+  info: null,
 };
 
 export default InputField;

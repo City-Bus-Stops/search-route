@@ -10,8 +10,6 @@ const UserManagement = ({ children, notifications, IsSpinnerActive }) => (
       notifications={notifications}
     />
     <Spinner IsSpinnerActive={IsSpinnerActive} />
-      notifications={notifications}
-    />
     {children}
   </div>
 );

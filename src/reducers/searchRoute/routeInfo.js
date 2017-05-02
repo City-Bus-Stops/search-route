@@ -1,11 +1,11 @@
 import {
-  RECEIVE_ROUTE_INFO,
+  LOAD_ROUTE_INFO_SUCCESS,
   CLEAR_ROUTE_INFO,
-} from '../actions/actions';
+} from '../../actions/actions';
 
-const routeInfo = (state = {}, action) => {
+const routeInfo = (state = {}, action) =>   {
   switch (action.type) {
-    case RECEIVE_ROUTE_INFO:
+    case LOAD_ROUTE_INFO_SUCCESS:
       return action.info;
 
     case CLEAR_ROUTE_INFO:

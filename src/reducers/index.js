@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 import { reducer as notifications } from 'react-notification-system-redux';
+import { routerReducer } from 'react-router-redux';
 
 import searchRoute from './searchRoute/searchRoute';
 import login from './login/login';
 import signup from './signup/signup';
-import searchRouteMap from './searchRouteMap/searchRouteMap';
+import map from './map/map';
 import spinner from './spinner';
 
 export default combineReducers({
@@ -12,6 +13,7 @@ export default combineReducers({
   notifications,
   login,
   signup,
-  searchRouteMap,
+  map,
   spinner,
+  routing: routerReducer,
 });

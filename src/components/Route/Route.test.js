@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FoundedRoute from './FoundedRoute';
+import FoundedRoute from './Route';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -14,6 +14,7 @@ it('renders without crashing', () => {
         timeInTravel: '15',
       }}
       getRouteInfo={() => {}}
+      getRouteGeoData={() => {}}
     />, div);
 });
 

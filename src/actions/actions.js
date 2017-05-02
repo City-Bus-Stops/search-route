@@ -5,10 +5,8 @@ export const FIND_USER_LOCATION = 'FIND_USER_LOCATION';
 export const FIND_USER_LOCATION_SUCCESS = 'FIND_USER_LOCATION_SUCCESS';
 export const FIND_USER_ADDRESS = 'FIND_USER_ADDRESS';
 export const FIND_USER_ADDRESS_SUCCESS = 'FIND_USER_ADDRESS_SUCCESS';
-export const SEARCH_ROUTES = 'SEARCH_ROUTES';
-export const SEARCH_ROUTES_SUCCESS = 'SEARCH_ROUTES_SUCCESS';
-export const LOAD_ROUTE_INFO = 'LOAD_ROUTE_INFO';
-export const LOAD_ROUTE_INFO_SUCCESS = 'LOAD_ROUTE_INFO_SUCCESS';
+export const SEARCH_ROUTE = 'SEARCH_ROUTE';
+export const SEARCH_ROUTE_SUCCESS = 'SEARCH_ROUTE_SUCCESS';
 
 /** Forms actions **/
 export const SET_FORM_FIELD = 'SET_FORM_FIELD';
@@ -17,22 +15,27 @@ export const FORM_SUBMIT_FAILED = 'FORM_SUBMIT_FAILED';
 /** User Management actions **/
 export const LOGIN = 'LOGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const SIGNUP = 'SIGNUP';
-export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+export const SIGN_UP = 'SIGN_UP';
+export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
 
 /** Route Info actions **/
-export const RECEIVE_ROUTE_INFO = 'RECEIVE_ROUTE_INFO';
+export const LOAD_ROUTE_INFO = 'LOAD_ROUTE_INFO';
+export const LOAD_ROUTE_INFO_SUCCESS = 'LOAD_ROUTE_INFO_SUCCESS';
 export const CLEAR_ROUTE_INFO = 'CLEAR_ROUTE_INFO';
 
 /** Map actions **/
 export const LOAD_ROUTE_GEODATA = 'LOAD_ROUTE_GEODATA';
 export const LOAD_ROUTE_GEODATA_SUCCESS = 'LOAD_ROUTE_GEODATA_SUCCESS';
 export const LOAD_ROUTE_GEODATA_FAILURE = 'LOAD_ROUTE_GEODATA_FAILURE';
-export const CLEAR_ROUTE_GEODATA = 'CLEAR_ROUTE_GEODATA';
+export const CLEAR_MAP_GEODATA = 'CLEAR_MAP_GEODATA';
 export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
 export const LOAD_MAP_POINT_INFO = 'LOAD_MAP_POINT_INFO';
 export const LOAD_MAP_POINT_INFO_SUCCESS = 'LOAD_MAP_POINT_INFO_SUCCESS';
 export const CLEAR_MAP_POINT_INFO = 'CLEAR_MAP_POINT_INFO';
+export const LOAD_USER_POINT_INFO = 'LOAD_USER_POINT_INFO';
+export const LOAD_USER_POINT_INFO_SUCCESS = 'LOAD_USER_POINT_INFO_SUCCESS';
+export const LOAD_ROUTE_BETWEEN_POINTS = 'LOAD_ROUTE_BETWEEN_POINTS';
+export const LOAD_ROUTE_BETWEEN_POINTS_SUCCESS = 'LOAD_ROUTE_BETWEEN_POINTS_SUCCESS';
 
 /** Spinner actions **/
 export const SEND_REQUEST = 'SEND_REQUEST';
@@ -56,9 +59,8 @@ export const findUserAddress = (formName, field) => ({
   field,
 });
 
-export const searchRoutes = (routesType, params) => ({
-  type: SEARCH_ROUTES,
-  routesType,
+export const searchRoute = params => ({
+  type: SEARCH_ROUTE,
   params,
 });
 
@@ -75,53 +77,50 @@ export const logIn = (email, password) => ({
 });
 
 export const signUp = (email, password) => ({
-  type: SIGNUP,
+  type: SIGN_UP,
   email,
   password,
 });
 
-export const putRouteInfo = (modalType, info) => ({
-  type: RECEIVE_ROUTE_INFO,
-  modalType,
-  info,
-});
-
-export const clearRouteInfo = modalType => ({
-  type: CLEAR_ROUTE_INFO,
-  modalType,
-});
-
-export const getRouteInfo = (routeId, routeType) => ({
+export const getRouteInfo = routeId => ({
   type: LOAD_ROUTE_INFO,
   routeId,
-  routeType,
 });
 
-export const loadRouteGeoData = (routeId, routeType) => ({
+export const clearRouteInfo = () => ({
+  type: CLEAR_ROUTE_INFO,
+});
+
+export const getRouteGeoData = routeId => ({
   type: LOAD_ROUTE_GEODATA,
   routeId,
-  routeType,
 });
 
-export const clearRouteGeoData = routeType => ({
-  type: CLEAR_ROUTE_GEODATA,
-  routeType,
+export const clearMapGeoData = () => ({
+  type: CLEAR_MAP_GEODATA,
 });
 
-export const getMapPointInfo = (pointId, pointType) => ({
+export const getMapPointInfo = pointId => ({
   type: LOAD_MAP_POINT_INFO,
   pointId,
-  pointType,
 });
 
-export const clearMapPointInfo = pointType => ({
+export const getUserPointInfo = () => ({
+  type: LOAD_USER_POINT_INFO,
+});
+
+export const closeMapPointInfo = () => ({
   type: CLEAR_MAP_POINT_INFO,
-  pointType,
 });
 
-export const toggleSideBar = sidebarType => ({
+export const toggleSideBar = () => ({
   type: TOGGLE_SIDEBAR,
-  sidebarType,
+});
+
+export const loadRouteBetweenPoints = (startPoint, endPoint) => ({
+  type: LOAD_ROUTE_BETWEEN_POINTS,
+  startPoint,
+  endPoint,
 });
 
 export const showNotification = (type, title, message) =>

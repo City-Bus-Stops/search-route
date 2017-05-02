@@ -7,9 +7,10 @@ import SearchRoute from '../../components/SearchRoute/SearchRoute';
 import {
   setFormField,
   findUserAddress,
-  searchRoutes,
+  searchRoute,
   formSubmitFailed,
   getRouteInfo,
+  getRouteGeoData,
   clearRouteInfo,
 } from '../../actions/actions';
 import { getForm, getRoutes, getInfo } from '../../reducers/searchRoute/searchRoute';
@@ -27,9 +28,10 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     setFormField,
     findUserAddress,
-    searchRoutes,
+    searchRoute,
     formSubmitFailed,
     getRouteInfo,
+    getRouteGeoData,
     clearRouteInfo,
   }, dispatch),
 });

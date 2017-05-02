@@ -22,9 +22,8 @@ const Login = ({ email, password, actions, errors }) => (
                   type="text"
                   id="email"
                   customContent={<Icon name="user" />}
-                  customContentPosition="left"
                   label={<p>Email <sup>*</sup></p>}
-                  initialValue={email}
+                  value={email}
                   onChange={value => actions.setFormField('loginForm', 'email', value)}
                   hasError={!isEmpty(errors.email)}
                   error={head(errors.email)}
@@ -37,9 +36,8 @@ const Login = ({ email, password, actions, errors }) => (
                   type="password"
                   id="password"
                   customContent={<Icon name="lock" />}
-                  customContentPosition="left"
                   label={<p>Password <sup>*</sup></p>}
-                  initialValue={password}
+                  value={password}
                   onChange={value => actions.setFormField('loginForm', 'password', value)}
                   hasError={!isEmpty(errors.password)}
                   error={head(errors.password)}

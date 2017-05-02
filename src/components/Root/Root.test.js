@@ -9,6 +9,7 @@ it('renders without crashing', () => {
       location={{
         pathname: 'testPath',
       }}
+      IsSpinnerActive={false}
       notifications={[]}
     />, div);
 });

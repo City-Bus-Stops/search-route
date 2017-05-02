@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
-import { Grid, Card, Label, Popup, Icon } from 'semantic-ui-react';
+import { Grid, Card, Label, Icon } from 'semantic-ui-react';
 
-const FoundedRoute = ({ route, getRouteInfo }) => (
+const Route = ({ route, getRouteInfo, getRouteGeoData }) => (
   <Grid.Column>
     <Card fluid color="blue">
       <Card.Content>
@@ -14,22 +13,14 @@ const FoundedRoute = ({ route, getRouteInfo }) => (
           </Card.Meta>
         </Card.Header>
         <Card.Description>
-          <p className="font-size-18"><strong>From: </strong>{route.from}</p>
-          <p className="font-size-18"><strong>To: </strong>{route.to}</p>
+          <p className="font-size-15"><strong>From: </strong>{route.from}</p>
+          <p className="font-size-15"><strong>To: </strong>{route.to}</p>
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Popup
-          hideOnScroll
-          on="hover"
-          trigger={
-            <Link to={`/map/${route.id}`} className="float-right">
-              <i className="link map outline red icon" />
-            </Link>
-          }
-          content="Watch on the map"
-          position="bottom right"
-        />
+        <span className="float-right" onClick={() => getRouteGeoData(route.id)}>
+          <Icon link name="map outline" color="red" />
+        </span>
         <span className="cursor-pointer" onClick={() => getRouteInfo(route.id)}>
           <Icon name="info circle" />
           More info
@@ -39,7 +30,7 @@ const FoundedRoute = ({ route, getRouteInfo }) => (
   </Grid.Column>
 );
 
-FoundedRoute.propTypes = {
+Route.propTypes = {
   route: PropTypes.shape({
     id: PropTypes.string.isRequired,
     from: PropTypes.string.isRequired,
@@ -48,6 +39,7 @@ FoundedRoute.propTypes = {
     timeInTravel: PropTypes.string.isRequired,
   }).isRequired,
   getRouteInfo: PropTypes.func.isRequired,
+  getRouteGeoData: PropTypes.func.isRequired,
 };
 
-export default FoundedRoute;
+export default Route;

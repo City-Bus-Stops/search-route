@@ -11,7 +11,13 @@ storiesOf('Map', module)
     <div>
       <MapComponent
         data={[]}
-        getMapPointInfo={action('Load point info')}
+        actions={{
+          getMapPointInfo: action('Load point info'),
+          closeMapPointInfo: action('Close map point info'),
+          toggleSideBar: action('Toggle sidebar'),
+        }}
+        isSidebarOpen={false}
+        pointInfo={{}}
       />
     </div>
   ))
@@ -19,7 +25,13 @@ storiesOf('Map', module)
     <div>
       <MapComponent
         data={mockData['routes-geo'][0].geoData}
-        getMapPointInfo={action('Load point info')}
+        actions={{
+          getMapPointInfo: action('Load point info'),
+          closeMapPointInfo: action('Close map point info'),
+          toggleSideBar: action('Toggle sidebar'),
+        }}
+        isSidebarOpen={false}
+        pointInfo={{}}
       />
     </div>
   ))
@@ -27,7 +39,13 @@ storiesOf('Map', module)
     <div>
       <MapComponent
         data={nearestBusStops}
-        getMapPointInfo={action('Load point info')}
+        actions={{
+          getMapPointInfo: action('Load point info'),
+          closeMapPointInfo: action('Close map point info'),
+          toggleSideBar: action('Toggle sidebar'),
+        }}
+        isSidebarOpen={false}
+        pointInfo={{}}
         center={[53.6729683, 23.79417658]}
         zoom={17}
         maxZoom={18}
@@ -39,7 +57,12 @@ storiesOf('Map', module)
     <div>
       <MapComponent
         data={nearestBusStops}
-        getMapPointInfo={action('Load point info')}
+        actions={{
+          getMapPointInfo: action('Load point info'),
+          closeMapPointInfo: action('Close map point info'),
+          toggleSideBar: action('Toggle sidebar'),
+        }}
+        pointInfo={{}}
         center={[53.6729683, 23.79417658]}
         zoom={17}
         maxZoom={18}

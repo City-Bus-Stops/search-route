@@ -221,7 +221,7 @@ label sup {
 }
 
 .padding-left-5 {
-  padding-left: 5px;
+  padding-left: 5px!important;
 }
 
 .input-label {
@@ -232,12 +232,8 @@ label sup {
   font-style: oblique;
 }
 
-.font-size-18 {
-  font-size: 18px;
-}
-
-.font-size-16 {
-  font-size: 16px;
+.font-size-15 {
+  font-size: 15px;
 }
 
 .color-beige {
@@ -253,3 +249,45 @@ label sup {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.padding-right-5 {
+  padding-right: 5px!important;
+}
+
+.padding-0 {
+  padding: 0!important;
+}
+
+.initial-width {
+  width: inherit!important;
+}
+
+.map-revert-button {
+  margin: 20px;
+  bottom: 0;
+  position: absolute;
+  z-index: 9999;
+}
+
+.pushable > div > div > .map-revert-button {
+  margin: 20px;
+}
+
+.info {
+  position: relative;
+  margin: 0;
+  padding-top: 3px;
+  color: #999;
+  font-size: 12px;
+}
+
+.info-icon {
+  position: absolute;
+  padding-left: 5px;
+  top: 0;
+  left: 0;
+  content: '\F05A';
+  font-family: 'Font Awesome';
+  font-size: 16px;
+}
+

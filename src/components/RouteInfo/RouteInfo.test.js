@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FoundedRouteInfo from './FoundedRouteInfo';
+import RouteInfo from './RouteInfo';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <FoundedRouteInfo
+    <RouteInfo
       routeInfo={{}}
       clearRouteInfo={() => {}}
     />, div);

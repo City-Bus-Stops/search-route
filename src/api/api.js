@@ -1,35 +1,37 @@
 import axios from 'axios';
 
-export const verifyStatus = (response) => {
-  const { status, statusText } = response;
-  if (status >= 200 && status < 300) return response;
-  throw new Error(statusText);
-};
-
 export const fetchFindUsertLocation = () => new Promise((resolve, reject) => {
   navigator.geolocation.getCurrentPosition(
       (position) => { resolve(position); },
       (err) => { reject(err); },
-      { enableHighAccuracy: true, timeout: 10000 },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 30000 },
     );
 });
 
-export const fetchFindUserAddress = (lat, lon) =>
-  axios.get(`/address?lat=${lat}&lon=${lon}`)
-    .then(verifyStatus);
+export const fetchFindUserAddress = coords =>
+  axios.get(`/address?lat=${coords.latitude}&lon=${coords.longitude}`)
+    .then(response => response.data);
 
 export const fetchSearchRoute = (from, to) =>
   axios.get(`/search-route?from=${from}&to=${to}`)
-    .then(verifyStatus);
+    .then(response => response.data);
 
 export const fetchRouteInfo = routeId =>
   axios.get(`/routes/${routeId}/info`)
-    .then(verifyStatus);
+    .then(response => response.data);
 
 export const fetchRouteGeoData = routeId =>
   axios.get(`/routes/${routeId}/geo`)
-    .then(verifyStatus);
+    .then(response => response.data);
 
 export const fetchMapPointInfo = pointId =>
   axios.get(`/points/${pointId}/info`)
-    .then(verifyStatus);
+    .then(response => response.data);
+
+export const fetchUserPointInfo = coords =>
+  axios.get(`/user/info?lat=${coords.latitude}&lon=${coords.longitude}`)
+    .then(response => response.data);
+
+export const fetchRouteBetweenPoints = (startPoint, endPoint) =>
+  axios.get(`/path?startPoint=${JSON.stringify(startPoint)}&endPoint=${JSON.stringify(endPoint)}`)
+    .then(response => response.data);

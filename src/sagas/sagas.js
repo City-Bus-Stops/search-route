@@ -1,4 +1,4 @@
-import { call, put, takeLatest, take, race, fork } from 'redux-saga/effects';
+import { call, put, takeLatest, take, race, fork, takeEvery } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 
 import {
@@ -8,14 +8,16 @@ import {
   fetchRouteInfo,
   fetchRouteGeoData,
   fetchMapPointInfo,
+  fetchUserPointInfo,
+  fetchRouteBetweenPoints,
 } from '../api/api';
 import {
   FIND_USER_LOCATION,
   FIND_USER_LOCATION_SUCCESS,
   FIND_USER_ADDRESS,
   FIND_USER_ADDRESS_SUCCESS,
-  SEARCH_ROUTES,
-  SEARCH_ROUTES_SUCCESS,
+  SEARCH_ROUTE,
+  SEARCH_ROUTE_SUCCESS,
   LOAD_ROUTE_INFO,
   LOAD_ROUTE_INFO_SUCCESS,
   CLEAR_ROUTE_INFO,
@@ -24,9 +26,13 @@ import {
   LOAD_ROUTE_GEODATA_FAILURE,
   LOAD_MAP_POINT_INFO,
   LOAD_MAP_POINT_INFO_SUCCESS,
+  LOAD_USER_POINT_INFO,
+  LOAD_USER_POINT_INFO_SUCCESS,
   CLEAR_MAP_POINT_INFO,
   SEND_REQUEST,
   RECEIVE_RESPONSE,
+  LOAD_ROUTE_BETWEEN_POINTS,
+  LOAD_ROUTE_BETWEEN_POINTS_SUCCESS,
   showNotification,
 } from '../actions/actions';
 
@@ -45,28 +51,29 @@ function* findUserLocation() {
 function* findUserAddress(action) {
   const { formName, field } = action;
   try {
+    yield put({ type: FIND_USER_LOCATION });
+    const { location } = yield take(FIND_USER_LOCATION_SUCCESS);
+    const { coords } = location;
     yield put({ type: SEND_REQUEST });
-    const location = yield call(fetchFindUsertLocation);
-    const { latitude, longitude } = location.coords;
-    const response = yield call(fetchFindUserAddress, latitude, longitude);
+    const response = yield call(fetchFindUserAddress, coords);
     yield put({ type: RECEIVE_RESPONSE });
-    const { address } = response.data;
-    yield put({ type: FIND_USER_ADDRESS_SUCCESS, address, formName, field });
+    const { address } = response;
+    yield put({ type: FIND_USER_ADDRESS_SUCCESS, address, coords, formName, field });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
   }
 }
 
-function* searchRoutes(action) {
-  const { routesType, params } = action;
+function* searchRoute(action) {
+  const { params } = action;
   const { from, to } = params;
   try {
     yield put({ type: SEND_REQUEST });
     const response = yield call(fetchSearchRoute, from, to);
     yield put({ type: RECEIVE_RESPONSE });
-    const { routes } = response.data;
-    yield put({ type: SEARCH_ROUTES_SUCCESS, routes, routesType });
+    const { routes } = response;
+    yield put({ type: SEARCH_ROUTE_SUCCESS, routes });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
@@ -74,20 +81,20 @@ function* searchRoutes(action) {
 }
 
 function* loadRouteInfo(action) {
-  const { routeId, routeType } = action;
+  const { routeId } = action;
   try {
     const response = yield call(fetchRouteInfo, routeId);
-    const { info } = response.data;
-    yield put({ type: LOAD_ROUTE_INFO_SUCCESS, info, routeType, routeId });
+    const { info } = response;
+    yield put({ type: LOAD_ROUTE_INFO_SUCCESS, info, routeId });
   } catch (err) {
     yield put(showNotification('error', 'Error', err.message));
   }
 }
 
-function* pollRouteInfo(routeType, routeId) {
+function* pollRouteInfo(routeId) {
   try {
     yield call(delay, 60000);
-    yield put({ type: LOAD_ROUTE_INFO, routeType, routeId });
+    yield put({ type: LOAD_ROUTE_INFO, routeId });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
@@ -96,18 +103,18 @@ function* pollRouteInfo(routeType, routeId) {
 
 function* watchPollRouteInfo() {
   while (true) {
-    const { routeType, routeId } = yield take(LOAD_ROUTE_INFO_SUCCESS);
+    const { routeId } = yield take(LOAD_ROUTE_INFO_SUCCESS);
     yield race([
-      call(pollRouteInfo, routeType, routeId),
+      call(pollRouteInfo, routeId),
       take(CLEAR_ROUTE_INFO),
     ]);
   }
 }
 
-function* pollPointInfo(pointType, pointId) {
+function* pollPointInfo(pointId) {
   try {
-    yield call(delay, 5000);
-    yield put({ type: LOAD_MAP_POINT_INFO, pointType, pointId });
+    yield call(delay, 60000);
+    yield put({ type: LOAD_MAP_POINT_INFO, pointId });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
@@ -116,22 +123,22 @@ function* pollPointInfo(pointType, pointId) {
 
 function* watchPollPointInfo() {
   while (true) {
-    const { pointType, id } = yield take(LOAD_MAP_POINT_INFO_SUCCESS);
+    const { pointId } = yield take(LOAD_MAP_POINT_INFO_SUCCESS);
     yield race([
-      call(pollPointInfo, pointType, id),
+      call(pollPointInfo, pointId),
       take(CLEAR_MAP_POINT_INFO),
     ]);
   }
 }
 
 function* loadRouteGeoData(action) {
-  const { routeId, routeType } = action;
+  const { routeId } = action;
   try {
     yield put({ type: SEND_REQUEST });
     const response = yield call(fetchRouteGeoData, routeId);
     yield put({ type: RECEIVE_RESPONSE });
-    const { geoData } = response.data;
-    yield put({ type: LOAD_ROUTE_GEODATA_SUCCESS, geoData, routeType });
+    const { geoData } = response;
+    yield put({ type: LOAD_ROUTE_GEODATA_SUCCESS, geoData });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
@@ -140,13 +147,44 @@ function* loadRouteGeoData(action) {
 }
 
 function* loadMapPointInfo(action) {
-  const { pointId, pointType } = action;
+  const { pointId } = action;
   try {
-    yield call(delay, 5000);
     const response = yield call(fetchMapPointInfo, pointId);
-    const { id, info } = response.data;
-    yield put({ type: LOAD_MAP_POINT_INFO_SUCCESS, pointType, id, info });
+    const { info } = response;
+    yield put({ type: LOAD_MAP_POINT_INFO_SUCCESS, info, pointId });
   } catch (err) {
+    yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
+function* loadUserPointInfo() {
+  try {
+    yield put({ type: FIND_USER_LOCATION });
+    const { location } = yield take(FIND_USER_LOCATION_SUCCESS);
+    const { coords } = location;
+    yield put({ type: SEND_REQUEST });
+    const [addressResponse, infoResponse] = yield ([
+      call(fetchFindUserAddress, coords),
+      call(fetchUserPointInfo, coords),
+    ]);
+    const { address } = addressResponse;
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: LOAD_USER_POINT_INFO_SUCCESS, address, info: { ...infoResponse, address } });
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
+function* loadRouteBetweenPoints(action) {
+  const { startPoint, endPoint } = action;
+  try {
+    yield put({ type: SEND_REQUEST });
+    const geoData = yield call(fetchRouteBetweenPoints, startPoint, endPoint);
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: LOAD_ROUTE_BETWEEN_POINTS_SUCCESS, geoData });
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
   }
 }
@@ -154,10 +192,12 @@ function* loadMapPointInfo(action) {
 function* appSaga() {
   yield takeLatest(FIND_USER_LOCATION, findUserLocation);
   yield takeLatest(FIND_USER_ADDRESS, findUserAddress);
-  yield takeLatest(SEARCH_ROUTES, searchRoutes);
+  yield takeLatest(SEARCH_ROUTE, searchRoute);
   yield takeLatest(LOAD_ROUTE_INFO, loadRouteInfo);
   yield takeLatest(LOAD_ROUTE_GEODATA, loadRouteGeoData);
   yield takeLatest(LOAD_MAP_POINT_INFO, loadMapPointInfo);
+  yield takeLatest(LOAD_USER_POINT_INFO, loadUserPointInfo);
+  yield takeEvery(LOAD_ROUTE_BETWEEN_POINTS, loadRouteBetweenPoints);
   yield [fork(watchPollRouteInfo), fork(watchPollPointInfo)];
 }
 export default appSaga;
