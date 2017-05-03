@@ -10,6 +10,7 @@ import {
   fetchMapPointInfo,
   fetchUserPointInfo,
   fetchRouteBetweenPoints,
+  fetchNearestBusStops,
 } from '../api/api';
 import {
   FIND_USER_LOCATION,
@@ -33,6 +34,8 @@ import {
   RECEIVE_RESPONSE,
   LOAD_ROUTE_BETWEEN_POINTS,
   LOAD_ROUTE_BETWEEN_POINTS_SUCCESS,
+  FIND_NEAREST_BUS_STOPS,
+  FIND_NEAREST_BUS_STOPS_SUCCESS,
   showNotification,
 } from '../actions/actions';
 
@@ -163,13 +166,9 @@ function* loadUserPointInfo() {
     const { location } = yield take(FIND_USER_LOCATION_SUCCESS);
     const { coords } = location;
     yield put({ type: SEND_REQUEST });
-    const [addressResponse, infoResponse] = yield ([
-      call(fetchFindUserAddress, coords),
-      call(fetchUserPointInfo, coords),
-    ]);
-    const { address } = addressResponse;
+    const info = yield call(fetchUserPointInfo, coords);
     yield put({ type: RECEIVE_RESPONSE });
-    yield put({ type: LOAD_USER_POINT_INFO_SUCCESS, address, info: { ...infoResponse, address } });
+    yield put({ type: LOAD_USER_POINT_INFO_SUCCESS, info });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
@@ -189,6 +188,21 @@ function* loadRouteBetweenPoints(action) {
   }
 }
 
+function* findNearestBusStops() {
+  try {
+    yield put({ type: FIND_USER_LOCATION });
+    const { location } = yield take(FIND_USER_LOCATION_SUCCESS);
+    const { coords } = location;
+    yield put({ type: SEND_REQUEST });
+    const geoData = yield call(fetchNearestBusStops, coords);
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: FIND_NEAREST_BUS_STOPS_SUCCESS, geoData });
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
 function* appSaga() {
   yield takeLatest(FIND_USER_LOCATION, findUserLocation);
   yield takeLatest(FIND_USER_ADDRESS, findUserAddress);
@@ -198,6 +212,7 @@ function* appSaga() {
   yield takeLatest(LOAD_MAP_POINT_INFO, loadMapPointInfo);
   yield takeLatest(LOAD_USER_POINT_INFO, loadUserPointInfo);
   yield takeEvery(LOAD_ROUTE_BETWEEN_POINTS, loadRouteBetweenPoints);
+  yield takeEvery(FIND_NEAREST_BUS_STOPS, findNearestBusStops);
   yield [fork(watchPollRouteInfo), fork(watchPollPointInfo)];
 }
 export default appSaga;

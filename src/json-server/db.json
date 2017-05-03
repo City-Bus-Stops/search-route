@@ -258,6 +258,7 @@
     }],
     "user-info": {
       "name": "Your Location",
+      "address": "Гродно, Улица О. Соломовой 135",
       "busStops": [{
         "id": 1,
         "name": "Университет Имени Янки Купалы",
@@ -308,5 +309,53 @@
         [23.78190279, 53.65911062],
         [23.78194571, 53.65791534]]
     }
-  }]
+  }],
+  "nearest-bus-stops": [{
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "name": "bus stop",
+        "type": "bus_stop"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [23.79566252, 53.674214]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "name": "bus stop",
+        "type": "bus_stop"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [23.79310906, 53.6724662]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 4,
+        "name": "bus stop",
+        "type": "bus_stop"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [23.79532188, 53.67279511]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 5,
+        "name": "bus stop",
+        "type": "bus_stop"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [23.7927711, 53.67343862]
+      }
+    }]
 }

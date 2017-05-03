@@ -21,17 +21,17 @@ export const getIsSidebarOpen = state => state.isSidebarOpen;
 export const getPointInfo = state => state.pointInfo;
 
 export const getUserCoordinates = state => createSelector(
-  [getCoordinates],
+  getCoordinates,
   coordinates => coordinates,
 )(state.userLocation);
 
 export const getUserAddress = createSelector(
-  [getAddress],
+  getAddress,
   address => address,
 );
 
 export const getStartPointCoordinates = createSelector(
-  [getGeoData],
+  getGeoData,
   (data) => {
     const startPointIndex = findIndex(data, point => point.properties.type === 'start');
     return startPointIndex !== -1 ?

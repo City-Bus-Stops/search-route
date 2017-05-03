@@ -10,6 +10,7 @@ import {
   getUserPointInfo,
   findUserLocation,
   loadRouteBetweenPoints,
+  findNearestButStops,
 } from '../../actions/actions';
 
 import { getGeoData, getIsSidebarOpen, getPointInfo, getUserCoordinates,
@@ -31,6 +32,7 @@ const mapDispatchToProps = dispatch => ({
     getUserPointInfo,
     findUserLocation,
     loadRouteBetweenPoints,
+    findNearestButStops,
   }, dispatch),
 });
 

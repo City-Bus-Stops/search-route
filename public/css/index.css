@@ -235,7 +235,7 @@ label sup {
 }
 
 .font-size-15 {
-  font-size: 15px;
+  font-size: 15px!important;
 }
 
 .color-beige {
