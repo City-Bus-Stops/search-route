@@ -8,8 +8,9 @@ import rootReducer from './reducers';
 import {
   findUserAddressSuccess,
   spinnerMiddleware,
-  checkIsGeoDataLoaded,
-  checkIsRouteBetweenPointsIsLoaded,
+  handleIsGeoDataLoaded,
+  handleRouteBetweenPointsIsLoaded,
+  handleLoginAction,
 } from './middlewares';
 
 import sagas from './sagas/sagas';
@@ -17,11 +18,12 @@ import sagas from './sagas/sagas';
 const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware();
   let middlewares = [
-    sagaMiddleware,
     findUserAddressSuccess,
     spinnerMiddleware,
-    checkIsGeoDataLoaded,
-    checkIsRouteBetweenPointsIsLoaded,
+    handleIsGeoDataLoaded,
+    handleRouteBetweenPointsIsLoaded,
+    handleLoginAction,
+    sagaMiddleware,
     routerMiddleware(browserHistory),
   ];
   if (process.env.NODE_ENV !== ('production' && 'test')) {

@@ -89,16 +89,28 @@ const PointInfo = ({ pointInfo, closePointInfo, loadRouteBetweenPoints }) => (
                     </Card.Description>
                   </Card.Content>
                   <Card.Content extra className="padding-left-5 padding-right-5">
-                    <Button.Group compact>
-                      <Button
-                        color="green"
-                        onClick={() => loadRouteBetweenPoints({
-                          coords: busStop.coords,
-                          type: 'bus_stop',
-                        })}
-                      >Watch on the map</Button>
-                      <Button.Or />
-                      <Button color="yellow">Watch bus stop schedule</Button>
+                    <Button.Group fluid>
+                      <Grid columns={2} doubling container>
+                        <Grid.Row stretched>
+                          <Grid.Column mobile={16} widescreen={8}>
+                            <Button
+                              color="green"
+                              onClick={() => loadRouteBetweenPoints({
+                                coords: busStop.coords,
+                                type: 'bus_stop',
+                              })}
+                            >Watch on the map
+                            </Button>
+                          </Grid.Column>
+                          <Grid.Column mobile={16} widescreen={8}>
+                            <Button
+                              color="yellow"
+                            >
+                              Watch schedule
+                            </Button>
+                          </Grid.Column>
+                        </Grid.Row>
+                      </Grid>
                     </Button.Group>
                   </Card.Content>
                 </Card>

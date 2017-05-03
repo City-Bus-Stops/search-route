@@ -1,6 +1,9 @@
 import { isEmpty, includes } from 'lodash';
 import { push } from 'react-router-redux';
 
+import { validateLoginForm } from '../validation';
+import { LOGIN_FORM } from '../reducers/login/login';
+
 import {
   FIND_USER_ADDRESS_SUCCESS,
   SEND_REQUEST,
@@ -9,7 +12,9 @@ import {
   LOAD_ROUTE_GEODATA_SUCCESS,
   LOAD_ROUTE_BETWEEN_POINTS_SUCCESS,
   CLEAR_MAP_POINT_INFO,
+  LOGIN,
   setFormField,
+  formSubmitFailed,
 } from '../actions/actions';
 
 export const findUserAddressSuccess = store => next => (action) => {
@@ -29,16 +34,30 @@ export const spinnerMiddleware = store => next => (action) => {
   next(action);
 };
 
-export const checkIsGeoDataLoaded = store => next => (action) => {
+export const handleIsGeoDataLoaded = store => next => (action) => {
   if (action.type === LOAD_ROUTE_GEODATA_SUCCESS) {
     store.dispatch(push('/map'));
   }
   next(action);
 };
 
-export const checkIsRouteBetweenPointsIsLoaded = store => next => (action) => {
+export const handleRouteBetweenPointsIsLoaded = store => next => (action) => {
   if (action.type === LOAD_ROUTE_BETWEEN_POINTS_SUCCESS) {
     store.dispatch({ type: CLEAR_MAP_POINT_INFO });
   }
   next(action);
+};
+
+export const handleLoginAction = store => next => (action) => {
+  if (action.type === LOGIN) {
+    const { email, password } = action;
+    const validateErorrs = validateLoginForm({ email, password });
+    if (isEmpty(validateErorrs)) {
+      next(action);
+    } else {
+      store.dispatch(formSubmitFailed(LOGIN_FORM, validateErorrs));
+    }
+  } else {
+    next(action);
+  }
 };

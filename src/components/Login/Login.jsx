@@ -5,7 +5,8 @@ import { Grid, Icon, Button, Segment } from 'semantic-ui-react';
 import { isEmpty, head } from 'lodash';
 
 import InputField from '../InputField/InputField';
-import { validateLoginForm } from '../../validation';
+
+import { LOGIN_FORM } from '../../reducers/login/login';
 
 const Login = ({ email, password, actions, errors }) => (
   <Grid centered padded id="login">
@@ -24,7 +25,7 @@ const Login = ({ email, password, actions, errors }) => (
                   customContent={<Icon name="user" />}
                   label={<p>Email <sup>*</sup></p>}
                   value={email}
-                  onChange={value => actions.setFormField('loginForm', 'email', value)}
+                  onChange={value => actions.setFormField(LOGIN_FORM, 'email', value)}
                   hasError={!isEmpty(errors.email)}
                   error={head(errors.email)}
                 />
@@ -38,7 +39,7 @@ const Login = ({ email, password, actions, errors }) => (
                   customContent={<Icon name="lock" />}
                   label={<p>Password <sup>*</sup></p>}
                   value={password}
-                  onChange={value => actions.setFormField('loginForm', 'password', value)}
+                  onChange={value => actions.setFormField(LOGIN_FORM, 'password', value)}
                   hasError={!isEmpty(errors.password)}
                   error={head(errors.password)}
                 />
@@ -55,14 +56,7 @@ const Login = ({ email, password, actions, errors }) => (
                   fluid
                   color="blue"
                   size="large"
-                  onClick={() => {
-                    const validateErorrs = validateLoginForm({ email, password });
-                    if (isEmpty(validateErorrs)) {
-                      actions.logIn(email, password);
-                    } else {
-                      actions.formSubmitFailed('loginForm', validateErorrs);
-                    }
-                  }}
+                  onClick={() => actions.logIn(email, password)}
                 >
                   Login
                 </Button>
