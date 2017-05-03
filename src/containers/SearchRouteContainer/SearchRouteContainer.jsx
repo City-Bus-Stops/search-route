@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { flow } from 'lodash';
 
 import SearchRoute from '../../components/SearchRoute/SearchRoute';
 
@@ -16,13 +15,17 @@ import {
 import { getForm, getRoutes, getInfo } from '../../reducers/searchRoute/searchRoute';
 import { getFrom, getTo, getErrors } from '../../reducers/searchRoute/form';
 
-const mapStateToProps = state => ({
-  from: flow([getForm, getFrom])(state.searchRoute),
-  to: flow([getForm, getTo])(state.searchRoute),
-  routes: flow([getRoutes])(state.searchRoute),
-  errors: flow([getForm, getErrors])(state.searchRoute),
-  routeInfo: flow([getInfo])(state.searchRoute),
-});
+const mapStateToProps = (state) => {
+  const form = getForm(state.searchRoute);
+
+  return {
+    from: getFrom(form),
+    to: getTo(form),
+    errors: getErrors(form),
+    routes: getRoutes(state.searchRoute),
+    routeInfo: getInfo(state.searchRoute),
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
