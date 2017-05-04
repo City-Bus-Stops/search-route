@@ -9,24 +9,26 @@ import Route from '../Route/Route';
 
 import { validateSearchRouteForm } from '../../validation';
 
+export const SEARCH_ROUTE = 'searchRoute';
+
 const SearchRoute = ({ from, to, routes, errors, actions, routeInfo }) => (
   <div>
     <FoundedRouteInfo
       routeInfo={routeInfo}
-      clearRouteInfo={() => actions.clearRouteInfo('searchRoute')}
+      clearRouteInfo={() => actions.clearRouteInfo(SEARCH_ROUTE)}
     />
     <SeachRouteForm
       from={from}
       to={to}
       errors={errors}
-      setFormField={(value, field) => actions.setFormField('searchRoute', field, value)}
-      findUserAddress={field => actions.findUserAddress('searchRoute', field)}
+      setFormField={(value, field) => actions.setFormField(SEARCH_ROUTE, field, value)}
+      findUserAddress={field => actions.findUserAddress(SEARCH_ROUTE, field)}
       searchRoute={(params) => {
-        const validateErorrs = validateSearchRouteForm(params);
-        if (isEmpty(validateErorrs)) {
+        const validateErrors = validateSearchRouteForm(params);
+        if (isEmpty(validateErrors)) {
           actions.searchRoute(params);
         } else {
-          actions.formSubmitFailed('searchRoute', validateErorrs);
+          actions.formSubmitFailed(SEARCH_ROUTE, validateErrors);
         }
       }}
     />

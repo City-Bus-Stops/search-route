@@ -26,7 +26,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
-    getMapPointInfo: pointId => getMapPointInfo(pointId),
+    getMapPointInfo,
     toggleSideBar,
     closeMapPointInfo,
     getUserPointInfo,
