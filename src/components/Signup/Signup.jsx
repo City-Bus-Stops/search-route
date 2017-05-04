@@ -7,6 +7,8 @@ import { isEmpty, head } from 'lodash';
 import InputField from '../InputField/InputField';
 import { validateSignUpForm } from '../../validation';
 
+export const SIGN_UP_FORM = 'signupForm';
+
 const Signup = ({ email, password, confirmPassword, actions, errors }) => (
   <Grid centered padded id="signup">
     <Grid.Row>
@@ -22,9 +24,10 @@ const Signup = ({ email, password, confirmPassword, actions, errors }) => (
                   type="text"
                   id="email"
                   customContent={<Icon name="user" />}
+                  iconPosition="left"
                   label={<p>Email <sup>*</sup></p>}
                   value={email}
-                  onChange={value => actions.setFormField('signupForm', 'email', value)}
+                  onChange={value => actions.setFormField(SIGN_UP_FORM, 'email', value)}
                   hasError={!isEmpty(errors.email)}
                   error={head(errors.email)}
                 />
@@ -36,10 +39,10 @@ const Signup = ({ email, password, confirmPassword, actions, errors }) => (
                   type="password"
                   id="password"
                   customContent={<Icon name="lock" />}
-                  customContentPosition="left"
+                  iconPosition="left"
                   label={<p>Password <sup>*</sup></p>}
                   value={password}
-                  onChange={value => actions.setFormField('signupForm', 'password', value)}
+                  onChange={value => actions.setFormField(SIGN_UP_FORM, 'password', value)}
                   hasError={!isEmpty(errors.password)}
                   error={head(errors.password)}
                 />
@@ -51,10 +54,10 @@ const Signup = ({ email, password, confirmPassword, actions, errors }) => (
                   type="password"
                   id="confirmPassword"
                   customContent={<Icon name="lock" />}
-                  customContentPosition="left"
+                  iconPosition="left"
                   label={<p>Confirm Password <sup>*</sup></p>}
                   value={confirmPassword}
-                  onChange={value => actions.setFormField('signupForm', 'confirmPassword', value)}
+                  onChange={value => actions.setFormField(SIGN_UP_FORM, 'confirmPassword', value)}
                   hasError={!isEmpty(errors.confirmPassword)}
                   error={head(errors.confirmPassword)}
                 />
@@ -76,7 +79,7 @@ const Signup = ({ email, password, confirmPassword, actions, errors }) => (
                     if (isEmpty(validateErorrs)) {
                       actions.signUp(email, password);
                     } else {
-                      actions.formSubmitFailed('signupForm', validateErorrs);
+                      actions.formSubmitFailed(SIGN_UP_FORM, validateErorrs);
                     }
                   }}
                 >
