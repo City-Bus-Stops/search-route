@@ -36,7 +36,7 @@ const SearchRouteForm = ({
                   value={from}
                   onChange={value => setFormField(value, 'from')}
                   info={
-                    <span className="info">
+                    <span className="info float-right">
                       <Icon name="info circle" />
                       You can find location automatically
                     </span>
@@ -65,7 +65,7 @@ const SearchRouteForm = ({
                   value={to}
                   onChange={value => setFormField(value, 'to')}
                   info={
-                    <span className="info">
+                    <span className="info float-right">
                       <Icon name="info circle" />
                       You can find location automatically
                     </span>

@@ -215,9 +215,11 @@ label sup {
   color: #db2828!important
 }
 
-.padded-menu {
-  padding: 0 15%;
-  border-bottom: 2px solid #222222;
+@media (min-width: 992px) {
+  .padded-menu {
+    padding: 0 15%;
+    border-bottom: 2px solid #222222;
+  }
 }
 
 .padding-left-5 {
@@ -233,7 +235,7 @@ label sup {
 }
 
 .font-size-15 {
-  font-size: 15px;
+  font-size: 15px!important;
 }
 
 .color-beige {

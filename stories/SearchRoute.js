@@ -12,11 +12,12 @@ storiesOf('SearchRoute', module)
       routeInfo={{}}
       actions={{
         setFormField: action('Set form filed'),
-        findUserLocation: action('Find user Location'),
-        searchRoutes: action('Search routes'),
+        findUserAddress: action('Find user Location'),
+        searchRoute: action('Search routes'),
         formSubmitFailed: action('Form submit failed'),
         getRouteInfo: action('Get route info'),
         clearRouteInfo: action('Clear route info'),
+        getRouteGeoData: action('Get route geo data'),
       }}
     />
   ))
@@ -32,11 +33,12 @@ storiesOf('SearchRoute', module)
       routeInfo={{}}
       actions={{
         setFormField: action('Set form filed'),
-        findUserLocation: action('Find user Location'),
-        searchRoutes: action('Search routes'),
+        findUserAddress: action('Find user Location'),
+        searchRoute: action('Search routes'),
         formSubmitFailed: action('Form submit failed'),
         getRouteInfo: action('Get route info'),
         clearRouteInfo: action('Clear route info'),
+        getRouteGeoData: action('Get route geo data'),
       }}
     />
   ));

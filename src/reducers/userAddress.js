@@ -6,8 +6,12 @@ import {
 const userAddress = (state = '', action) => {
   switch (action.type) {
     case FIND_USER_ADDRESS_SUCCESS:
-    case LOAD_USER_POINT_INFO_SUCCESS:
       return action.address;
+
+    case LOAD_USER_POINT_INFO_SUCCESS: {
+      const { address } = action.info;
+      return address;
+    }
 
     default:
       return state;

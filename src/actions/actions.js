@@ -36,11 +36,12 @@ export const LOAD_USER_POINT_INFO = 'LOAD_USER_POINT_INFO';
 export const LOAD_USER_POINT_INFO_SUCCESS = 'LOAD_USER_POINT_INFO_SUCCESS';
 export const LOAD_ROUTE_BETWEEN_POINTS = 'LOAD_ROUTE_BETWEEN_POINTS';
 export const LOAD_ROUTE_BETWEEN_POINTS_SUCCESS = 'LOAD_ROUTE_BETWEEN_POINTS_SUCCESS';
+export const FIND_NEAREST_BUS_STOPS = 'FIND_NEAREST_BUS_STOPS';
+export const FIND_NEAREST_BUS_STOPS_SUCCESS = 'FIND_NEAREST_BUS_STOPS_SUCCESS';
 
 /** Spinner actions **/
 export const SEND_REQUEST = 'SEND_REQUEST';
 export const RECEIVE_RESPONSE = 'RECEIVE_RESPONSE';
-export const TOGGLE_SPINNER = 'TOGGLE_SPINNER';
 
 export const setFormField = (formName, field, value) => ({
   type: SET_FORM_FIELD,
@@ -121,6 +122,10 @@ export const loadRouteBetweenPoints = (startPoint, endPoint) => ({
   type: LOAD_ROUTE_BETWEEN_POINTS,
   startPoint,
   endPoint,
+});
+
+export const findNearestButStops = () => ({
+  type: FIND_NEAREST_BUS_STOPS,
 });
 
 export const showNotification = (type, title, message) =>

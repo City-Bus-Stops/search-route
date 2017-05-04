@@ -7,6 +7,8 @@ import { isEmpty, head } from 'lodash';
 import InputField from '../InputField/InputField';
 import { validateLoginForm } from '../../validation';
 
+import { LOGIN_FORM } from '../../reducers/login/login';
+
 const Login = ({ email, password, actions, errors }) => (
   <Grid centered padded id="login">
     <Grid.Row>
@@ -22,9 +24,10 @@ const Login = ({ email, password, actions, errors }) => (
                   type="text"
                   id="email"
                   customContent={<Icon name="user" />}
+                  iconPosition="left"
                   label={<p>Email <sup>*</sup></p>}
                   value={email}
-                  onChange={value => actions.setFormField('loginForm', 'email', value)}
+                  onChange={value => actions.setFormField(LOGIN_FORM, 'email', value)}
                   hasError={!isEmpty(errors.email)}
                   error={head(errors.email)}
                 />
@@ -36,9 +39,10 @@ const Login = ({ email, password, actions, errors }) => (
                   type="password"
                   id="password"
                   customContent={<Icon name="lock" />}
+                  iconPosition="left"
                   label={<p>Password <sup>*</sup></p>}
                   value={password}
-                  onChange={value => actions.setFormField('loginForm', 'password', value)}
+                  onChange={value => actions.setFormField(LOGIN_FORM, 'password', value)}
                   hasError={!isEmpty(errors.password)}
                   error={head(errors.password)}
                 />
@@ -56,15 +60,15 @@ const Login = ({ email, password, actions, errors }) => (
                   color="blue"
                   size="large"
                   onClick={() => {
-                    const validateErorrs = validateLoginForm({ email, password });
-                    if (isEmpty(validateErorrs)) {
+                    const validateErrors = validateLoginForm({ email, password });
+                    if (isEmpty(validateErrors)) {
                       actions.logIn(email, password);
                     } else {
-                      actions.formSubmitFailed('loginForm', validateErorrs);
+                      actions.formSubmitFailed(LOGIN_FORM, validateErrors);
                     }
                   }}
                 >
-                  Login
+                Login
                 </Button>
               </Grid.Column>
             </Grid.Row>

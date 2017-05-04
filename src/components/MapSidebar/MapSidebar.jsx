@@ -2,8 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Sidebar, Menu, Icon } from 'semantic-ui-react';
 
-const MapSidebar = ({ isSidebarOpen, toggleSideBar }) => (
-  <Sidebar as={Menu} visible={isSidebarOpen} animation="slide along" vertical>
+const MapSidebar = ({ isSidebarOpen, toggleSideBar, findNearestButStops }) => (
+  <Sidebar
+    as={Menu}
+    visible={isSidebarOpen}
+    animation="slide along"
+    className="font-size-15"
+    vertical
+  >
     <Menu.Item>
       <Menu.Header>
         Display
@@ -16,7 +22,7 @@ const MapSidebar = ({ isSidebarOpen, toggleSideBar }) => (
         />
       </Menu.Header>
       <Menu.Menu>
-        <Menu.Item link >
+        <Menu.Item link onClick={findNearestButStops}>
           Show nearest stops
         </Menu.Item>
         <Menu.Item link >
@@ -41,6 +47,7 @@ const MapSidebar = ({ isSidebarOpen, toggleSideBar }) => (
 MapSidebar.propTypes = {
   isSidebarOpen: PropTypes.bool.isRequired,
   toggleSideBar: PropTypes.func.isRequired,
+  findNearestButStops: PropTypes.func.isRequired,
 };
 
 export default MapSidebar;

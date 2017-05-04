@@ -4,7 +4,6 @@ import { storiesOf, action } from '@kadira/storybook';
 import MapComponent from '../src/components/Map/Map';
 
 import mockData from '../src/json-server/db.json';
-import nearestBusStops from '../src/mockData/NearestBusStops.json';
 
 storiesOf('Map', module)
   .add('Default map', () => (
@@ -15,6 +14,10 @@ storiesOf('Map', module)
           getMapPointInfo: action('Load point info'),
           closeMapPointInfo: action('Close map point info'),
           toggleSideBar: action('Toggle sidebar'),
+          getUserPointInfo: action('Get user point info'),
+          findUserLocation: action('Find user location'),
+          loadRouteBetweenPoints: action('Load route between points'),
+          findNearestButStops: action('Find nearest bus stops'),
         }}
         isSidebarOpen={false}
         pointInfo={{}}
@@ -29,6 +32,10 @@ storiesOf('Map', module)
           getMapPointInfo: action('Load point info'),
           closeMapPointInfo: action('Close map point info'),
           toggleSideBar: action('Toggle sidebar'),
+          getUserPointInfo: action('Get user point info'),
+          findUserLocation: action('Find user location'),
+          loadRouteBetweenPoints: action('Load route between points'),
+          findNearestButStops: action('Find nearest bus stops'),
         }}
         isSidebarOpen={false}
         pointInfo={{}}
@@ -38,11 +45,15 @@ storiesOf('Map', module)
   .add('with nearest bus stops', () => (
     <div>
       <MapComponent
-        data={nearestBusStops}
+        data={mockData['nearest-bus-stops']}
         actions={{
           getMapPointInfo: action('Load point info'),
           closeMapPointInfo: action('Close map point info'),
           toggleSideBar: action('Toggle sidebar'),
+          getUserPointInfo: action('Get user point info'),
+          findUserLocation: action('Find user location'),
+          loadRouteBetweenPoints: action('Load route between points'),
+          findNearestButStops: action('Find nearest bus stops'),
         }}
         isSidebarOpen={false}
         pointInfo={{}}
@@ -56,11 +67,15 @@ storiesOf('Map', module)
   .add('with sidebar', () => (
     <div>
       <MapComponent
-        data={nearestBusStops}
+        data={[]}
         actions={{
           getMapPointInfo: action('Load point info'),
           closeMapPointInfo: action('Close map point info'),
           toggleSideBar: action('Toggle sidebar'),
+          getUserPointInfo: action('Get user point info'),
+          findUserLocation: action('Find user location'),
+          loadRouteBetweenPoints: action('Load route between points'),
+          findNearestButStops: action('Find nearest bus stops'),
         }}
         pointInfo={{}}
         center={[53.6729683, 23.79417658]}

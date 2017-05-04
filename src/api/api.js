@@ -35,3 +35,7 @@ export const fetchUserPointInfo = coords =>
 export const fetchRouteBetweenPoints = (startPoint, endPoint) =>
   axios.get(`/path?startPoint=${JSON.stringify(startPoint)}&endPoint=${JSON.stringify(endPoint)}`)
     .then(response => response.data);
+
+export const fetchNearestBusStops = coords =>
+  axios.get(`/nearest-bus-stops?lat=${coords.latitude}&lon=${coords.longitude}&distance=1000`)
+    .then(response => response.data);

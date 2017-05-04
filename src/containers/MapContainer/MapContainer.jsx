@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { flow } from 'lodash';
 
 import MapComponent from '../../components/Map/Map';
 
@@ -11,17 +10,18 @@ import {
   getUserPointInfo,
   findUserLocation,
   loadRouteBetweenPoints,
+  findNearestButStops,
 } from '../../actions/actions';
 
 import { getGeoData, getIsSidebarOpen, getPointInfo, getUserCoordinates,
   getMapCenter } from '../../reducers/map/map';
 
 const mapStateToProps = state => ({
-  data: flow([getGeoData])(state.map),
-  isSidebarOpen: flow([getIsSidebarOpen])(state.map),
-  pointInfo: flow([getPointInfo])(state.map),
-  userCoordinates: flow([getUserCoordinates])(state.map),
-  mapCenter: flow([getMapCenter])(state.map),
+  data: getGeoData(state.map),
+  isSidebarOpen: getIsSidebarOpen(state.map),
+  pointInfo: getPointInfo(state.map),
+  userCoordinates: getUserCoordinates(state.map),
+  mapCenter: getMapCenter(state.map),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -32,6 +32,7 @@ const mapDispatchToProps = dispatch => ({
     getUserPointInfo,
     findUserLocation,
     loadRouteBetweenPoints,
+    findNearestButStops,
   }, dispatch),
 });
 

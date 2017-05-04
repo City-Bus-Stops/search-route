@@ -51,6 +51,7 @@ class MapComponent extends Component {
           <MapSidebar
             isSidebarOpen={isSidebarOpen}
             toggleSideBar={actions.toggleSideBar}
+            findNearestButStops={actions.findNearestButStops}
           />
           <Sidebar.Pusher id="map">
             <div className="leaflet-container-main">
@@ -112,6 +113,7 @@ MapComponent.propTypes = {
     getUserPointInfo: PropTypes.func.isRequired,
     findUserLocation: PropTypes.func.isRequired,
     loadRouteBetweenPoints: PropTypes.func.isRequired,
+    findNearestButStops: PropTypes.func.isRequired,
   }).isRequired,
 };
 
