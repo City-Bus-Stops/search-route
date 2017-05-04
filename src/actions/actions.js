@@ -42,7 +42,6 @@ export const FIND_NEAREST_BUS_STOPS_SUCCESS = 'FIND_NEAREST_BUS_STOPS_SUCCESS';
 /** Spinner actions **/
 export const SEND_REQUEST = 'SEND_REQUEST';
 export const RECEIVE_RESPONSE = 'RECEIVE_RESPONSE';
-export const TOGGLE_SPINNER = 'TOGGLE_SPINNER';
 
 export const setFormField = (formName, field, value) => ({
   type: SET_FORM_FIELD,

@@ -5,6 +5,7 @@ import { Grid, Icon, Button, Segment } from 'semantic-ui-react';
 import { isEmpty, head } from 'lodash';
 
 import InputField from '../InputField/InputField';
+import { validateLoginForm } from '../../validation';
 
 import { LOGIN_FORM } from '../../reducers/login/login';
 
@@ -23,6 +24,7 @@ const Login = ({ email, password, actions, errors }) => (
                   type="text"
                   id="email"
                   customContent={<Icon name="user" />}
+                  iconPosition="left"
                   label={<p>Email <sup>*</sup></p>}
                   value={email}
                   onChange={value => actions.setFormField(LOGIN_FORM, 'email', value)}
@@ -37,6 +39,7 @@ const Login = ({ email, password, actions, errors }) => (
                   type="password"
                   id="password"
                   customContent={<Icon name="lock" />}
+                  iconPosition="left"
                   label={<p>Password <sup>*</sup></p>}
                   value={password}
                   onChange={value => actions.setFormField(LOGIN_FORM, 'password', value)}
@@ -56,9 +59,16 @@ const Login = ({ email, password, actions, errors }) => (
                   fluid
                   color="blue"
                   size="large"
-                  onClick={() => actions.logIn(email, password)}
+                  onClick={() => {
+                    const validateErrors = validateLoginForm({ email, password });
+                    if (isEmpty(validateErrors)) {
+                      actions.logIn(email, password);
+                    } else {
+                      actions.formSubmitFailed(LOGIN_FORM, validateErrors);
+                    }
+                  }}
                 >
-                  Login
+                Login
                 </Button>
               </Grid.Column>
             </Grid.Row>

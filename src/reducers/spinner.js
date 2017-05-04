@@ -1,10 +1,12 @@
 import {
-  TOGGLE_SPINNER,
+  SEND_REQUEST,
+  RECEIVE_RESPONSE,
 } from '../actions/actions';
 
 const spinner = (state = false, action) => {
   switch (action.type) {
-    case TOGGLE_SPINNER:
+    case SEND_REQUEST:
+    case RECEIVE_RESPONSE:
       return !state;
 
     default:

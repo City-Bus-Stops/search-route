@@ -1,5 +1,6 @@
 import { call, put, takeLatest, take, race, fork, takeEvery } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
+import { push } from 'react-router-redux';
 
 import {
   fetchFindUsertLocation,
@@ -142,6 +143,7 @@ function* loadRouteGeoData(action) {
     yield put({ type: RECEIVE_RESPONSE });
     const { geoData } = response;
     yield put({ type: LOAD_ROUTE_GEODATA_SUCCESS, geoData });
+    yield put(push('/map'));
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));

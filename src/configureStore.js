@@ -5,24 +5,12 @@ import { browserHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers';
-import {
-  findUserAddressSuccess,
-  spinnerMiddleware,
-  handleIsGeoDataLoaded,
-  handleRouteBetweenPointsIsLoaded,
-  handleLoginAction,
-} from './middlewares';
 
 import sagas from './sagas/sagas';
 
 const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware();
   let middlewares = [
-    findUserAddressSuccess,
-    spinnerMiddleware,
-    handleIsGeoDataLoaded,
-    handleRouteBetweenPointsIsLoaded,
-    handleLoginAction,
     sagaMiddleware,
     routerMiddleware(browserHistory),
   ];

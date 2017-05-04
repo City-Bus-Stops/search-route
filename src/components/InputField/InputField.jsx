@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Label, Input } from 'semantic-ui-react';
 
 const InputField = ({
-  type, label, placeholder, id, customContent, hasError, error, value, onChange, info
+  type, label, placeholder, id, customContent, hasError, error, value, onChange, info, iconPosition,
 }) => (
   <div>
     {
@@ -13,6 +13,7 @@ const InputField = ({
       fluid
       error={hasError}
       icon={customContent}
+      iconPosition={iconPosition}
       type={type}
       placeholder={placeholder}
       id={id}
@@ -34,6 +35,7 @@ InputField.propTypes = {
   label: PropTypes.shape(),
   placeholder: PropTypes.string,
   customContent: PropTypes.element,
+  iconPosition: PropTypes.string,
   hasError: PropTypes.bool,
   error: PropTypes.string,
   value: PropTypes.string,
@@ -44,6 +46,7 @@ InputField.defaultProps = {
   placeholder: '',
   label: null,
   customContent: null,
+  iconPosition: null,
   hasError: false,
   error: 'Please enter a value',
   value: '',
