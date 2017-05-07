@@ -116,6 +116,12 @@ body {
   }
 }
 
+@media (max-width: 960px) {
+  .point-info-button {
+    margin-bottom: 10px!important;
+  }
+}
+
 .leaflet-container {
   height: 100%;
   width: 100%;

@@ -10,10 +10,8 @@ storiesOf('Signup', module)
       password=""
       confirmPassword=""
       errors={{}}
-      actions={{
-        signUp: () => {},
-        setFormField: () => {},
-      }}
+      signUp={() => {}}
+      setFormField={() => {}}
     />
   ))
   .add('with errors', () => (
@@ -26,9 +24,7 @@ storiesOf('Signup', module)
         password: ['Password must be at least 8 characters'],
         confirmPassword: ['Confirm password is not equal to password'],
       }}
-      actions={{
-        signUp: () => {},
-        setFormField: () => {},
-      }}
+      signUp={() => {}}
+      setFormField={() => {}}
     />
   ));

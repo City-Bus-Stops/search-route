@@ -73,7 +73,7 @@ const PointInfo = ({ pointInfo, closePointInfo, loadRouteToBusStop }) => (
         <Grid columns={2} stackable doubling>
           {
             pointInfo.busStops.map(busStop =>
-              <Grid.Column key={busStop.id} className="font-size-15">
+              <Grid.Column key={busStop.id} className="font-size-15" stretched>
                 <Card fluid>
                   <Card.Content>
                     <Icon link circular name="bus" color="blue" size="big" />
@@ -92,14 +92,15 @@ const PointInfo = ({ pointInfo, closePointInfo, loadRouteToBusStop }) => (
                     <Button.Group fluid>
                       <Grid columns={2} doubling container>
                         <Grid.Row stretched>
-                          <Grid.Column mobile={16} widescreen={8}>
+                          <Grid.Column mobile={16} widescreen={8} computer={8}>
                             <Button
+                              className="point-info-button"
                               color="green"
                               onClick={() => loadRouteToBusStop(busStop)}
                             >Watch on the map
                             </Button>
                           </Grid.Column>
-                          <Grid.Column mobile={16} widescreen={8}>
+                          <Grid.Column mobile={16} widescreen={8} computer={8}>
                             <Button
                               color="yellow"
                             >

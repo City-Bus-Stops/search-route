@@ -9,10 +9,8 @@ storiesOf('Login', module)
       email=""
       password=""
       errors={{}}
-      actions={{
-        logIn: () => {},
-        setFormField: () => {},
-      }}
+      logIn={() => {}}
+      setFormField={() => {}}
     />
   ))
   .add('with errors', () => (
@@ -23,9 +21,7 @@ storiesOf('Login', module)
         email: ['Email is not a valid email'],
         password: ['Password must be at least 8 characters'],
       }}
-      actions={{
-        logIn: () => {},
-        setFormField: () => {},
-      }}
+      logIn={() => {}}
+      setFormField={() => {}}
     />
   ));

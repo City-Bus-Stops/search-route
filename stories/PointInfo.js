@@ -10,7 +10,7 @@ storiesOf('PointInfo', module)
       pointInfo={mockData['points-info'][2].info}
       clearMapPointInfo={action('Clear map pont info')}
       closePointInfo={action('Close pint info')}
-      loadRouteBetweenPoints={action('Load route between points')}
+      loadRouteToBusStop={action('Load route between points')}
     />
   ))
   .add('start/end point info', () => (
@@ -18,6 +18,14 @@ storiesOf('PointInfo', module)
       pointInfo={mockData['points-info'][0].info}
       clearMapPointInfo={action('Clear map pont info')}
       closePointInfo={action('Close pint info')}
-      loadRouteBetweenPoints={action('Load route between points')}
+      loadRouteToBusStop={action('Load route between points')}
+    />
+  ))
+  .add('user point info', () => (
+    <PointInfo
+      pointInfo={mockData['user-info']}
+      clearMapPointInfo={action('Clear map pont info')}
+      closePointInfo={action('Close pint info')}
+      loadRouteToBusStop={action('Load route between points')}
     />
   ));
