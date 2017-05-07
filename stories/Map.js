@@ -10,13 +10,13 @@ storiesOf('Map', module)
     <div>
       <MapComponent
         data={[]}
+        loadRouteToBusStop={() => action('Load route to bus stop')}
         actions={{
           getMapPointInfo: action('Load point info'),
           closeMapPointInfo: action('Close map point info'),
           toggleSideBar: action('Toggle sidebar'),
           getUserPointInfo: action('Get user point info'),
           findUserLocation: action('Find user location'),
-          loadRouteBetweenPoints: action('Load route between points'),
           findNearestButStops: action('Find nearest bus stops'),
         }}
         isSidebarOpen={false}
@@ -28,13 +28,13 @@ storiesOf('Map', module)
     <div>
       <MapComponent
         data={mockData['routes-geo'][0].geoData}
+        loadRouteToBusStop={() => action('Load route to bus stop')}
         actions={{
           getMapPointInfo: action('Load point info'),
           closeMapPointInfo: action('Close map point info'),
           toggleSideBar: action('Toggle sidebar'),
           getUserPointInfo: action('Get user point info'),
           findUserLocation: action('Find user location'),
-          loadRouteBetweenPoints: action('Load route between points'),
           findNearestButStops: action('Find nearest bus stops'),
         }}
         isSidebarOpen={false}
@@ -46,13 +46,13 @@ storiesOf('Map', module)
     <div>
       <MapComponent
         data={mockData['nearest-bus-stops']}
+        loadRouteToBusStop={() => action('Load route to bus stop')}
         actions={{
           getMapPointInfo: action('Load point info'),
           closeMapPointInfo: action('Close map point info'),
           toggleSideBar: action('Toggle sidebar'),
           getUserPointInfo: action('Get user point info'),
           findUserLocation: action('Find user location'),
-          loadRouteBetweenPoints: action('Load route between points'),
           findNearestButStops: action('Find nearest bus stops'),
         }}
         isSidebarOpen={false}
@@ -68,13 +68,13 @@ storiesOf('Map', module)
     <div>
       <MapComponent
         data={[]}
+        loadRouteToBusStop={() => action('Load route to bus stop')}
         actions={{
           getMapPointInfo: action('Load point info'),
           closeMapPointInfo: action('Close map point info'),
           toggleSideBar: action('Toggle sidebar'),
           getUserPointInfo: action('Get user point info'),
           findUserLocation: action('Find user location'),
-          loadRouteBetweenPoints: action('Load route between points'),
           findNearestButStops: action('Find nearest bus stops'),
         }}
         pointInfo={{}}

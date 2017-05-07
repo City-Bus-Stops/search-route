@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import { createWrapperReducer } from '../../utils';
 import field from '../formField';
 import errors from '../errors';
-import { SEARCH_ROUTE } from '../../components/SearchRoute/SearchRoute';
+import { SEARCH_ROUTE } from '../../containers/SearchRouteContainer/SearchRouteContainer';
 
 export default combineReducers({
   from: createWrapperReducer(field, action => action.field === 'from' && action.formName === SEARCH_ROUTE),

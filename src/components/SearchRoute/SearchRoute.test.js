@@ -11,13 +11,14 @@ it('renders without crashing', () => {
       routes={[]}
       errors={{}}
       routeInfo={{}}
+      findUserAddress={() => {}}
+      searchRoute={() => {}}
+      setFormField={() => {}}
       actions={{
-        setFormField: () => {},
-        findUserAddress: () => {},
-        searchRoutes: () => {},
         formSubmitFailed: () => {},
         getRouteInfo: () => {},
         clearRouteInfo: () => {},
+        getRouteGeoData: () => {},
       }}
     />, div);
 });

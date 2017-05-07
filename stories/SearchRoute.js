@@ -10,10 +10,10 @@ storiesOf('SearchRoute', module)
       routes={[]}
       errors={{}}
       routeInfo={{}}
+      setFormField={() => action('Set form filed')}
+      searchRoute={() => action('Search routes')}
+      findUserAddress={() => action('Find user Location')}
       actions={{
-        setFormField: action('Set form filed'),
-        findUserAddress: action('Find user Location'),
-        searchRoute: action('Search routes'),
         formSubmitFailed: action('Form submit failed'),
         getRouteInfo: action('Get route info'),
         clearRouteInfo: action('Clear route info'),
@@ -31,10 +31,10 @@ storiesOf('SearchRoute', module)
         to: ['Can not be blank'],
       }}
       routeInfo={{}}
+      setFormField={() => action('Set form filed')}
+      searchRoute={() => action('Search routes')}
+      findUserAddress={() => action('Find user Location')}
       actions={{
-        setFormField: action('Set form filed'),
-        findUserAddress: action('Find user Location'),
-        searchRoute: action('Search routes'),
         formSubmitFailed: action('Form submit failed'),
         getRouteInfo: action('Get route info'),
         clearRouteInfo: action('Clear route info'),

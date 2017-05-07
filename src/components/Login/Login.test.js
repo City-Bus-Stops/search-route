@@ -9,9 +9,7 @@ it('renders without crashing', () => {
       email="testEmail"
       password="testPassword"
       errors={{}}
-      actions={{
-        logIn: () => {},
-        setFormField: () => {},
-      }}
+      logIn={() => {}}
+      setFormField={() => {}}
     />, div);
 });

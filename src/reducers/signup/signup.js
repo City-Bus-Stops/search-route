@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import { createWrapperReducer } from '../../utils';
 import field from '../formField';
 import errors from '../errors';
-import { SIGN_UP_FORM } from '../../components/Signup/Signup';
+import { SIGN_UP_FORM } from '../../containers/SignupContainer/SignupContainer';
 
 export default combineReducers({
   email: createWrapperReducer(field, action => action.field === 'email' && action.formName === SIGN_UP_FORM),

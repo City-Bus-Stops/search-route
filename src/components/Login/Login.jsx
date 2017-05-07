@@ -5,11 +5,8 @@ import { Grid, Icon, Button, Segment } from 'semantic-ui-react';
 import { isEmpty, head } from 'lodash';
 
 import InputField from '../InputField/InputField';
-import { validateLoginForm } from '../../validation';
 
-import { LOGIN_FORM } from '../../reducers/login/login';
-
-const Login = ({ email, password, actions, errors }) => (
+const Login = ({ email, password, errors, logIn, setFormField }) => (
   <Grid centered padded id="login">
     <Grid.Row>
       <Grid.Column largeScreen={3} mobile={16} widescreen={3}>
@@ -27,7 +24,7 @@ const Login = ({ email, password, actions, errors }) => (
                   iconPosition="left"
                   label={<p>Email <sup>*</sup></p>}
                   value={email}
-                  onChange={value => actions.setFormField(LOGIN_FORM, 'email', value)}
+                  onChange={value => setFormField('email', value)}
                   hasError={!isEmpty(errors.email)}
                   error={head(errors.email)}
                 />
@@ -42,7 +39,7 @@ const Login = ({ email, password, actions, errors }) => (
                   iconPosition="left"
                   label={<p>Password <sup>*</sup></p>}
                   value={password}
-                  onChange={value => actions.setFormField(LOGIN_FORM, 'password', value)}
+                  onChange={value => setFormField('password', value)}
                   hasError={!isEmpty(errors.password)}
                   error={head(errors.password)}
                 />
@@ -59,14 +56,7 @@ const Login = ({ email, password, actions, errors }) => (
                   fluid
                   color="blue"
                   size="large"
-                  onClick={() => {
-                    const validateErrors = validateLoginForm({ email, password });
-                    if (isEmpty(validateErrors)) {
-                      actions.logIn(email, password);
-                    } else {
-                      actions.formSubmitFailed(LOGIN_FORM, validateErrors);
-                    }
-                  }}
+                  onClick={logIn}
                 >
                 Login
                 </Button>
@@ -83,10 +73,8 @@ Login.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   errors: PropTypes.shape().isRequired,
-  actions: PropTypes.shape({
-    logIn: PropTypes.func.isRequired,
-    setFormField: PropTypes.func.isRequired,
-  }).isRequired,
+  logIn: PropTypes.func.isRequired,
+  setFormField: PropTypes.func.isRequired,
 };
 
 export default Login;
