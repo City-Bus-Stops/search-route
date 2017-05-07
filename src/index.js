@@ -17,6 +17,7 @@ import SearchRouteContainer from './containers/SearchRouteContainer/SearchRouteC
 import LoginContainer from './containers/LoginContainer/LoginContainer';
 import SignupContainer from './containers/SignupContainer/SignupContainer';
 import MapContainer from './containers/MapContainer/MapContainer';
+import FavoritesContainer from './containers/FavoritesContainer/FavoritesContainer';
 import NotFound from './components/NotFound/NotFound';
 
 import configureStore from './configureStore';
@@ -32,6 +33,7 @@ ReactDOM.render(
         <Route path="dashboard" component={Dashboard} />
         <Route path="search-route" component={SearchRouteContainer} />
         <Route path="map" component={MapContainer} />
+        <Route path="favorites" component={FavoritesContainer} />
       </Route>
       <Route path="/" component={UserManagementContainer}>
         <Route path="/login" component={LoginContainer} />

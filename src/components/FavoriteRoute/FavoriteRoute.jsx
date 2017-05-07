@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card, Icon, Header, Accordion, List, Button } from 'semantic-ui-react';
+import { Grid, Card, Icon } from 'semantic-ui-react';
 
 const FavoriteRoute = () => (
   <Grid.Column>
@@ -12,59 +12,18 @@ const FavoriteRoute = () => (
         </Card.Header>
         <Card.Meta>Time in travel ~15 min</Card.Meta>
         <Card.Description>
-          <Grid columns={2} padded stackable>
-            <Grid.Column>
-              <Header as="h4" >
-                From
-                <Header.Subheader>
-                  Фолюш
-                </Header.Subheader>
-              </Header>
-            </Grid.Column>
-            <Grid.Column>
-              <Header as="h4" >
-                To
-                <Header.Subheader>
-                  Советская
-                </Header.Subheader>
-              </Header>
-            </Grid.Column>
-          </Grid>
-          <Accordion styled>
-            <Accordion.Title>
-              <Icon name="dropdown" />
-              <b>Bus stops</b>
-            </Accordion.Title>
-            <Accordion.Content>
-              <List divided relaxed>
-                <List.Item>
-                  <List.Icon name="map outline" size="large" verticalAlign="middle" link />
-                  <List.Content>
-                    <List.Header>Фолюш</List.Header>
-                    <List.Description>2 minutes</List.Description>
-                  </List.Content>
-                </List.Item>
-                <List.Item>
-                  <List.Icon name="map outline" size="large" verticalAlign="middle" link />
-                  <List.Content>
-                    <List.Header>Улица Лизы Чайкиной</List.Header>
-                    <List.Description>4 min</List.Description>
-                  </List.Content>
-                </List.Item>
-                <List.Item>
-                  <List.Icon name="map outline" size="large" verticalAlign="middle" link />
-                  <List.Content>
-                    <List.Header>Улица Декабристов</List.Header>
-                    <List.Description>6 min</List.Description>
-                  </List.Content>
-                </List.Item>
-              </List>
-            </Accordion.Content>
-          </Accordion>
+          <p className="font-size-15"><strong>From: </strong>Фолюш</p>
+          <p className="font-size-15"><strong>To: </strong>Советская</p>
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Button positive > Build route </Button>
+        <span className="float-right">
+          <Icon link name="map outline" color="red" />
+        </span>
+        <span className="cursor-pointer">
+          <Icon name="info circle" />
+          More info
+        </span>
       </Card.Content>
     </Card>
   </Grid.Column>
