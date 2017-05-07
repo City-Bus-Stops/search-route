@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { Grid, Icon, Button, Segment } from 'semantic-ui-react';
-import { isEmpty, head } from 'lodash';
+import { Field } from 'redux-form';
 
 import InputField from '../InputField/InputField';
 
-const Login = ({ email, password, errors, logIn, setFormField }) => (
+const Login = ({ logIn, handleSubmit }) => (
   <Grid centered padded id="login">
     <Grid.Row>
       <Grid.Column largeScreen={3} mobile={16} widescreen={3}>
@@ -17,31 +17,27 @@ const Login = ({ email, password, errors, logIn, setFormField }) => (
             </h1>
             <Grid.Row>
               <Grid.Column>
-                <InputField
-                  type="text"
+                <Field
                   id="email"
+                  name="email"
+                  component={InputField}
+                  type="text"
                   customContent={<Icon name="user" />}
                   iconPosition="left"
                   label={<p>Email <sup>*</sup></p>}
-                  value={email}
-                  onChange={value => setFormField('email', value)}
-                  hasError={!isEmpty(errors.email)}
-                  error={head(errors.email)}
                 />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
               <Grid.Column>
-                <InputField
-                  type="password"
+                <Field
                   id="password"
+                  name="password"
+                  component={InputField}
+                  type="password"
                   customContent={<Icon name="lock" />}
                   iconPosition="left"
                   label={<p>Password <sup>*</sup></p>}
-                  value={password}
-                  onChange={value => setFormField('password', value)}
-                  hasError={!isEmpty(errors.password)}
-                  error={head(errors.password)}
                 />
               </Grid.Column>
             </Grid.Row>
@@ -56,7 +52,7 @@ const Login = ({ email, password, errors, logIn, setFormField }) => (
                   fluid
                   color="blue"
                   size="large"
-                  onClick={logIn}
+                  onClick={handleSubmit(logIn)}
                 >
                 Login
                 </Button>
@@ -70,11 +66,8 @@ const Login = ({ email, password, errors, logIn, setFormField }) => (
 );
 
 Login.propTypes = {
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  errors: PropTypes.shape().isRequired,
   logIn: PropTypes.func.isRequired,
-  setFormField: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default Login;

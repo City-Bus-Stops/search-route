@@ -54,9 +54,8 @@ export const findUserLocation = () => ({
   type: FIND_USER_LOCATION,
 });
 
-export const findUserAddress = (formName, field) => ({
+export const findUserAddress = field => ({
   type: FIND_USER_ADDRESS,
-  formName,
   field,
 });
 
@@ -71,13 +70,13 @@ export const formSubmitFailed = (formName, errors) => ({
   errors,
 });
 
-export const logIn = (email, password) => ({
+export const logIn = ({ email, password }) => ({
   type: LOGIN,
   email,
   password,
 });
 
-export const signUp = (email, password) => ({
+export const signUp = ({ email, password }) => ({
   type: SIGN_UP,
   email,
   password,
