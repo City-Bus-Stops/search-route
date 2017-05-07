@@ -34,7 +34,7 @@ const SearchRouteForm = ({
                     />
                   }
                   value={from}
-                  onChange={value => setFormField(value, 'from')}
+                  onChange={value => setFormField('from', value)}
                   info={
                     <span className="info float-right">
                       <Icon name="info circle" />
@@ -63,7 +63,7 @@ const SearchRouteForm = ({
                     />
                   }
                   value={to}
-                  onChange={value => setFormField(value, 'to')}
+                  onChange={value => setFormField('to', value)}
                   info={
                     <span className="info float-right">
                       <Icon name="info circle" />
@@ -79,7 +79,7 @@ const SearchRouteForm = ({
                   fluid
                   color="blue"
                   size="large"
-                  onClick={() => searchRoute({ from, to })}
+                  onClick={searchRoute}
                 >
                   Search
                 </Button>

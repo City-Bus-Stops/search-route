@@ -17,6 +17,7 @@
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "no-confusing-arrow": 0
+    "no-confusing-arrow": 0,
+    "no-shadow": 0
   }
 }

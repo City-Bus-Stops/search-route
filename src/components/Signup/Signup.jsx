@@ -5,11 +5,8 @@ import { Grid, Icon, Button, Segment } from 'semantic-ui-react';
 import { isEmpty, head } from 'lodash';
 
 import InputField from '../InputField/InputField';
-import { validateSignUpForm } from '../../validation';
 
-export const SIGN_UP_FORM = 'signupForm';
-
-const Signup = ({ email, password, confirmPassword, actions, errors }) => (
+const Signup = ({ email, password, confirmPassword, errors, signUp, setFormField }) => (
   <Grid centered padded id="signup">
     <Grid.Row>
       <Grid.Column largeScreen={3} mobile={16} widescreen={3}>
@@ -27,7 +24,7 @@ const Signup = ({ email, password, confirmPassword, actions, errors }) => (
                   iconPosition="left"
                   label={<p>Email <sup>*</sup></p>}
                   value={email}
-                  onChange={value => actions.setFormField(SIGN_UP_FORM, 'email', value)}
+                  onChange={value => setFormField('email', value)}
                   hasError={!isEmpty(errors.email)}
                   error={head(errors.email)}
                 />
@@ -42,7 +39,7 @@ const Signup = ({ email, password, confirmPassword, actions, errors }) => (
                   iconPosition="left"
                   label={<p>Password <sup>*</sup></p>}
                   value={password}
-                  onChange={value => actions.setFormField(SIGN_UP_FORM, 'password', value)}
+                  onChange={value => setFormField('password', value)}
                   hasError={!isEmpty(errors.password)}
                   error={head(errors.password)}
                 />
@@ -57,7 +54,7 @@ const Signup = ({ email, password, confirmPassword, actions, errors }) => (
                   iconPosition="left"
                   label={<p>Confirm Password <sup>*</sup></p>}
                   value={confirmPassword}
-                  onChange={value => actions.setFormField(SIGN_UP_FORM, 'confirmPassword', value)}
+                  onChange={value => setFormField('confirmPassword', value)}
                   hasError={!isEmpty(errors.confirmPassword)}
                   error={head(errors.confirmPassword)}
                 />
@@ -74,14 +71,7 @@ const Signup = ({ email, password, confirmPassword, actions, errors }) => (
                   fluid
                   color="blue"
                   size="large"
-                  onClick={() => {
-                    const validateErorrs = validateSignUpForm({ email, password, confirmPassword });
-                    if (isEmpty(validateErorrs)) {
-                      actions.signUp(email, password);
-                    } else {
-                      actions.formSubmitFailed(SIGN_UP_FORM, validateErorrs);
-                    }
-                  }}
+                  onClick={signUp}
                 >
                   Sign Up
                 </Button>
@@ -99,10 +89,8 @@ Signup.propTypes = {
   password: PropTypes.string.isRequired,
   confirmPassword: PropTypes.string.isRequired,
   errors: PropTypes.shape().isRequired,
-  actions: PropTypes.shape({
-    signUp: PropTypes.func.isRequired,
-    setFormField: PropTypes.func.isRequired,
-  }).isRequired,
+  signUp: PropTypes.func.isRequired,
+  setFormField: PropTypes.func.isRequired,
 };
 
 export default Signup;

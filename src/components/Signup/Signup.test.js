@@ -10,9 +10,7 @@ it('renders without crashing', () => {
       password="testPassword"
       confirmPassword="testConfirmPassword"
       errors={{}}
-      actions={{
-        signUp: () => {},
-        setFormField: () => {},
-      }}
+      signUp={() => {}}
+      setFormField={() => {}}
     />, div);
 });

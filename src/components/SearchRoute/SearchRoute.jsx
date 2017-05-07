@@ -1,36 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { isEmpty } from 'lodash';
 import { Grid } from 'semantic-ui-react';
 
 import SeachRouteForm from '../SearchRouteForm/SearchRouteForm';
 import FoundedRouteInfo from '../RouteInfo/RouteInfo';
 import Route from '../Route/Route';
 
-import { validateSearchRouteForm } from '../../validation';
-
-export const SEARCH_ROUTE = 'searchRoute';
-
-const SearchRoute = ({ from, to, routes, errors, actions, routeInfo }) => (
+const SearchRoute = ({
+  from,
+  to,
+  routes,
+  errors,
+  actions,
+  routeInfo,
+  findUserAddress,
+  searchRoute,
+  setFormField,
+}) => (
   <div>
     <FoundedRouteInfo
       routeInfo={routeInfo}
-      clearRouteInfo={() => actions.clearRouteInfo(SEARCH_ROUTE)}
+      clearRouteInfo={actions.clearRouteInfo}
     />
     <SeachRouteForm
       from={from}
       to={to}
       errors={errors}
-      setFormField={(value, field) => actions.setFormField(SEARCH_ROUTE, field, value)}
-      findUserAddress={field => actions.findUserAddress(SEARCH_ROUTE, field)}
-      searchRoute={(params) => {
-        const validateErrors = validateSearchRouteForm(params);
-        if (isEmpty(validateErrors)) {
-          actions.searchRoute(params);
-        } else {
-          actions.formSubmitFailed(SEARCH_ROUTE, validateErrors);
-        }
-      }}
+      setFormField={setFormField}
+      findUserAddress={findUserAddress}
+      searchRoute={searchRoute}
     />
     <div className="founded-routes">
       <Grid columns={4} stackable doubling>
@@ -39,8 +37,8 @@ const SearchRoute = ({ from, to, routes, errors, actions, routeInfo }) => (
             <Route
               key={route.id}
               route={route}
-              getRouteInfo={routeId => actions.getRouteInfo(routeId)}
-              getRouteGeoData={routeId => actions.getRouteGeoData(routeId)}
+              getRouteInfo={actions.getRouteInfo}
+              getRouteGeoData={actions.getRouteGeoData}
             />,
           )
         }
@@ -55,10 +53,10 @@ SearchRoute.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   errors: PropTypes.shape().isRequired,
   routeInfo: PropTypes.shape().isRequired,
+  findUserAddress: PropTypes.func.isRequired,
+  searchRoute: PropTypes.func.isRequired,
+  setFormField: PropTypes.func.isRequired,
   actions: PropTypes.shape({
-    setFormField: PropTypes.func.isRequired,
-    findUserAddress: PropTypes.func.isRequired,
-    searchRoute: PropTypes.func.isRequired,
     formSubmitFailed: PropTypes.func.isRequired,
     getRouteInfo: PropTypes.func.isRequired,
     clearRouteInfo: PropTypes.func.isRequired,

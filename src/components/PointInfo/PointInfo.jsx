@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Modal, Icon, Card, Grid, Label, Button } from 'semantic-ui-react';
 import { isEmpty } from 'lodash';
 
-const PointInfo = ({ pointInfo, closePointInfo, loadRouteBetweenPoints }) => (
+const PointInfo = ({ pointInfo, closePointInfo, loadRouteToBusStop }) => (
   <Modal
     open={!isEmpty(pointInfo)}
     size="small"
@@ -95,10 +95,7 @@ const PointInfo = ({ pointInfo, closePointInfo, loadRouteBetweenPoints }) => (
                           <Grid.Column mobile={16} widescreen={8}>
                             <Button
                               color="green"
-                              onClick={() => loadRouteBetweenPoints({
-                                coords: busStop.coords,
-                                type: 'bus_stop',
-                              })}
+                              onClick={() => loadRouteToBusStop(busStop)}
                             >Watch on the map
                             </Button>
                           </Grid.Column>
@@ -138,7 +135,7 @@ PointInfo.propTypes = {
     info: PropTypes.shape(),
   }).isRequired,
   closePointInfo: PropTypes.func.isRequired,
-  loadRouteBetweenPoints: PropTypes.func.isRequired,
+  loadRouteToBusStop: PropTypes.func.isRequired,
 };
 
 export default PointInfo;

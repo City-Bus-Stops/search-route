@@ -4,7 +4,7 @@ import { createWrapperReducer } from '../../utils';
 import field from '../formField';
 import errors from '../errors';
 
-export const LOGIN_FORM = 'loginForm';
+import { LOGIN_FORM } from '../../containers/LoginContainer/LoginContainer';
 
 export default combineReducers({
   email: createWrapperReducer(field, action => action.field === 'email' && action.formName === LOGIN_FORM),

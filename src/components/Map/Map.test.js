@@ -10,11 +10,14 @@ it('renders without crashing', () => {
       route={[]}
       pointInfo={{}}
       isSidebarOpen={false}
+      loadRouteToBusStop={() => {}}
       actions={{
         getMapPointInfo: () => {},
         toggleSideBar: () => {},
         closeMapPointInfo: () => {},
         findUserLocation: () => {},
+        getUserPointInfo: () => {},
+        findNearestButStops: () => {},
       }}
     />, div);
 });
