@@ -8,6 +8,7 @@ it('renders without crashing', () => {
     <InputField
       type="text"
       id="testId"
-      onChange={() => {}}
+      meta={{}}
+      input={null}
     />, div);
 });

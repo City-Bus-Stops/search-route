@@ -8,10 +8,6 @@ export const FIND_USER_ADDRESS_SUCCESS = 'FIND_USER_ADDRESS_SUCCESS';
 export const SEARCH_ROUTE = 'SEARCH_ROUTE';
 export const SEARCH_ROUTE_SUCCESS = 'SEARCH_ROUTE_SUCCESS';
 
-/** Forms actions **/
-export const SET_FORM_FIELD = 'SET_FORM_FIELD';
-export const FORM_SUBMIT_FAILED = 'FORM_SUBMIT_FAILED';
-
 /** User Management actions **/
 export const LOGIN = 'LOGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -43,20 +39,12 @@ export const FIND_NEAREST_BUS_STOPS_SUCCESS = 'FIND_NEAREST_BUS_STOPS_SUCCESS';
 export const SEND_REQUEST = 'SEND_REQUEST';
 export const RECEIVE_RESPONSE = 'RECEIVE_RESPONSE';
 
-export const setFormField = (formName, field, value) => ({
-  type: SET_FORM_FIELD,
-  formName,
-  field,
-  value,
-});
-
 export const findUserLocation = () => ({
   type: FIND_USER_LOCATION,
 });
 
-export const findUserAddress = (formName, field) => ({
+export const findUserAddress = field => ({
   type: FIND_USER_ADDRESS,
-  formName,
   field,
 });
 
@@ -65,19 +53,13 @@ export const searchRoute = params => ({
   params,
 });
 
-export const formSubmitFailed = (formName, errors) => ({
-  type: FORM_SUBMIT_FAILED,
-  formName,
-  errors,
-});
-
-export const logIn = (email, password) => ({
+export const logIn = ({ email, password }) => ({
   type: LOGIN,
   email,
   password,
 });
 
-export const signUp = (email, password) => ({
+export const signUp = ({ email, password }) => ({
   type: SIGN_UP,
   email,
   password,

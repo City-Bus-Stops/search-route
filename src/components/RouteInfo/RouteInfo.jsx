@@ -18,7 +18,7 @@ const instructionIconColors = {
 };
 
 
-const FoundedRouteInfo = ({ clearRouteInfo, routeInfo }) => (
+const RouteInfo = ({ clearRouteInfo, routeInfo }) => (
   <Modal
     open={!isEmpty(routeInfo)}
     dimmer="blurring"
@@ -150,9 +150,9 @@ const FoundedRouteInfo = ({ clearRouteInfo, routeInfo }) => (
   </Modal>
 );
 
-FoundedRouteInfo.propTypes = {
+RouteInfo.propTypes = {
   routeInfo: PropTypes.shape().isRequired,
   clearRouteInfo: PropTypes.func.isRequired,
 };
 
-export default FoundedRouteInfo;
+export default RouteInfo;

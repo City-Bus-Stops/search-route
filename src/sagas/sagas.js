@@ -53,7 +53,7 @@ function* findUserLocation() {
 }
 
 function* findUserAddress(action) {
-  const { formName, field } = action;
+  const { field } = action;
   try {
     yield put({ type: FIND_USER_LOCATION });
     const { location } = yield take(FIND_USER_LOCATION_SUCCESS);
@@ -62,7 +62,7 @@ function* findUserAddress(action) {
     const response = yield call(fetchFindUserAddress, coords);
     yield put({ type: RECEIVE_RESPONSE });
     const { address } = response;
-    yield put({ type: FIND_USER_ADDRESS_SUCCESS, address, coords, formName, field });
+    yield put({ type: FIND_USER_ADDRESS_SUCCESS, address, coords, field });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
