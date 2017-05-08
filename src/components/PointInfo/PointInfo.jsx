@@ -62,6 +62,7 @@ const PointInfo = ({ pointInfo, closePointInfo, loadRouteToBusStop }) => (
           <Grid.Row columns={1}>
             <Grid.Column className="font-size-15">
               <strong className="font-size-15">
+                <Icon name="bus" color="blue" circular />
                 Nearest bus stops:
               </strong>
             </Grid.Column>
@@ -89,27 +90,25 @@ const PointInfo = ({ pointInfo, closePointInfo, loadRouteToBusStop }) => (
                     </Card.Description>
                   </Card.Content>
                   <Card.Content extra className="padding-left-5 padding-right-5">
-                    <Button.Group fluid>
-                      <Grid columns={2} doubling container>
-                        <Grid.Row stretched>
-                          <Grid.Column mobile={16} widescreen={8} computer={8}>
-                            <Button
-                              className="point-info-button"
-                              color="green"
-                              onClick={() => loadRouteToBusStop(busStop)}
-                            >Watch on the map
-                            </Button>
-                          </Grid.Column>
-                          <Grid.Column mobile={16} widescreen={8} computer={8}>
-                            <Button
-                              color="yellow"
-                            >
-                              Watch schedule
-                            </Button>
-                          </Grid.Column>
-                        </Grid.Row>
-                      </Grid>
-                    </Button.Group>
+                    <Grid columns={2} doubling container>
+                      <Grid.Row>
+                        <Grid.Column mobile={16} widescreen={8} computer={8} stretched>
+                          <Button
+                            className="point-info-button"
+                            color="green"
+                            onClick={() => loadRouteToBusStop(busStop)}
+                          >Watch on the map
+                          </Button>
+                        </Grid.Column>
+                        <Grid.Column mobile={16} widescreen={8} computer={8} stretched>
+                          <Button
+                            color="yellow"
+                          >
+                            Watch schedule
+                          </Button>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
                   </Card.Content>
                 </Card>
               </Grid.Column>,

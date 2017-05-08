@@ -116,12 +116,6 @@ body {
   }
 }
 
-@media (max-width: 960px) {
-  .point-info-button {
-    margin-bottom: 10px!important;
-  }
-}
-
 .leaflet-container {
   height: 100%;
   width: 100%;
@@ -304,4 +298,8 @@ label sup {
     padding-left: 0px!important;
     padding-right: 0px!important;
   }
+}
+
+.padding-top-10 {
+  padding-top: 10px;
 }
