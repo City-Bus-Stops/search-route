@@ -64,12 +64,6 @@ const mockRouteInfo = {
 };
 
 storiesOf('FoundedRouteInfo', module)
-  .add('default RouteInfo', () => (
-    <FoundedRouteInfo
-      routeInfo={{}}
-      clearRouteInfo={action('Clear route info')}
-    />
-  ))
   .add('with route info', () => (
     <FoundedRouteInfo
       routeInfo={mockRouteInfo}
