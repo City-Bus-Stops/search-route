@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { Grid, Icon, Button, Segment } from 'semantic-ui-react';
-import { isEmpty, head } from 'lodash';
+import { Field } from 'redux-form';
 
 import InputField from '../InputField/InputField';
 
-const Signup = ({ email, password, confirmPassword, errors, signUp, setFormField }) => (
+const Signup = ({ signUp, handleSubmit }) => (
   <Grid centered padded id="signup">
     <Grid.Row>
       <Grid.Column largeScreen={3} mobile={16} widescreen={3}>
@@ -17,46 +17,40 @@ const Signup = ({ email, password, confirmPassword, errors, signUp, setFormField
             </h1>
             <Grid.Row>
               <Grid.Column>
-                <InputField
-                  type="text"
+                <Field
                   id="email"
+                  name="email"
+                  component={InputField}
+                  type="text"
                   customContent={<Icon name="user" />}
                   iconPosition="left"
                   label={<p>Email <sup>*</sup></p>}
-                  value={email}
-                  onChange={value => setFormField('email', value)}
-                  hasError={!isEmpty(errors.email)}
-                  error={head(errors.email)}
                 />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
               <Grid.Column>
-                <InputField
-                  type="password"
+                <Field
                   id="password"
+                  name="password"
+                  component={InputField}
+                  type="password"
                   customContent={<Icon name="lock" />}
                   iconPosition="left"
                   label={<p>Password <sup>*</sup></p>}
-                  value={password}
-                  onChange={value => setFormField('password', value)}
-                  hasError={!isEmpty(errors.password)}
-                  error={head(errors.password)}
                 />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
               <Grid.Column>
-                <InputField
-                  type="password"
+                <Field
                   id="confirmPassword"
+                  name="confirmPassword"
+                  component={InputField}
+                  type="password"
                   customContent={<Icon name="lock" />}
                   iconPosition="left"
                   label={<p>Confirm Password <sup>*</sup></p>}
-                  value={confirmPassword}
-                  onChange={value => setFormField('confirmPassword', value)}
-                  hasError={!isEmpty(errors.confirmPassword)}
-                  error={head(errors.confirmPassword)}
                 />
               </Grid.Column>
             </Grid.Row>
@@ -71,7 +65,7 @@ const Signup = ({ email, password, confirmPassword, errors, signUp, setFormField
                   fluid
                   color="blue"
                   size="large"
-                  onClick={signUp}
+                  onClick={handleSubmit(signUp)}
                 >
                   Sign Up
                 </Button>
@@ -85,12 +79,8 @@ const Signup = ({ email, password, confirmPassword, errors, signUp, setFormField
 );
 
 Signup.propTypes = {
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  confirmPassword: PropTypes.string.isRequired,
-  errors: PropTypes.shape().isRequired,
   signUp: PropTypes.func.isRequired,
-  setFormField: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default Signup;

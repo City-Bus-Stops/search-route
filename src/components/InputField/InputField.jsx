@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Label, Input } from 'semantic-ui-react';
+import { isEmpty, head } from 'lodash';
 
-const InputField = ({
-  type, label, placeholder, id, customContent, hasError, error, value, onChange, info, iconPosition,
+const InputField = ({ type, label, placeholder, id, customContent, meta: { touched, error },
+  info, iconPosition, input,
 }) => (
   <div>
     {
@@ -11,34 +12,32 @@ const InputField = ({
     }
     <Input
       fluid
-      error={hasError}
+      error={touched && !isEmpty(head(error))}
       icon={customContent}
       iconPosition={iconPosition}
       type={type}
       placeholder={placeholder}
       id={id}
-      value={value}
-      onChange={e => onChange(e.target.value.trim())}
+      {...input}
     />
     {
-      hasError &&
-      <Label basic color="red" pointing>{error}</Label>
+      touched &&
+      !isEmpty(head(error)) &&
+      <Label basic color="red" pointing>{head(error)}</Label>
     }
     {info}
   </div>
 );
 
 InputField.propTypes = {
+  input: PropTypes.shape().isRequired,
   type: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  meta: PropTypes.shape().isRequired,
   label: PropTypes.shape(),
   placeholder: PropTypes.string,
   customContent: PropTypes.element,
   iconPosition: PropTypes.string,
-  hasError: PropTypes.bool,
-  error: PropTypes.string,
-  value: PropTypes.string,
   info: PropTypes.element,
 };
 
@@ -47,9 +46,6 @@ InputField.defaultProps = {
   label: null,
   customContent: null,
   iconPosition: null,
-  hasError: false,
-  error: 'Please enter a value',
-  value: '',
   info: null,
 };
 

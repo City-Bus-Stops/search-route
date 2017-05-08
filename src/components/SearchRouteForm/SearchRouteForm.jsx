@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Icon, Button, Segment } from 'semantic-ui-react';
-import { isEmpty, head } from 'lodash';
+import { Field } from 'redux-form';
 
 import InputField from '../InputField/InputField';
 
-const SearchRouteForm = ({
-  from, to, setFormField, findUserAddress, searchRoute, errors,
-}) => (
+const SearchRouteForm = ({ findUserAddress, searchRoute, handleSubmit }) => (
   <Grid centered padded>
     <Grid.Row>
       <Grid.Column largeScreen={6} mobile={16} widescreen={6}>
@@ -18,13 +16,12 @@ const SearchRouteForm = ({
             </h1>
             <Grid.Row>
               <Grid.Column>
-                <InputField
-                  type="text"
-                  label={<p>From <sup>*</sup></p>}
-                  placeholder="From"
+                <Field
                   id="from"
-                  hasError={!isEmpty(errors.from)}
-                  error={head(errors.from)}
+                  name="from"
+                  component={InputField}
+                  type="text"
+                  placeholder="From"
                   customContent={
                     <Icon
                       link
@@ -33,27 +30,24 @@ const SearchRouteForm = ({
                       onClick={() => findUserAddress('from')}
                     />
                   }
-                  value={from}
-                  onChange={value => setFormField('from', value)}
+                  label={<p>From <sup>*</sup></p>}
                   info={
                     <span className="info float-right">
                       <Icon name="info circle" />
                       You can find location automatically
                     </span>
                   }
-
                 />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
               <Grid.Column>
-                <InputField
-                  type="text"
-                  label={<p>To <sup>*</sup></p>}
-                  placeholder="To"
+                <Field
                   id="to"
-                  hasError={!isEmpty(errors.to)}
-                  error={head(errors.to)}
+                  name="to"
+                  component={InputField}
+                  type="text"
+                  placeholder="To"
                   customContent={
                     <Icon
                       link
@@ -62,8 +56,7 @@ const SearchRouteForm = ({
                       onClick={() => findUserAddress('to')}
                     />
                   }
-                  value={to}
-                  onChange={value => setFormField('to', value)}
+                  label={<p>To <sup>*</sup></p>}
                   info={
                     <span className="info float-right">
                       <Icon name="info circle" />
@@ -79,7 +72,7 @@ const SearchRouteForm = ({
                   fluid
                   color="blue"
                   size="large"
-                  onClick={searchRoute}
+                  onClick={handleSubmit(searchRoute)}
                 >
                   Search
                 </Button>
@@ -93,12 +86,9 @@ const SearchRouteForm = ({
 );
 
 SearchRouteForm.propTypes = {
-  from: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
-  setFormField: PropTypes.func.isRequired,
   findUserAddress: PropTypes.func.isRequired,
   searchRoute: PropTypes.func.isRequired,
-  errors: PropTypes.shape().isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchRouteForm;
