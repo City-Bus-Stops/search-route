@@ -29,7 +29,7 @@ class SearchRouteFormContainer extends Component {
 
     const errors = validateSearchRouteForm(values);
     if (isEmpty(errors)) {
-      searchRoute(values);
+      searchRoute(values, SEARCH_ROUTE);
     }
   }
 

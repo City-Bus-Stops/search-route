@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import InputField from './InputField';
+import FavoriteBusStop from './FavoriteBusStop';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <InputField
-      type="text"
-      id="testId"
-      meta={{}}
-      input={{}}
+    <FavoriteBusStop
+      busStop={{}}
+      loadRouteToBusStop={() => {}}
+      remove={() => {}}
     />, div);
 });

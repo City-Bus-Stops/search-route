@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { isEmpty } from 'lodash';
 
 import MapComponent from '../../components/Map/Map';
+import PointInfo from '../../components/PointInfo/PointInfo';
 
 import {
   toggleSideBar,
@@ -44,20 +45,26 @@ class MapContainer extends Component {
       pointInfo, userCoordinates, mapCenter, actions } = this.props;
 
     return (
-      <MapComponent
-        data={data}
-        defaultCenter={defaultCenter}
-        zoom={zoom}
-        maxZoom={maxZoom}
-        minZoom={minZoom}
-        zoomControl={zoomControl}
-        isSidebarOpen={isSidebarOpen}
-        pointInfo={pointInfo}
-        userCoordinates={userCoordinates}
-        mapCenter={isEmpty(mapCenter) ? defaultCenter : mapCenter}
-        actions={actions}
-        loadRouteToBusStop={this.loadRouteToBusStop}
-      />
+      <div>
+        <MapComponent
+          data={data}
+          defaultCenter={defaultCenter}
+          zoom={zoom}
+          maxZoom={maxZoom}
+          minZoom={minZoom}
+          zoomControl={zoomControl}
+          isSidebarOpen={isSidebarOpen}
+          pointInfo={pointInfo}
+          userCoordinates={userCoordinates}
+          mapCenter={isEmpty(mapCenter) ? defaultCenter : mapCenter}
+          actions={actions}
+        />
+        <PointInfo
+          pointInfo={pointInfo}
+          closePointInfo={actions.closeMapPointInfo}
+          loadRouteToBusStop={this.loadRouteToBusStop}
+        />
+      </div>
     );
   }
 }

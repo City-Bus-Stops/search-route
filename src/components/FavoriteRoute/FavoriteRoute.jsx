@@ -1,73 +1,50 @@
 import React from 'react';
-import { Grid, Card, Icon, Header, Accordion, List, Button } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { Grid, Card, Icon } from 'semantic-ui-react';
 
-const FavoriteRoute = () => (
-  <Grid.Column>
+const FavoriteRoute = ({ route, getRouteGeoData, getRouteInfo, remove }) => (
+  <Grid.Column
+    className="font-size-15 padding-top-10"
+    mobile={16} widescreen={4} computer={4} tablet={8}
+  >
     <Card fluid>
       <Card.Content>
-        <Icon className="float-right" name="remove" size="large" color="red" link />
+        <Icon
+          className="float-right"
+          name="remove"
+          size="large"
+          color="red"
+          link
+          onClick={() => remove(route.id)}
+        />
         <Card.Header>
           <Icon name="bus" size="large" color="blue" link />
-          23
+          {route.busNumber}
         </Card.Header>
-        <Card.Meta>Time in travel ~15 min</Card.Meta>
+        <Card.Meta>Time in travel ~{route.timeInTravel} min</Card.Meta>
         <Card.Description>
-          <Grid columns={2} padded stackable>
-            <Grid.Column>
-              <Header as="h4" >
-                From
-                <Header.Subheader>
-                  Фолюш
-                </Header.Subheader>
-              </Header>
-            </Grid.Column>
-            <Grid.Column>
-              <Header as="h4" >
-                To
-                <Header.Subheader>
-                  Советская
-                </Header.Subheader>
-              </Header>
-            </Grid.Column>
-          </Grid>
-          <Accordion styled>
-            <Accordion.Title>
-              <Icon name="dropdown" />
-              <b>Bus stops</b>
-            </Accordion.Title>
-            <Accordion.Content>
-              <List divided relaxed>
-                <List.Item>
-                  <List.Icon name="map outline" size="large" verticalAlign="middle" link />
-                  <List.Content>
-                    <List.Header>Фолюш</List.Header>
-                    <List.Description>2 minutes</List.Description>
-                  </List.Content>
-                </List.Item>
-                <List.Item>
-                  <List.Icon name="map outline" size="large" verticalAlign="middle" link />
-                  <List.Content>
-                    <List.Header>Улица Лизы Чайкиной</List.Header>
-                    <List.Description>4 min</List.Description>
-                  </List.Content>
-                </List.Item>
-                <List.Item>
-                  <List.Icon name="map outline" size="large" verticalAlign="middle" link />
-                  <List.Content>
-                    <List.Header>Улица Декабристов</List.Header>
-                    <List.Description>6 min</List.Description>
-                  </List.Content>
-                </List.Item>
-              </List>
-            </Accordion.Content>
-          </Accordion>
+          <p className="font-size-15"><strong>From: </strong>{route.from}</p>
+          <p className="font-size-15"><strong>To: </strong>{route.to}</p>
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Button positive > Build route </Button>
+        <span className="float-right" onClick={() => getRouteGeoData(route.id)}>
+          <Icon link name="map outline" color="green" />
+        </span>
+        <span className="cursor-pointer" onClick={() => getRouteInfo(route.id)}>
+          <Icon name="info circle" />
+          More info
+        </span>
       </Card.Content>
     </Card>
   </Grid.Column>
 );
+
+FavoriteRoute.propTypes = {
+  route: PropTypes.shape().isRequired,
+  getRouteGeoData: PropTypes.func.isRequired,
+  getRouteInfo: PropTypes.func.isRequired,
+  remove: PropTypes.func.isRequired,
+};
 
 export default FavoriteRoute;

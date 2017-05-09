@@ -40,6 +40,7 @@
     "info": {
       "from": "Фолюш",
       "to": "Советская",
+      "routeId": 1,
       "nearestBuses": [{
           "id": "1",
           "time": "12:32"
@@ -95,7 +96,72 @@
         "id": 4,
         "title": "Улица Поповича",
         "description": "10 minutes"
-      }]
+      }],
+      "isSaved": false
+    }
+  }, {
+    "id": 2,
+    "info": {
+      "from": "Фолюш",
+      "to": "Советская",
+      "routeId": 2,
+      "nearestBuses": [{
+        "id": "1",
+        "time": "12:32"
+      }, {
+        "id": "2",
+        "time": "12:45"
+      }, {
+        "id": "3",
+        "time": "12:50"
+      }, {
+        "id": "4",
+        "time": "13:00"
+      }],
+      "instruction": [{
+        "id": 1,
+        "type": "start",
+        "title": "Start point",
+        "description": "Улица О.Соломовой 135"
+      }, {
+        "id": 2,
+        "type": "foot",
+        "title": "6 min",
+        "description": "Go to'Фолюш' bus stop."
+      }, {
+        "id": 3,
+        "type": "bus",
+        "title": "15 min",
+        "description": "Go by bus for 15 minutes and get off at the 'Советская' bus stop."
+      }, {
+        "id": 4,
+        "type": "foot",
+        "title": "7 min",
+        "description": "Go to 'Универмаг'."
+      }, {
+        "id": 5,
+        "type": "end",
+        "title": "End point",
+        "description": "Улица Советская 18"
+      }],
+      "busStops": [{
+        "id": 1,
+        "title": "Фолюш",
+        "description": "1 minutes"
+      }, {
+        "id": 2,
+        "title": "Улица Лизы Чайкиной",
+        "description": "3 minutes"
+      }, {
+        "id": 3,
+        "title": "Улица Декабристов",
+        "description": "6 minutes"
+      }, {
+        "id": 4,
+        "title": "Улица Поповича",
+        "description": "10 minutes"
+      }],
+      "isSaved": true
     }
   }],
   "routes-geo": [{
@@ -357,5 +423,85 @@
         "type": "Point",
         "coordinates": [23.7927711, 53.67343862]
       }
+    }],
+  "user-favorites": {
+    "routes": [{
+      "id": "1",
+      "from": "Фолюш",
+      "to": "Советская",
+      "busNumber": "28",
+      "timeInTravel": "33"
+    }, {
+      "id": "2",
+      "from": "Фолюш",
+      "to": "Советская",
+      "busNumber": "2",
+      "timeInTravel": "25"
+    }, {
+      "id": "3",
+      "from": "Фолюш",
+      "to": "Советская",
+      "busNumber": "3",
+      "timeInTravel": "15"
+    }, {
+      "id": "4",
+      "from": "Фолюш",
+      "to": "Советская",
+      "busNumber": "4",
+      "timeInTravel": "19"
+    }],
+    "busStops": [{
+      "id": 1,
+      "name": "Университет Имени Янки Купалы",
+      "distance": 1000,
+      "timeToReach": "5",
+      "coords": [53.6729683, 23.79417658]
+    }, {
+      "id": 2,
+      "name": "Девятовка",
+      "distance": 500,
+      "timeToReach": "2.5",
+      "coords": [53.6729683, 23.79417658]
+    }, {
+      "id": 3,
+      "name": "Улица Советских Пограничников",
+      "distance": 750,
+      "timeToReach": "3.3",
+      "coords": [53.6729683, 23.79417658]
+    }, {
+      "id": 4,
+      "name": "Площадь Советская",
+      "distance": 150,
+      "timeToReach": "1.5",
+      "coords": [53.6729683, 23.79417658]
     }]
+  },
+  "bus-stops-geo": [{
+      "id": 1,
+      "geoData": {
+        "type": "Feature",
+        "properties": {
+          "id": 1,
+          "type": "bus_stop"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [23.78851175, 53.66706981]
+        }
+      }
+    }, {
+    "id": 2,
+    "geoData": {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "type": "bus_stop"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [23.78439188, 53.66429825]
+      }
+    }
+  }
+  ]
 }

@@ -2,6 +2,7 @@ import {
   LOAD_ROUTE_GEODATA_SUCCESS,
   LOAD_ROUTE_BETWEEN_POINTS_SUCCESS,
   FIND_NEAREST_BUS_STOPS_SUCCESS,
+  LOAD_BUS_STOP_GEODATA_SUCCESS,
   CLEAR_MAP_GEODATA,
 } from '../../actions/actions';
 
@@ -10,6 +11,7 @@ const getData = (state = [], action) => {
     case LOAD_ROUTE_GEODATA_SUCCESS:
     case LOAD_ROUTE_BETWEEN_POINTS_SUCCESS:
     case FIND_NEAREST_BUS_STOPS_SUCCESS:
+    case LOAD_BUS_STOP_GEODATA_SUCCESS:
       return action.geoData;
 
     case CLEAR_MAP_GEODATA:

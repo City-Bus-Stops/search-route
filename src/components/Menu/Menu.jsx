@@ -2,21 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import Collapse from 'react-collapse';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Icon } from 'semantic-ui-react';
 
 const MenuComponent = ({ pathname, userName }) => (
   <Collapse isOpened={!pathname.includes('map')}>
     <Menu className="padded-menu" stackable>
       <Menu.Item>
         <Link to="/dashboard" className="menu-item" activeClassName="menu-item-active">
-          <i className="home icon" />
+          <Icon name="home" />
           Home
         </Link>
       </Menu.Item>
       <Menu.Item>
         <Link to="/search-route" className="menu-item" activeClassName="menu-item-active">
-          <i className="search icon" />
+          <Icon name="search" />
           Search route
+        </Link>
+      </Menu.Item>
+      <Menu.Item>
+        <Link to="/favorites" className="menu-item" activeClassName="menu-item-active">
+          <Icon name="favorite" />
+          Favorites
         </Link>
       </Menu.Item>
       <Menu.Menu position="right">

@@ -22,7 +22,6 @@ export const CLEAR_ROUTE_INFO = 'CLEAR_ROUTE_INFO';
 /** Map actions **/
 export const LOAD_ROUTE_GEODATA = 'LOAD_ROUTE_GEODATA';
 export const LOAD_ROUTE_GEODATA_SUCCESS = 'LOAD_ROUTE_GEODATA_SUCCESS';
-export const LOAD_ROUTE_GEODATA_FAILURE = 'LOAD_ROUTE_GEODATA_FAILURE';
 export const CLEAR_MAP_GEODATA = 'CLEAR_MAP_GEODATA';
 export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
 export const LOAD_MAP_POINT_INFO = 'LOAD_MAP_POINT_INFO';
@@ -39,6 +38,19 @@ export const FIND_NEAREST_BUS_STOPS_SUCCESS = 'FIND_NEAREST_BUS_STOPS_SUCCESS';
 export const SEND_REQUEST = 'SEND_REQUEST';
 export const RECEIVE_RESPONSE = 'RECEIVE_RESPONSE';
 
+/** Favorites actions **/
+export const LOAD_FAVORITES = 'LOAD_FAVORITES';
+export const LOAD_FAVORITES_SUCCESS = 'LOAD_FAVORITES_SUCCESS';
+export const LOAD_BUS_STOP_GEODATA = 'LOAD_BUS_STOP_GEODATA';
+export const LOAD_BUS_STOP_GEODATA_SUCCESS = 'LOAD_BUS_STOP_GEODATA_SUCCESS';
+export const SAVE_TO_FAVORITES = 'SAVE_TO_FAVORITES';
+export const SAVE_TO_FAVORITES_SUCCESS = 'SAVE_TO_FAVORITES_SUCCESS';
+export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
+
+/** Confirm actions **/
+export const OPEN_CONFIRM = 'OPEN_CONFIRM';
+export const CLOSE_CONFIRM = 'CLOSE_CONFIRM';
+
 export const findUserLocation = () => ({
   type: FIND_USER_LOCATION,
 });
@@ -48,9 +60,10 @@ export const findUserAddress = field => ({
   field,
 });
 
-export const searchRoute = params => ({
+export const searchRoute = (params, predicate) => ({
   type: SEARCH_ROUTE,
   params,
+  predicate,
 });
 
 export const logIn = ({ email, password }) => ({
@@ -65,22 +78,21 @@ export const signUp = ({ email, password }) => ({
   password,
 });
 
-export const getRouteInfo = routeId => ({
+export const getRouteInfo = (routeId, predicate) => ({
   type: LOAD_ROUTE_INFO,
   routeId,
+  predicate,
 });
 
-export const clearRouteInfo = () => ({
+export const clearRouteInfo = predicate => ({
   type: CLEAR_ROUTE_INFO,
+  predicate,
 });
 
-export const getRouteGeoData = routeId => ({
+export const getRouteGeoData = (routeId, predicate) => ({
   type: LOAD_ROUTE_GEODATA,
   routeId,
-});
-
-export const clearMapGeoData = () => ({
-  type: CLEAR_MAP_GEODATA,
+  predicate,
 });
 
 export const getMapPointInfo = pointId => ({
@@ -108,6 +120,39 @@ export const loadRouteBetweenPoints = (startPoint, endPoint) => ({
 
 export const findNearestButStops = () => ({
   type: FIND_NEAREST_BUS_STOPS,
+});
+
+export const loadFavorites = predicate => ({
+  type: LOAD_FAVORITES,
+  predicate,
+});
+
+export const loadBusStopGeoData = busStopId => ({
+  type: LOAD_BUS_STOP_GEODATA,
+  busStopId,
+});
+
+export const saveToFavorites = (id, predicate) => ({
+  type: SAVE_TO_FAVORITES,
+  id,
+  predicate,
+});
+
+export const removeFromFavorites = (id, predicate) => ({
+  type: REMOVE_FROM_FAVORITES,
+  id,
+  predicate,
+});
+
+export const openConfirm = (config, predicate) => ({
+  type: OPEN_CONFIRM,
+  config,
+  predicate,
+});
+
+export const closeConfirm = predicate => ({
+  type: CLOSE_CONFIRM,
+  predicate,
 });
 
 export const showNotification = (type, title, message) =>

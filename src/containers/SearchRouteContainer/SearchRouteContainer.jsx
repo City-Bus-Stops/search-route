@@ -3,26 +3,27 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import SearchRouteFormContainer from '../SearchRouteFormContainer/SearchRouteFormContainer';
+import SearchRouteFormContainer, { SEARCH_ROUTE } from '../SearchRouteFormContainer/SearchRouteFormContainer';
 import RouteInfo from '../../components/RouteInfo/RouteInfo';
 import Routes from '../../components/Routes/Routes';
-
 
 import {
   getRouteInfo,
   getRouteGeoData,
   clearRouteInfo,
+  saveToFavorites,
 } from '../../actions/actions';
 import { getRoutes, getInfo } from '../../reducers/searchRoute/searchRoute';
 
 const SearchRouteContainer = ({
-  routes, routeInfo, actions: { getRouteInfo, getRouteGeoData, clearRouteInfo },
+  routes, routeInfo, actions: { getRouteInfo, getRouteGeoData, clearRouteInfo, saveToFavorites },
 }) => (
   <div>
     <SearchRouteFormContainer />
     <RouteInfo
       routeInfo={routeInfo}
       clearRouteInfo={clearRouteInfo}
+      saveToFavorites={saveToFavorites}
     />
     <Routes
       routes={routes}
@@ -39,9 +40,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
-    getRouteInfo,
-    getRouteGeoData,
-    clearRouteInfo,
+    getRouteInfo: routeId => getRouteInfo(routeId, SEARCH_ROUTE),
+    getRouteGeoData: routeId => getRouteGeoData(routeId, SEARCH_ROUTE),
+    clearRouteInfo: () => clearRouteInfo(SEARCH_ROUTE),
+    saveToFavorites: id => saveToFavorites(id, SEARCH_ROUTE),
   }, dispatch),
 });
 

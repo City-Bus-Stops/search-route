@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FavoriteRoute from './FavoriteRoute';
+import Favorites from './Favorites';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <FavoriteRoute
-      route={{}}
+    <Favorites
+      routes={[]}
+      busStops={[]}
       getRouteGeoData={() => {}}
       getRouteInfo={() => {}}
-      remove={() => {}}
+      loadBusStopGeoData={() => {}}
+      removeFromFavorites={() => {}}
     />, div);
 });

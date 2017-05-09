@@ -39,3 +39,11 @@ export const fetchRouteBetweenPoints = (startPoint, endPoint) =>
 export const fetchNearestBusStops = coords =>
   axios.get(`/nearest-bus-stops?lat=${coords.latitude}&lon=${coords.longitude}&distance=1000`)
     .then(response => response.data);
+
+export const fetchFavorites = () =>
+  axios.get('/user/favorites')
+    .then(response => response.data);
+
+export const fetchBusStopGeoData = busStopId =>
+  axios.get(`/bus-stops/${busStopId}/geo`)
+    .then(response => response.data);

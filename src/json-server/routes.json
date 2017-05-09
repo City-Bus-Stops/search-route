@@ -2,5 +2,7 @@
   "/routes/:id/info": "/routes-info/:id",
   "/routes/:id/geo": "/routes-geo/:id",
   "/points/:id/info": "/points-info/:id",
-  "/user/info": "/user-info"
+  "/user/info": "/user-info",
+  "/user/favorites": "/user-favorites",
+  "/bus-stops/:id/geo": "/bus-stops-geo/:id"
 }
