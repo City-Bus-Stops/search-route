@@ -7,7 +7,9 @@ import { Link } from 'react-router';
 import FavoriteRoute from '../FavoriteRoute/FavoriteRoute';
 import FavoriteBusStop from '../FavoriteBusStop/FavoriteBusStop';
 
-const Favorites = ({ routes, busStops, getRouteGeoData, getRouteInfo }) => (
+const Favorites = ({
+  routes, busStops, getRouteGeoData, getRouteInfo, loadBusStopGeoData, removeFromFavorites,
+}) => (
   <Grid centered padded>
     <Grid.Row>
       <Grid.Column largeScreen={10} mobile={16} widescreen={10}>
@@ -49,6 +51,7 @@ const Favorites = ({ routes, busStops, getRouteGeoData, getRouteInfo }) => (
                     route={route}
                     getRouteGeoData={getRouteGeoData}
                     getRouteInfo={getRouteInfo}
+                    remove={removeFromFavorites}
                   />,
                 )
               }
@@ -70,6 +73,8 @@ const Favorites = ({ routes, busStops, getRouteGeoData, getRouteInfo }) => (
                   <FavoriteBusStop
                     key={busStop.id}
                     busStop={busStop}
+                    loadBusStopGeoData={loadBusStopGeoData}
+                    remove={removeFromFavorites}
                   />,
                 )
               }
@@ -104,6 +109,8 @@ Favorites.propTypes = {
   busStops: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   getRouteGeoData: PropTypes.func.isRequired,
   getRouteInfo: PropTypes.func.isRequired,
+  loadBusStopGeoData: PropTypes.func.isRequired,
+  removeFromFavorites: PropTypes.func.isRequired,
 };
 
 export default Favorites;

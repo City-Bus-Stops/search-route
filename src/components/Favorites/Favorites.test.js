@@ -4,5 +4,13 @@ import Favorites from './Favorites';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Favorites />, div);
+  ReactDOM.render(
+    <Favorites
+      routes={[]}
+      busStops={[]}
+      getRouteGeoData={() => {}}
+      getRouteInfo={() => {}}
+      loadBusStopGeoData={() => {}}
+      removeFromFavorites={() => {}}
+    />, div);
 });

@@ -4,5 +4,10 @@ import FavoriteBusStop from './FavoriteBusStop';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<FavoriteBusStop />, div);
+  ReactDOM.render(
+    <FavoriteBusStop
+      busStop={{}}
+      loadRouteToBusStop={() => {}}
+      remove={() => {}}
+    />, div);
 });

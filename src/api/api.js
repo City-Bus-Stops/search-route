@@ -43,3 +43,7 @@ export const fetchNearestBusStops = coords =>
 export const fetchFavorites = () =>
   axios.get('/user/favorites')
     .then(response => response.data);
+
+export const fetchBusStopGeoData = busStopId =>
+  axios.get(`/bus-stops/${busStopId}/geo`)
+    .then(response => response.data);

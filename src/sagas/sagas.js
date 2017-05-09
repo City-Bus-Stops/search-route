@@ -13,6 +13,7 @@ import {
   fetchRouteBetweenPoints,
   fetchNearestBusStops,
   fetchFavorites,
+  fetchBusStopGeoData,
 } from '../api/api';
 import {
   FIND_USER_LOCATION,
@@ -26,7 +27,6 @@ import {
   CLEAR_ROUTE_INFO,
   LOAD_ROUTE_GEODATA,
   LOAD_ROUTE_GEODATA_SUCCESS,
-  LOAD_ROUTE_GEODATA_FAILURE,
   LOAD_MAP_POINT_INFO,
   LOAD_MAP_POINT_INFO_SUCCESS,
   LOAD_USER_POINT_INFO,
@@ -40,6 +40,10 @@ import {
   FIND_NEAREST_BUS_STOPS_SUCCESS,
   LOAD_FAVORITES,
   LOAD_FAVORITES_SUCCESS,
+  LOAD_BUS_STOP_GEODATA,
+  LOAD_BUS_STOP_GEODATA_SUCCESS,
+  SAVE_TO_FAVORITES,
+  SAVE_TO_FAVORITES_SUCCESS,
   showNotification,
 } from '../actions/actions';
 
@@ -87,20 +91,20 @@ function* searchRoute(action) {
 }
 
 function* loadRouteInfo(action) {
-  const { routeId } = action;
+  const { routeId, predicate } = action;
   try {
     const response = yield call(fetchRouteInfo, routeId);
     const { info } = response;
-    yield put({ type: LOAD_ROUTE_INFO_SUCCESS, info, routeId });
+    yield put({ type: LOAD_ROUTE_INFO_SUCCESS, info, routeId, predicate });
   } catch (err) {
     yield put(showNotification('error', 'Error', err.message));
   }
 }
 
-function* pollRouteInfo(routeId) {
+function* pollRouteInfo(routeId, predicate) {
   try {
     yield call(delay, 60000);
-    yield put({ type: LOAD_ROUTE_INFO, routeId });
+    yield put({ type: LOAD_ROUTE_INFO, routeId, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
@@ -109,9 +113,9 @@ function* pollRouteInfo(routeId) {
 
 function* watchPollRouteInfo() {
   while (true) {
-    const { routeId } = yield take(LOAD_ROUTE_INFO_SUCCESS);
+    const { routeId, predicate } = yield take(LOAD_ROUTE_INFO_SUCCESS);
     yield race([
-      call(pollRouteInfo, routeId),
+      call(pollRouteInfo, routeId, predicate),
       take(CLEAR_ROUTE_INFO),
     ]);
   }
@@ -141,15 +145,13 @@ function* loadRouteGeoData(action) {
   const { routeId } = action;
   try {
     yield put({ type: SEND_REQUEST });
-    const response = yield call(fetchRouteGeoData, routeId);
+    const { geoData } = yield call(fetchRouteGeoData, routeId);
     yield put({ type: RECEIVE_RESPONSE });
-    const { geoData } = response;
     yield put({ type: LOAD_ROUTE_GEODATA_SUCCESS, geoData });
     yield put(push('/map'));
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
-    yield put({ type: LOAD_ROUTE_GEODATA_FAILURE });
   }
 }
 
@@ -207,12 +209,40 @@ function* findNearestBusStops() {
   }
 }
 
-function* loadFavorites() {
+function* loadFavorites(action) {
+  const { predicate } = action;
   try {
     yield put({ type: SEND_REQUEST });
     const favorites = yield call(fetchFavorites);
     yield put({ type: RECEIVE_RESPONSE });
-    yield put({ type: LOAD_FAVORITES_SUCCESS, favorites });
+    yield put({ type: LOAD_FAVORITES_SUCCESS, favorites, predicate });
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
+function* loadBusStopGeoData(action) {
+  const { busStopId } = action;
+  try {
+    yield put({ type: SEND_REQUEST });
+    const { geoData } = yield call(fetchBusStopGeoData, busStopId);
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: LOAD_BUS_STOP_GEODATA_SUCCESS, geoData });
+    yield put(push('/map'));
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
+function* saveToFavorites(action) {
+  const { id, predicate } = action;
+  try {
+    yield put({ type: SEND_REQUEST });
+    /** TODO Send request to save **/
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: SAVE_TO_FAVORITES_SUCCESS, id, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
@@ -230,6 +260,8 @@ function* appSaga() {
   yield takeEvery(LOAD_ROUTE_BETWEEN_POINTS, loadRouteBetweenPoints);
   yield takeEvery(FIND_NEAREST_BUS_STOPS, findNearestBusStops);
   yield takeEvery(LOAD_FAVORITES, loadFavorites);
+  yield takeEvery(LOAD_BUS_STOP_GEODATA, loadBusStopGeoData);
+  yield takeEvery(SAVE_TO_FAVORITES, saveToFavorites);
   yield [fork(watchPollRouteInfo), fork(watchPollPointInfo)];
 }
 export default appSaga;

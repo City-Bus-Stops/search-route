@@ -18,7 +18,7 @@ const instructionIconColors = {
 };
 
 
-const RouteInfo = ({ clearRouteInfo, routeInfo }) => (
+const RouteInfo = ({ clearRouteInfo, routeInfo, saveToFavorites }) => (
   <Modal
     open={!isEmpty(routeInfo)}
     dimmer="blurring"
@@ -33,7 +33,18 @@ const RouteInfo = ({ clearRouteInfo, routeInfo }) => (
             <Icon size="large" name="bus" color="blue" circular link /> 23
           </Grid.Column>
           <Grid.Column textAlign="right">
-            <Icon size="large" name="save" color="green" circular link />
+            {
+              routeInfo.isSaved ?
+                <Icon size="large" name="check" color="green" circular link /> :
+                <Icon
+                  size="large"
+                  name="save"
+                  color="green"
+                  circular
+                  link
+                  onClick={() => saveToFavorites(routeInfo.routeId)}
+                />
+            }
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -153,6 +164,11 @@ const RouteInfo = ({ clearRouteInfo, routeInfo }) => (
 RouteInfo.propTypes = {
   routeInfo: PropTypes.shape().isRequired,
   clearRouteInfo: PropTypes.func.isRequired,
+  saveToFavorites: PropTypes.func,
+};
+
+RouteInfo.defaultProps = {
+  saveToFavorites: () => {},
 };
 
 export default RouteInfo;

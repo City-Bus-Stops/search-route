@@ -12,6 +12,7 @@ it('renders without crashing', () => {
       actions={{
         getMapPointInfo: () => {},
         toggleSideBar: () => {},
+        closeMapPointInfo: () => {},
         findUserLocation: () => {},
         getUserPointInfo: () => {},
         findNearestButStops: () => {},

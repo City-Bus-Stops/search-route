@@ -297,9 +297,24 @@ label sup {
   .ui.grid>.column:not(.row), .ui.grid>.row>.column {
     padding-left: 0px!important;
     padding-right: 0px!important;
+    margin-left: 10px;
   }
 }
 
 .padding-top-10 {
   padding-top: 10px;
+}
+
+.remove-confirm {
+  background-color: #f0515a!important;
+}
+
+.remove-confirm  > p {
+  color: white;
+  display: inline;
+}
+
+.remove-confirm  > i {
+  color: white;
+  float: right;
 }

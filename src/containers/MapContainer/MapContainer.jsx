@@ -17,10 +17,8 @@ import {
   findNearestButStops,
 } from '../../actions/actions';
 
-import { getGeoData, getIsSidebarOpen, getUserCoordinates, getMapCenter } from '../../reducers/map/map';
-import { getPointInfo } from '../../reducers/map/pointInfo';
-
-export const MAP = 'map';
+import { getGeoData, getIsSidebarOpen, getPointInfo, getUserCoordinates,
+  getMapCenter } from '../../reducers/map/map';
 
 class MapContainer extends Component {
   constructor(props) {
@@ -74,7 +72,7 @@ class MapContainer extends Component {
 const mapStateToProps = state => ({
   data: getGeoData(state.map),
   isSidebarOpen: getIsSidebarOpen(state.map),
-  pointInfo: getPointInfo(state.map.pointInfo),
+  pointInfo: getPointInfo(state.map),
   userCoordinates: getUserCoordinates(state.map),
   mapCenter: getMapCenter(state.map),
 });

@@ -1,7 +1,5 @@
 import { combineReducers } from 'redux';
 
-import { createWrapperReducer } from '../../utils';
-
 import coordinates from '../coordinates';
 import address from '../address';
 

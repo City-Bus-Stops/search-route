@@ -1,17 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Grid, Card, Icon, Button } from 'semantic-ui-react';
 
-const FavoriteBusStop = () => (
+const FavoriteBusStop = ({ busStop, loadBusStopGeoData, remove }) => (
   <Grid.Column
     className="font-size-15 padding-top-10"
     mobile={16} widescreen={4} computer={4} tablet={8}
   >
     <Card fluid>
       <Card.Content>
-        <Icon className="float-right" name="remove" size="large" color="red" link />
-        <Card.Header>
+        <Icon
+          className="float-right"
+          name="remove"
+          size="large"
+          color="red"
+          link
+          onClick={() => remove(busStop.id)}
+        />
+        <Card.Header className="font-size-15">
           <Icon link circular name="point" color="blue" />
-          Площадь Декабристов
+          {busStop.name}
         </Card.Header>
       </Card.Content>
       <Card.Content extra className="padding-left-5 padding-right-5">
@@ -23,7 +31,7 @@ const FavoriteBusStop = () => (
                 color="green"
                 basic
                 icon
-                // onClick={() => loadRouteToBusStop(busStop)}
+                onClick={() => loadBusStopGeoData(busStop.id)}
               >
                 Watch on the map <Icon link name="map outline" color="green" />
               </Button>
@@ -44,5 +52,11 @@ const FavoriteBusStop = () => (
     </Card>
   </Grid.Column>
 );
+
+FavoriteBusStop.propTypes = {
+  busStop: PropTypes.shape().isRequired,
+  loadBusStopGeoData: PropTypes.func.isRequired,
+  remove: PropTypes.func.isRequired,
+};
 
 export default FavoriteBusStop;
