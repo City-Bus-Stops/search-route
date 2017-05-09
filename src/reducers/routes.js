@@ -1,6 +1,6 @@
 import {
   SEARCH_ROUTE_SUCCESS,
-} from '../../actions/actions';
+} from '../actions/actions';
 
 const routes = (state = [], action) => {
   switch (action.type) {

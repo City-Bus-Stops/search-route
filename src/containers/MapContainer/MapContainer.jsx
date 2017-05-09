@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { isEmpty } from 'lodash';
 
 import MapComponent from '../../components/Map/Map';
+import PointInfo from '../../components/PointInfo/PointInfo';
 
 import {
   toggleSideBar,
@@ -16,8 +17,10 @@ import {
   findNearestButStops,
 } from '../../actions/actions';
 
-import { getGeoData, getIsSidebarOpen, getPointInfo, getUserCoordinates,
-  getMapCenter } from '../../reducers/map/map';
+import { getGeoData, getIsSidebarOpen, getUserCoordinates, getMapCenter } from '../../reducers/map/map';
+import { getPointInfo } from '../../reducers/map/pointInfo';
+
+export const MAP = 'map';
 
 class MapContainer extends Component {
   constructor(props) {
@@ -44,20 +47,26 @@ class MapContainer extends Component {
       pointInfo, userCoordinates, mapCenter, actions } = this.props;
 
     return (
-      <MapComponent
-        data={data}
-        defaultCenter={defaultCenter}
-        zoom={zoom}
-        maxZoom={maxZoom}
-        minZoom={minZoom}
-        zoomControl={zoomControl}
-        isSidebarOpen={isSidebarOpen}
-        pointInfo={pointInfo}
-        userCoordinates={userCoordinates}
-        mapCenter={isEmpty(mapCenter) ? defaultCenter : mapCenter}
-        actions={actions}
-        loadRouteToBusStop={this.loadRouteToBusStop}
-      />
+      <div>
+        <MapComponent
+          data={data}
+          defaultCenter={defaultCenter}
+          zoom={zoom}
+          maxZoom={maxZoom}
+          minZoom={minZoom}
+          zoomControl={zoomControl}
+          isSidebarOpen={isSidebarOpen}
+          pointInfo={pointInfo}
+          userCoordinates={userCoordinates}
+          mapCenter={isEmpty(mapCenter) ? defaultCenter : mapCenter}
+          actions={actions}
+        />
+        <PointInfo
+          pointInfo={pointInfo}
+          closePointInfo={actions.closeMapPointInfo}
+          loadRouteToBusStop={this.loadRouteToBusStop}
+        />
+      </div>
     );
   }
 }
@@ -65,7 +74,7 @@ class MapContainer extends Component {
 const mapStateToProps = state => ({
   data: getGeoData(state.map),
   isSidebarOpen: getIsSidebarOpen(state.map),
-  pointInfo: getPointInfo(state.map),
+  pointInfo: getPointInfo(state.map.pointInfo),
   userCoordinates: getUserCoordinates(state.map),
   mapCenter: getMapCenter(state.map),
 });

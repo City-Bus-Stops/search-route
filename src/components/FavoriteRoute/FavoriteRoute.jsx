@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Grid, Card, Icon } from 'semantic-ui-react';
 
-const FavoriteRoute = () => (
+const FavoriteRoute = ({ route, getRouteGeoData, getRouteInfo }) => (
   <Grid.Column
     className="font-size-15 padding-top-10"
     mobile={16} widescreen={4} computer={4} tablet={8}
@@ -11,19 +12,19 @@ const FavoriteRoute = () => (
         <Icon className="float-right" name="remove" size="large" color="red" link />
         <Card.Header>
           <Icon name="bus" size="large" color="blue" link />
-          23
+          {route.busNumber}
         </Card.Header>
-        <Card.Meta>Time in travel ~15 min</Card.Meta>
+        <Card.Meta>Time in travel ~{route.timeInTravel} min</Card.Meta>
         <Card.Description>
-          <p className="font-size-15"><strong>From: </strong>Фолюш</p>
-          <p className="font-size-15"><strong>To: </strong>Советская</p>
+          <p className="font-size-15"><strong>From: </strong>{route.from}</p>
+          <p className="font-size-15"><strong>To: </strong>{route.ещ}</p>
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <span className="float-right">
+        <span className="float-right" onClick={() => getRouteGeoData(route.id)}>
           <Icon link name="map outline" color="green" />
         </span>
-        <span className="cursor-pointer">
+        <span className="cursor-pointer" onClick={() => getRouteInfo(route.id)}>
           <Icon name="info circle" />
           More info
         </span>
@@ -31,5 +32,11 @@ const FavoriteRoute = () => (
     </Card>
   </Grid.Column>
 );
+
+FavoriteRoute.propTypes = {
+  route: PropTypes.shape().isRequired,
+  getRouteGeoData: PropTypes.func.isRequired,
+  getRouteInfo: PropTypes.func.isRequired,
+};
 
 export default FavoriteRoute;

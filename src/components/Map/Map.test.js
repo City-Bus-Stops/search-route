@@ -8,13 +8,10 @@ it('renders without crashing', () => {
     <MapComponent
       routeId="routeId"
       route={[]}
-      pointInfo={{}}
       isSidebarOpen={false}
-      loadRouteToBusStop={() => {}}
       actions={{
         getMapPointInfo: () => {},
         toggleSideBar: () => {},
-        closeMapPointInfo: () => {},
         findUserLocation: () => {},
         getUserPointInfo: () => {},
         findNearestButStops: () => {},

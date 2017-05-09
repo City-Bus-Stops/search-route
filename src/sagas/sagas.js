@@ -12,6 +12,7 @@ import {
   fetchUserPointInfo,
   fetchRouteBetweenPoints,
   fetchNearestBusStops,
+  fetchFavorites,
 } from '../api/api';
 import {
   FIND_USER_LOCATION,
@@ -37,6 +38,8 @@ import {
   LOAD_ROUTE_BETWEEN_POINTS_SUCCESS,
   FIND_NEAREST_BUS_STOPS,
   FIND_NEAREST_BUS_STOPS_SUCCESS,
+  LOAD_FAVORITES,
+  LOAD_FAVORITES_SUCCESS,
   showNotification,
 } from '../actions/actions';
 
@@ -70,14 +73,13 @@ function* findUserAddress(action) {
 }
 
 function* searchRoute(action) {
-  const { params } = action;
-  const { from, to } = params;
+  const { params: { from, to }, predicate } = action;
   try {
     yield put({ type: SEND_REQUEST });
     const response = yield call(fetchSearchRoute, from, to);
     yield put({ type: RECEIVE_RESPONSE });
     const { routes } = response;
-    yield put({ type: SEARCH_ROUTE_SUCCESS, routes });
+    yield put({ type: SEARCH_ROUTE_SUCCESS, routes, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
@@ -205,6 +207,18 @@ function* findNearestBusStops() {
   }
 }
 
+function* loadFavorites() {
+  try {
+    yield put({ type: SEND_REQUEST });
+    const favorites = yield call(fetchFavorites);
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: LOAD_FAVORITES_SUCCESS, favorites });
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
 function* appSaga() {
   yield takeLatest(FIND_USER_LOCATION, findUserLocation);
   yield takeLatest(FIND_USER_ADDRESS, findUserAddress);
@@ -215,6 +229,7 @@ function* appSaga() {
   yield takeLatest(LOAD_USER_POINT_INFO, loadUserPointInfo);
   yield takeEvery(LOAD_ROUTE_BETWEEN_POINTS, loadRouteBetweenPoints);
   yield takeEvery(FIND_NEAREST_BUS_STOPS, findNearestBusStops);
+  yield takeEvery(LOAD_FAVORITES, loadFavorites);
   yield [fork(watchPollRouteInfo), fork(watchPollPointInfo)];
 }
 export default appSaga;

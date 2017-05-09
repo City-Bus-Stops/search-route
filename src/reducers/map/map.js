@@ -18,8 +18,6 @@ export const getGeoData = state => state.geoData;
 
 export const getIsSidebarOpen = state => state.isSidebarOpen;
 
-export const getPointInfo = state => state.pointInfo;
-
 export const getUserCoordinates = state => createSelector(
   getCoordinates,
   coordinates => coordinates,

@@ -11,7 +11,6 @@ import '../../../public/mapkey-icons/L.Icon.Mapkey';
 import { generateIcon, pointToLayer } from '../../utils';
 
 import MapSidebar from '../MapSidebar/MapSidebar';
-import PointInfo from '../PointInfo/PointInfo';
 import GeoLayer from '../GeoLayer/GeoLayer';
 
 const styleForGeoLayer = { color: 'black', weight: 5, opacity: 0.65 };
@@ -23,18 +22,11 @@ const MapComponent = ({
   minZoom,
   zoomControl,
   isSidebarOpen,
-  pointInfo,
   actions,
   userCoordinates,
   mapCenter,
-  loadRouteToBusStop,
 }) => (
   <div className="leaflet-pushable">
-    <PointInfo
-      pointInfo={pointInfo}
-      closePointInfo={actions.closeMapPointInfo}
-      loadRouteToBusStop={loadRouteToBusStop}
-    />
     <Sidebar.Pushable>
       <Collapse isOpened={!isSidebarOpen}>
         <Button
@@ -93,7 +85,6 @@ const MapComponent = ({
 
 MapComponent.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape),
-  pointInfo: PropTypes.shape().isRequired,
   mapCenter: PropTypes.arrayOf(PropTypes.number),
   zoom: PropTypes.number,
   maxZoom: PropTypes.number,
@@ -101,7 +92,6 @@ MapComponent.propTypes = {
   zoomControl: PropTypes.bool,
   isSidebarOpen: PropTypes.bool.isRequired,
   userCoordinates: PropTypes.arrayOf(PropTypes.number),
-  loadRouteToBusStop: PropTypes.func.isRequired,
   actions: PropTypes.shape({
     getMapPointInfo: PropTypes.func.isRequired,
     toggleSideBar: PropTypes.func.isRequired,

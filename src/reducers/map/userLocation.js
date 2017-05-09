@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 
-import userCoordinates from '../userCoordinates';
-import userAddress from '../userAddress';
+import { createWrapperReducer } from '../../utils';
+
+import coordinates from '../coordinates';
+import address from '../address';
 
 export default combineReducers({
-  coordinates: userCoordinates,
-  address: userAddress,
+  coordinates,
+  address,
 });
 
 export const getCoordinates = state => state.coordinates;

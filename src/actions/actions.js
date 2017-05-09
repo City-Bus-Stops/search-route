@@ -39,6 +39,17 @@ export const FIND_NEAREST_BUS_STOPS_SUCCESS = 'FIND_NEAREST_BUS_STOPS_SUCCESS';
 export const SEND_REQUEST = 'SEND_REQUEST';
 export const RECEIVE_RESPONSE = 'RECEIVE_RESPONSE';
 
+/** Favorites actions **/
+export const LOAD_FAVORITES = 'LOAD_FAVORITES';
+export const LOAD_FAVORITES_SUCCESS = 'LOAD_FAVORITES_SUCCESS';
+
+export const setFormField = (formName, field, value) => ({
+  type: SET_FORM_FIELD,
+  formName,
+  field,
+  value,
+});
+
 export const findUserLocation = () => ({
   type: FIND_USER_LOCATION,
 });
@@ -48,9 +59,10 @@ export const findUserAddress = field => ({
   field,
 });
 
-export const searchRoute = params => ({
+export const searchRoute = (params, predicate) => ({
   type: SEARCH_ROUTE,
   params,
+  predicate,
 });
 
 export const logIn = ({ email, password }) => ({
@@ -79,10 +91,6 @@ export const getRouteGeoData = routeId => ({
   routeId,
 });
 
-export const clearMapGeoData = () => ({
-  type: CLEAR_MAP_GEODATA,
-});
-
 export const getMapPointInfo = pointId => ({
   type: LOAD_MAP_POINT_INFO,
   pointId,
@@ -108,6 +116,11 @@ export const loadRouteBetweenPoints = (startPoint, endPoint) => ({
 
 export const findNearestButStops = () => ({
   type: FIND_NEAREST_BUS_STOPS,
+});
+
+export const loadFavorites = predicate => ({
+  type: LOAD_FAVORITES,
+  predicate,
 });
 
 export const showNotification = (type, title, message) =>
