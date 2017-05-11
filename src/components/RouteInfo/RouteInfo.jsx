@@ -26,8 +26,8 @@ const RouteInfo = ({ clearRouteInfo, routeInfo, saveToFavorites }) => (
     closeOnRootNodeClick={false}
     onClose={clearRouteInfo}
   >
-    <Modal.Header as="h3" className="ui">
-      <Grid container>
+    <Modal.Header as="h3">
+      <Grid>
         <Grid.Row columns={2}>
           <Grid.Column>
             <Icon size="large" name="bus" color="blue" circular link /> 23
@@ -50,7 +50,7 @@ const RouteInfo = ({ clearRouteInfo, routeInfo, saveToFavorites }) => (
       </Grid>
     </Modal.Header>
     <Modal.Content>
-      <Grid >
+      <Grid>
         <Grid.Row>
           <Grid.Column className="font-size-15">
             <strong>From:</strong> {routeInfo.from}
@@ -68,13 +68,14 @@ const RouteInfo = ({ clearRouteInfo, routeInfo, saveToFavorites }) => (
               <strong className="padding-right-5 font-size-15">
                 Nearest buses:
               </strong>
-              {
-              routeInfo.nearestBuses.map(nearestBus =>
-                <Label key={nearestBus.id} color="red" size="large" horizontal>
-                  {nearestBus.time}
-                </Label>,
-              )
-            }
+              <Label.Group color="yellow" size="large">
+                {
+                routeInfo.nearestBuses.map(nearestBus =>
+                  <Label key={nearestBus.id} horizontal>
+                    {nearestBus.time}
+                  </Label>)
+              }
+              </Label.Group>
             </Grid.Column>
           </Grid.Row>
         }
