@@ -12,7 +12,7 @@ const Favorites = ({
 }) => (
   <Grid centered padded>
     <Grid.Row>
-      <Grid.Column largeScreen={10} mobile={16} widescreen={10}>
+      <Grid.Column largeScreen={10} mobile={16} widescreen={10} className="no-left-right-padding">
         <Segment stacked>
           <Grid container>
             <Grid.Row>
@@ -23,7 +23,12 @@ const Favorites = ({
               </Grid.Column>
             </Grid.Row>
             <Grid.Row centered>
-              <Grid.Column largeScreen={10} mobile={16} widescreen={10}>
+              <Grid.Column
+                largeScreen={10}
+                mobile={16}
+                widescreen={10}
+                className="no-left-right-padding"
+              >
                 <Input
                   icon={<Icon name="search" color="blue" />}
                   size="large"

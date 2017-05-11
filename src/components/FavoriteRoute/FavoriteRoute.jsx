@@ -4,7 +4,7 @@ import { Grid, Card, Icon } from 'semantic-ui-react';
 
 const FavoriteRoute = ({ route, getRouteGeoData, getRouteInfo, remove }) => (
   <Grid.Column
-    className="font-size-15 padding-top-10"
+    className="font-size-15 padding-top-10 no-left-right-padding"
     mobile={16} widescreen={4} computer={4} tablet={8}
   >
     <Card fluid>
