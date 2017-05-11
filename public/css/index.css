@@ -13,7 +13,7 @@ body {
   height: 100%;
 }
 
-#root > div > div {
+#root > div, #root > div > div  {
   background-image: url("../assets/app-bg.svg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -159,6 +159,7 @@ body {
 
 #login, #signup {
   position: relative;
+  padding-top: 15vh;
   width: 100%;
   height: 100%;
   min-height: 100vh;
@@ -211,14 +212,109 @@ label sup {
 
 .menu-item-active, .menu-item-active:focus, .menu-item-active:active, .menu-item-active:hover ,.menu-item-active:visited {
   background-color: white;
-  color: #db2828!important
+  color: #e9c6a7!important
 }
 
-.padded-menu {
-  padding: 0 15%;
-  border-bottom: 2px solid #222222;
+@media (min-width: 992px) {
+  .padded-menu {
+    padding: 0 15%;
+    border-bottom: 2px solid #222222;
+  }
 }
 
 .padding-left-5 {
+  padding-left: 5px!important;
+}
+
+.input-label {
+  font-size: 16px;
+}
+
+.font-style-oblique {
+  font-style: oblique;
+}
+
+.font-size-15 {
+  font-size: 15px!important;
+  color: #757575!important;
+}
+
+.color-beige {
+  color: #e9c6a7;
+}
+
+@media (min-width: 1200px) {
+  .founded-routes {
+    padding: 0 50px;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.padding-right-5 {
+  padding-right: 5px!important;
+}
+
+.padding-0 {
+  padding: 0!important;
+}
+
+.initial-width {
+  width: inherit!important;
+}
+
+.map-revert-button {
+  margin: 20px;
+  bottom: 0;
+  position: absolute;
+  z-index: 9999;
+}
+
+.pushable > div > div > .map-revert-button {
+  margin: 20px;
+}
+
+.info {
+  position: relative;
+  margin: 0;
+  padding-top: 3px;
+  color: #999;
+  font-size: 12px;
+}
+
+.info-icon {
+  position: absolute;
   padding-left: 5px;
+  top: 0;
+  left: 0;
+  content: '\F05A';
+  font-family: 'Font Awesome';
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 767px) and (min-width: 320px) {
+  .no-left-right-padding {
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+  }
+}
+
+.padding-top-10 {
+  padding-top: 10px;
+}
+
+.remove-confirm {
+  background-color: #f0515a!important;
+}
+
+.remove-confirm  > p {
+  color: white;
+  display: inline;
+}
+
+.remove-confirm  > i {
+  color: white;
+  float: right;
 }

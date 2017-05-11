@@ -4,57 +4,46 @@ import InputField from '../src/components/InputField/InputField';
 
 storiesOf('InputField', module)
   .add('default', () => (
-    <form className="ui form segment big">
-      <InputField
-        type="text"
-        label="Some label"
-        placeholder="Placeholder"
-        id="to"
-      />
-    </form>
+    <InputField
+      input={{}}
+      type="text"
+      id="to"
+      label={<p>Email <sup>*</sup></p>}
+      placeholder="Placeholder"
+      meta={{}}
+    />
   ))
   .add('without label', () => (
     <form className="ui form segment big">
       <InputField
+        input={{}}
         type="text"
-        placeholder="Placeholder"
         id="to"
+        placeholder="Placeholder"
+        meta={{}}
       />
     </form>
   ))
   .add('with icon', () => (
-    <form className="ui form segment big">
-      <InputField
-        type="text"
-        label="Some label"
-        placeholder="Placeholder"
-        id="to"
-        customContent={<i className="location arrow link icon red" />}
-        customContentPosition="right"
-      />
-    </form>
+    <InputField
+      input={{}}
+      type="text"
+      id="to"
+      placeholder="Placeholder"
+      meta={{}}
+      customContent={<i className="location arrow link icon red" />}
+    />
   ))
   .add('with error', () => (
-    <form className="ui form segment big">
-      <InputField
-        type="text"
-        label="Some label"
-        placeholder="Placeholder"
-        id="to"
-        hasError
-      />
-    </form>
-  ))
-  .add('with tooltop', () => (
-    <form className="ui form segment big">
-      <InputField
-        type="text"
-        label="Some label"
-        placeholder="Placeholder"
-        id="to"
-        dataTooltip="Example tooltip"
-        dataDelay="500"
-        dataPosition="top left"
-      />
-    </form>
+    <InputField
+      input={{}}
+      type="text"
+      id="to"
+      placeholder="Placeholder"
+      meta={{
+        error: ['some error'],
+        touched: true,
+      }}
+      customContent={<i className="location arrow link icon red" />}
+    />
   ));

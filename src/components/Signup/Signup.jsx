@@ -1,53 +1,86 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
-import { Segment } from 'semantic-ui-react';
+import { Grid, Icon, Button, Segment } from 'semantic-ui-react';
+import { Field } from 'redux-form';
 
 import InputField from '../InputField/InputField';
 
-const Signup = () => (
-  <div id="signup" className="ui middle aligned center aligned grid">
-    <div className="five wide column">
-      <Segment stacked>
-        <h2 className="ui image header">
-          <div className="content">
-          Create account
-        </div>
-        </h2>
-        <form className="ui large form">
-          <InputField
-            type="text"
-            id="email"
-            customContent={<i className="user icon" />}
-            customContentPosition="left"
-            label={<p>Email <sup>*</sup></p>}
-          />
-          <InputField
-            type="password"
-            id="password"
-            customContent={<i className="lock icon" />}
-            customContentPosition="left"
-            label={<p>Password <sup>*</sup></p>}
-          />
-          <InputField
-            type="password"
-            id="repeat-password"
-            customContent={<i className="lock icon" />}
-            customContentPosition="left"
-            label={<p>Confirm Password <sup>*</sup></p>}
-          />
-          <div className="ui fluid large blue submit button">Sign Up</div>
-        </form>
-        <div className="ui warning message">
-          <h4 className="ui header">
-          Already have account?
-          <Link to="/login" className="ui item padding-left-5">
-            Log In
-          </Link>
-          </h4>
-        </div>
-      </Segment>
-    </div>
-  </div>
+const Signup = ({ signUp, handleSubmit }) => (
+  <Grid centered padded id="signup">
+    <Grid.Row>
+      <Grid.Column largeScreen={3} mobile={16} widescreen={3}>
+        <Segment padded stacked>
+          <Grid centered padded>
+            <h1 className="font-style-oblique color-beige">
+              Create account
+            </h1>
+            <Grid.Row>
+              <Grid.Column>
+                <Field
+                  id="email"
+                  name="email"
+                  component={InputField}
+                  type="text"
+                  customContent={<Icon name="user" />}
+                  iconPosition="left"
+                  label={<p>Email <sup>*</sup></p>}
+                />
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column>
+                <Field
+                  id="password"
+                  name="password"
+                  component={InputField}
+                  type="password"
+                  customContent={<Icon name="lock" />}
+                  iconPosition="left"
+                  label={<p>Password <sup>*</sup></p>}
+                />
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column>
+                <Field
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  component={InputField}
+                  type="password"
+                  customContent={<Icon name="lock" />}
+                  iconPosition="left"
+                  label={<p>Confirm Password <sup>*</sup></p>}
+                />
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row columns={2}>
+              <Grid.Column verticalAlign="middle">
+                <Link to="/login" className="input-label">
+                  Already have account?
+                </Link>
+              </Grid.Column>
+              <Grid.Column>
+                <Button
+                  fluid
+                  color="blue"
+                  size="large"
+                  onClick={handleSubmit(signUp)}
+                >
+                  Sign Up
+                </Button>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Segment>
+      </Grid.Column>
+    </Grid.Row>
+  </Grid>
 );
+
+Signup.propTypes = {
+  signUp: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+};
 
 export default Signup;

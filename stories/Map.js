@@ -1,49 +1,88 @@
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf, action } from '@kadira/storybook';
 
 import MapComponent from '../src/components/Map/Map';
 
-import mockGeoJsonRoute from '../src/mockData/Route.json';
-import nearestBusStops from '../src/mockData/NearestBusStops.json';
+import mockData from '../src/json-server/db.json';
 
 storiesOf('Map', module)
   .add('Default map', () => (
     <div>
       <MapComponent
-        onClick={() => {}}
+        data={[]}
+        loadRouteToBusStop={() => action('Load route to bus stop')}
+        actions={{
+          getMapPointInfo: action('Load point info'),
+          closeMapPointInfo: action('Close map point info'),
+          toggleSideBar: action('Toggle sidebar'),
+          getUserPointInfo: action('Get user point info'),
+          findUserLocation: action('Find user location'),
+          findNearestButStops: action('Find nearest bus stops'),
+        }}
+        isSidebarOpen={false}
+        pointInfo={{}}
       />
     </div>
   ))
   .add('with route', () => (
     <div>
       <MapComponent
-        data={mockGeoJsonRoute}
-        onClick={(id, name) => console.log(`ID: ${id}, name: ${name}`)}
+        data={mockData['routes-geo'][0].geoData}
+        loadRouteToBusStop={() => action('Load route to bus stop')}
+        actions={{
+          getMapPointInfo: action('Load point info'),
+          closeMapPointInfo: action('Close map point info'),
+          toggleSideBar: action('Toggle sidebar'),
+          getUserPointInfo: action('Get user point info'),
+          findUserLocation: action('Find user location'),
+          findNearestButStops: action('Find nearest bus stops'),
+        }}
+        isSidebarOpen={false}
+        pointInfo={{}}
       />
     </div>
   ))
   .add('with nearest bus stops', () => (
     <div>
       <MapComponent
-        data={nearestBusStops}
+        data={mockData['nearest-bus-stops']}
+        loadRouteToBusStop={() => action('Load route to bus stop')}
+        actions={{
+          getMapPointInfo: action('Load point info'),
+          closeMapPointInfo: action('Close map point info'),
+          toggleSideBar: action('Toggle sidebar'),
+          getUserPointInfo: action('Get user point info'),
+          findUserLocation: action('Find user location'),
+          findNearestButStops: action('Find nearest bus stops'),
+        }}
+        isSidebarOpen={false}
+        pointInfo={{}}
         center={[53.6729683, 23.79417658]}
         zoom={17}
         maxZoom={18}
         minZoom={14}
-        onClick={(id, name) => console.log(`ID: ${id}, name: ${name}`)}
       />
     </div>
   ))
   .add('with sidebar', () => (
     <div>
       <MapComponent
-        data={nearestBusStops}
+        data={[]}
+        loadRouteToBusStop={() => action('Load route to bus stop')}
+        actions={{
+          getMapPointInfo: action('Load point info'),
+          closeMapPointInfo: action('Close map point info'),
+          toggleSideBar: action('Toggle sidebar'),
+          getUserPointInfo: action('Get user point info'),
+          findUserLocation: action('Find user location'),
+          findNearestButStops: action('Find nearest bus stops'),
+        }}
+        pointInfo={{}}
         center={[53.6729683, 23.79417658]}
         zoom={17}
         maxZoom={18}
         minZoom={14}
         isSidebarOpen
-        onClick={(id, name) => console.log(`ID: ${id}, name: ${name}`)}
       />
     </div>
   ));

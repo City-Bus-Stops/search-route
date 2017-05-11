@@ -7,5 +7,6 @@ it('renders without crashing', () => {
   ReactDOM.render(
     <Menu
       pathname="testPath"
+      userName="testUser"
     />, div);
 });

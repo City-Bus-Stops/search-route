@@ -1,41 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Sidebar, Button } from 'semantic-ui-react';
-import { Map, TileLayer, GeoJSON } from 'react-leaflet';
+import { browserHistory } from 'react-router';
 import Collapse from 'react-collapse';
+import { Map, TileLayer, Marker } from 'react-leaflet';
+import { isEmpty } from 'lodash';
 
 import '../../../public/mapkey-icons/L.Icon.Mapkey';
 
-import { generateMarker } from '../../utils';
+import { generateIcon, pointToLayer } from '../../utils';
 
 import MapSidebar from '../MapSidebar/MapSidebar';
+import GeoLayer from '../GeoLayer/GeoLayer';
+
+const styleForGeoLayer = { color: 'black', weight: 5, opacity: 0.65 };
 
 const MapComponent = ({
   data,
-  center,
   zoom,
   maxZoom,
   minZoom,
   zoomControl,
   isSidebarOpen,
-  onClick,
+  actions,
+  userCoordinates,
+  mapCenter,
 }) => (
   <div className="leaflet-pushable">
     <Sidebar.Pushable>
       <Collapse isOpened={!isSidebarOpen}>
         <Button
           circular
-          color="grey"
+          color="blue"
           icon="list"
           size="huge"
           className="sidebar-trigger-button"
+          onClick={actions.toggleSideBar}
         />
       </Collapse>
-      <MapSidebar isSidebarOpen={isSidebarOpen} />
+      <MapSidebar
+        isSidebarOpen={isSidebarOpen}
+        toggleSideBar={actions.toggleSideBar}
+        findNearestButStops={actions.findNearestButStops}
+      />
       <Sidebar.Pusher id="map">
         <div className="leaflet-container-main">
           <Map
-            center={center}
+            center={mapCenter}
             zoom={zoom}
             maxZoom={maxZoom}
             minZoom={minZoom}
@@ -44,12 +55,28 @@ const MapComponent = ({
             <TileLayer
               url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
             />
-            <GeoJSON
+            <GeoLayer
               data={data}
-              pointToLayer={(feature, latlng) => generateMarker(feature, latlng, onClick)}
-              style={{ color: 'black', weight: 5, opacity: 0.65 }}
+              pointToLayer={pointToLayer(actions.getMapPointInfo)}
+              style={styleForGeoLayer}
             />
+            {
+              !isEmpty(userCoordinates) &&
+              <Marker
+                position={userCoordinates}
+                icon={generateIcon('user')}
+                onClick={actions.getUserPointInfo}
+              />
+            }
           </Map>
+          <Button
+            circular
+            color="blue"
+            icon="search"
+            size="huge"
+            className="map-revert-button"
+            onClick={() => browserHistory.goBack()}
+          />
         </div>
       </Sidebar.Pusher>
     </Sidebar.Pushable>
@@ -58,24 +85,31 @@ const MapComponent = ({
 
 MapComponent.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape),
-  center: PropTypes.arrayOf(PropTypes.number),
+  mapCenter: PropTypes.arrayOf(PropTypes.number),
   zoom: PropTypes.number,
   maxZoom: PropTypes.number,
   minZoom: PropTypes.number,
   zoomControl: PropTypes.bool,
-  isSidebarOpen: PropTypes.bool,
-  onClick: PropTypes.func,
+  isSidebarOpen: PropTypes.bool.isRequired,
+  userCoordinates: PropTypes.arrayOf(PropTypes.number),
+  actions: PropTypes.shape({
+    getMapPointInfo: PropTypes.func.isRequired,
+    toggleSideBar: PropTypes.func.isRequired,
+    closeMapPointInfo: PropTypes.func.isRequired,
+    getUserPointInfo: PropTypes.func.isRequired,
+    findUserLocation: PropTypes.func.isRequired,
+    findNearestButStops: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 MapComponent.defaultProps = {
   data: [],
-  center: [53.66946, 23.824368],
-  zoom: 13,
+  mapCenter: [53.66946, 23.824368],
+  zoom: 16,
   maxZoom: 16,
   minZoom: 11,
   zoomControl: false,
-  isSidebarOpen: false,
-  onClick: () => {},
+  userCoordinates: [],
 };
 
 export default MapComponent;

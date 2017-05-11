@@ -1,8 +1,31 @@
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf, action } from '@kadira/storybook';
 import PointInfo from '../src/components/PointInfo/PointInfo';
 
+import mockData from '../src/json-server/db.json';
+
 storiesOf('PointInfo', module)
-  .add('Default PointInfo', () => (
-    <PointInfo isOpen />
+  .add('bus stop point info', () => (
+    <PointInfo
+      pointInfo={mockData['points-info'][2].info}
+      clearMapPointInfo={action('Clear map pont info')}
+      closePointInfo={action('Close pint info')}
+      loadRouteToBusStop={action('Load route between points')}
+    />
+  ))
+  .add('start/end point info', () => (
+    <PointInfo
+      pointInfo={mockData['points-info'][0].info}
+      clearMapPointInfo={action('Clear map pont info')}
+      closePointInfo={action('Close pint info')}
+      loadRouteToBusStop={action('Load route between points')}
+    />
+  ))
+  .add('user point info', () => (
+    <PointInfo
+      pointInfo={mockData['user-info']}
+      clearMapPointInfo={action('Clear map pont info')}
+      closePointInfo={action('Close pint info')}
+      loadRouteToBusStop={action('Load route between points')}
+    />
   ));

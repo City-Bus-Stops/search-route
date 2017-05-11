@@ -10,7 +10,7 @@ const StartPage = () => (
       <h2>Do whatever you want when you want to.</h2>
       <div className="ui huge primary link button">
         <Link to="/search-route" className="white-link">
-          Get Started <i className="right arrow icon" />
+          Start to search <i className="right arrow icon" />
         </Link>
       </div>
     </div>

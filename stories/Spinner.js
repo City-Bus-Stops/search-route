@@ -1,16 +1,20 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
-import Spinner from '../src/components/Spinner/Spinner';
+import Root from '../src/components/Root/Root';
+import Dashboard from '../src/components/Dashboard/Dashboard';
 
 storiesOf('Spinner', module)
-  .add('Default Spinner', () => (
-    <div>
-      <Spinner />
-    </div>
-  ))
   .add('Active Spinner', () => (
     <div>
-      <Spinner isActive />
+      <Root
+        IsSpinnerActive
+        location={{
+          pathname: 'testPath',
+        }}
+        notifications={[]}
+      >
+        <Dashboard />
+      </Root>
     </div>
   ));

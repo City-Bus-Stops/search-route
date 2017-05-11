@@ -1,53 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Label, Input } from 'semantic-ui-react';
+import { isEmpty, head } from 'lodash';
 
-const InputField = ({
-  type, label, placeholder, id, customContent, customContentPosition,
-  hasError, error,
+const InputField = ({ type, label, placeholder, id, customContent, meta: { touched, error },
+  info, iconPosition, input,
 }) => (
-  <div className="field">
+  <div>
     {
-      label && <label className="text-align-left" htmlFor={label}>{label}</label>
+      label && <label className="text-align-left input-label" htmlFor={label}>{label}</label>
     }
-    <div
-      className={`ui ${customContentPosition} icon input ${hasError ? 'error' : ''}`}
-    >
-      {customContent}
-      <input
-        type={type}
-        placeholder={placeholder}
-        id={id}
-      />
-    </div>
+    <Input
+      fluid
+      error={touched && !isEmpty(head(error))}
+      icon={customContent}
+      iconPosition={iconPosition}
+      type={type}
+      placeholder={placeholder}
+      id={id}
+      {...input}
+    />
     {
-      hasError && <div className="ui pointing red basic label">
-        {error}
-      </div>
+      touched &&
+      !isEmpty(head(error)) &&
+      <Label basic color="red" pointing>{head(error)}</Label>
     }
+    {info}
   </div>
 );
 
 InputField.propTypes = {
+  input: PropTypes.shape().isRequired,
   type: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  meta: PropTypes.shape().isRequired,
   label: PropTypes.shape(),
   placeholder: PropTypes.string,
-  id: PropTypes.string.isRequired,
   customContent: PropTypes.element,
-  customContentPosition: PropTypes.string,
-  hasError: PropTypes.bool,
-  error: PropTypes.string,
+  iconPosition: PropTypes.string,
+  info: PropTypes.element,
 };
 
 InputField.defaultProps = {
-  dataTooltip: null,
-  dataDelay: '0',
-  dataPosition: '',
   placeholder: '',
   label: null,
   customContent: null,
-  customContentPosition: 'left',
-  hasError: false,
-  error: 'Please enter a value',
+  iconPosition: null,
+  info: null,
 };
 
 export default InputField;
