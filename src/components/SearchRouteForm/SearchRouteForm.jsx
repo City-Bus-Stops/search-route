@@ -26,13 +26,14 @@ const SearchRouteForm = ({ findUserAddress, searchRoute, handleSubmit }) => (
                     <Icon
                       link
                       name="location arrow"
+                      className="only-on-mobiles-and-tablet"
                       color="red"
                       onClick={() => findUserAddress('from')}
                     />
                   }
                   label={<p>From <sup>*</sup></p>}
                   info={
-                    <span className="info float-right">
+                    <span className="info float-right only-on-mobiles-and-tablet">
                       <Icon name="info circle" />
                       You can find location automatically
                     </span>
@@ -52,13 +53,14 @@ const SearchRouteForm = ({ findUserAddress, searchRoute, handleSubmit }) => (
                     <Icon
                       link
                       name="location arrow"
+                      className="only-on-mobiles-and-tablet"
                       color="red"
                       onClick={() => findUserAddress('to')}
                     />
                   }
                   label={<p>To <sup>*</sup></p>}
                   info={
-                    <span className="info float-right">
+                    <span className="info float-righ only-on-mobiles-and-tablet">
                       <Icon name="info circle" />
                       You can find location automatically
                     </span>
