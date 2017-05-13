@@ -15,6 +15,7 @@ import {
   findUserLocation,
   loadRouteBetweenPoints,
   findNearestButStops,
+  saveToFavorites,
 } from '../../actions/actions';
 
 import { getGeoData, getIsSidebarOpen, getPointInfo, getUserCoordinates,
@@ -39,7 +40,7 @@ class MapContainer extends Component {
       pointInfo, userCoordinates, mapCenter } = this.props;
     const {
       toggleSideBar, findNearestButStops, getMapPointInfo, getUserPointInfo,
-      closeMapPointInfo,
+      closeMapPointInfo, saveToFavorites,
     } = this.props.actions;
 
     return (
@@ -64,6 +65,7 @@ class MapContainer extends Component {
           pointInfo={pointInfo}
           closePointInfo={closeMapPointInfo}
           loadRouteToBusStop={this.loadRouteToBusStop}
+          savePoint={saveToFavorites}
         />
       </div>
     );
@@ -87,6 +89,7 @@ const mapDispatchToProps = dispatch => ({
     findUserLocation,
     loadRouteBetweenPoints,
     findNearestButStops,
+    saveToFavorites,
   }, dispatch),
 });
 
@@ -109,6 +112,7 @@ MapContainer.propTypes = {
     findUserLocation: PropTypes.func.isRequired,
     loadRouteBetweenPoints: PropTypes.func.isRequired,
     findNearestButStops: PropTypes.func.isRequired,
+    saveToFavorites: PropTypes.func.isRequired,
   }).isRequired,
 };
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Modal, Icon, Card, Grid, Label, Button } from 'semantic-ui-react';
 import { isEmpty } from 'lodash';
 
-const PointInfo = ({ pointInfo, closePointInfo, loadRouteToBusStop }) => (
+const PointInfo = ({ pointInfo, closePointInfo, loadRouteToBusStop, savePoint }) => (
   <Modal
     open={!isEmpty(pointInfo)}
     size="small"
@@ -12,9 +12,35 @@ const PointInfo = ({ pointInfo, closePointInfo, loadRouteToBusStop }) => (
     closeOnRootNodeClick={false}
   >
     <Modal.Header >
-      <h2 className="color-beige">
-        {pointInfo.name}
-      </h2>
+      <Grid>
+        <Grid.Row columns={2}>
+          <Grid.Column verticalAlign="middle">
+            <h2 className="color-beige">
+              {pointInfo.name}
+            </h2>
+          </Grid.Column>
+          {
+            pointInfo.type === 'bus_stop' &&
+            <Grid.Column textAlign="right" verticalAlign="middle">
+              {
+              pointInfo.isSaved ?
+                <span className="color-green">
+                  <Icon size="big" name="check circle" link />
+                  Saved
+              </span> :
+                <Icon
+                  size="large"
+                  name="save"
+                  color="green"
+                  circular
+                  link
+                  onClick={() => savePoint(pointInfo.pointId)}
+                />
+            }
+            </Grid.Column>
+          }
+        </Grid.Row>
+      </Grid>
     </Modal.Header>
     <Modal.Content>
       <Grid>
@@ -136,6 +162,11 @@ PointInfo.propTypes = {
   }).isRequired,
   closePointInfo: PropTypes.func.isRequired,
   loadRouteToBusStop: PropTypes.func.isRequired,
+  savePoint: PropTypes.func,
+};
+
+PointInfo.defaultProps = {
+  savePoint: () => {},
 };
 
 export default PointInfo;
