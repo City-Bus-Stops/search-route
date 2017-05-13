@@ -7,7 +7,7 @@ const confirmHeaderTypes = {
   remove: 'remove-confirm',
 };
 
-const ConfirmComponent = ({ header, question, type, onConfirm, onCancel }) => (
+const ConfirmComponent = ({ config: { header, question, type, onConfirm, onCancel } }) => (
   <Modal
     size="small"
     open={!isEmpty(question)}
@@ -32,21 +32,20 @@ const ConfirmComponent = ({ header, question, type, onConfirm, onCancel }) => (
         icon="checkmark"
         labelPosition="right"
         content="Yes"
-        onClick={() => {
-          onConfirm();
-          onCancel();
-        }}
+        onClick={onConfirm}
       />
     </Modal.Actions>
   </Modal>
 );
 
 ConfirmComponent.propTypes = {
-  header: PropTypes.string.isRequired,
-  question: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  onConfirm: PropTypes.func.isRequired,
-  onCancel: PropTypes.func.isRequired,
+  config: PropTypes.shape({
+    header: PropTypes.string,
+    question: PropTypes.string,
+    type: PropTypes.string,
+    onConfirm: PropTypes.func,
+    onCancel: PropTypes.func,
+  }).isRequired,
 };
 
 export default ConfirmComponent;

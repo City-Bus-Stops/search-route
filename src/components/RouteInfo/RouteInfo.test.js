@@ -7,6 +7,6 @@ it('renders without crashing', () => {
   ReactDOM.render(
     <RouteInfo
       routeInfo={{}}
-      clearRouteInfo={() => {}}
+      closeRouteInfo={() => {}}
     />, div);
 });

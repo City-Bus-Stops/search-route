@@ -14,13 +14,7 @@ import { signUp } from '../../actions/actions';
 export const SIGN_UP_FORM = 'signupForm';
 
 class SignupContainer extends Component {
-  constructor(props) {
-    super(props);
-
-    this.signUp = this.signUp.bind(this);
-  }
-
-  signUp(values) {
+  validateAndSignup = (values) => {
     const { signUp } = this.props.actions;
 
     const errors = validateSignUpForm(values);
@@ -34,7 +28,7 @@ class SignupContainer extends Component {
 
     return (
       <Signup
-        signUp={this.signUp}
+        signUp={this.validateAndSignup}
         handleSubmit={handleSubmit}
       />
     );

@@ -17,11 +17,3 @@ const confirm = (state = {}, action) => {
 };
 
 export default confirm;
-
-export const getConfirmQuestion = state => state.question;
-
-export const getConfirmHeader = state => state.header;
-
-export const getConfirmType = state => state.type;
-
-export const getOnConfirm = state => state.onConfirm;

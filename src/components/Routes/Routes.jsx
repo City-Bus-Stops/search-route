@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Card, Label, Icon } from 'semantic-ui-react';
 
-const Route = ({ routes, getRouteInfo, getRouteGeoData }) => (
+const Route = ({ routes, getRouteInfo, showOnTheMap }) => (
   <div className="founded-routes">
     <Grid columns={4} stackable doubling>
       {
@@ -22,7 +22,7 @@ const Route = ({ routes, getRouteInfo, getRouteGeoData }) => (
                 </Card.Description>
               </Card.Content>
               <Card.Content extra>
-                <span className="float-right" onClick={() => getRouteGeoData(route.id)}>
+                <span className="float-right" onClick={() => showOnTheMap(route.id)}>
                   <Icon link name="map outline" color="red" />
                 </span>
                 <span className="cursor-pointer" onClick={() => getRouteInfo(route.id)}>
@@ -47,7 +47,7 @@ Route.propTypes = {
     timeInTravel: PropTypes.string.isRequired,
   })).isRequired,
   getRouteInfo: PropTypes.func.isRequired,
-  getRouteGeoData: PropTypes.func.isRequired,
+  showOnTheMap: PropTypes.func.isRequired,
 };
 
 export default Route;

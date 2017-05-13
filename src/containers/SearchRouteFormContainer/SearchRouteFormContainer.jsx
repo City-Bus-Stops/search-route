@@ -17,14 +17,7 @@ import {
 export const SEARCH_ROUTE = 'searchRoute';
 
 class SearchRouteFormContainer extends Component {
-  constructor(props) {
-    super(props);
-
-    this.searchRoute = this.searchRoute.bind(this);
-    this.findUserAddress = this.findUserAddress.bind(this);
-  }
-
-  searchRoute(values) {
+  validateAndSearchRoute = (values) => {
     const { searchRoute } = this.props.actions;
 
     const errors = validateSearchRouteForm(values);
@@ -33,19 +26,14 @@ class SearchRouteFormContainer extends Component {
     }
   }
 
-  findUserAddress(field) {
-    const { findUserAddress } = this.props.actions;
-
-    findUserAddress(field);
-  }
-
   render() {
     const { handleSubmit } = this.props;
+    const { findUserAddress } = this.props.actions;
 
     return (
       <SearchRouteForm
-        searchRoute={this.searchRoute}
-        findUserAddress={this.findUserAddress}
+        searchRoute={this.validateAndSearchRoute}
+        findUserAddress={findUserAddress}
         handleSubmit={handleSubmit}
       />
     );

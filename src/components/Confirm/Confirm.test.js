@@ -6,10 +6,12 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <Confirm
-      header="testHeader"
-      question=""
-      type="remove"
-      onConfirm={() => {}}
-      onCancel={() => {}}
+      config={{
+        header: 'testHeader',
+        question: '',
+        type: 'remove',
+        onConfirm: () => {},
+        onCancel: () => {},
+      }}
     />, div);
 });

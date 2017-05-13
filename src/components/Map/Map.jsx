@@ -22,9 +22,12 @@ const MapComponent = ({
   minZoom,
   zoomControl,
   isSidebarOpen,
-  actions,
   userCoordinates,
   mapCenter,
+  toggleSideBar,
+  findNearestButStops,
+  getPointInfo,
+  getUserPointInfo,
 }) => (
   <div className="leaflet-pushable">
     <Sidebar.Pushable>
@@ -35,13 +38,13 @@ const MapComponent = ({
           icon="list"
           size="huge"
           className="sidebar-trigger-button"
-          onClick={actions.toggleSideBar}
+          onClick={toggleSideBar}
         />
       </Collapse>
       <MapSidebar
         isSidebarOpen={isSidebarOpen}
-        toggleSideBar={actions.toggleSideBar}
-        findNearestButStops={actions.findNearestButStops}
+        toggleSideBar={toggleSideBar}
+        findNearestButStops={findNearestButStops}
       />
       <Sidebar.Pusher id="map">
         <div className="leaflet-container-main">
@@ -57,7 +60,7 @@ const MapComponent = ({
             />
             <GeoLayer
               data={data}
-              pointToLayer={pointToLayer(actions.getMapPointInfo)}
+              pointToLayer={pointToLayer(getPointInfo)}
               style={styleForGeoLayer}
             />
             {
@@ -65,7 +68,7 @@ const MapComponent = ({
               <Marker
                 position={userCoordinates}
                 icon={generateIcon('user')}
-                onClick={actions.getUserPointInfo}
+                onClick={getUserPointInfo}
               />
             }
           </Map>
@@ -92,14 +95,10 @@ MapComponent.propTypes = {
   zoomControl: PropTypes.bool,
   isSidebarOpen: PropTypes.bool.isRequired,
   userCoordinates: PropTypes.arrayOf(PropTypes.number),
-  actions: PropTypes.shape({
-    getMapPointInfo: PropTypes.func.isRequired,
-    toggleSideBar: PropTypes.func.isRequired,
-    closeMapPointInfo: PropTypes.func.isRequired,
-    getUserPointInfo: PropTypes.func.isRequired,
-    findUserLocation: PropTypes.func.isRequired,
-    findNearestButStops: PropTypes.func.isRequired,
-  }).isRequired,
+  getPointInfo: PropTypes.func.isRequired,
+  toggleSideBar: PropTypes.func.isRequired,
+  getUserPointInfo: PropTypes.func.isRequired,
+  findNearestButStops: PropTypes.func.isRequired,
 };
 
 MapComponent.defaultProps = {

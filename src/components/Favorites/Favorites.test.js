@@ -8,7 +8,7 @@ it('renders without crashing', () => {
     <Favorites
       routes={[]}
       busStops={[]}
-      getRouteGeoData={() => {}}
+      showOnTheMap={() => {}}
       getRouteInfo={() => {}}
       loadBusStopGeoData={() => {}}
       removeFromFavorites={() => {}}

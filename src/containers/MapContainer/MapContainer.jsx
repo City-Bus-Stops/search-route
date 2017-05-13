@@ -21,19 +21,13 @@ import { getGeoData, getIsSidebarOpen, getPointInfo, getUserCoordinates,
   getMapCenter } from '../../reducers/map/map';
 
 class MapContainer extends Component {
-  constructor(props) {
-    super(props);
-
-    this.loadRouteToBusStop = this.loadRouteToBusStop.bind(this);
-  }
-
   componentDidMount() {
     const { findUserLocation } = this.props.actions;
 
     findUserLocation();
   }
 
-  loadRouteToBusStop(point) {
+  loadRouteToBusStop = (point) => {
     const { userCoordinates } = this.props;
     const { loadRouteBetweenPoints } = this.props.actions;
 
@@ -42,7 +36,11 @@ class MapContainer extends Component {
 
   render() {
     const { data, defaultCenter, zoom, maxZoom, minZoom, zoomControl, isSidebarOpen,
-      pointInfo, userCoordinates, mapCenter, actions } = this.props;
+      pointInfo, userCoordinates, mapCenter } = this.props;
+    const {
+      toggleSideBar, findNearestButStops, getMapPointInfo, getUserPointInfo,
+      closeMapPointInfo,
+    } = this.props.actions;
 
     return (
       <div>
@@ -57,11 +55,14 @@ class MapContainer extends Component {
           pointInfo={pointInfo}
           userCoordinates={userCoordinates}
           mapCenter={isEmpty(mapCenter) ? defaultCenter : mapCenter}
-          actions={actions}
+          toggleSideBar={toggleSideBar}
+          findNearestButStops={findNearestButStops}
+          getPointInfo={getMapPointInfo}
+          getUserPointInfo={getUserPointInfo}
         />
         <PointInfo
           pointInfo={pointInfo}
-          closePointInfo={actions.closeMapPointInfo}
+          closePointInfo={closeMapPointInfo}
           loadRouteToBusStop={this.loadRouteToBusStop}
         />
       </div>

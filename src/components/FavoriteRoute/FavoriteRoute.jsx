@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Card, Icon } from 'semantic-ui-react';
 
-const FavoriteRoute = ({ route, getRouteGeoData, getRouteInfo, remove }) => (
+const FavoriteRoute = ({ route, showOnTheMap, getRouteInfo, remove }) => (
   <Grid.Column
     className="font-size-15 padding-top-10 no-left-right-padding"
     mobile={16} widescreen={4} computer={4} tablet={8}
@@ -28,7 +28,7 @@ const FavoriteRoute = ({ route, getRouteGeoData, getRouteInfo, remove }) => (
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <span className="float-right" onClick={() => getRouteGeoData(route.id)}>
+        <span className="float-right" onClick={() => showOnTheMap(route.id)}>
           <Icon link name="map outline" color="green" />
         </span>
         <span className="cursor-pointer" onClick={() => getRouteInfo(route.id)}>
@@ -42,7 +42,7 @@ const FavoriteRoute = ({ route, getRouteGeoData, getRouteInfo, remove }) => (
 
 FavoriteRoute.propTypes = {
   route: PropTypes.shape().isRequired,
-  getRouteGeoData: PropTypes.func.isRequired,
+  showOnTheMap: PropTypes.func.isRequired,
   getRouteInfo: PropTypes.func.isRequired,
   remove: PropTypes.func.isRequired,
 };
