@@ -60,7 +60,7 @@ const SearchRouteForm = ({ findUserAddress, searchRoute, handleSubmit }) => (
                   }
                   label={<p>To <sup>*</sup></p>}
                   info={
-                    <span className="info float-righ only-on-mobiles-and-tablet">
+                    <span className="info float-right only-on-mobiles-and-tablet">
                       <Icon name="info circle" />
                       You can find location automatically
                     </span>
