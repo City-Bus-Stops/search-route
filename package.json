@@ -31,7 +31,7 @@
     "validate.js": "^0.11.1"
   },
   "devDependencies": {
-    "eslint": "^#.#.#",
+    "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^#.#.#",
     "eslint-plugin-jsx-a11y": "^#.#.#",
