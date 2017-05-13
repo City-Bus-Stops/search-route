@@ -14,6 +14,12 @@ const MenuComponent = ({ pathname, userName }) => (
         </Link>
       </Menu.Item>
       <Menu.Item>
+        <Link to="/map" className="menu-item" activeClassName="menu-item-active">
+          <Icon name="globe" />
+          Map
+        </Link>
+      </Menu.Item>
+      <Menu.Item>
         <Link to="/search-route" className="menu-item" activeClassName="menu-item-active">
           <Icon name="search" />
           Search route

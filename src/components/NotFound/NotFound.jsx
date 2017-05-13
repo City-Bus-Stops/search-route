@@ -1,10 +1,11 @@
 import React from 'react';
+import { Grid, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router';
 
 const NotFound = () => (
-  <div className="ui middle aligned center aligned grid not-found">
-    <div className="column">
-      <div className="ui raised very padded text container piled segment">
+  <Grid textAlign="center" verticalAlign="middle" className="not-found" container>
+    <Grid.Column>
+      <Segment raised padded="very" piled basic>
         <div className="error-box">
           <h1 className="not-found-status">404</h1>
           <p className="not-found-text">Not Found</p>
@@ -12,9 +13,9 @@ const NotFound = () => (
             Get back to the Dashboard page
           </Link>
         </div>
-      </div>
-    </div>
-  </div>
+      </Segment>
+    </Grid.Column>
+  </Grid>
 );
 
 export default NotFound;
