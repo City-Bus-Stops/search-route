@@ -14,7 +14,7 @@ it('renders without crashing', () => {
         timeInTravel: '15',
       }]}
       getRouteInfo={() => {}}
-      getRouteGeoData={() => {}}
+      showOnTheMap={() => {}}
     />, div);
 });
 

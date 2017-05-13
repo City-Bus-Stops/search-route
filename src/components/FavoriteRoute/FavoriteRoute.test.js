@@ -7,7 +7,7 @@ it('renders without crashing', () => {
   ReactDOM.render(
     <FavoriteRoute
       route={{}}
-      getRouteGeoData={() => {}}
+      showOnTheMap={() => {}}
       getRouteInfo={() => {}}
       remove={() => {}}
     />, div);

@@ -1,5 +1,6 @@
 {
   "extends": "airbnb",
+  "parser": "babel-eslint",
   "globals": {
     "document": true,
     "it": true,
@@ -12,12 +13,13 @@
   ],
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true
+        "jsx": true
     }
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-confusing-arrow": 0,
-    "no-shadow": 0
+    "no-shadow": 0,
+    "import/no-named-default": 0
   }
 }

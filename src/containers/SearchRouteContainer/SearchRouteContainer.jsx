@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -15,23 +15,47 @@ import {
 } from '../../actions/actions';
 import { getRoutes, getInfo } from '../../reducers/searchRoute/searchRoute';
 
-const SearchRouteContainer = ({
-  routes, routeInfo, actions: { getRouteInfo, getRouteGeoData, clearRouteInfo, saveToFavorites },
-}) => (
-  <div>
-    <SearchRouteFormContainer />
-    <RouteInfo
-      routeInfo={routeInfo}
-      clearRouteInfo={clearRouteInfo}
-      saveToFavorites={saveToFavorites}
-    />
-    <Routes
-      routes={routes}
-      getRouteInfo={getRouteInfo}
-      getRouteGeoData={getRouteGeoData}
-    />
-  </div>
-);
+class SearchRouteContainer extends Component {
+  getInfoAboutRoute = (id) => {
+    const { getRouteInfo } = this.props.actions;
+    getRouteInfo(id, SEARCH_ROUTE);
+  }
+
+  getRouteGeoData = (id) => {
+    const { getRouteGeoData } = this.props.actions;
+    getRouteGeoData(id, SEARCH_ROUTE);
+  }
+
+  closeRouteInfo = () => {
+    const { clearRouteInfo } = this.props.actions;
+    clearRouteInfo(SEARCH_ROUTE);
+  }
+
+  saveRoute = (id) => {
+    const { saveToFavorites } = this.props.actions;
+    saveToFavorites(id, SEARCH_ROUTE);
+  }
+
+  render() {
+    const { routes, routeInfo } = this.props;
+
+    return (
+      <div>
+        <SearchRouteFormContainer />
+        <RouteInfo
+          routeInfo={routeInfo}
+          closeRouteInfo={this.closeRouteInfo}
+          saveRoute={this.saveRoute}
+        />
+        <Routes
+          routes={routes}
+          getRouteInfo={this.getInfoAboutRoute}
+          showOnTheMap={this.getRouteGeoData}
+        />
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = state => ({
   routes: getRoutes(state.searchRoute),
@@ -40,10 +64,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
-    getRouteInfo: routeId => getRouteInfo(routeId, SEARCH_ROUTE),
-    getRouteGeoData: routeId => getRouteGeoData(routeId, SEARCH_ROUTE),
-    clearRouteInfo: () => clearRouteInfo(SEARCH_ROUTE),
-    saveToFavorites: id => saveToFavorites(id, SEARCH_ROUTE),
+    getRouteInfo,
+    getRouteGeoData,
+    clearRouteInfo,
+    saveToFavorites,
   }, dispatch),
 });
 
@@ -54,6 +78,7 @@ SearchRouteContainer.propTypes = {
     getRouteInfo: PropTypes.func.isRequired,
     clearRouteInfo: PropTypes.func.isRequired,
     getRouteGeoData: PropTypes.func.isRequired,
+    saveToFavorites: PropTypes.func.isRequired,
   }).isRequired,
 };
 

@@ -8,7 +8,7 @@ import FavoriteRoute from '../FavoriteRoute/FavoriteRoute';
 import FavoriteBusStop from '../FavoriteBusStop/FavoriteBusStop';
 
 const Favorites = ({
-  routes, busStops, getRouteGeoData, getRouteInfo, loadBusStopGeoData, removeFromFavorites,
+  routes, busStops, showOnTheMap, getRouteInfo, loadBusStopGeoData, removeFromFavorites,
 }) => (
   <Grid centered padded>
     <Grid.Row>
@@ -54,7 +54,7 @@ const Favorites = ({
                   <FavoriteRoute
                     key={route.id}
                     route={route}
-                    getRouteGeoData={getRouteGeoData}
+                    showOnTheMap={showOnTheMap}
                     getRouteInfo={getRouteInfo}
                     remove={removeFromFavorites}
                   />,
@@ -112,7 +112,7 @@ const Favorites = ({
 Favorites.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   busStops: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  getRouteGeoData: PropTypes.func.isRequired,
+  showOnTheMap: PropTypes.func.isRequired,
   getRouteInfo: PropTypes.func.isRequired,
   loadBusStopGeoData: PropTypes.func.isRequired,
   removeFromFavorites: PropTypes.func.isRequired,

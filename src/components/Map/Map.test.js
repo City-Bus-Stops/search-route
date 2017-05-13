@@ -9,13 +9,9 @@ it('renders without crashing', () => {
       routeId="routeId"
       route={[]}
       isSidebarOpen={false}
-      actions={{
-        getMapPointInfo: () => {},
-        toggleSideBar: () => {},
-        closeMapPointInfo: () => {},
-        findUserLocation: () => {},
-        getUserPointInfo: () => {},
-        findNearestButStops: () => {},
-      }}
+      getPointInfo={() => {}}
+      toggleSideBar={() => {}}
+      getUserPointInfo={() => {}}
+      findNearestButStops={() => {}}
     />, div);
 });
