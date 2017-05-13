@@ -271,15 +271,11 @@ label sup {
   width: inherit!important;
 }
 
-.map-revert-button {
-  margin: 20px;
+.map-search-button {
+  margin: 20px!important;
   bottom: 0;
   position: absolute;
   z-index: 9999;
-}
-
-.pushable > div > div > .map-revert-button {
-  margin: 20px;
 }
 
 .info {

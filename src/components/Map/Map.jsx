@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Sidebar, Button } from 'semantic-ui-react';
-import { browserHistory } from 'react-router';
+import { Link } from 'react-router';
 import Collapse from 'react-collapse';
 import { Map, TileLayer, Marker } from 'react-leaflet';
 import { isEmpty } from 'lodash';
@@ -72,14 +72,15 @@ const MapComponent = ({
               />
             }
           </Map>
-          <Button
-            circular
-            color="blue"
-            icon="search"
-            size="huge"
-            className="map-revert-button"
-            onClick={() => browserHistory.goBack()}
-          />
+          <Link to="/search-route" className="menu-item" activeClassName="menu-item-active">
+            <Button
+              circular
+              color="blue"
+              icon="search"
+              size="huge"
+              className="map-search-button"
+            />
+          </Link>
         </div>
       </Sidebar.Pusher>
     </Sidebar.Pushable>
