@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 import { createSelector } from 'reselect';
-import { findIndex, isEmpty } from 'lodash';
+import { isEmpty } from 'lodash';
 
 import geoData from './geoData';
 import isSidebarOpen from './isSidebarOpen';
 import pointInfo from './pointInfo';
 import userLocation, { getAddress, getCoordinates } from './userLocation';
+
+import { sortGeoDataByPointType } from '../../utils';
 
 export default combineReducers({
   geoData,
@@ -30,19 +32,19 @@ export const getUserAddress = createSelector(
   address => address,
 );
 
-export const getStartPointCoordinates = createSelector(
+export const getGeoDataCenter = createSelector(
   getGeoData,
   (data) => {
-    const startPointIndex = findIndex(data, point => point.properties.type === 'start');
-    return startPointIndex !== -1 ?
-      data[startPointIndex].geometry.coordinates :
+    const sortedGeoData = sortGeoDataByPointType(data);
+    return !isEmpty(sortedGeoData[0]) ?
+      sortedGeoData[0].geometry.coordinates :
       [];
   },
 );
 
 export const getMapCenter = createSelector(
-  [getStartPointCoordinates, getUserCoordinates],
-  (startPointCoordinates, userCoordinates) => !isEmpty(startPointCoordinates) ?
-    [startPointCoordinates[1], startPointCoordinates[0]] :
+  [getGeoDataCenter, getUserCoordinates],
+  (geoDataCenter, userCoordinates) => !isEmpty(geoDataCenter) ?
+    [geoDataCenter[1], geoDataCenter[0]] :
     userCoordinates,
 );
