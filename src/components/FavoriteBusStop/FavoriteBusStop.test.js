@@ -7,7 +7,7 @@ it('renders without crashing', () => {
   ReactDOM.render(
     <FavoriteBusStop
       busStop={{}}
-      loadRouteToBusStop={() => {}}
+      loadBusStopGeoData={() => {}}
       remove={() => {}}
     />, div);
 });

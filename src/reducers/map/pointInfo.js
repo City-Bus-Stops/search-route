@@ -3,6 +3,7 @@ import {
   CLEAR_MAP_POINT_INFO,
   LOAD_USER_POINT_INFO_SUCCESS,
   LOAD_ROUTE_BETWEEN_POINTS_SUCCESS,
+  SAVE_TO_FAVORITES_SUCCESS,
 } from '../../actions/actions';
 
 const pointInfo = (state = {}, action) => {
@@ -14,6 +15,12 @@ const pointInfo = (state = {}, action) => {
     case CLEAR_MAP_POINT_INFO:
     case LOAD_ROUTE_BETWEEN_POINTS_SUCCESS:
       return {};
+
+    case SAVE_TO_FAVORITES_SUCCESS:
+      return {
+        ...state,
+        isSaved: true,
+      };
 
     default:
       return state;
