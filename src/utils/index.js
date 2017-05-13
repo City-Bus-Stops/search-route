@@ -21,3 +21,12 @@ export const createWrapperReducer = (reducerFunction, predicate) => (state, acti
     state :
     reducerFunction(state, action);
 };
+
+const mapPointPriorities = {
+  start: 2,
+  bus_stop: 1,
+  end_point: 0,
+};
+
+export const sortGeoDataByPointType = geoData => geoData.sort((pointA, pointB) =>
+  mapPointPriorities[pointB.properties.type] - mapPointPriorities[pointA.properties.type]);
