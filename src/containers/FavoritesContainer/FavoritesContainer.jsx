@@ -120,7 +120,6 @@ FavoritesContainer.propTypes = {
     getRouteInfo: PropTypes.func.isRequired,
     loadFavorites: PropTypes.func.isRequired,
     loadBusStopGeoData: PropTypes.func.isRequired,
-    clearRouteInfo: PropTypes.func.isRequired,
     closeConfirm: PropTypes.func.isRequired,
     openConfirm: PropTypes.func.isRequired,
     removeFromFavorites: PropTypes.func.isRequired,
