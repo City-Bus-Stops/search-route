@@ -325,3 +325,7 @@ label sup {
   color: white;
   float: right;
 }
+
+.color-green {
+  color: #21BA45!important;
+}

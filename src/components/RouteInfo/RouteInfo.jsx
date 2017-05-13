@@ -32,10 +32,13 @@ const RouteInfo = ({ closeRouteInfo, routeInfo, saveRoute }) => (
           <Grid.Column>
             <Icon size="large" name="bus" color="blue" circular link /> 23
           </Grid.Column>
-          <Grid.Column textAlign="right">
+          <Grid.Column textAlign="right" verticalAlign="middle">
             {
               routeInfo.isSaved ?
-                <Icon size="large" name="check" color="green" circular link /> :
+                <span className="color-green">
+                  <Icon size="big" name="check circle" link />
+                  Saved
+              </span> :
                 <Icon
                   size="large"
                   name="save"
