@@ -92,7 +92,7 @@ body {
   display: none;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1024px) {
   .ui.fixed.menu {
     display: none !important;
   }
@@ -113,6 +113,12 @@ body {
   .masthead h2 {
     margin-top: 0.5em;
     font-size: 1.5em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .only-on-mobiles-and-tablet {
+    display: none!important;
   }
 }
 
