@@ -132,10 +132,9 @@ export const loadBusStopGeoData = busStopId => ({
   busStopId,
 });
 
-export const saveToFavorites = (id, predicate) => ({
+export const saveToFavorites = id => ({
   type: SAVE_TO_FAVORITES,
   id,
-  predicate,
 });
 
 export const removeFromFavorites = (id, predicate) => ({

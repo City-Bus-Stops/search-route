@@ -237,12 +237,12 @@ function* loadBusStopGeoData(action) {
 }
 
 function* saveToFavorites(action) {
-  const { id, predicate } = action;
+  const { id } = action;
   try {
     yield put({ type: SEND_REQUEST });
     /** TODO Send request to save **/
     yield put({ type: RECEIVE_RESPONSE });
-    yield put({ type: SAVE_TO_FAVORITES_SUCCESS, id, predicate });
+    yield put({ type: SAVE_TO_FAVORITES_SUCCESS, id });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
