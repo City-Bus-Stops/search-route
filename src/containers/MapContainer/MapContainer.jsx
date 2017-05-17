@@ -9,7 +9,7 @@ import PointInfo from '../../components/PointInfo/PointInfo';
 
 import {
   toggleSideBar,
-  getMapPointInfo,
+  getPointInfo,
   closeMapPointInfo,
   getUserPointInfo,
   findUserLocation,
@@ -18,8 +18,10 @@ import {
   saveToFavorites,
 } from '../../actions/actions';
 
-import { getGeoData, getIsSidebarOpen, getPointInfo, getUserCoordinates,
+import { getGeoData, getIsSidebarOpen, getMapPointInfo, getUserCoordinates,
   getMapCenter } from '../../reducers/map/map';
+
+export const MAP = 'map';
 
 class MapContainer extends Component {
   componentDidMount() {
@@ -28,20 +30,38 @@ class MapContainer extends Component {
     findUserLocation();
   }
 
+  getMapPointInfo = (id) => {
+    const { getPointInfo } = this.props.actions;
+
+    getPointInfo(id, MAP);
+  }
+
+  getUserPointInfo = () => {
+    const { getUserPointInfo } = this.props.actions;
+    getUserPointInfo(MAP);
+  }
+
   loadRouteToBusStop = (point) => {
     const { userCoordinates } = this.props;
     const { loadRouteBetweenPoints } = this.props.actions;
 
-    loadRouteBetweenPoints(userCoordinates, point.coords);
+    loadRouteBetweenPoints(userCoordinates, point.coords, MAP);
+  }
+
+  closePointInfo = () => {
+    const { closeMapPointInfo } = this.props.actions;
+    closeMapPointInfo(MAP);
+  }
+
+  savePointToFavorites = (id) => {
+    const { saveToFavorites } = this.props.actions;
+    saveToFavorites(id, MAP);
   }
 
   render() {
     const { data, defaultCenter, zoom, maxZoom, minZoom, zoomControl, isSidebarOpen,
       pointInfo, userCoordinates, mapCenter } = this.props;
-    const {
-      toggleSideBar, findNearestButStops, getMapPointInfo, getUserPointInfo,
-      closeMapPointInfo, saveToFavorites,
-    } = this.props.actions;
+    const { toggleSideBar, findNearestButStops } = this.props.actions;
 
     return (
       <div>
@@ -58,14 +78,14 @@ class MapContainer extends Component {
           mapCenter={isEmpty(mapCenter) ? defaultCenter : mapCenter}
           toggleSideBar={toggleSideBar}
           findNearestButStops={findNearestButStops}
-          getPointInfo={getMapPointInfo}
-          getUserPointInfo={getUserPointInfo}
+          getPointInfo={this.getMapPointInfo}
+          getUserInfo={this.getUserPointInfo}
         />
         <PointInfo
           pointInfo={pointInfo}
-          closePointInfo={closeMapPointInfo}
+          closePointInfo={this.closePointInfo}
           loadRouteToBusStop={this.loadRouteToBusStop}
-          savePoint={saveToFavorites}
+          savePoint={this.savePointToFavorites}
         />
       </div>
     );
@@ -75,14 +95,14 @@ class MapContainer extends Component {
 const mapStateToProps = state => ({
   data: getGeoData(state.map),
   isSidebarOpen: getIsSidebarOpen(state.map),
-  pointInfo: getPointInfo(state.map),
+  pointInfo: getMapPointInfo(state.map),
   userCoordinates: getUserCoordinates(state.map),
   mapCenter: getMapCenter(state.map),
 });
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
-    getMapPointInfo,
+    getPointInfo,
     toggleSideBar,
     closeMapPointInfo,
     getUserPointInfo,
@@ -94,7 +114,10 @@ const mapDispatchToProps = dispatch => ({
 });
 
 MapContainer.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape),
+  data: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape),
+    PropTypes.shape(),
+  ]).isRequired,
   pointInfo: PropTypes.shape().isRequired,
   mapCenter: PropTypes.arrayOf(PropTypes.number),
   defaultCenter: PropTypes.arrayOf(PropTypes.number),
@@ -105,7 +128,7 @@ MapContainer.propTypes = {
   isSidebarOpen: PropTypes.bool.isRequired,
   userCoordinates: PropTypes.arrayOf(PropTypes.number),
   actions: PropTypes.shape({
-    getMapPointInfo: PropTypes.func.isRequired,
+    getPointInfo: PropTypes.func.isRequired,
     toggleSideBar: PropTypes.func.isRequired,
     closeMapPointInfo: PropTypes.func.isRequired,
     getUserPointInfo: PropTypes.func.isRequired,
@@ -121,7 +144,7 @@ MapContainer.defaultProps = {
   mapCenter: [],
   defaultCenter: [53.66946, 23.824368],
   zoom: 16,
-  maxZoom: 16,
+  maxZoom: 20,
   minZoom: 11,
   zoomControl: false,
   userCoordinates: [],

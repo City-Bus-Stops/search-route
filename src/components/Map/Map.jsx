@@ -27,7 +27,7 @@ const MapComponent = ({
   toggleSideBar,
   findNearestButStops,
   getPointInfo,
-  getUserPointInfo,
+  getUserInfo,
 }) => (
   <div className="leaflet-pushable">
     <Sidebar.Pushable>
@@ -68,7 +68,7 @@ const MapComponent = ({
               <Marker
                 position={userCoordinates}
                 icon={generateIcon('user')}
-                onClick={getUserPointInfo}
+                onClick={getUserInfo}
               />
             }
           </Map>
@@ -88,7 +88,10 @@ const MapComponent = ({
 );
 
 MapComponent.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape),
+  data: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape),
+    PropTypes.shape(),
+  ]).isRequired,
   mapCenter: PropTypes.arrayOf(PropTypes.number),
   zoom: PropTypes.number,
   maxZoom: PropTypes.number,
@@ -98,7 +101,7 @@ MapComponent.propTypes = {
   userCoordinates: PropTypes.arrayOf(PropTypes.number),
   getPointInfo: PropTypes.func.isRequired,
   toggleSideBar: PropTypes.func.isRequired,
-  getUserPointInfo: PropTypes.func.isRequired,
+  getUserInfo: PropTypes.func.isRequired,
   findNearestButStops: PropTypes.func.isRequired,
 };
 
