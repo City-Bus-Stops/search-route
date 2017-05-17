@@ -329,3 +329,7 @@ label sup {
 .color-green {
   color: #21BA45!important;
 }
+
+.color-grey {
+  color: rgba(0,0,0,.5)!important;
+}
