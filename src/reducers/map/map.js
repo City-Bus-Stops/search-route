@@ -7,12 +7,14 @@ import isSidebarOpen from './isSidebarOpen';
 import pointInfo from './pointInfo';
 import userLocation, { getAddress, getCoordinates } from './userLocation';
 
-import { sortGeoDataByPointType } from '../../utils';
+import { sortGeoDataByPointType, createWrapperReducer } from '../../utils';
+
+import { MAP } from '../../containers/MapContainer/MapContainer';
 
 export default combineReducers({
   geoData,
   isSidebarOpen,
-  pointInfo,
+  pointInfo: createWrapperReducer(pointInfo, action => action.predicate === MAP),
   userLocation,
 });
 
@@ -20,7 +22,7 @@ export const getGeoData = state => state.geoData;
 
 export const getIsSidebarOpen = state => state.isSidebarOpen;
 
-export const getPointInfo = state => state.pointInfo;
+export const getMapPointInfo = state => state.pointInfo;
 
 export const getUserCoordinates = state => createSelector(
   getCoordinates,
@@ -35,7 +37,7 @@ export const getUserAddress = createSelector(
 export const getGeoDataCenter = createSelector(
   getGeoData,
   (data) => {
-    const sortedGeoData = sortGeoDataByPointType(data);
+    const sortedGeoData = Array.isArray(data) ? sortGeoDataByPointType(data) : [data];
     return !isEmpty(sortedGeoData[0]) ?
       sortedGeoData[0].geometry.coordinates :
       [];
