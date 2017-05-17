@@ -31,8 +31,13 @@ class SearchRouteContainer extends Component {
     clearRouteInfo(SEARCH_ROUTE);
   }
 
+  saveRouteToFavorites = (id) => {
+    const { saveToFavorites } = this.props.actions;
+    saveToFavorites(id, SEARCH_ROUTE);
+  }
+
   render() {
-    const { routes, routeInfo, actions: { saveToFavorites } } = this.props;
+    const { routes, routeInfo } = this.props;
 
     return (
       <div>
@@ -40,7 +45,7 @@ class SearchRouteContainer extends Component {
         <RouteInfo
           routeInfo={routeInfo}
           closeRouteInfo={this.closeRouteInfo}
-          saveRoute={saveToFavorites}
+          saveRoute={this.saveRouteToFavorites}
         />
         <Routes
           routes={routes}

@@ -95,27 +95,31 @@ export const getRouteGeoData = (routeId, predicate) => ({
   predicate,
 });
 
-export const getMapPointInfo = pointId => ({
+export const getPointInfo = (pointId, predicate) => ({
   type: LOAD_MAP_POINT_INFO,
   pointId,
+  predicate,
 });
 
-export const getUserPointInfo = () => ({
+export const getUserPointInfo = predicate => ({
   type: LOAD_USER_POINT_INFO,
+  predicate,
 });
 
-export const closeMapPointInfo = () => ({
+export const closeMapPointInfo = predicate => ({
   type: CLEAR_MAP_POINT_INFO,
+  predicate,
 });
 
 export const toggleSideBar = () => ({
   type: TOGGLE_SIDEBAR,
 });
 
-export const loadRouteBetweenPoints = (startPoint, endPoint) => ({
+export const loadRouteBetweenPoints = (startPoint, endPoint, predicate) => ({
   type: LOAD_ROUTE_BETWEEN_POINTS,
   startPoint,
   endPoint,
+  predicate,
 });
 
 export const findNearestButStops = () => ({
@@ -132,9 +136,10 @@ export const loadBusStopGeoData = busStopId => ({
   busStopId,
 });
 
-export const saveToFavorites = id => ({
+export const saveToFavorites = (id, predicate) => ({
   type: SAVE_TO_FAVORITES,
   id,
+  predicate,
 });
 
 export const removeFromFavorites = (id, predicate) => ({

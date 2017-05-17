@@ -11,7 +11,7 @@ it('renders without crashing', () => {
       isSidebarOpen={false}
       getPointInfo={() => {}}
       toggleSideBar={() => {}}
-      getUserPointInfo={() => {}}
+      getUserInfo={() => {}}
       findNearestButStops={() => {}}
     />, div);
 });

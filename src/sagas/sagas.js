@@ -156,17 +156,18 @@ function* loadRouteGeoData(action) {
 }
 
 function* loadMapPointInfo(action) {
-  const { pointId } = action;
+  const { pointId, predicate } = action;
   try {
     const response = yield call(fetchMapPointInfo, pointId);
     const { info } = response;
-    yield put({ type: LOAD_MAP_POINT_INFO_SUCCESS, info, pointId });
+    yield put({ type: LOAD_MAP_POINT_INFO_SUCCESS, info, pointId, predicate });
   } catch (err) {
     yield put(showNotification('error', 'Error', err.message));
   }
 }
 
-function* loadUserPointInfo() {
+function* loadUserPointInfo(action) {
+  const { predicate } = action;
   try {
     yield put({ type: FIND_USER_LOCATION });
     const { location } = yield take(FIND_USER_LOCATION_SUCCESS);
@@ -174,7 +175,7 @@ function* loadUserPointInfo() {
     yield put({ type: SEND_REQUEST });
     const info = yield call(fetchUserPointInfo, coords);
     yield put({ type: RECEIVE_RESPONSE });
-    yield put({ type: LOAD_USER_POINT_INFO_SUCCESS, info });
+    yield put({ type: LOAD_USER_POINT_INFO_SUCCESS, info, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
@@ -182,12 +183,12 @@ function* loadUserPointInfo() {
 }
 
 function* loadRouteBetweenPoints(action) {
-  const { startPoint, endPoint } = action;
+  const { startPoint, endPoint, predicate } = action;
   try {
     yield put({ type: SEND_REQUEST });
     const geoData = yield call(fetchRouteBetweenPoints, startPoint, endPoint);
     yield put({ type: RECEIVE_RESPONSE });
-    yield put({ type: LOAD_ROUTE_BETWEEN_POINTS_SUCCESS, geoData });
+    yield put({ type: LOAD_ROUTE_BETWEEN_POINTS_SUCCESS, geoData, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
@@ -237,12 +238,12 @@ function* loadBusStopGeoData(action) {
 }
 
 function* saveToFavorites(action) {
-  const { id } = action;
+  const { id, predicate } = action;
   try {
     yield put({ type: SEND_REQUEST });
     /** TODO Send request to save **/
     yield put({ type: RECEIVE_RESPONSE });
-    yield put({ type: SAVE_TO_FAVORITES_SUCCESS, id });
+    yield put({ type: SAVE_TO_FAVORITES_SUCCESS, id, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
