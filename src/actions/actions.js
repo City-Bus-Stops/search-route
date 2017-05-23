@@ -51,6 +51,17 @@ export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 export const OPEN_CONFIRM = 'OPEN_CONFIRM';
 export const CLOSE_CONFIRM = 'CLOSE_CONFIRM';
 
+/** User administration actions **/
+export const REGISTER_USER = 'REGISTER_USER';
+export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS';
+export const DELETE_USER = 'DELETE_USER';
+export const DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS';
+export const CHANGE_USER_STATUS = 'CHANGE_USER_STATUS';
+export const CHANGE_USER_STATUS_SUCCESS = 'CHANGE_USER_STATUS_SUCCESS';
+export const LOAD_USERS = 'LOAD_USERS';
+export const RECEIVE_USERS = 'RECEIVE_USERS';
+export const TOGGLE_REGISTRATION_MODAL = 'TOGGLE_REGISTRATION_MODAL';
+
 export const findUserLocation = () => ({
   type: FIND_USER_LOCATION,
 });
@@ -167,3 +178,27 @@ export const showNotification = (type, title, message) =>
     autoDismiss: 5,
     dismissible: true,
   });
+
+export const loadUsers = () => ({
+  type: LOAD_USERS,
+});
+
+export const changeUserStatus = (id, isActive) => ({
+  type: CHANGE_USER_STATUS,
+  id,
+  isActive,
+});
+
+export const deleteUser = id => ({
+  type: DELETE_USER,
+  id,
+});
+
+export const registerUser = params => ({
+  type: REGISTER_USER,
+  params,
+});
+
+export const toggleRegistrationModal = () => ({
+  type: TOGGLE_REGISTRATION_MODAL,
+});

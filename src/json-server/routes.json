@@ -4,5 +4,6 @@
   "/points/:id/info": "/points-info/:id",
   "/user/info": "/user-info",
   "/user/favorites": "/user-favorites",
-  "/bus-stops/:id/geo": "/bus-stops-geo/:id"
+  "/bus-stops/:id/geo": "/bus-stops-geo/:id",
+  "/administration/users": "/users"
 }

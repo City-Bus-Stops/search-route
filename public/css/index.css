@@ -226,6 +226,13 @@ label sup {
   color: #e9c6a7!important
 }
 
+.menu-item-active > div, .menu-item-active:focus > div,
+.menu-item-active:active > div, .menu-item-active:hover > div,
+.menu-item-active:visited > div {
+  background-color: white;
+  color: #e9c6a7!important
+}
+
 @media (min-width: 992px) {
   .padded-menu {
     padding: 0 15%;
@@ -248,6 +255,10 @@ label sup {
 .font-size-15 {
   font-size: 15px!important;
   color: #757575!important;
+}
+
+.font-size-13 {
+  font-size: 13px!important;
 }
 
 .color-beige {
@@ -333,3 +344,47 @@ label sup {
 .color-grey {
   color: rgba(0,0,0,.5)!important;
 }
+
+.wrapper {
+  display: flex!important;
+  flex-direction: column!important;
+  height: 100%!important;
+}
+
+.content {
+  flex: 1 0 auto!important;
+}
+
+.footer {
+ flex: 0 0 auto!important;
+}
+
+.max-width-500 {
+  max-width: 500px!important;
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.small.modal {
+      width: 500px!important;
+      margin: -150px 0 0 -230px!important;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.small.modal {
+      width: 400px!important;
+      margin: -150px 0 0 -200px!important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.small.modal {
+      width: 70.4%;
+      margin: 35.2%;
+  }
+}
+
+.width-20 {
+  width: 200px!important;
+}
+

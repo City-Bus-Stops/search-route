@@ -14,6 +14,9 @@ import {
   fetchNearestBusStops,
   fetchFavorites,
   fetchBusStopGeoData,
+  fetchLoadUsers,
+  fetchRegisterUser,
+  fetchDeleteUser,
 } from '../api/api';
 import {
   FIND_USER_LOCATION,
@@ -44,6 +47,14 @@ import {
   LOAD_BUS_STOP_GEODATA_SUCCESS,
   SAVE_TO_FAVORITES,
   SAVE_TO_FAVORITES_SUCCESS,
+  REGISTER_USER,
+  REGISTER_USER_SUCCESS,
+  LOAD_USERS,
+  RECEIVE_USERS,
+  CHANGE_USER_STATUS,
+  CHANGE_USER_STATUS_SUCCESS,
+  DELETE_USER,
+  DELETE_USER_SUCCESS,
   showNotification,
 } from '../actions/actions';
 
@@ -250,6 +261,61 @@ function* saveToFavorites(action) {
   }
 }
 
+function* registerUser(action) {
+  const { params } = action;
+  try {
+    const sendedUser = {
+      ...params,
+      isActive: true,
+    };
+    yield put({ type: SEND_REQUEST });
+    const user = yield call(fetchRegisterUser, sendedUser);
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: REGISTER_USER_SUCCESS, user });
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
+function* loadUsers() {
+  try {
+    yield put({ type: SEND_REQUEST });
+    const users = yield call(fetchLoadUsers);
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: RECEIVE_USERS, users });
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
+function* changeUserStatus(action) {
+  const { id, isActive } = action;
+  try {
+    yield put({ type: SEND_REQUEST });
+    /** TODO send request to update user status **/
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: CHANGE_USER_STATUS_SUCCESS, id, isActive: !isActive });
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
+function* deleteUser(action) {
+  const { id } = action;
+  try {
+    yield put({ type: SEND_REQUEST });
+    yield call(fetchDeleteUser, id);
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: DELETE_USER_SUCCESS, id });
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
 function* appSaga() {
   yield takeLatest(FIND_USER_LOCATION, findUserLocation);
   yield takeLatest(FIND_USER_ADDRESS, findUserAddress);
@@ -263,6 +329,10 @@ function* appSaga() {
   yield takeEvery(LOAD_FAVORITES, loadFavorites);
   yield takeEvery(LOAD_BUS_STOP_GEODATA, loadBusStopGeoData);
   yield takeEvery(SAVE_TO_FAVORITES, saveToFavorites);
+  yield takeEvery(REGISTER_USER, registerUser);
+  yield takeEvery(LOAD_USERS, loadUsers);
+  yield takeEvery(CHANGE_USER_STATUS, changeUserStatus);
+  yield takeEvery(DELETE_USER, deleteUser);
   yield [fork(watchPollRouteInfo), fork(watchPollPointInfo)];
 }
 export default appSaga;

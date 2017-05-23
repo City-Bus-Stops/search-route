@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Collapse from 'react-collapse';
 
 import Menu from '../Menu/Menu';
 import Notification from '../Notification/Notification';
 import Spinner from '../Spinner/Spinner';
+import Footer from '../Footer/Footer';
 
 const Root = ({ children, location, notifications, IsSpinnerActive }) => (
-  <div>
+  <div className="wrapper">
     <Notification
       notifications={notifications}
     />
@@ -15,7 +17,12 @@ const Root = ({ children, location, notifications, IsSpinnerActive }) => (
       pathname={location.pathname}
       userName="Denis Krivichanin"
     />
-    {children}
+    <div className="content">
+      {children}
+    </div>
+    <Collapse isOpened={!location.pathname.includes('map')}>
+      <Footer className="footer" />
+    </Collapse>
   </div>
 );
 

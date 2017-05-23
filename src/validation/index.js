@@ -1,5 +1,11 @@
 import validate from 'validate.js';
 
+export const isHaveSpaces = field => /\s+/g.test(field);
+
+export const userNamePattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+
+export const isValidUserName = userName => userNamePattern.test(userName);
+
 export const validateSearchRouteForm = params => validate(params, {
   from: {
     presence: true,
@@ -46,5 +52,24 @@ export const validateSignUpForm = params => validate(params, {
   confirmPassword: {
     presence: true,
     equality: 'password',
+  },
+});
+
+export const valdateAddUserForm = params => validate(params, {
+  email: {
+    presence: true,
+    email: true,
+  },
+  userName: {
+    presence: true,
+    length: {
+      minimum: 6,
+      maximum: 20,
+    },
+    format: {
+      pattern: userNamePattern,
+      flags: 'i',
+      message: 'must have at least 6 characters and contain the following: uppercase letters, lowercase letters.',
+    },
   },
 });
