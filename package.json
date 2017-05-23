@@ -36,7 +36,7 @@
     "eslint-plugin-import": "^#.#.#",
     "eslint-plugin-jsx-a11y": "^#.#.#",
     "eslint-plugin-react": "^#.#.#",
-    "react-scripts": "0.9.3"
+    "react-scripts": "1.0.5"
   },
   "proxy": "http://localhost:9002",
   "scripts": {
