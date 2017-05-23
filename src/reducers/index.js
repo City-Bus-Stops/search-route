@@ -8,6 +8,7 @@ import searchRoute from './searchRoute/searchRoute';
 import map from './map/map';
 import spinner from './spinner';
 import favorites from './favorites/favorites';
+import administration from './administration/administration';
 
 export default combineReducers({
   searchRoute,
@@ -17,4 +18,5 @@ export default combineReducers({
   routing: routerReducer,
   form: formReducer.plugin(formReducers),
   favorites,
+  administration,
 });

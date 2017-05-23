@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import Collapse from 'react-collapse';
-import { Menu, Icon } from 'semantic-ui-react';
+import { Menu, Icon, Dropdown } from 'semantic-ui-react';
 
 const MenuComponent = ({ pathname, userName }) => (
   <Collapse isOpened={!pathname.includes('map')}>
@@ -31,13 +31,46 @@ const MenuComponent = ({ pathname, userName }) => (
           Favorites
         </Link>
       </Menu.Item>
-      <Menu.Menu position="right">
-        <Menu.Item>
-          {userName}
-          <Link to="/logout">
-            <i className="sign out icon link red padding-left-5" />
+      <Dropdown item text="Administration">
+        <Dropdown.Menu>
+          <Link to="/administration/users" className="menu-item" activeClassName="menu-item-active">
+            <Dropdown.Item>
+              <Icon name="users" />
+              Users
+            </Dropdown.Item>
           </Link>
-        </Menu.Item>
+          <Link to="/administration/statisctics" className="menu-item" activeClassName="menu-item-active">
+            <Dropdown.Item>
+              <Icon name="bar graph" />
+              Statistics
+            </Dropdown.Item>
+          </Link>
+        </Dropdown.Menu>
+      </Dropdown>
+      <Menu.Menu position="right">
+        <Dropdown
+          item
+          icon={<Icon name="user" color="blue" />}
+          trigger={
+            <span className="font-size-15">
+              {userName}
+            </span>
+          }
+        >
+          <Dropdown.Menu>
+            <Dropdown.Item>
+              <Icon name="settings" />
+              Settings
+            </Dropdown.Item>
+            <Dropdown.Divider />
+            <Link to="/logout" className="menu-item" activeClassName="menu-item-active">
+              <Dropdown.Item>
+                <Icon name="sign out" color="red" />
+                Logout
+              </Dropdown.Item>
+            </Link>
+          </Dropdown.Menu>
+        </Dropdown>
       </Menu.Menu>
     </Menu>
   </Collapse>

@@ -47,3 +47,20 @@ export const fetchFavorites = () =>
 export const fetchBusStopGeoData = busStopId =>
   axios.get(`/bus-stops/${busStopId}/geo`)
     .then(response => response.data);
+
+export const fetchLoadUsers = () =>
+ axios.get('/administration/users')
+    .then(response => response.data);
+
+export const fetchRegisterUser = user =>
+  axios.post('/administration/users', {
+    /** TODO remove when send request to real server **/
+    ...user,
+  }, {
+    'Content-Type': 'application/json',
+  })
+    .then(response => response.data);
+
+export const fetchDeleteUser = id =>
+  axios.delete(`/administration/users/${id}`)
+    .then(response => response.data);

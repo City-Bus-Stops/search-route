@@ -23,7 +23,7 @@ const InputField = ({ type, label, placeholder, id, customContent, meta: { touch
     {
       touched &&
       !isEmpty(head(error)) &&
-      <Label basic color="red" pointing>{head(error)}</Label>
+      <Label className="font-size-13" basic color="red" pointing>{head(error)}</Label>
     }
     {info}
   </div>
