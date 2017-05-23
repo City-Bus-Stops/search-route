@@ -1,35 +1,40 @@
 import React from 'react';
+import { Segment, Container, Grid, Header, List } from 'semantic-ui-react';
 
 const Footer = () => (
-  <div className="ui vertical footer segment">
-    <div className="ui container">
-      <div className="ui stackable  divided equal height stackable grid">
-        <div className="three wide column">
-          <h4 className="ui header">About</h4>
-          <div className="ui link list">
-            <a href="http://semantic-ui.com/examples/homepage.html#" className="item">Sitemap</a>
+  <Segment vertical inverted>
+    <Container>
+      <Grid stackable celled="internally">
+        <Grid.Column width={3}>
+          <Header as="h4" inverted>
+            About
+          </Header>
+          <List link inverted relaxed>
+            <a href="http://semantic-ui.com/examples/homepage.html#" className="item">React</a>
             <a href="http://semantic-ui.com/examples/homepage.html#" className="item">Contact Us</a>
-            <a href="http://semantic-ui.com/examples/homepage.html#" className="item">Religious Ceremonies</a>
-            <a href="http://semantic-ui.com/examples/homepage.html#" className="item">Gazebo Plans</a>
-          </div>
-        </div>
-        <div className="three wide column">
-          <h4 className="ui header">Services</h4>
-          <div className="ui link list">
-            <a href="http://semantic-ui.com/examples/homepage.html#" className="item">Banana Pre-Order</a>
-            <a href="http://semantic-ui.com/examples/homepage.html#" className="item">DNA FAQ</a>
-            <a href="http://semantic-ui.com/examples/homepage.html#" className="item">How To Access</a>
-            <a href="http://semantic-ui.com/examples/homepage.html#" className="item">Favorite X-Men</a>
-          </div>
-        </div>
-        <div className="seven wide column">
-          <h4 className="ui header">Footer Header</h4>
+            <a href="http://semantic-ui.com/examples/homepage.html#" className="item">Leaflet</a>
+          </List>
+        </Grid.Column>
+        <Grid.Column width={3}>
+          <Header as="h4" inverted>
+            Services
+          </Header>
+          <List link inverted relaxed>
+            <a href="http://semantic-ui.com/examples/homepage.html#" className="item">Sitemap</a>
+            <a href="http://semantic-ui.com/examples/homepage.html#" className="item">Server side interface</a>
+            <a href="http://semantic-ui.com/examples/homepage.html#" className="item">Schedule</a>
+          </List>
+        </Grid.Column>
+        <Grid.Column width={7}>
+          <Header as="h4" inverted>
+            Services
+          </Header>
           <p>Extra space for a call to action inside
             the footer that could help re-engage users.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+        </Grid.Column>
+      </Grid>
+    </Container>
+  </Segment>
 );
 
 export default Footer;
