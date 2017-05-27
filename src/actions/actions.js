@@ -63,6 +63,11 @@ export const LOAD_USERS = 'LOAD_USERS';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 export const TOGGLE_REGISTRATION_MODAL = 'TOGGLE_REGISTRATION_MODAL';
 
+/** Filter actions **/
+export const SET_FILTER = 'SET_FILTER';
+export const CHANGE_FILTER = 'CHANGE_FILTER';
+export const CLEAR_FILTER = 'CLEAR_FILTER';
+
 export const findUserLocation = () => ({
   type: FIND_USER_LOCATION,
 });
@@ -206,4 +211,15 @@ export const registerUser = params => ({
 
 export const toggleRegistrationModal = () => ({
   type: TOGGLE_REGISTRATION_MODAL,
+});
+
+export const changeFilter = (filter, predicate) => ({
+  type: CHANGE_FILTER,
+  filter,
+  predicate,
+});
+
+export const clearFilter = predicate => ({
+  type: CLEAR_FILTER,
+  predicate,
 });

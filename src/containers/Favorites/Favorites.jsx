@@ -16,12 +16,14 @@ import {
   openConfirm,
   closeConfirm,
   removeFromFavorites,
+  changeFilter,
+  clearFilter,
 } from '../../actions/actions';
 import {
-  getRoutes,
+  getFilteredRoutes,
   getInfo,
   getConfirmConfig,
-  getBusStops,
+  getFilteredBusStops,
 } from '../../reducers/favorites/favorites';
 
 export const FAVORITES = 'favorites';
@@ -32,9 +34,19 @@ class FavoritesContainer extends Component {
     loadFavorites(FAVORITES);
   }
 
+  componentWillUnmount() {
+    const { clearFilter } = this.props.actions;
+    clearFilter(FAVORITES);
+  }
+
   getFavoriteRouteInfo = (id) => {
     const { getRouteInfo } = this.props.actions;
     getRouteInfo(id, FAVORITES);
+  };
+
+  filterOnChange = (e) => {
+    const { changeFilter } = this.props.actions;
+    changeFilter(e.target.value.trim().toLowerCase(), FAVORITES);
   };
 
   confirmAndRemove = (id) => {
@@ -71,6 +83,7 @@ class FavoritesContainer extends Component {
           getRouteInfo={this.getFavoriteRouteInfo}
           loadBusStopGeoData={loadBusStopGeoData}
           removeFromFavorites={this.confirmAndRemove}
+          changeFilter={this.filterOnChange}
         />
         <RouteInfo
           routeInfo={routeInfo}
@@ -85,13 +98,13 @@ class FavoritesContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  routes: getRoutes(state.favorites),
+  routes: getFilteredRoutes(state.favorites),
   routeInfo: getInfo(state.favorites),
   confirmConfig: getConfirmConfig(state.favorites),
-  busStops: getBusStops(state.favorites),
+  busStops: getFilteredBusStops(state.favorites),
 });
 
-const mapDispatchToProps = disaptch => ({
+const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     getRouteInfo,
     getRouteGeoData,
@@ -101,7 +114,9 @@ const mapDispatchToProps = disaptch => ({
     openConfirm,
     closeConfirm,
     removeFromFavorites,
-  }, disaptch),
+    changeFilter,
+    clearFilter,
+  }, dispatch),
 });
 
 FavoritesContainer.propTypes = {
@@ -118,6 +133,8 @@ FavoritesContainer.propTypes = {
     closeConfirm: PropTypes.func.isRequired,
     openConfirm: PropTypes.func.isRequired,
     removeFromFavorites: PropTypes.func.isRequired,
+    changeFilter: PropTypes.func.isRequired,
+    clearFilter: PropTypes.func.isRequired,
   }).isRequired,
 };
 

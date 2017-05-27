@@ -9,6 +9,7 @@ import FavoriteBusStop from '../FavoriteBusStop/FavoriteBusStop';
 
 const Favorites = ({
   routes, busStops, showOnTheMap, getRouteInfo, loadBusStopGeoData, removeFromFavorites,
+  changeFilter,
 }) => (
   <Grid centered padded>
     <Grid.Row>
@@ -34,6 +35,7 @@ const Favorites = ({
                   size="large"
                   placeholder="Search..."
                   fluid
+                  onChange={changeFilter}
                 />
               </Grid.Column>
             </Grid.Row>
@@ -116,6 +118,7 @@ Favorites.propTypes = {
   getRouteInfo: PropTypes.func.isRequired,
   loadBusStopGeoData: PropTypes.func.isRequired,
   removeFromFavorites: PropTypes.func.isRequired,
+  changeFilter: PropTypes.func.isRequired,
 };
 
 export default Favorites;
