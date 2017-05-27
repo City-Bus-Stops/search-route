@@ -45,6 +45,16 @@ class MapContainer extends Component {
     getUserPointInfo(MAP);
   };
 
+  getBusScheduleOnBusStop = (busStopId) => {
+    /** TODO **/
+    console.log(busStopId);
+  };
+
+  savePointToFavorites = (id) => {
+    const { saveToFavorites } = this.props.actions;
+    saveToFavorites(id, MAP);
+  };
+
   loadRouteToBusStop = (point) => {
     const { userCoordinates } = this.props;
     const { loadRouteBetweenPoints } = this.props.actions;
@@ -55,11 +65,6 @@ class MapContainer extends Component {
   closePointInfo = () => {
     const { closeMapPointInfo } = this.props.actions;
     closeMapPointInfo(MAP);
-  };
-
-  savePointToFavorites = (id) => {
-    const { saveToFavorites } = this.props.actions;
-    saveToFavorites(id, MAP);
   };
 
   render() {
@@ -90,6 +95,7 @@ class MapContainer extends Component {
           closePointInfo={this.closePointInfo}
           loadRouteToBusStop={this.loadRouteToBusStop}
           savePoint={this.savePointToFavorites}
+          getBusScheduleOnBusStop={this.getBusScheduleOnBusStop}
         />
       </div>
     );

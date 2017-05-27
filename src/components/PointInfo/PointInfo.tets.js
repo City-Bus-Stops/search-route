@@ -11,5 +11,6 @@ it('renders without crashing', () => {
         type: {},
       }}
       closePointInfo={() => {}}
+      getBusScheduleOnBusStop={() => {}}
     />, div);
 });

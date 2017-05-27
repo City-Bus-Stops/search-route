@@ -4,15 +4,15 @@
 
   import { getDateWithAddedMinutes } from '../../utils';
 
-  const BusStopBuses = ({ buses }) => (
+  const BusStopBuses = ({ buses, getBusScheduleOnBusStop }) => (
     <Grid.Row>
       <Grid.Column className="font-size-15">
-        <Table basic="very" celled selectable>
+        <Table basic="very" celled selectable sortable>
           <Table.Body>
             {
               buses &&
               buses.map(bus =>
-                <Table.Row key={bus.id} onClick={() => { console.log('get bus schedule on bus stop'); }}>
+                <Table.Row key={bus.id} onClick={() => getBusScheduleOnBusStop(bus.id)}>
                   <Table.Cell className="font-size-20 color-grey">
                     <Icon name="bus" link color="green" />
                     <strong>{bus.number}</strong>
@@ -41,7 +41,13 @@
   );
 
   BusStopBuses.propTypes = {
-    buses: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    buses: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      time: PropTypes.string.isRequired,
+      startPoint: PropTypes.string.isRequired,
+      endPoint: PropTypes.string.isRequired,
+    })).isRequired,
+    getBusScheduleOnBusStop: PropTypes.func.isRequired,
   };
 
   BusStopBuses.defaultProps = {
