@@ -9,6 +9,7 @@ import PointInfo from '../../components/PointInfo/PointInfo';
 
 import {
   toggleSideBar,
+  closeSideBar,
   getPointInfo,
   closeMapPointInfo,
   getUserPointInfo,
@@ -30,8 +31,8 @@ class MapContainer extends Component {
   }
 
   componentWillUnmount() {
-    const { toggleSideBar } = this.props.actions;
-    toggleSideBar();
+    const { closeSideBar } = this.props.actions;
+    closeSideBar();
   }
 
   getMapPointInfo = (id) => {
@@ -113,6 +114,7 @@ const mapDispatchToProps = dispatch => ({
     loadRouteBetweenPoints,
     findNearestButStops,
     saveToFavorites,
+    closeSideBar,
   }, dispatch),
 });
 
@@ -139,6 +141,7 @@ MapContainer.propTypes = {
     loadRouteBetweenPoints: PropTypes.func.isRequired,
     findNearestButStops: PropTypes.func.isRequired,
     saveToFavorites: PropTypes.func.isRequired,
+    closeSideBar: PropTypes.func.isRequired,
   }).isRequired,
 };
 
