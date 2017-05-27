@@ -1,4 +1,5 @@
 import L from 'leaflet';
+import moment from 'moment';
 
 export const markerTypes = {
   start: { icon: 'github', color: 'black', background: 'white', size: 35 },
@@ -30,3 +31,13 @@ const mapPointPriorities = {
 
 export const sortGeoDataByPointType = geoData => geoData.sort((pointA, pointB) =>
   mapPointPriorities[pointB.properties.type] - mapPointPriorities[pointA.properties.type]);
+
+/** Date format: HH:mm **/
+export const formDateWithHoursAndMinutes = date => moment(date).format('HH:mm');
+
+/** Return current time **/
+export const getCurrentTime = () => moment();
+
+/** Return date with added MINUTES **/
+export const getDateWithAddedMinutes = minutes =>
+  formDateWithHoursAndMinutes(getCurrentTime().add(Number(minutes), 'minutes'));
