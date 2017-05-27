@@ -24,7 +24,7 @@ class SearchRouteFormContainer extends Component {
     if (isEmpty(errors)) {
       searchRoute(values, SEARCH_ROUTE);
     }
-  }
+  };
 
   render() {
     const { handleSubmit } = this.props;

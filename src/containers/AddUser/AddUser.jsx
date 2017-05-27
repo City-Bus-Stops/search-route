@@ -23,7 +23,7 @@ class AddUserContainer extends Component {
     if (isEmpty(errors)) {
       registerUser(values);
     }
-  }
+  };
 
   render() {
     const { handleSubmit, isRegistrationModalOpen } = this.props;

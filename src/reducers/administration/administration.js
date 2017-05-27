@@ -6,7 +6,7 @@ import confirm from '../confirm';
 
 import { createWrapperReducer } from '../../utils';
 
-import { USER_ADMINISTRATION } from '../../containers/UsersAdministrationContainer/UsersAdministrationContainer';
+import { USER_ADMINISTRATION } from '../../containers/UsersAdministration/UsersAdministration';
 
 const predicate = action => action.predicate === USER_ADMINISTRATION;
 

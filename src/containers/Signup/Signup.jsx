@@ -21,7 +21,7 @@ class SignupContainer extends Component {
     if (isEmpty(errors)) {
       signUp(values);
     }
-  }
+  };
 
   render() {
     const { handleSubmit } = this.props;

@@ -10,15 +10,15 @@ import '../node_modules/semantic-ui-css/semantic.min.css';
 import '../public/mapkey-icons/MapkeyIcons.css';
 import '../public/mapkey-icons/L.Icon.Mapkey.css';
 
-import RootContainer from './containers/RootContainer/RootContainer';
-import UserManagementContainer from './containers/UserManagementContainer/UserManagementContainer';
+import RootContainer from './containers/Root/Root';
+import UserManagementContainer from './containers/UserManagement/UserManagement';
 import Dashboard from './components/Dashboard/Dashboard';
-import SearchRouteContainer from './containers/SearchRouteContainer/SearchRouteContainer';
-import LoginContainer from './containers/LoginContainer/LoginContainer';
-import SignupContainer from './containers/SignupContainer/SignupContainer';
-import MapContainer from './containers/MapContainer/MapContainer';
-import FavoritesContainer from './containers/FavoritesContainer/FavoritesContainer';
-import UsersAdministrationContainer from './containers/UsersAdministrationContainer/UsersAdministrationContainer';
+import SearchRouteContainer from './containers/SearchRoute/SearchRoute';
+import LoginContainer from './containers/Login/Login';
+import SignupContainer from './containers/Signup/Signup';
+import MapContainer from './containers/Map/Map';
+import FavoritesContainer from './containers/Favorites/Favorites';
+import UsersAdministrationContainer from './containers/UsersAdministration/UsersAdministration';
 import NotFound from './components/NotFound/NotFound';
 
 import configureStore from './configureStore';

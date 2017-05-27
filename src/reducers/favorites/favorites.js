@@ -7,7 +7,7 @@ import confirm from '../confirm';
 
 import { createWrapperReducer } from '../../utils';
 
-import { FAVORITES } from '../../containers/FavoritesContainer/FavoritesContainer';
+import { FAVORITES } from '../../containers/Favorites/Favorites';
 
 export default combineReducers({
   routes: createWrapperReducer(routes, action => action.predicate === FAVORITES),

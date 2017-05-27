@@ -9,7 +9,7 @@ import userLocation, { getAddress, getCoordinates } from './userLocation';
 
 import { sortGeoDataByPointType, createWrapperReducer } from '../../utils';
 
-import { MAP } from '../../containers/MapContainer/MapContainer';
+import { MAP } from '../../containers/Map/Map';
 
 export default combineReducers({
   geoData,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import SearchRouteFormContainer, { SEARCH_ROUTE } from '../SearchRouteFormContainer/SearchRouteFormContainer';
+import SearchRouteFormContainer, { SEARCH_ROUTE } from '../SearchRouteForm/SearchRouteForm';
 import RouteInfo from '../../components/RouteInfo/RouteInfo';
 import Routes from '../../components/Routes/Routes';
 
@@ -19,22 +19,22 @@ class SearchRouteContainer extends Component {
   getInfoAboutRoute = (id) => {
     const { getRouteInfo } = this.props.actions;
     getRouteInfo(id, SEARCH_ROUTE);
-  }
+  };
 
   getRouteGeoData = (id) => {
     const { getRouteGeoData } = this.props.actions;
     getRouteGeoData(id, SEARCH_ROUTE);
-  }
+  };
 
   closeRouteInfo = () => {
     const { clearRouteInfo } = this.props.actions;
     clearRouteInfo(SEARCH_ROUTE);
-  }
+  };
 
   saveRouteToFavorites = (id) => {
     const { saveToFavorites } = this.props.actions;
     saveToFavorites(id, SEARCH_ROUTE);
-  }
+  };
 
   render() {
     const { routes, routeInfo } = this.props;
