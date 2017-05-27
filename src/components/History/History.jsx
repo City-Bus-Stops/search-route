@@ -4,7 +4,7 @@ import { Accordion, Comment, Icon } from 'semantic-ui-react';
 const pathToRouteIcon = './assets/route_icon.png';
 const pathToBusStopIcon = './assets/bus_stop.png';
 const pathToStartPointIcon = './assets/start_point.png';
-const pathToEndtPointIcon = './assets/end_point.png';
+const pathToEndPointIcon = './assets/end_point.png';
 
 const HistoryComponent = () => (
   <Accordion fluid>
@@ -61,7 +61,7 @@ const HistoryComponent = () => (
         </Comment>
 
         <Comment>
-          <Comment.Avatar src={pathToEndtPointIcon} />
+          <Comment.Avatar src={pathToEndPointIcon} />
           <Comment.Content>
             <Comment.Author as="a">Дом Связи</Comment.Author>
             <Comment.Metadata>

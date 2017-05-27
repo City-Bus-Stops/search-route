@@ -6,8 +6,8 @@ const UsersAdministrationTable = ({ users, deleteUser, changeUserStatus, addUser
   <Grid centered padded>
     <Grid.Row>
       <Grid.Column largeScreen={9} mobile={16} widescreen={9}>
-        <Segment padded basic>
-          <Grid centered padded>
+        <Segment basic>
+          <Grid centered>
             <Table basic>
               <Table.Header>
                 <Table.Row>
