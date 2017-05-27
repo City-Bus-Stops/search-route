@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import Collapse from 'react-collapse';
 import { Menu, Icon, Dropdown } from 'semantic-ui-react';
 
-const MenuComponent = ({ pathname, userName }) => (
+const MenuComponent = ({ pathname, userName, onLogout }) => (
   <Collapse isOpened={!pathname.includes('map')}>
     <Menu className="padded-menu" stackable>
       <Menu.Item>
@@ -39,7 +39,7 @@ const MenuComponent = ({ pathname, userName }) => (
               Users
             </Dropdown.Item>
           </Link>
-          <Link to="/administration/statisctics" className="menu-item" activeClassName="menu-item-active">
+          <Link to="/administration/statistics" className="menu-item" activeClassName="menu-item-active">
             <Dropdown.Item>
               <Icon name="bar graph" />
               Statistics
@@ -63,12 +63,10 @@ const MenuComponent = ({ pathname, userName }) => (
               Settings
             </Dropdown.Item>
             <Dropdown.Divider />
-            <Link to="/logout" className="menu-item" activeClassName="menu-item-active">
-              <Dropdown.Item>
-                <Icon name="sign out" color="red" />
-                Logout
-              </Dropdown.Item>
-            </Link>
+            <Dropdown.Item onClick={onLogout} className="menu-item">
+              <Icon name="sign out" color="red" />
+              Logout
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </Menu.Menu>
@@ -79,6 +77,7 @@ const MenuComponent = ({ pathname, userName }) => (
 MenuComponent.propTypes = {
   pathname: PropTypes.string.isRequired,
   userName: PropTypes.string.isRequired,
+  onLogout: PropTypes.func.isRequired,
 };
 
 export default MenuComponent;

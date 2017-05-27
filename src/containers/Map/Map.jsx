@@ -34,29 +34,29 @@ class MapContainer extends Component {
     const { getPointInfo } = this.props.actions;
 
     getPointInfo(id, MAP);
-  }
+  };
 
   getUserPointInfo = () => {
     const { getUserPointInfo } = this.props.actions;
     getUserPointInfo(MAP);
-  }
+  };
 
   loadRouteToBusStop = (point) => {
     const { userCoordinates } = this.props;
     const { loadRouteBetweenPoints } = this.props.actions;
 
     loadRouteBetweenPoints(userCoordinates, point.coords, MAP);
-  }
+  };
 
   closePointInfo = () => {
     const { closeMapPointInfo } = this.props.actions;
     closeMapPointInfo(MAP);
-  }
+  };
 
   savePointToFavorites = (id) => {
     const { saveToFavorites } = this.props.actions;
     saveToFavorites(id, MAP);
-  }
+  };
 
   render() {
     const { data, defaultCenter, zoom, maxZoom, minZoom, zoomControl, isSidebarOpen,

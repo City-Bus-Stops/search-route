@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import AddUserContainer from './AddUserContainer';
+import AddUserContainer from './AddUser';
 import configureStore from '../../configureStore';
 
 it('renders without crashing', () => {

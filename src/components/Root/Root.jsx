@@ -7,7 +7,7 @@ import Notification from '../Notification/Notification';
 import Spinner from '../Spinner/Spinner';
 import Footer from '../Footer/Footer';
 
-const Root = ({ children, location, notifications, IsSpinnerActive }) => (
+const Root = ({ children, location, notifications, IsSpinnerActive, actions: { logout } }) => (
   <div className="wrapper">
     <Notification
       notifications={notifications}
@@ -16,6 +16,7 @@ const Root = ({ children, location, notifications, IsSpinnerActive }) => (
     <Menu
       pathname={location.pathname}
       userName="Denis Krivichanin"
+      onLogout={logout}
     />
     <div className="content">
       {children}
@@ -34,6 +35,9 @@ Root.propTypes = {
   location: PropTypes.shape().isRequired,
   notifications: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   IsSpinnerActive: PropTypes.bool.isRequired,
+  actions: PropTypes.shape({
+    logout: PropTypes.func.isRequired,
+  }).isRequired,
 };
 Root.defaultProps = {
   children: [],

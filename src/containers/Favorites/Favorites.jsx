@@ -37,11 +37,6 @@ class FavoritesContainer extends Component {
     getRouteInfo(id, FAVORITES);
   };
 
-  getFavoriteRouteGeoData = (id) => {
-    const { getRouteGeoData } = this.props.actions;
-    getRouteGeoData(id, FAVORITES);
-  };
-
   confirmAndRemove = (id) => {
     const { openConfirm, closeConfirm, removeFromFavorites } = this.props.actions;
     openConfirm({
@@ -54,12 +49,12 @@ class FavoritesContainer extends Component {
       },
       onCancel: () => closeConfirm(FAVORITES),
     }, FAVORITES);
-  }
+  };
 
   closeFavoriteRouteInfo = () => {
     const { clearRouteInfo } = this.props.actions;
     clearRouteInfo(FAVORITES);
-  }
+  };
 
   render() {
     const { routes, busStops, routeInfo, confirmConfig } = this.props;

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import UsersAdministrationTable from '../../components/UsersAdministrationTable/UsersAdministrationTable';
-import AddUserContainer from '../../containers/AddUserContainer/AddUserContainer';
+import AddUserContainer from '../AddUser/AddUser';
 import Confirm from '../../components/Confirm/Confirm';
 
 import {
@@ -38,7 +38,7 @@ class UsersAdministrationContainer extends Component {
       },
       onCancel: () => closeConfirm(USER_ADMINISTRATION),
     }, USER_ADMINISTRATION);
-  }
+  };
 
   render() {
     const { users, confirmConfig } = this.props;

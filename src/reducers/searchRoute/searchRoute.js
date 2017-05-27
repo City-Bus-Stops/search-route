@@ -5,7 +5,7 @@ import routeInfo from '../routeInfo';
 
 import { createWrapperReducer } from '../../utils';
 
-import { SEARCH_ROUTE } from '../../containers/SearchRouteFormContainer/SearchRouteFormContainer';
+import { SEARCH_ROUTE } from '../../containers/SearchRouteForm/SearchRouteForm';
 
 export default combineReducers({
   routes: createWrapperReducer(routes, action => action.predicate === SEARCH_ROUTE),

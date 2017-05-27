@@ -21,7 +21,7 @@ class LoginContainer extends Component {
     if (isEmpty(errors)) {
       logIn(values);
     }
-  }
+  };
 
   render() {
     const { handleSubmit } = this.props;

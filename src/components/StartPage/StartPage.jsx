@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { Button, Icon } from 'semantic-ui-react';
 
 const StartPage = () => (
   <div className="masthead">
@@ -8,11 +9,14 @@ const StartPage = () => (
         Find your favorite route
       </h1>
       <h2>Do whatever you want when you want to.</h2>
-      <div className="ui huge primary link button">
-        <Link to="/search-route" className="white-link">
-          Start to search <i className="right arrow icon" />
-        </Link>
-      </div>
+      <Link to="/search-route" className="white-link">
+        <Button
+          size="huge"
+          primary
+        >
+          Start to search <Icon name="right arrow" />
+        </Button>
+      </Link>
     </div>
   </div>
 );

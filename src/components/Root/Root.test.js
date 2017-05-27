@@ -11,5 +11,6 @@ it('renders without crashing', () => {
       }}
       IsSpinnerActive={false}
       notifications={[]}
+      logout={() => {}}
     />, div);
 });

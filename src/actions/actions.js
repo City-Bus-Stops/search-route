@@ -13,6 +13,7 @@ export const LOGIN = 'LOGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const SIGN_UP = 'SIGN_UP';
 export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
+export const LOGOUT = 'LOGOUT';
 
 /** Route Info actions **/
 export const LOAD_ROUTE_INFO = 'LOAD_ROUTE_INFO';
@@ -87,6 +88,10 @@ export const signUp = ({ email, password }) => ({
   type: SIGN_UP,
   email,
   password,
+});
+
+export const logout = () => ({
+  type: LOGOUT,
 });
 
 export const getRouteInfo = (routeId, predicate) => ({

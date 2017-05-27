@@ -84,8 +84,10 @@ body {
   padding-bottom: 5em;
 }
 
-.footer.segment {
-  padding: 5em 0em;
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 10%!important;
+  }
 }
 
 .secondary.pointing.menu .toc.item {
@@ -361,27 +363,6 @@ label sup {
 
 .max-width-500 {
   max-width: 500px!important;
-}
-
-@media only screen and (min-width: 1200px) {
-  .ui.small.modal {
-      width: 500px!important;
-      margin: -150px 0 0 -230px!important;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .ui.small.modal {
-      width: 400px!important;
-      margin: -150px 0 0 -200px!important;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .ui.small.modal {
-      width: 70.4%;
-      margin: 35.2%;
-  }
 }
 
 .width-20 {
