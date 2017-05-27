@@ -84,8 +84,10 @@ body {
   padding-bottom: 5em;
 }
 
-.footer.segment {
-  padding: 5em 0em;
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 10%!important;
+  }
 }
 
 .secondary.pointing.menu .toc.item {
