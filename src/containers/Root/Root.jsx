@@ -1,4 +1,7 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { logout } from '../../actions/actions';
 
 import Root from '../../components/Root/Root';
 
@@ -9,4 +12,10 @@ const mapStateToProps = (state, ownProps) => ({
   IsSpinnerActive: state.spinner,
 });
 
-export default connect(mapStateToProps, null)(Root);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({
+    logout,
+  }, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Root);
