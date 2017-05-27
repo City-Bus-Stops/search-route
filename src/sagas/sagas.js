@@ -132,10 +132,10 @@ function* watchPollRouteInfo() {
   }
 }
 
-function* pollPointInfo(pointId) {
+function* pollPointInfo(pointId, predicate) {
   try {
     yield call(delay, 60000);
-    yield put({ type: LOAD_MAP_POINT_INFO, pointId });
+    yield put({ type: LOAD_MAP_POINT_INFO, pointId, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put(showNotification('error', 'Error', err.message));
@@ -144,9 +144,9 @@ function* pollPointInfo(pointId) {
 
 function* watchPollPointInfo() {
   while (true) {
-    const { pointId } = yield take(LOAD_MAP_POINT_INFO_SUCCESS);
+    const { pointId, predicate } = yield take(LOAD_MAP_POINT_INFO_SUCCESS);
     yield race([
-      call(pollPointInfo, pointId),
+      call(pollPointInfo, pointId, predicate),
       take(CLEAR_MAP_POINT_INFO),
     ]);
   }
