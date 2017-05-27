@@ -26,13 +26,16 @@ export const MAP = 'map';
 class MapContainer extends Component {
   componentDidMount() {
     const { findUserLocation } = this.props.actions;
-
     findUserLocation();
+  }
+
+  componentWillUnmount() {
+    const { toggleSideBar } = this.props.actions;
+    toggleSideBar();
   }
 
   getMapPointInfo = (id) => {
     const { getPointInfo } = this.props.actions;
-
     getPointInfo(id, MAP);
   };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router';
 import { Sidebar, Menu, Icon } from 'semantic-ui-react';
 
 import History from '../History/History';
@@ -27,6 +28,18 @@ const MapSidebar = ({ isSidebarOpen, toggleSideBar, findNearestButStops }) => (
         <Menu.Item link onClick={findNearestButStops}>
           Show nearest stops
         </Menu.Item>
+        <Link to="/dashboard" className="menu-item" activeClassName="menu-item-active">
+          <Menu.Item>
+            <Icon name="home" />
+            Home
+          </Menu.Item>
+        </Link>
+        <Link to="/favorites" className="menu-item" activeClassName="menu-item-active">
+          <Menu.Item>
+            <Icon name="star" />
+            Favorites
+          </Menu.Item>
+        </Link>
         <Menu.Item>
           <History />
         </Menu.Item>
