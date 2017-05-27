@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Icon, Card, Grid, Label, Button } from 'semantic-ui-react';
+import { Modal, Icon, Card, Grid, Button } from 'semantic-ui-react';
 import { isEmpty } from 'lodash';
+
+import BusStopBuses from '../BusStopBuses/BusStopBuses';
 
 const PointInfo = ({ pointInfo, closePointInfo, loadRouteToBusStop, savePoint }) => (
   <Modal
@@ -43,35 +45,10 @@ const PointInfo = ({ pointInfo, closePointInfo, loadRouteToBusStop, savePoint })
       </Grid>
     </Modal.Header>
     <Modal.Content>
-      <Grid>
-        {
-          pointInfo.buses &&
-          <Grid.Row>
-            <Grid.Column className="font-size-15">
-              <Card.Group stackable itemsPerRow={3}>
-                {
-                  pointInfo.buses.map(bus =>
-                    <Card key={bus.id}>
-                      <Card.Content>
-                        <Card.Description className="font-size-20">
-                          <Icon name="bus" color="green" link />
-                          {bus.number}
-                          <Label
-                            horizontal
-                            color="red"
-                            size="large"
-                            className="float-right"
-                          >
-                            {bus.time} min
-                          </Label>
-                        </Card.Description>
-                      </Card.Content>
-                    </Card>,
-                  )}
-              </Card.Group>
-            </Grid.Column>
-          </Grid.Row>
-        }
+      <Grid>{
+        pointInfo.buses &&
+        <BusStopBuses buses={pointInfo.buses} />
+      }
         {
           pointInfo.address &&
           <Grid.Row>
@@ -159,6 +136,7 @@ PointInfo.propTypes = {
   pointInfo: PropTypes.shape({
     type: PropTypes.string,
     info: PropTypes.shape(),
+    buses: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
   closePointInfo: PropTypes.func.isRequired,
   loadRouteToBusStop: PropTypes.func.isRequired,
