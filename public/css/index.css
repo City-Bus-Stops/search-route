@@ -84,12 +84,6 @@ body {
   padding-bottom: 5em;
 }
 
-@media (max-width: 768px) {
-  .footer {
-    margin-top: 10%!important;
-  }
-}
-
 .secondary.pointing.menu .toc.item {
   display: none;
 }

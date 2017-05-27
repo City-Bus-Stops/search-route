@@ -2,7 +2,7 @@ import React from 'react';
 import { Segment, Container, Grid, Header, List } from 'semantic-ui-react';
 
 const Footer = () => (
-  <Segment vertical inverted className="footer">
+  <Segment vertical inverted padded="very">
     <Container>
       <Grid stackable celled="internally">
         <Grid.Column width={3}>

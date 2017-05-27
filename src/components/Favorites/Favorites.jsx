@@ -12,7 +12,7 @@ const Favorites = ({
 }) => (
   <Grid centered padded>
     <Grid.Row>
-      <Grid.Column largeScreen={10} mobile={16} widescreen={10} className="no-left-right-padding">
+      <Grid.Column largeScreen={14} mobile={16} widescreen={10} className="no-left-right-padding">
         <Segment stacked>
           <Grid container>
             <Grid.Row>
