@@ -45,6 +45,7 @@
     {
       "id": 1,
       "info": {
+        "busNumber": 2,
         "from": "Фолюш",
         "to": "Советская",
         "routeId": 1,
@@ -126,6 +127,7 @@
     {
       "id": 2,
       "info": {
+        "busNumber": 3,
         "from": "Фолюш",
         "to": "Советская",
         "routeId": 2,
