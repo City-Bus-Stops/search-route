@@ -4,7 +4,7 @@ import { Grid, Card, Label, Icon } from 'semantic-ui-react';
 
 const Route = ({ routes, getRouteInfo, showOnTheMap }) => (
   <div className="founded-routes">
-    <Grid columns={4} stackable doubling>
+    <Grid columns={4} stackable doubling padded>
       {
         routes && routes.map(route =>
           <Grid.Column key={route.id}>

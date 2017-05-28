@@ -9,6 +9,7 @@ import PointInfo from '../../components/PointInfo/PointInfo';
 
 import {
   toggleSideBar,
+  closeSideBar,
   getPointInfo,
   closeMapPointInfo,
   getUserPointInfo,
@@ -26,19 +27,32 @@ export const MAP = 'map';
 class MapContainer extends Component {
   componentDidMount() {
     const { findUserLocation } = this.props.actions;
-
     findUserLocation();
+  }
+
+  componentWillUnmount() {
+    const { closeSideBar } = this.props.actions;
+    closeSideBar();
   }
 
   getMapPointInfo = (id) => {
     const { getPointInfo } = this.props.actions;
-
     getPointInfo(id, MAP);
   };
 
   getUserPointInfo = () => {
     const { getUserPointInfo } = this.props.actions;
     getUserPointInfo(MAP);
+  };
+
+  getBusScheduleOnBusStop = (busStopId) => {
+    /** TODO **/
+    console.log(busStopId);
+  };
+
+  savePointToFavorites = (id) => {
+    const { saveToFavorites } = this.props.actions;
+    saveToFavorites(id, MAP);
   };
 
   loadRouteToBusStop = (point) => {
@@ -51,11 +65,6 @@ class MapContainer extends Component {
   closePointInfo = () => {
     const { closeMapPointInfo } = this.props.actions;
     closeMapPointInfo(MAP);
-  };
-
-  savePointToFavorites = (id) => {
-    const { saveToFavorites } = this.props.actions;
-    saveToFavorites(id, MAP);
   };
 
   render() {
@@ -86,6 +95,7 @@ class MapContainer extends Component {
           closePointInfo={this.closePointInfo}
           loadRouteToBusStop={this.loadRouteToBusStop}
           savePoint={this.savePointToFavorites}
+          getBusScheduleOnBusStop={this.getBusScheduleOnBusStop}
         />
       </div>
     );
@@ -110,6 +120,7 @@ const mapDispatchToProps = dispatch => ({
     loadRouteBetweenPoints,
     findNearestButStops,
     saveToFavorites,
+    closeSideBar,
   }, dispatch),
 });
 
@@ -136,6 +147,7 @@ MapContainer.propTypes = {
     loadRouteBetweenPoints: PropTypes.func.isRequired,
     findNearestButStops: PropTypes.func.isRequired,
     saveToFavorites: PropTypes.func.isRequired,
+    closeSideBar: PropTypes.func.isRequired,
   }).isRequired,
 };
 

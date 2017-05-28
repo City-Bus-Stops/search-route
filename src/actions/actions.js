@@ -25,6 +25,7 @@ export const LOAD_ROUTE_GEODATA = 'LOAD_ROUTE_GEODATA';
 export const LOAD_ROUTE_GEODATA_SUCCESS = 'LOAD_ROUTE_GEODATA_SUCCESS';
 export const CLEAR_MAP_GEODATA = 'CLEAR_MAP_GEODATA';
 export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
+export const CLOSE_SIDEBAR = 'CLOSE_SIDEBAR';
 export const LOAD_MAP_POINT_INFO = 'LOAD_MAP_POINT_INFO';
 export const LOAD_MAP_POINT_INFO_SUCCESS = 'LOAD_MAP_POINT_INFO_SUCCESS';
 export const CLEAR_MAP_POINT_INFO = 'CLEAR_MAP_POINT_INFO';
@@ -129,6 +130,10 @@ export const closeMapPointInfo = predicate => ({
 
 export const toggleSideBar = () => ({
   type: TOGGLE_SIDEBAR,
+});
+
+export const closeSideBar = () => ({
+  type: CLOSE_SIDEBAR,
 });
 
 export const loadRouteBetweenPoints = (startPoint, endPoint, predicate) => ({

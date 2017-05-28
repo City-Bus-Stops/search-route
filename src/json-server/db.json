@@ -334,22 +334,30 @@
           {
             "id": "1",
             "number": "23",
-            "time": "15"
+            "time": "15",
+            "startPoint": "КСМ",
+            "endPoint": "Химволокно"
           },
           {
             "id": "2",
             "number": "3",
-            "time": "7"
+            "time": "7",
+            "startPoint": "Девятовка",
+            "endPoint": "Фолюш"
           },
           {
             "id": "3",
             "number": "28",
-            "time": "19"
+            "time": "19",
+            "startPoint": "Девятовка",
+            "endPoint": "Химволокно"
           },
           {
-            "id": "36",
+            "id": "4",
             "number": "23",
-            "time": "6"
+            "time": "6",
+            "startPoint": "Колбасино",
+            "endPoint": "Вишневец"
           }
         ]
       }
@@ -364,22 +372,30 @@
           {
             "id": "1",
             "number": "23",
-            "time": "26"
+            "time": "26",
+            "startPoint": "КСМ",
+            "endPoint": "Химволокно"
           },
           {
             "id": "2",
             "number": "3",
-            "time": "7"
+            "time": "7",
+            "startPoint": "Девятовка",
+            "endPoint": "Фолюш"
           },
           {
             "id": "3",
             "number": "28",
-            "time": "19"
+            "time": "19",
+            "startPoint": "Девятовка",
+            "endPoint": "Химволокно"
           },
           {
-            "id": "36",
+            "id": "4",
             "number": "23",
-            "time": "6"
+            "time": "6",
+            "startPoint": "Колбасино",
+            "endPoint": "Вишневец"
           }
         ]
       }
@@ -395,22 +411,30 @@
           {
             "id": "1",
             "number": "23",
-            "time": "15"
+            "time": "15",
+            "startPoint": "КСМ",
+            "endPoint": "Химволокно"
           },
           {
             "id": "2",
             "number": "3",
-            "time": "7"
+            "time": "7",
+            "startPoint": "Девятовка",
+            "endPoint": "Фолюш"
           },
           {
             "id": "3",
             "number": "28",
-            "time": "19"
+            "time": "19",
+            "startPoint": "Девятовка",
+            "endPoint": "Химволокно"
           },
           {
-            "id": "36",
+            "id": "4",
             "number": "23",
-            "time": "6"
+            "time": "6",
+            "startPoint": "Колбасино",
+            "endPoint": "Вишневец"
           }
         ]
       }

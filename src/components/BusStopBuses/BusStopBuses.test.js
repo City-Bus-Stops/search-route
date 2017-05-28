@@ -1,16 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PointInfo from './PointInfo';
+import BusStopBuses from './BusStopBuses';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <PointInfo
-      pointInfo={{
-        info: {},
-        type: {},
-      }}
-      closePointInfo={() => {}}
+    <BusStopBuses
       getBusScheduleOnBusStop={() => {}}
     />, div);
 });

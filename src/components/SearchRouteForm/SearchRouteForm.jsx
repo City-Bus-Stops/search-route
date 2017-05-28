@@ -8,7 +8,7 @@ import InputField from '../InputField/InputField';
 const SearchRouteForm = ({ findUserAddress, searchRoute, handleSubmit }) => (
   <Grid centered padded>
     <Grid.Row>
-      <Grid.Column largeScreen={6} mobile={16} widescreen={6}>
+      <Grid.Column largeScreen={8} mobile={16} widescreen={6}>
         <Segment padded stacked>
           <Grid centered padded>
             <h1 className="font-style-oblique color-beige">
