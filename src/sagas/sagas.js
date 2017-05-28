@@ -1,4 +1,4 @@
-import { call, put, takeLatest, take, race, fork, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest, take, race, fork, takeEvery, cancel } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 import { push } from 'react-router-redux';
 
@@ -55,6 +55,8 @@ import {
   CHANGE_USER_STATUS_SUCCESS,
   DELETE_USER,
   DELETE_USER_SUCCESS,
+  CHANGE_FILTER,
+  SET_FILTER,
   showNotification,
 } from '../actions/actions';
 
@@ -316,6 +318,26 @@ function* deleteUser(action) {
   }
 }
 
+function* onFilterChanged(filter, predicate) {
+  try {
+    yield call(delay, 500);
+    yield put({ type: SET_FILTER, filter, predicate });
+  } catch (err) {
+    yield put(showNotification('error', 'Error', err.message));
+  }
+}
+
+function* watchChangeFilter() {
+  let task;
+  while (true) {
+    const { filter, predicate } = yield take(CHANGE_FILTER);
+    if (task) {
+      yield cancel(task);
+    }
+    task = yield fork(onFilterChanged, filter, predicate);
+  }
+}
+
 function* appSaga() {
   yield takeLatest(FIND_USER_LOCATION, findUserLocation);
   yield takeLatest(FIND_USER_ADDRESS, findUserAddress);
@@ -333,6 +355,7 @@ function* appSaga() {
   yield takeEvery(LOAD_USERS, loadUsers);
   yield takeEvery(CHANGE_USER_STATUS, changeUserStatus);
   yield takeEvery(DELETE_USER, deleteUser);
+  yield fork(watchChangeFilter);
   yield [fork(watchPollRouteInfo), fork(watchPollPointInfo)];
 }
 export default appSaga;
