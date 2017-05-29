@@ -1,5 +1,8 @@
 import Notifications from 'react-notification-system-redux';
 
+/** Application actions **/
+export const API_ERROR = 'API_ERROR';
+
 /** Search Routes actions **/
 export const FIND_USER_LOCATION = 'FIND_USER_LOCATION';
 export const FIND_USER_LOCATION_SUCCESS = 'FIND_USER_LOCATION_SUCCESS';

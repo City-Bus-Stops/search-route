@@ -20,6 +20,7 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-confusing-arrow": 0,
     "no-shadow": 0,
-    "import/no-named-default": 0
+    "import/no-named-default": 0,
+    "import/prefer-default-export": 0
   }
 }

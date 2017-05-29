@@ -8,10 +8,15 @@ import rootReducer from './reducers';
 
 import sagas from './sagas/sagas';
 
+import {
+  handleApiError,
+} from './middlewares';
+
 const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware();
   let middlewares = [
     sagaMiddleware,
+    handleApiError,
     routerMiddleware(browserHistory),
   ];
   if (process.env.NODE_ENV !== ('production' && 'test')) {
