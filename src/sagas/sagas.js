@@ -57,7 +57,7 @@ import {
   DELETE_USER_SUCCESS,
   CHANGE_FILTER,
   SET_FILTER,
-  showNotification,
+  API_ERROR,
 } from '../actions/actions';
 
 function* findUserLocation() {
@@ -68,7 +68,7 @@ function* findUserLocation() {
     yield put({ type: FIND_USER_LOCATION_SUCCESS, location });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -85,7 +85,7 @@ function* findUserAddress(action) {
     yield put({ type: FIND_USER_ADDRESS_SUCCESS, address, coords, field });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -99,7 +99,7 @@ function* searchRoute(action) {
     yield put({ type: SEARCH_ROUTE_SUCCESS, routes, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -110,7 +110,7 @@ function* loadRouteInfo(action) {
     const { info } = response;
     yield put({ type: LOAD_ROUTE_INFO_SUCCESS, info, routeId, predicate });
   } catch (err) {
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -120,7 +120,7 @@ function* pollRouteInfo(routeId, predicate) {
     yield put({ type: LOAD_ROUTE_INFO, routeId, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -140,7 +140,7 @@ function* pollPointInfo(pointId, predicate) {
     yield put({ type: LOAD_MAP_POINT_INFO, pointId, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -164,7 +164,7 @@ function* loadRouteGeoData(action) {
     yield put(push('/map'));
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -175,7 +175,7 @@ function* loadMapPointInfo(action) {
     const { info } = response;
     yield put({ type: LOAD_MAP_POINT_INFO_SUCCESS, info, pointId, predicate });
   } catch (err) {
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -191,7 +191,7 @@ function* loadUserPointInfo(action) {
     yield put({ type: LOAD_USER_POINT_INFO_SUCCESS, info, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -204,7 +204,7 @@ function* loadRouteBetweenPoints(action) {
     yield put({ type: LOAD_ROUTE_BETWEEN_POINTS_SUCCESS, geoData, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -219,7 +219,7 @@ function* findNearestBusStops() {
     yield put({ type: FIND_NEAREST_BUS_STOPS_SUCCESS, geoData });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -232,7 +232,7 @@ function* loadFavorites(action) {
     yield put({ type: LOAD_FAVORITES_SUCCESS, favorites, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -246,7 +246,7 @@ function* loadBusStopGeoData(action) {
     yield put(push('/map'));
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -259,7 +259,7 @@ function* saveToFavorites(action) {
     yield put({ type: SAVE_TO_FAVORITES_SUCCESS, id, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -276,7 +276,7 @@ function* registerUser(action) {
     yield put({ type: REGISTER_USER_SUCCESS, user });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -288,7 +288,7 @@ function* loadUsers() {
     yield put({ type: RECEIVE_USERS, users });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -301,7 +301,7 @@ function* changeUserStatus(action) {
     yield put({ type: CHANGE_USER_STATUS_SUCCESS, id, isActive: !isActive });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -314,7 +314,7 @@ function* deleteUser(action) {
     yield put({ type: DELETE_USER_SUCCESS, id });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
@@ -323,7 +323,7 @@ function* onFilterChanged(filter, predicate) {
     yield call(delay, 500);
     yield put({ type: SET_FILTER, filter, predicate });
   } catch (err) {
-    yield put(showNotification('error', 'Error', err.message));
+    yield put({ type: API_ERROR, err });
   }
 }
 
