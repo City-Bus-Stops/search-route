@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Icon, Card, Grid, Button } from 'semantic-ui-react';
+import { Modal, Icon, Card, Grid, Button, Header } from 'semantic-ui-react';
 import { isEmpty } from 'lodash';
 
 import BusStopBuses from '../BusStopBuses/BusStopBuses';
@@ -18,14 +18,18 @@ const PointInfo = ({
       <Modal.Header >
         <Grid>
           <Grid.Row columns={2}>
-            <Grid.Column verticalAlign="middle">
-              <h2 className="color-beige">
-                {pointInfo.name}
-              </h2>
+            <Grid.Column verticalAlign="middle" width={10}>
+              <Header as="h2">
+                <p className="color-beige">{pointInfo.name}</p>
+                <Header.Subheader disabled>
+                  <div>Distance <strong>~250</strong> m.</div>
+                  Time to reach bus stop on foot <strong>~5 min</strong>.
+                </Header.Subheader>
+              </Header>
             </Grid.Column>
             {
               pointInfo.type === 'bus_stop' &&
-              <Grid.Column textAlign="right" verticalAlign="middle">
+              <Grid.Column textAlign="right" width={6}>
                 {
                 pointInfo.isSaved ?
                   <span className="color-green">
@@ -104,14 +108,12 @@ const PointInfo = ({
                             <Button
                               className="point-info-button"
                               color="green"
-                              onClick={() => loadRouteToBusStop(busStop)}
+                              onClick={() => loadRouteToBusStop(busStop.coords)}
                             >Watch on the map
                             </Button>
                           </Grid.Column>
                           <Grid.Column mobile={16} widescreen={8} computer={8} stretched>
-                            <Button
-                              color="yellow"
-                            >
+                            <Button color="yellow">
                               Watch schedule
                             </Button>
                           </Grid.Column>
@@ -126,6 +128,16 @@ const PointInfo = ({
         }
       </Modal.Content>
       <Modal.Actions>
+        {
+          pointInfo.type === 'bus_stop' &&
+          <Button
+            primary
+            size="large"
+            onClick={() => loadRouteToBusStop(pointInfo.coords)}
+          >
+            Calculate route <Icon name="road" />
+          </Button>
+        }
         <Button
           positive
           size="large"
