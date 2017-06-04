@@ -31,8 +31,9 @@ class MapContainer extends Component {
   }
 
   componentWillUnmount() {
-    const { closeSideBar } = this.props.actions;
+    const { closeSideBar, closeMapPointInfo } = this.props.actions;
     closeSideBar();
+    closeMapPointInfo(MAP);
   }
 
   getMapPointInfo = (id) => {
@@ -55,11 +56,11 @@ class MapContainer extends Component {
     saveToFavorites(id, MAP);
   };
 
-  loadRouteToBusStop = (point) => {
+  loadRouteToBusStop = (coords) => {
     const { userCoordinates } = this.props;
     const { loadRouteBetweenPoints } = this.props.actions;
 
-    loadRouteBetweenPoints(userCoordinates, point.coords, MAP);
+    loadRouteBetweenPoints(userCoordinates, coords, MAP);
   };
 
   closePointInfo = () => {
