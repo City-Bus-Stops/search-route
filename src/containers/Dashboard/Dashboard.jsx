@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import AdminDashboard from '../../components/AdmimDashboard/AdmimDashboard';
+import AdminDashboard from '../../components/AdminDashboard/AdminDashboard';
 import AdminDashboardHeader from '../../components/AdminDashboardHeader/AdminDashboardHeader';
 import UserActivity from '../../components/UserActivity/UserActivity';
 

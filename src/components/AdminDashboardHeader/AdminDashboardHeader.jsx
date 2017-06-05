@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card, Button, Icon, Statistic } from 'semantic-ui-react';
+import { Grid, Card, Icon, Statistic } from 'semantic-ui-react';
 import { TealText } from './AdminDashBoardStyledComponents';
 
 const AdminDashboardHeader = () => (
