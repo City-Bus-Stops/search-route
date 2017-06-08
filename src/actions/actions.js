@@ -160,9 +160,10 @@ export const loadFavorites = predicate => ({
   predicate,
 });
 
-export const loadBusStopGeoData = busStopId => ({
+export const loadBusStopGeoData = (busStopId, predicate) => ({
   type: LOAD_BUS_STOP_GEODATA,
   busStopId,
+  predicate,
 });
 
 export const saveToFavorites = (id, predicate) => ({

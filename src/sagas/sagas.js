@@ -237,12 +237,12 @@ function* loadFavorites(action) {
 }
 
 function* loadBusStopGeoData(action) {
-  const { busStopId } = action;
+  const { busStopId, predicate } = action;
   try {
     yield put({ type: SEND_REQUEST });
     const { geoData } = yield call(fetchBusStopGeoData, busStopId);
     yield put({ type: RECEIVE_RESPONSE });
-    yield put({ type: LOAD_BUS_STOP_GEODATA_SUCCESS, geoData });
+    yield put({ type: LOAD_BUS_STOP_GEODATA_SUCCESS, geoData, predicate });
     yield put(push('/map'));
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });

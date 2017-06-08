@@ -4,6 +4,7 @@ import {
   LOAD_USER_POINT_INFO_SUCCESS,
   LOAD_ROUTE_BETWEEN_POINTS_SUCCESS,
   SAVE_TO_FAVORITES_SUCCESS,
+  LOAD_BUS_STOP_GEODATA_SUCCESS,
 } from '../../actions/actions';
 
 const pointInfo = (state = {}, action) => {
@@ -14,6 +15,7 @@ const pointInfo = (state = {}, action) => {
 
     case CLEAR_MAP_POINT_INFO:
     case LOAD_ROUTE_BETWEEN_POINTS_SUCCESS:
+    case LOAD_BUS_STOP_GEODATA_SUCCESS:
       return {};
 
     case SAVE_TO_FAVORITES_SUCCESS:

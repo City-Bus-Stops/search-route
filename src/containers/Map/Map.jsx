@@ -17,6 +17,7 @@ import {
   loadRouteBetweenPoints,
   findNearestButStops,
   saveToFavorites,
+  loadBusStopGeoData,
 } from '../../actions/actions';
 
 import { getGeoData, getIsSidebarOpen, getMapPointInfo, getUserCoordinates,
@@ -68,6 +69,11 @@ class MapContainer extends Component {
     closeMapPointInfo(MAP);
   };
 
+  loadMapBusStopGeoData = (busStopId) => {
+    const { loadBusStopGeoData } = this.props.actions;
+    loadBusStopGeoData(busStopId, MAP);
+  }
+
   render() {
     const { data, defaultCenter, zoom, maxZoom, minZoom, zoomControl, isSidebarOpen,
       pointInfo, userCoordinates, mapCenter } = this.props;
@@ -97,6 +103,7 @@ class MapContainer extends Component {
           loadRouteToBusStop={this.loadRouteToBusStop}
           savePoint={this.savePointToFavorites}
           getBusScheduleOnBusStop={this.getBusScheduleOnBusStop}
+          loadBusStopGeoData={this.loadMapBusStopGeoData}
         />
       </div>
     );
@@ -122,6 +129,7 @@ const mapDispatchToProps = dispatch => ({
     findNearestButStops,
     saveToFavorites,
     closeSideBar,
+    loadBusStopGeoData,
   }, dispatch),
 });
 
@@ -149,6 +157,7 @@ MapContainer.propTypes = {
     findNearestButStops: PropTypes.func.isRequired,
     saveToFavorites: PropTypes.func.isRequired,
     closeSideBar: PropTypes.func.isRequired,
+    loadBusStopGeoData: PropTypes.func.isRequired,
   }).isRequired,
 };
 

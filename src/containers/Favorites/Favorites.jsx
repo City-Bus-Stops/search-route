@@ -68,11 +68,14 @@ class FavoritesContainer extends Component {
     clearRouteInfo(FAVORITES);
   };
 
+  loadFavoriteBusStopGeoData = (busStopId) => {
+    const { loadBusStopGeoData } = this.props.actions;
+    loadBusStopGeoData(busStopId, FAVORITES);
+  }
+
   render() {
     const { routes, busStops, routeInfo, confirmConfig } = this.props;
-    const {
-      getRouteGeoData, loadBusStopGeoData,
-    } = this.props.actions;
+    const { getRouteGeoData } = this.props.actions;
 
     return (
       <div>
@@ -81,7 +84,7 @@ class FavoritesContainer extends Component {
           busStops={busStops}
           showOnTheMap={getRouteGeoData}
           getRouteInfo={this.getFavoriteRouteInfo}
-          loadBusStopGeoData={loadBusStopGeoData}
+          loadBusStopGeoData={this.loadFavoriteBusStopGeoData}
           removeFromFavorites={this.confirmAndRemove}
           changeFilter={this.filterOnChange}
         />

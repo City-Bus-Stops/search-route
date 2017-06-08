@@ -4,7 +4,7 @@ import { Icon, Card, Grid, Button } from 'semantic-ui-react';
 import { isEmpty } from 'lodash';
 import { Text, StrongText } from './pointBusStopsComponents';
 
-const PointBusStops = ({ busStops, loadRouteToBusStop }) => (
+const PointBusStops = ({ busStops, loadBusStopGeoData }) => (
   <Grid columns={2} stackable doubling>
     {
       !isEmpty(busStops) &&
@@ -44,7 +44,7 @@ const PointBusStops = ({ busStops, loadRouteToBusStop }) => (
                   <Grid.Column mobile={16} widescreen={8} computer={8} stretched>
                     <Button
                       color="green"
-                      onClick={() => loadRouteToBusStop(busStop.coords)}
+                      onClick={() => loadBusStopGeoData(busStop.id)}
                     >
                       <Text>
                         Watch on the map
@@ -70,7 +70,7 @@ const PointBusStops = ({ busStops, loadRouteToBusStop }) => (
 
 PointBusStops.propTypes = {
   busStops: PropTypes.arrayOf(PropTypes.shape({})),
-  loadRouteToBusStop: PropTypes.func.isRequired,
+  loadBusStopGeoData: PropTypes.func.isRequired,
 };
 
 PointBusStops.defaultProps = {
