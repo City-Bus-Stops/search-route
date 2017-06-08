@@ -92,7 +92,7 @@ const Favorites = ({
               <Grid.Row>
                 <Grid.Column textAlign="center">
                   <h3 className="font-style-oblique color-beige">
-                    Your favorites are empty.
+                    No favorites routes and bus stops.
                     Try to search
                     <Link
                       to="/search-route"
