@@ -33,16 +33,16 @@ const MenuComponent = ({ pathname, userName, onLogout }) => (
       </Menu.Item>
       <Dropdown item text="Administration">
         <Dropdown.Menu>
+          <Link to="/administration/dashboard" className="menu-item" activeClassName="menu-item-active">
+            <Dropdown.Item>
+              <Icon name="dashboard" />
+              Dashboard
+            </Dropdown.Item>
+          </Link>
           <Link to="/administration/users" className="menu-item" activeClassName="menu-item-active">
             <Dropdown.Item>
               <Icon name="users" />
               Users
-            </Dropdown.Item>
-          </Link>
-          <Link to="/administration/statistics" className="menu-item" activeClassName="menu-item-active">
-            <Dropdown.Item>
-              <Icon name="bar graph" />
-              Statistics
             </Dropdown.Item>
           </Link>
         </Dropdown.Menu>

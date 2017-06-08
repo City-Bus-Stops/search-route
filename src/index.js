@@ -19,6 +19,7 @@ import SignupContainer from './containers/Signup/Signup';
 import MapContainer from './containers/Map/Map';
 import FavoritesContainer from './containers/Favorites/Favorites';
 import UsersAdministrationContainer from './containers/UsersAdministration/UsersAdministration';
+import DashboardContainer from './containers/Dashboard/Dashboard';
 import NotFound from './components/NotFound/NotFound';
 
 import configureStore from './configureStore';
@@ -38,6 +39,7 @@ ReactDOM.render(
         <Route path="administration">
           <IndexRedirect to="users" />
           <Route path="users" component={UsersAdministrationContainer} />
+          <Route path="dashboard" component={DashboardContainer} />
         </Route>
       </Route>
       <Route path="/" component={UserManagementContainer}>
