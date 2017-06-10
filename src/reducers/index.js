@@ -6,6 +6,7 @@ import formReducers from './formReducers/formReducers';
 
 import searchRoute from './searchRoute/searchRoute';
 import map from './map/map';
+import userLocation from './userLocation';
 import spinner from './spinner';
 import favorites from './favorites/favorites';
 import administration from './administration/administration';
@@ -14,6 +15,7 @@ export default combineReducers({
   searchRoute,
   notifications,
   map,
+  userLocation,
   spinner,
   routing: routerReducer,
   form: formReducer.plugin(formReducers),

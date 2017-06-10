@@ -20,8 +20,11 @@ import {
   loadBusStopGeoData,
 } from '../../actions/actions';
 
-import { getGeoData, getIsSidebarOpen, getMapPointInfo, getUserCoordinates,
-  getMapCenter } from '../../reducers/map/map';
+import { calculateMapCenter } from '../../utils';
+
+import { getGeoData, getIsSidebarOpen, getMapPointInfo, getGeoDataMainPoint } from '../../reducers/map/map';
+
+import { getUserCoordinates } from '../../reducers/userLocation';
 
 export const MAP = 'map';
 
@@ -110,13 +113,18 @@ class MapContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  data: getGeoData(state.map),
-  isSidebarOpen: getIsSidebarOpen(state.map),
-  pointInfo: getMapPointInfo(state.map),
-  userCoordinates: getUserCoordinates(state.map),
-  mapCenter: getMapCenter(state.map),
-});
+const mapStateToProps = (state) => {
+  const geoDataMainPoint = getGeoDataMainPoint(state.map);
+  const userCoordinates = getUserCoordinates(state.userLocation);
+
+  return {
+    data: getGeoData(state.map),
+    isSidebarOpen: getIsSidebarOpen(state.map),
+    pointInfo: getMapPointInfo(state.map),
+    userCoordinates: getUserCoordinates(state.userLocation),
+    mapCenter: calculateMapCenter(geoDataMainPoint, userCoordinates),
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
