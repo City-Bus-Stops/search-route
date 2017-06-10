@@ -17,6 +17,7 @@ import {
   fetchLoadUsers,
   fetchRegisterUser,
   fetchDeleteUser,
+  fetchLogin,
 } from '../api/api';
 import {
   FIND_USER_LOCATION,
@@ -57,6 +58,8 @@ import {
   DELETE_USER_SUCCESS,
   CHANGE_FILTER,
   SET_FILTER,
+  LOGIN,
+  LOGIN_SUCCESS,
   API_ERROR,
 } from '../actions/actions';
 
@@ -338,6 +341,17 @@ function* watchChangeFilter() {
   }
 }
 
+function* login(action) {
+  const { email, password } = action;
+  try {
+    const { userData } = fetchLogin({ email, password });
+    console.log(userData);
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: API_ERROR, err });
+  }
+}
+
 function* appSaga() {
   yield takeLatest(FIND_USER_LOCATION, findUserLocation);
   yield takeLatest(FIND_USER_ADDRESS, findUserAddress);
@@ -355,6 +369,7 @@ function* appSaga() {
   yield takeEvery(LOAD_USERS, loadUsers);
   yield takeEvery(CHANGE_USER_STATUS, changeUserStatus);
   yield takeEvery(DELETE_USER, deleteUser);
+  yield takeEvery(LOGIN, login);
   yield fork(watchChangeFilter);
   yield [fork(watchPollRouteInfo), fork(watchPollPointInfo)];
 }

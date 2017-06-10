@@ -78,3 +78,8 @@ export const fetchDeleteUser = id =>
   axios.delete(`/api/administration/users/${id}`)
     .then(response => response.data)
     .catch(apiErrorHandler);
+
+export const fetchLogin = params =>
+  axios.post('/api/auth/login', params)
+    .then(response => response.data)
+    .catch(apiErrorHandler);
