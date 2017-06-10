@@ -41,3 +41,8 @@ export const getCurrentTime = () => moment();
 /** Return date with added MINUTES **/
 export const getDateWithAddedMinutes = minutes =>
   formDateWithHoursAndMinutes(getCurrentTime().add(Number(minutes), 'minutes'));
+
+export const isBusStopInfo = info =>
+  info.type === 'start' ||
+  info.type === 'end' ||
+  info.type === 'bus_stop';
