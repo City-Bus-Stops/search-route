@@ -5,16 +5,27 @@ import { Grid, Icon, Button, Segment } from 'semantic-ui-react';
 import { Field } from 'redux-form';
 
 import InputField from '../InputField/InputField';
+import FormErrorMessage from '../FormErrorMessage/FormErrorMessage';
 
 const Login = ({ logIn, handleSubmit }) => (
   <Grid centered padded id="login">
     <Grid.Row>
-      <Grid.Column largeScreen={3} mobile={16} widescreen={3}>
+      <Grid.Column largeScreen={4} mobile={16} widescreen={4}>
         <Segment padded stacked>
           <Grid centered padded>
             <h1 className="font-style-oblique color-beige">
               Log-in to your account
             </h1>
+            <Grid.Row>
+              <Grid.Column>
+                <Field
+                  id="errorMessage"
+                  name="errorMessage"
+                  component={FormErrorMessage}
+                  type="text"
+                />
+              </Grid.Column>
+            </Grid.Row>
             <Grid.Row>
               <Grid.Column>
                 <Field
@@ -57,6 +68,17 @@ const Login = ({ logIn, handleSubmit }) => (
                 Login
                 </Button>
               </Grid.Column>
+            </Grid.Row>
+            <Grid.Row textAlign="center">
+              <Link
+                to="/"
+                className="padding-left-5"
+              >
+                <h3 className="font-style-oblique color-beige">
+                  Back to dashboard.
+                  <Icon name="reply" color="blue" link circular />
+                </h3>
+              </Link>
             </Grid.Row>
           </Grid>
         </Segment>

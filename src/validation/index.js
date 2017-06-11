@@ -53,6 +53,13 @@ export const validateSignUpForm = params => validate(params, {
     presence: true,
     equality: 'password',
   },
+  username: {
+    presence: true,
+    length: {
+      minimum: 5,
+      message: 'must be at least 5 characters',
+    },
+  },
 });
 
 export const valdateAddUserForm = params => validate(params, {

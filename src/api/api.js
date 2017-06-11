@@ -79,7 +79,21 @@ export const fetchDeleteUser = id =>
     .then(response => response.data)
     .catch(apiErrorHandler);
 
+const setAccessToken = (response) => {
+  const { authorize } = response.headers;
+  if (authorize) {
+    axios.defaults.headers.common.Authorization = authorize;
+  }
+  return response;
+};
+
 export const fetchLogin = params =>
   axios.post('/api/auth/login', params)
+    .then(setAccessToken)
+    .then(response => response.data)
+    .catch(apiErrorHandler);
+
+export const fetchSignup = params =>
+  axios.post('/api/auth/signup', params)
     .then(response => response.data)
     .catch(apiErrorHandler);

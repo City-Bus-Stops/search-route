@@ -10,6 +10,8 @@ import sagas from './sagas/sagas';
 
 import {
   handleApiError,
+  handleLoginSuccess,
+  handleLogout,
 } from './middlewares';
 
 const configureStore = () => {
@@ -17,6 +19,8 @@ const configureStore = () => {
   let middlewares = [
     sagaMiddleware,
     handleApiError,
+    handleLoginSuccess,
+    handleLogout,
     routerMiddleware(browserHistory),
   ];
   if (process.env.NODE_ENV !== ('production' && 'test')) {

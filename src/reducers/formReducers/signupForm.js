@@ -1,5 +1,6 @@
 import {
   SIGN_UP_SUCCESS,
+  SIGN_UP_FAILURE,
 } from '../../actions/actions';
 
 const signupForm = (state, action) => {
@@ -19,6 +20,14 @@ const signupForm = (state, action) => {
           confirmPassword: undefined,
         },
       };
+
+    case SIGN_UP_FAILURE: {
+      const { response: { data } } = action.err;
+      return {
+        ...state,
+        syncErrors: data,
+      };
+    }
 
     default:
       return state;

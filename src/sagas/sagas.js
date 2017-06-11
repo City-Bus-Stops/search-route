@@ -18,6 +18,7 @@ import {
   fetchRegisterUser,
   fetchDeleteUser,
   fetchLogin,
+  fetchSignup,
 } from '../api/api';
 import {
   FIND_USER_LOCATION,
@@ -60,6 +61,10 @@ import {
   SET_FILTER,
   LOGIN,
   LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  SIGN_UP,
+  SIGN_UP_SUCCESS,
+  SIGN_UP_FAILURE,
   API_ERROR,
 } from '../actions/actions';
 
@@ -344,11 +349,28 @@ function* watchChangeFilter() {
 function* login(action) {
   const { email, password } = action;
   try {
-    const { userData } = fetchLogin({ email, password });
-    console.log(userData);
+    yield put({ type: SEND_REQUEST });
+    const { userData } = yield call(fetchLogin, { email, password });
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: LOGIN_SUCCESS, userData });
+    yield put(push('/'));
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
-    yield put({ type: API_ERROR, err });
+    yield put({ type: LOGIN_FAILURE, err });
+  }
+}
+
+function* signup(action) {
+  const { email, password, username } = action;
+  try {
+    yield put({ type: SEND_REQUEST });
+    yield call(fetchSignup, { email, password, username });
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: SIGN_UP_SUCCESS });
+    yield put(push('/login'));
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: SIGN_UP_FAILURE, err });
   }
 }
 
@@ -370,6 +392,7 @@ function* appSaga() {
   yield takeEvery(CHANGE_USER_STATUS, changeUserStatus);
   yield takeEvery(DELETE_USER, deleteUser);
   yield takeEvery(LOGIN, login);
+  yield takeEvery(SIGN_UP, signup)
   yield fork(watchChangeFilter);
   yield [fork(watchPollRouteInfo), fork(watchPollPointInfo)];
 }

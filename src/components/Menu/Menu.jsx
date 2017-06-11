@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import Collapse from 'react-collapse';
 import { Menu, Icon, Dropdown } from 'semantic-ui-react';
 
-const MenuComponent = ({ pathname, userName, onLogout }) => (
+const MenuComponent = ({ pathname, username, onLogout, isUserRegistered }) => (
   <Collapse isOpened={!pathname.includes('map')}>
     <Menu className="padded-menu" stackable>
       <Menu.Item>
@@ -47,37 +47,59 @@ const MenuComponent = ({ pathname, userName, onLogout }) => (
           </Link>
         </Dropdown.Menu>
       </Dropdown>
-      <Menu.Menu position="right">
-        <Dropdown
-          item
-          icon={<Icon name="user" color="blue" />}
-          trigger={
-            <span className="font-size-15">
-              {userName}
-            </span>
-          }
-        >
-          <Dropdown.Menu>
-            <Dropdown.Item>
-              <Icon name="settings" />
-              Settings
-            </Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item onClick={onLogout} className="menu-item">
-              <Icon name="sign out" color="red" />
-              Logout
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      </Menu.Menu>
+      {
+        isUserRegistered ?
+          <Menu.Menu position="right">
+            <Dropdown
+              item
+              icon={<Icon name="user" color="blue" />}
+              trigger={
+                <span className="font-size-15">
+                  {username}
+                </span>
+            }
+            >
+              <Dropdown.Menu>
+                <Dropdown.Item>
+                  <Icon name="settings" />
+                Settings
+              </Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item onClick={onLogout} className="menu-item">
+                  <Icon name="sign out" color="red" />
+                  Logout
+              </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Menu.Menu> :
+          <Menu.Menu position="right">
+            <Menu.Item>
+              <Link to="/login" className="menu-item">
+                <Icon name="sign in" color="red" />
+                Log In
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/signup" className="menu-item">
+                <Icon name="vcard outline" color="green" />
+                Sign Up
+              </Link>
+            </Menu.Item>
+          </Menu.Menu>
+      }
     </Menu>
   </Collapse>
 );
 
 MenuComponent.propTypes = {
   pathname: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
+  username: PropTypes.string,
   onLogout: PropTypes.func.isRequired,
+  isUserRegistered: PropTypes.bool.isRequired,
+};
+
+MenuComponent.defaultProps = {
+  username: '',
 };
 
 export default MenuComponent;
