@@ -4,7 +4,9 @@
   "globals": {
     "document": true,
     "it": true,
-    "navigator": true
+    "navigator": true,
+    "localStorage": true,
+    "beforeAll": true
   },
   "plugins": [
     "react",

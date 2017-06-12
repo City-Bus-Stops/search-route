@@ -7,7 +7,10 @@ import Notification from '../Notification/Notification';
 import Spinner from '../Spinner/Spinner';
 import Footer from '../Footer/Footer';
 
-const Root = ({ children, location, notifications, IsSpinnerActive, actions: { logout } }) => (
+const Root = ({
+  children, location, notifications, IsSpinnerActive, username, isUserRegistered,
+  actions: { logout },
+}) => (
   <div className="wrapper">
     <Notification
       notifications={notifications}
@@ -15,8 +18,9 @@ const Root = ({ children, location, notifications, IsSpinnerActive, actions: { l
     <Spinner IsSpinnerActive={IsSpinnerActive} />
     <Menu
       pathname={location.pathname}
-      userName="Denis Krivichanin"
+      username={username}
       onLogout={logout}
+      isUserRegistered={isUserRegistered}
     />
     <div className="content">
       {children}
@@ -35,12 +39,16 @@ Root.propTypes = {
   location: PropTypes.shape().isRequired,
   notifications: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   IsSpinnerActive: PropTypes.bool.isRequired,
+  username: PropTypes.string,
+  isUserRegistered: PropTypes.bool,
   actions: PropTypes.shape({
     logout: PropTypes.func.isRequired,
   }).isRequired,
 };
 Root.defaultProps = {
   children: [],
+  username: '',
+  isUserRegistered: false,
 };
 
 export default Root;

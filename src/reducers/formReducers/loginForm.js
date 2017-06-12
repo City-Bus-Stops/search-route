@@ -1,5 +1,6 @@
 import {
   LOGIN_SUCCESS,
+  LOGIN_FAILURE,
 } from '../../actions/actions';
 
 const loginForm = (state, action) => {
@@ -17,6 +18,14 @@ const loginForm = (state, action) => {
           password: undefined,
         },
       };
+
+    case LOGIN_FAILURE: {
+      const { response: { data } } = action.err;
+      return {
+        ...state,
+        syncErrors: data,
+      };
+    }
 
     default:
       return state;

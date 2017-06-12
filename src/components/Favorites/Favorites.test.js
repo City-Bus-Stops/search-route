@@ -12,5 +12,6 @@ it('renders without crashing', () => {
       getRouteInfo={() => {}}
       loadBusStopGeoData={() => {}}
       removeFromFavorites={() => {}}
+      changeFilter={() => {}}
     />, div);
 });

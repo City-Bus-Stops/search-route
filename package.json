@@ -41,7 +41,7 @@
     "eslint-plugin-react": "^6.10.0",
     "react-scripts": "0.9.5"
   },
-  "proxy": "http://localhost:9002",
+  "proxy": "https://city-bus-stops-server.herokuapp.com",
   "scripts": {
     "json-server": "json-server --watch ./src/json-server/db.json --port 9002 --routes ./src/json-server/routes.json",
     "lint": "eslint .",

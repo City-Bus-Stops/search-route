@@ -1,14 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Menu from './Menu';
+import FormErrorMessage from './FormErrorMessage';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <Menu
-      pathname="testPath"
-      userName="testUser"
-      onLogout={() => {}}
-      isUserRegistered={false}
+    <FormErrorMessage
+      meta={{}}
     />, div);
 });
