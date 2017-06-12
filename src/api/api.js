@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Auth from '../auth';
 
 const apiErrorHandler = err => Promise.reject(err);
 
@@ -82,7 +83,7 @@ export const fetchDeleteUser = id =>
 const setAccessToken = (response) => {
   const { authorize } = response.headers;
   if (authorize) {
-    axios.defaults.headers.common.Authorization = authorize;
+    Auth.setAccessToken(authorize);
   }
   return response;
 };

@@ -9,7 +9,7 @@ import Footer from '../Footer/Footer';
 
 const Root = ({
   children, location, notifications, IsSpinnerActive, username, isUserRegistered,
-  actions: { logout },
+  isAdmin, actions: { logout },
 }) => (
   <div className="wrapper">
     <Notification
@@ -21,6 +21,7 @@ const Root = ({
       username={username}
       onLogout={logout}
       isUserRegistered={isUserRegistered}
+      isAdmin={isAdmin}
     />
     <div className="content">
       {children}
@@ -41,6 +42,7 @@ Root.propTypes = {
   IsSpinnerActive: PropTypes.bool.isRequired,
   username: PropTypes.string,
   isUserRegistered: PropTypes.bool,
+  isAdmin: PropTypes.bool,
   actions: PropTypes.shape({
     logout: PropTypes.func.isRequired,
   }).isRequired,
@@ -49,6 +51,7 @@ Root.defaultProps = {
   children: [],
   username: '',
   isUserRegistered: false,
+  isAdmin: false,
 };
 
 export default Root;

@@ -9,5 +9,6 @@ it('renders without crashing', () => {
       isSidebarOpen={false}
       toggleSideBar={() => {}}
       findNearestButStops={() => {}}
+      isUserRegistered={false}
     />, div);
 });

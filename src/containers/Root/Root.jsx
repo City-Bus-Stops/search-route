@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => ({
   notifications: state.notifications,
   IsSpinnerActive: state.spinner,
   isUserRegistered: Auth.isUserRegistered(),
+  isAdmin: Auth.isUserAdmin(),
   username: Auth.getUsername(),
 });
 

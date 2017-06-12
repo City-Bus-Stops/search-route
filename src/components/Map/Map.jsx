@@ -28,6 +28,7 @@ const MapComponent = ({
   findNearestButStops,
   getPointInfo,
   getUserInfo,
+  isUserRegistered,
 }) => (
   <div className="leaflet-pushable">
     <Sidebar.Pushable>
@@ -45,6 +46,7 @@ const MapComponent = ({
         isSidebarOpen={isSidebarOpen}
         toggleSideBar={toggleSideBar}
         findNearestButStops={findNearestButStops}
+        isUserRegistered={isUserRegistered}
       />
       <Sidebar.Pusher id="map">
         <div className="leaflet-container-main">
@@ -103,6 +105,7 @@ MapComponent.propTypes = {
   toggleSideBar: PropTypes.func.isRequired,
   getUserInfo: PropTypes.func.isRequired,
   findNearestButStops: PropTypes.func.isRequired,
+  isUserRegistered: PropTypes.bool,
 };
 
 MapComponent.defaultProps = {
@@ -113,6 +116,7 @@ MapComponent.defaultProps = {
   minZoom: 11,
   zoomControl: false,
   userCoordinates: [],
+  isUserRegistered: false,
 };
 
 export default MapComponent;

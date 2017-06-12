@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import Collapse from 'react-collapse';
 import { Menu, Icon, Dropdown } from 'semantic-ui-react';
 
-const MenuComponent = ({ pathname, username, onLogout, isUserRegistered }) => (
+const MenuComponent = ({ pathname, username, onLogout, isUserRegistered, isAdmin }) => (
   <Collapse isOpened={!pathname.includes('map')}>
     <Menu className="padded-menu" stackable>
       <Menu.Item>
@@ -25,28 +25,35 @@ const MenuComponent = ({ pathname, username, onLogout, isUserRegistered }) => (
           Search route
         </Link>
       </Menu.Item>
-      <Menu.Item>
-        <Link to="/favorites" className="menu-item" activeClassName="menu-item-active">
-          <Icon name="favorite" />
-          Favorites
-        </Link>
-      </Menu.Item>
-      <Dropdown item text="Administration">
-        <Dropdown.Menu>
-          <Link to="/administration/dashboard" className="menu-item" activeClassName="menu-item-active">
-            <Dropdown.Item>
-              <Icon name="dashboard" />
-              Dashboard
-            </Dropdown.Item>
+      {
+        isUserRegistered &&
+        <Menu.Item>
+          <Link to="/favorites" className="menu-item" activeClassName="menu-item-active">
+            <Icon name="favorite" />
+            Favorites
           </Link>
-          <Link to="/administration/users" className="menu-item" activeClassName="menu-item-active">
-            <Dropdown.Item>
-              <Icon name="users" />
-              Users
-            </Dropdown.Item>
-          </Link>
-        </Dropdown.Menu>
-      </Dropdown>
+        </Menu.Item>
+      }
+      {
+        isUserRegistered &&
+        isAdmin &&
+        <Dropdown item text="Administration">
+          <Dropdown.Menu>
+            <Link to="/administration/dashboard" className="menu-item" activeClassName="menu-item-active">
+              <Dropdown.Item>
+                <Icon name="dashboard" />
+                Dashboard
+              </Dropdown.Item>
+            </Link>
+            <Link to="/administration/users" className="menu-item" activeClassName="menu-item-active">
+              <Dropdown.Item>
+                <Icon name="users" />
+                Users
+              </Dropdown.Item>
+            </Link>
+          </Dropdown.Menu>
+        </Dropdown>
+      }
       {
         isUserRegistered ?
           <Menu.Menu position="right">
@@ -96,6 +103,7 @@ MenuComponent.propTypes = {
   username: PropTypes.string,
   onLogout: PropTypes.func.isRequired,
   isUserRegistered: PropTypes.bool.isRequired,
+  isAdmin: PropTypes.bool,
 };
 
 MenuComponent.defaultProps = {

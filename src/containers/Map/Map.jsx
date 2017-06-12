@@ -7,6 +7,8 @@ import { isEmpty } from 'lodash';
 import MapComponent from '../../components/Map/Map';
 import PointInfo from '../../components/PointInfo/PointInfo';
 
+import Auth from '../../auth';
+
 import {
   toggleSideBar,
   closeSideBar,
@@ -79,7 +81,7 @@ class MapContainer extends Component {
 
   render() {
     const { data, defaultCenter, zoom, maxZoom, minZoom, zoomControl, isSidebarOpen,
-      pointInfo, userCoordinates, mapCenter } = this.props;
+      pointInfo, userCoordinates, mapCenter, isUserRegistered } = this.props;
     const { toggleSideBar, findNearestButStops } = this.props.actions;
 
     return (
@@ -99,6 +101,7 @@ class MapContainer extends Component {
           findNearestButStops={findNearestButStops}
           getPointInfo={this.getMapPointInfo}
           getUserInfo={this.getUserPointInfo}
+          isUserRegistered={isUserRegistered}
         />
         <PointInfo
           pointInfo={pointInfo}
@@ -123,6 +126,7 @@ const mapStateToProps = (state) => {
     pointInfo: getMapPointInfo(state.map),
     userCoordinates: getUserCoordinates(state.userLocation),
     mapCenter: calculateMapCenter(geoDataMainPoint, userCoordinates),
+    isUserRegistered: Auth.isUserRegistered(),
   };
 };
 
@@ -155,6 +159,7 @@ MapContainer.propTypes = {
   zoomControl: PropTypes.bool,
   isSidebarOpen: PropTypes.bool.isRequired,
   userCoordinates: PropTypes.arrayOf(PropTypes.number),
+  isUserRegistered: PropTypes.bool.isRequired,
   actions: PropTypes.shape({
     getPointInfo: PropTypes.func.isRequired,
     toggleSideBar: PropTypes.func.isRequired,
