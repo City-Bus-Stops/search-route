@@ -7,8 +7,11 @@ import BusStopBuses from '../BusStopBuses/BusStopBuses';
 import PointBusStops from '../PointBusStops/PointBusStops';
 import { PointName, SavedIcon, Text } from './pointInfoComponents';
 
+import { isBusStopInfo } from '../../utils';
+
 const PointInfo = ({
     pointInfo, closePointInfo, loadRouteToBusStop, savePoint, getBusScheduleOnBusStop,
+    loadBusStopGeoData,
   }) => (
     <Modal
       open={!isEmpty(pointInfo)}
@@ -23,10 +26,13 @@ const PointInfo = ({
             <Grid.Column verticalAlign="middle" width={10}>
               <Header as="h2">
                 <PointName>{pointInfo.name}</PointName>
-                <Header.Subheader disabled>
-                  <div>Distance <strong>~250</strong> m.</div>
-                  Time to reach bus stop on foot <strong>~5 min</strong>.
-                </Header.Subheader>
+                {
+                  isBusStopInfo(pointInfo) &&
+                  <Header.Subheader disabled>
+                    <div>Distance <strong>~250</strong> m.</div>
+                    Time to reach bus stop on foot <strong>~5 min</strong>.
+                  </Header.Subheader>
+                }
               </Header>
             </Grid.Column>
             {
@@ -72,7 +78,7 @@ const PointInfo = ({
         </Grid>
         <PointBusStops
           busStops={pointInfo.busStops}
-          loadRouteToBusStop={loadRouteToBusStop}
+          loadBusStopGeoData={loadBusStopGeoData}
         />
       </Modal.Content>
       <Modal.Actions>
@@ -107,6 +113,7 @@ PointInfo.propTypes = {
   loadRouteToBusStop: PropTypes.func.isRequired,
   savePoint: PropTypes.func,
   getBusScheduleOnBusStop: PropTypes.func.isRequired,
+  loadBusStopGeoData: PropTypes.func.isRequired,
 };
 
 PointInfo.defaultProps = {

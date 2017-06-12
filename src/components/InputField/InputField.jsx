@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Label, Input } from 'semantic-ui-react';
 import { isEmpty, head } from 'lodash';
 
-const InputField = ({ type, label, placeholder, id, customContent, meta: { touched, error },
+const InputField = ({ type, label, placeholder, id, customContent, meta: { touched, error, dirty },
   info, iconPosition, input,
 }) => (
   <div>
@@ -12,7 +12,7 @@ const InputField = ({ type, label, placeholder, id, customContent, meta: { touch
     }
     <Input
       fluid
-      error={touched && !isEmpty(head(error))}
+      error={touched && dirty && !isEmpty(head(error))}
       icon={customContent}
       iconPosition={iconPosition}
       type={type}
@@ -22,6 +22,7 @@ const InputField = ({ type, label, placeholder, id, customContent, meta: { touch
     />
     {
       touched &&
+      dirty &&
       !isEmpty(head(error)) &&
       <Label className="font-size-13" basic color="red" pointing>{head(error)}</Label>
     }

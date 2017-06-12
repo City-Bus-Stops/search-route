@@ -7,6 +7,6 @@ it('renders without crashing', () => {
   ReactDOM.render(
     <PointBusStops
       busStops={[]}
-      loadRouteToBusStop={() => {}}
+      loadBusStopGeoData={() => {}}
     />, div);
 });

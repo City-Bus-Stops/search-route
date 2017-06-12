@@ -1,5 +1,6 @@
 import L from 'leaflet';
 import moment from 'moment';
+import { isEmpty } from 'lodash';
 
 export const markerTypes = {
   start: { icon: 'github', color: 'black', background: 'white', size: 35 },
@@ -41,3 +42,12 @@ export const getCurrentTime = () => moment();
 /** Return date with added MINUTES **/
 export const getDateWithAddedMinutes = minutes =>
   formDateWithHoursAndMinutes(getCurrentTime().add(Number(minutes), 'minutes'));
+
+export const isBusStopInfo = info =>
+  info.type === 'start' ||
+  info.type === 'end' ||
+  info.type === 'bus_stop';
+
+export const calculateMapCenter = (geoDataCenter, userCoordinates) => !isEmpty(geoDataCenter) ?
+    [geoDataCenter[1], geoDataCenter[0]] :
+    userCoordinates;

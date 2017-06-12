@@ -17,10 +17,14 @@ import {
   loadRouteBetweenPoints,
   findNearestButStops,
   saveToFavorites,
+  loadBusStopGeoData,
 } from '../../actions/actions';
 
-import { getGeoData, getIsSidebarOpen, getMapPointInfo, getUserCoordinates,
-  getMapCenter } from '../../reducers/map/map';
+import { calculateMapCenter } from '../../utils';
+
+import { getGeoData, getIsSidebarOpen, getMapPointInfo, getGeoDataMainPoint } from '../../reducers/map/map';
+
+import { getUserCoordinates } from '../../reducers/userLocation';
 
 export const MAP = 'map';
 
@@ -68,6 +72,11 @@ class MapContainer extends Component {
     closeMapPointInfo(MAP);
   };
 
+  loadMapBusStopGeoData = (busStopId) => {
+    const { loadBusStopGeoData } = this.props.actions;
+    loadBusStopGeoData(busStopId, MAP);
+  }
+
   render() {
     const { data, defaultCenter, zoom, maxZoom, minZoom, zoomControl, isSidebarOpen,
       pointInfo, userCoordinates, mapCenter } = this.props;
@@ -97,19 +106,25 @@ class MapContainer extends Component {
           loadRouteToBusStop={this.loadRouteToBusStop}
           savePoint={this.savePointToFavorites}
           getBusScheduleOnBusStop={this.getBusScheduleOnBusStop}
+          loadBusStopGeoData={this.loadMapBusStopGeoData}
         />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  data: getGeoData(state.map),
-  isSidebarOpen: getIsSidebarOpen(state.map),
-  pointInfo: getMapPointInfo(state.map),
-  userCoordinates: getUserCoordinates(state.map),
-  mapCenter: getMapCenter(state.map),
-});
+const mapStateToProps = (state) => {
+  const geoDataMainPoint = getGeoDataMainPoint(state.map);
+  const userCoordinates = getUserCoordinates(state.userLocation);
+
+  return {
+    data: getGeoData(state.map),
+    isSidebarOpen: getIsSidebarOpen(state.map),
+    pointInfo: getMapPointInfo(state.map),
+    userCoordinates: getUserCoordinates(state.userLocation),
+    mapCenter: calculateMapCenter(geoDataMainPoint, userCoordinates),
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
@@ -122,6 +137,7 @@ const mapDispatchToProps = dispatch => ({
     findNearestButStops,
     saveToFavorites,
     closeSideBar,
+    loadBusStopGeoData,
   }, dispatch),
 });
 
@@ -149,6 +165,7 @@ MapContainer.propTypes = {
     findNearestButStops: PropTypes.func.isRequired,
     saveToFavorites: PropTypes.func.isRequired,
     closeSideBar: PropTypes.func.isRequired,
+    loadBusStopGeoData: PropTypes.func.isRequired,
   }).isRequired,
 };
 
