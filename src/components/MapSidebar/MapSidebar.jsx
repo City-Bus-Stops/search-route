@@ -5,7 +5,7 @@ import { Sidebar, Menu, Icon } from 'semantic-ui-react';
 
 import History from '../History/History';
 
-const MapSidebar = ({ isSidebarOpen, toggleSideBar, findNearestButStops, isUserRegistered }) => (
+const MapSidebar = ({ isSidebarOpen, toggleSideBar, isUserRegistered }) => (
   <Sidebar
     as={Menu}
     visible={isSidebarOpen}
@@ -25,9 +25,6 @@ const MapSidebar = ({ isSidebarOpen, toggleSideBar, findNearestButStops, isUserR
         />
       </Menu.Header>
       <Menu.Menu>
-        <Menu.Item link onClick={findNearestButStops}>
-          Show nearest stops
-        </Menu.Item>
         <Link to="/dashboard" className="menu-item" activeClassName="menu-item-active">
           <Menu.Item>
             <Icon name="home" />
@@ -65,7 +62,6 @@ const MapSidebar = ({ isSidebarOpen, toggleSideBar, findNearestButStops, isUserR
 MapSidebar.propTypes = {
   isSidebarOpen: PropTypes.bool.isRequired,
   toggleSideBar: PropTypes.func.isRequired,
-  findNearestButStops: PropTypes.func.isRequired,
   isUserRegistered: PropTypes.bool.isRequired,
 };
 

@@ -13,5 +13,6 @@ it('renders without crashing', () => {
       toggleSideBar={() => {}}
       getUserInfo={() => {}}
       findNearestButStops={() => {}}
+      findUserLocation={() => {}}
     />, div);
 });

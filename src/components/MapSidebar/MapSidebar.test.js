@@ -8,7 +8,6 @@ it('renders without crashing', () => {
     <MapSidebar
       isSidebarOpen={false}
       toggleSideBar={() => {}}
-      findNearestButStops={() => {}}
       isUserRegistered={false}
     />, div);
 });

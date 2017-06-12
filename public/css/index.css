@@ -290,6 +290,20 @@ label sup {
   z-index: 9999;
 }
 
+.map-find-user-location-button {
+  margin: 20px 20px 80px 20px!important;
+  bottom: 0;
+  position: absolute;
+  z-index: 9999;
+}
+
+.map-find-nearest-bus-stops-button {
+  margin: 20px 20px 140px 20px!important;
+  bottom: 0;
+  position: absolute;
+  z-index: 9999;
+}
+
 .info {
   position: relative;
   margin: 0;

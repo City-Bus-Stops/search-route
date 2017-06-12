@@ -48,6 +48,8 @@ export const RECEIVE_RESPONSE = 'RECEIVE_RESPONSE';
 /** Favorites actions **/
 export const LOAD_FAVORITES = 'LOAD_FAVORITES';
 export const LOAD_FAVORITES_SUCCESS = 'LOAD_FAVORITES_SUCCESS';
+export const LOAD_BUS_STOPS_GEODATA = 'LOAD_BUS_STOPS_GEODATA';
+export const LOAD_BUS_STOPS_GEODATA_SUCCESS = 'LOAD_BUS_STOPS_GEODATA_SUCCESS';
 export const LOAD_BUS_STOP_GEODATA = 'LOAD_BUS_STOP_GEODATA';
 export const LOAD_BUS_STOP_GEODATA_SUCCESS = 'LOAD_BUS_STOP_GEODATA_SUCCESS';
 export const SAVE_TO_FAVORITES = 'SAVE_TO_FAVORITES';
@@ -161,6 +163,11 @@ export const findNearestButStops = () => ({
 export const loadFavorites = predicate => ({
   type: LOAD_FAVORITES,
   predicate,
+});
+
+export const loadBusStopsGeoData = city => ({
+  type: LOAD_BUS_STOPS_GEODATA,
+  city,
 });
 
 export const loadBusStopGeoData = (busStopId, predicate) => ({

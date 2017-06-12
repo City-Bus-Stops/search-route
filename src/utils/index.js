@@ -51,3 +51,12 @@ export const isBusStopInfo = info =>
 export const calculateMapCenter = (geoDataCenter, userCoordinates) => !isEmpty(geoDataCenter) ?
     [geoDataCenter[1], geoDataCenter[0]] :
     userCoordinates;
+
+export const prepareMarkersForClusterLayer = markers => markers.map(marker => ({
+  lat: marker.lat,
+  lng: marker.lng,
+  options: {
+    id: marker.id,
+    icon: generateIcon(marker.type),
+  },
+}));
