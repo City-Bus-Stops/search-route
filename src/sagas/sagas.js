@@ -392,7 +392,7 @@ function* appSaga() {
   yield takeEvery(CHANGE_USER_STATUS, changeUserStatus);
   yield takeEvery(DELETE_USER, deleteUser);
   yield takeEvery(LOGIN, login);
-  yield takeEvery(SIGN_UP, signup)
+  yield takeEvery(SIGN_UP, signup);
   yield fork(watchChangeFilter);
   yield [fork(watchPollRouteInfo), fork(watchPollPointInfo)];
 }

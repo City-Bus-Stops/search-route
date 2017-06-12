@@ -8,5 +8,7 @@ it('renders without crashing', () => {
     <Menu
       pathname="testPath"
       userName="testUser"
+      onLogout={() => {}}
+      isUserRegistered={false}
     />, div);
 });
