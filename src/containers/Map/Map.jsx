@@ -22,10 +22,10 @@ import {
   loadBusStopsGeoData,
 } from '../../actions/actions';
 
-import { calculateMapCenter } from '../../utils';
-
-import { getGeoData, getIsSidebarOpen, getMapPointInfo,
-  getGeoDataMainPoint, getClusterGeoData } from '../../reducers/map/map';
+import { getGeoData, getIsSidebarOpen, getMapPointInfo, getClusterGeoData,
+  mapOptionsSelector } from '../../reducers/map/map';
+import { mapCenterSelector, mapMaxZoomSelector, mapMinZoomSelector, mapZoomControlSelector,
+  mapZoomSelector } from '../../reducers/map/mapOptions';
 
 import { getUserCoordinates } from '../../reducers/userLocation';
 
@@ -78,17 +78,21 @@ class MapContainer extends Component {
   loadMapBusStopGeoData = (busStopId) => {
     const { loadBusStopGeoData } = this.props.actions;
     loadBusStopGeoData(busStopId, MAP);
-  }
+  };
 
   render() {
     const { data, clusterData, isSidebarOpen, pointInfo, userCoordinates, mapCenter,
-      isUserRegistered } = this.props;
+      isUserRegistered, zoom, minZoom, maxZoom, zoomControl } = this.props;
     const { toggleSideBar, findNearestButStops, findUserLocation } = this.props.actions;
 
     return (
       <div>
         <MapComponent
           data={data}
+          zoom={zoom}
+          minZoom={minZoom}
+          maxZoom={maxZoom}
+          zoomControl={zoomControl}
           clusterData={clusterData}
           isSidebarOpen={isSidebarOpen}
           pointInfo={pointInfo}
@@ -115,8 +119,7 @@ class MapContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const geoDataMainPoint = getGeoDataMainPoint(state.map);
-  const userCoordinates = getUserCoordinates(state.userLocation);
+  const mapOptions = mapOptionsSelector(state.map);
 
   return {
     data: getGeoData(state.map),
@@ -124,7 +127,11 @@ const mapStateToProps = (state) => {
     isSidebarOpen: getIsSidebarOpen(state.map),
     pointInfo: getMapPointInfo(state.map),
     userCoordinates: getUserCoordinates(state.userLocation),
-    mapCenter: calculateMapCenter(geoDataMainPoint, userCoordinates),
+    mapCenter: mapCenterSelector(mapOptions),
+    zoom: mapZoomSelector(mapOptions),
+    minZoom: mapMinZoomSelector(mapOptions),
+    maxZoom: mapMaxZoomSelector(mapOptions),
+    zoomControl: mapZoomControlSelector(mapOptions),
     isUserRegistered: Auth.isUserRegistered(),
   };
 };
@@ -153,6 +160,10 @@ MapContainer.propTypes = {
   clusterData: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   pointInfo: PropTypes.shape().isRequired,
   mapCenter: PropTypes.arrayOf(PropTypes.number).isRequired,
+  zoom: PropTypes.number.isRequired,
+  minZoom: PropTypes.number.isRequired,
+  maxZoom: PropTypes.number.isRequired,
+  zoomControl: PropTypes.bool.isRequired,
   isSidebarOpen: PropTypes.bool.isRequired,
   userCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   isUserRegistered: PropTypes.bool.isRequired,

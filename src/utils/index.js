@@ -1,6 +1,5 @@
 import L from 'leaflet';
 import moment from 'moment';
-import { isEmpty } from 'lodash';
 
 export const markerTypes = {
   start: { icon: 'github', color: 'black', background: 'white', size: 35 },
@@ -24,15 +23,6 @@ export const createWrapperReducer = (reducerFunction, predicate) => (state, acti
     reducerFunction(state, action);
 };
 
-const mapPointPriorities = {
-  start: 2,
-  bus_stop: 1,
-  end_point: 0,
-};
-
-export const sortGeoDataByPointType = geoData => geoData.sort((pointA, pointB) =>
-  mapPointPriorities[pointB.properties.type] - mapPointPriorities[pointA.properties.type]);
-
 /** Date format: HH:mm **/
 export const formDateWithHoursAndMinutes = date => moment(date).format('HH:mm');
 
@@ -48,10 +38,6 @@ export const isBusStopInfo = info =>
   info.type === 'end' ||
   info.type === 'bus_stop';
 
-export const calculateMapCenter = (geoDataCenter, userCoordinates) => !isEmpty(geoDataCenter) ?
-    [geoDataCenter[1], geoDataCenter[0]] :
-    userCoordinates;
-
 export const prepareMarkersForClusterLayer = markers => markers.map(marker => ({
   lat: marker.lat,
   lng: marker.lng,
@@ -60,3 +46,5 @@ export const prepareMarkersForClusterLayer = markers => markers.map(marker => ({
     icon: generateIcon(marker.type),
   },
 }));
+
+export const findStartPointIndexInGeoData = geoData => geoData.findIndex(element => element.properties.type === 'start');

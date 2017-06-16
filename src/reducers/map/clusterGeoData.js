@@ -1,6 +1,6 @@
 import {
   LOAD_BUS_STOPS_GEODATA_SUCCESS,
-} from '../actions/actions';
+} from '../../actions/actions';
 
 const clusterGeoData = (state = [], action) => {
   switch (action.type) {

@@ -32,7 +32,6 @@ const MapComponent = ({
   getUserInfo,
   isUserRegistered,
   findUserLocation,
-  defaultMapCenter,
 }) => (
   <div className="leaflet-pushable">
     <Sidebar.Pushable>
@@ -54,8 +53,8 @@ const MapComponent = ({
       <Sidebar.Pusher id="map">
         <div className="leaflet-container-main">
           <Map
-            center={isEmpty(mapCenter) ? defaultMapCenter : mapCenter}
-            zoom={zoom}
+            animate
+            viewport={{ center: mapCenter, zoom }}
             maxZoom={maxZoom}
             minZoom={minZoom}
             zoomControl={zoomControl}
@@ -120,7 +119,6 @@ MapComponent.propTypes = {
   ]).isRequired,
   clusterData: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   mapCenter: PropTypes.arrayOf(PropTypes.number).isRequired,
-  defaultMapCenter: PropTypes.arrayOf(PropTypes.number),
   zoom: PropTypes.number,
   maxZoom: PropTypes.number,
   minZoom: PropTypes.number,
@@ -137,7 +135,7 @@ MapComponent.propTypes = {
 
 MapComponent.defaultProps = {
   data: [],
-  defaultMapCenter: [53.66946, 23.824368],
+  mapCenter: [53.66946, 23.824368],
   zoom: 16,
   maxZoom: 16,
   minZoom: 11,
