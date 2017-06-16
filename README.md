@@ -17,6 +17,9 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - yarn global add json-server
   - yarn json-server(open browser on `localhost:9002`)
 
+## SERVER
+  Server url: https://city-bus-stops-server.herokuapp.com
+
 ## Table of Contents
 
 - [Updating to New Releases](#updating-to-new-releases)
