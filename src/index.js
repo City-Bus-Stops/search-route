@@ -23,6 +23,7 @@ import DashboardContainer from './containers/Dashboard/Dashboard';
 import NotFound from './components/NotFound/NotFound';
 
 import configureStore from './configureStore';
+import Auth from './auth';
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
@@ -35,8 +36,16 @@ ReactDOM.render(
         <Route path="dashboard" component={Dashboard} />
         <Route path="search-route" component={SearchRouteContainer} />
         <Route path="map" component={MapContainer} />
-        <Route path="favorites" component={FavoritesContainer} />
-        <Route path="administration">
+        <Route
+          path="favorites"
+          component={FavoritesContainer}
+          onEnter={Auth.checkIsRegisteredAndRedirect}
+        />
+        <Route
+          path="administration"
+          onEnter={Auth.checkIsAdminAndRedirect}
+          onChange={Auth.checkIsAdminAndRedirect}
+        >
           <IndexRedirect to="users" />
           <Route path="users" component={UsersAdministrationContainer} />
           <Route path="dashboard" component={DashboardContainer} />

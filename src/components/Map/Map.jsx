@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import Collapse from 'react-collapse';
 import { Map, TileLayer, Marker } from 'react-leaflet';
 import { isEmpty } from 'lodash';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 
 import '../../../public/mapkey-icons/L.Icon.Mapkey';
 
@@ -17,6 +18,7 @@ const styleForGeoLayer = { color: 'black', weight: 5, opacity: 0.65 };
 
 const MapComponent = ({
   data,
+  clusterData,
   zoom,
   maxZoom,
   minZoom,
@@ -28,6 +30,9 @@ const MapComponent = ({
   findNearestButStops,
   getPointInfo,
   getUserInfo,
+  isUserRegistered,
+  findUserLocation,
+  defaultMapCenter,
 }) => (
   <div className="leaflet-pushable">
     <Sidebar.Pushable>
@@ -44,12 +49,12 @@ const MapComponent = ({
       <MapSidebar
         isSidebarOpen={isSidebarOpen}
         toggleSideBar={toggleSideBar}
-        findNearestButStops={findNearestButStops}
+        isUserRegistered={isUserRegistered}
       />
       <Sidebar.Pusher id="map">
         <div className="leaflet-container-main">
           <Map
-            center={mapCenter}
+            center={isEmpty(mapCenter) ? defaultMapCenter : mapCenter}
             zoom={zoom}
             maxZoom={maxZoom}
             minZoom={minZoom}
@@ -57,6 +62,11 @@ const MapComponent = ({
           >
             <TileLayer
               url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+            />
+            <MarkerClusterGroup
+              markers={clusterData}
+              wrapperOptions={{ enableDefaultStyle: true }}
+              onMarkerClick={marker => getPointInfo(marker.options.id)}
             />
             <GeoLayer
               data={data}
@@ -81,6 +91,22 @@ const MapComponent = ({
               className="map-search-button"
             />
           </Link>
+          <Button
+            circular
+            color="green"
+            icon="location arrow"
+            size="huge"
+            className="map-find-user-location-button"
+            onClick={findUserLocation}
+          />
+          <Button
+            circular
+            color="google plus"
+            icon="bus"
+            size="huge"
+            className="map-find-nearest-bus-stops-button"
+            onClick={findNearestButStops}
+          />
         </div>
       </Sidebar.Pusher>
     </Sidebar.Pushable>
@@ -92,7 +118,9 @@ MapComponent.propTypes = {
     PropTypes.arrayOf(PropTypes.shape),
     PropTypes.shape(),
   ]).isRequired,
-  mapCenter: PropTypes.arrayOf(PropTypes.number),
+  clusterData: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  mapCenter: PropTypes.arrayOf(PropTypes.number).isRequired,
+  defaultMapCenter: PropTypes.arrayOf(PropTypes.number),
   zoom: PropTypes.number,
   maxZoom: PropTypes.number,
   minZoom: PropTypes.number,
@@ -103,16 +131,19 @@ MapComponent.propTypes = {
   toggleSideBar: PropTypes.func.isRequired,
   getUserInfo: PropTypes.func.isRequired,
   findNearestButStops: PropTypes.func.isRequired,
+  isUserRegistered: PropTypes.bool,
+  findUserLocation: PropTypes.func.isRequired,
 };
 
 MapComponent.defaultProps = {
   data: [],
-  mapCenter: [53.66946, 23.824368],
+  defaultMapCenter: [53.66946, 23.824368],
   zoom: 16,
   maxZoom: 16,
   minZoom: 11,
   zoomControl: false,
   userCoordinates: [],
+  isUserRegistered: false,
 };
 
 export default MapComponent;

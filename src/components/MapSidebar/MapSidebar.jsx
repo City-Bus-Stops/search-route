@@ -5,7 +5,7 @@ import { Sidebar, Menu, Icon } from 'semantic-ui-react';
 
 import History from '../History/History';
 
-const MapSidebar = ({ isSidebarOpen, toggleSideBar, findNearestButStops }) => (
+const MapSidebar = ({ isSidebarOpen, toggleSideBar, isUserRegistered }) => (
   <Sidebar
     as={Menu}
     visible={isSidebarOpen}
@@ -25,21 +25,21 @@ const MapSidebar = ({ isSidebarOpen, toggleSideBar, findNearestButStops }) => (
         />
       </Menu.Header>
       <Menu.Menu>
-        <Menu.Item link onClick={findNearestButStops}>
-          Show nearest stops
-        </Menu.Item>
         <Link to="/dashboard" className="menu-item" activeClassName="menu-item-active">
           <Menu.Item>
             <Icon name="home" />
             Home
           </Menu.Item>
         </Link>
-        <Link to="/favorites" className="menu-item" activeClassName="menu-item-active">
-          <Menu.Item>
-            <Icon name="star" />
-            Favorites
-          </Menu.Item>
-        </Link>
+        {
+          isUserRegistered &&
+          <Link to="/favorites" className="menu-item" activeClassName="menu-item-active">
+            <Menu.Item>
+              <Icon name="star" />
+              Favorites
+            </Menu.Item>
+          </Link>
+        }
         <Menu.Item>
           <History />
         </Menu.Item>
@@ -62,7 +62,11 @@ const MapSidebar = ({ isSidebarOpen, toggleSideBar, findNearestButStops }) => (
 MapSidebar.propTypes = {
   isSidebarOpen: PropTypes.bool.isRequired,
   toggleSideBar: PropTypes.func.isRequired,
-  findNearestButStops: PropTypes.func.isRequired,
+  isUserRegistered: PropTypes.bool.isRequired,
+};
+
+MapSidebar.defaultProps = {
+  isUserRegistered: false,
 };
 
 export default MapSidebar;

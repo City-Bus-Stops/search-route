@@ -1,744 +1,3392 @@
 {
-  "address": {
-    "address": "Гродно, Улица О. Соломовой 135"
-  },
-  "search-route": {
-    "routes": [
-      {
-        "id": "1",
-        "from": "Фолюш",
-        "to": "Советская",
-        "busNumber": "28",
-        "timeInTravel": "33"
-      },
-      {
-        "id": "2",
-        "from": "Фолюш",
-        "to": "Советская",
-        "busNumber": "2",
-        "timeInTravel": "25"
-      },
-      {
-        "id": "3",
-        "from": "Фолюш",
-        "to": "Советская",
-        "busNumber": "3",
-        "timeInTravel": "15"
-      },
-      {
-        "id": "4",
-        "from": "Фолюш",
-        "to": "Советская",
-        "busNumber": "4",
-        "timeInTravel": "19"
-      },
-      {
-        "id": "5",
-        "from": "Фолюш",
-        "to": "Советская",
-        "busNumber": "8",
-        "timeInTravel": "13"
-      }
-    ]
-  },
-  "routes-info": [
-    {
-      "id": 1,
-      "info": {
-        "busNumber": 2,
-        "from": "Фолюш",
-        "to": "Советская",
-        "routeId": 1,
-        "nearestBuses": [
-          {
-            "id": "1",
-            "time": "12:32"
-          },
-          {
-            "id": "2",
-            "time": "12:45"
-          },
-          {
-            "id": "3",
-            "time": "12:50"
-          },
-          {
-            "id": "4",
-            "time": "13:00"
-          }
-        ],
-        "instruction": [
-          {
-            "id": 1,
-            "type": "start",
-            "title": "Start point",
-            "description": "Улица О.Соломовой 135"
-          },
-          {
-            "id": 2,
-            "type": "foot",
-            "title": "6 min",
-            "description": "Go to'Фолюш' bus stop."
-          },
-          {
-            "id": 3,
-            "type": "bus",
-            "title": "15 min",
-            "description": "Go by bus for 15 minutes and get off at the 'Советская' bus stop."
-          },
-          {
-            "id": 4,
-            "type": "foot",
-            "title": "7 min",
-            "description": "Go to 'Универмаг'."
-          },
-          {
-            "id": 5,
-            "type": "end",
-            "title": "End point",
-            "description": "Улица Советская 18"
-          }
-        ],
-        "busStops": [
-          {
-            "id": 1,
-            "title": "Фолюш",
-            "description": "1 minutes"
-          },
-          {
-            "id": 2,
-            "title": "Улица Лизы Чайкиной",
-            "description": "3 minutes"
-          },
-          {
-            "id": 3,
-            "title": "Улица Декабристов",
-            "description": "6 minutes"
-          },
-          {
-            "id": 4,
-            "title": "Улица Поповича",
-            "description": "10 minutes"
-          }
-        ],
-        "isSaved": false
-      }
+    "address": {
+        "address": "Гродно, Улица О. Соломовой 135"
     },
-    {
-      "id": 2,
-      "info": {
-        "busNumber": 3,
-        "from": "Фолюш",
-        "to": "Советская",
-        "routeId": 2,
-        "nearestBuses": [
-          {
-            "id": "1",
-            "time": "12:32"
-          },
-          {
-            "id": "2",
-            "time": "12:45"
-          },
-          {
-            "id": "3",
-            "time": "12:50"
-          },
-          {
-            "id": "4",
-            "time": "13:00"
-          }
-        ],
-        "instruction": [
-          {
+    "search-route": {
+        "routes": [
+            {
+                "id": "1",
+                "from": "Фолюш",
+                "to": "Советская",
+                "busNumber": "28",
+                "timeInTravel": "33"
+            },
+            {
+                "id": "2",
+                "from": "Фолюш",
+                "to": "Советская",
+                "busNumber": "2",
+                "timeInTravel": "25"
+            },
+            {
+                "id": "3",
+                "from": "Фолюш",
+                "to": "Советская",
+                "busNumber": "3",
+                "timeInTravel": "15"
+            },
+            {
+                "id": "4",
+                "from": "Фолюш",
+                "to": "Советская",
+                "busNumber": "4",
+                "timeInTravel": "19"
+            },
+            {
+                "id": "5",
+                "from": "Фолюш",
+                "to": "Советская",
+                "busNumber": "8",
+                "timeInTravel": "13"
+            }
+        ]
+    },
+    "routes-info": [
+        {
             "id": 1,
-            "type": "start",
-            "title": "Start point",
-            "description": "Улица О.Соломовой 135"
-          },
-          {
+            "info": {
+                "busNumber": 2,
+                "from": "Фолюш",
+                "to": "Советская",
+                "routeId": 1,
+                "nearestBuses": [
+                    {
+                        "id": "1",
+                        "time": "12:32"
+                    },
+                    {
+                        "id": "2",
+                        "time": "12:45"
+                    },
+                    {
+                        "id": "3",
+                        "time": "12:50"
+                    },
+                    {
+                        "id": "4",
+                        "time": "13:00"
+                    }
+                ],
+                "instruction": [
+                    {
+                        "id": 1,
+                        "type": "start",
+                        "title": "Start point",
+                        "description": "Улица О.Соломовой 135"
+                    },
+                    {
+                        "id": 2,
+                        "type": "foot",
+                        "title": "6 min",
+                        "description": "Go to'Фолюш' bus stop."
+                    },
+                    {
+                        "id": 3,
+                        "type": "bus",
+                        "title": "15 min",
+                        "description": "Go by bus for 15 minutes and get off at the 'Советская' bus stop."
+                    },
+                    {
+                        "id": 4,
+                        "type": "foot",
+                        "title": "7 min",
+                        "description": "Go to 'Универмаг'."
+                    },
+                    {
+                        "id": 5,
+                        "type": "end",
+                        "title": "End point",
+                        "description": "Улица Советская 18"
+                    }
+                ],
+                "busStops": [
+                    {
+                        "id": 1,
+                        "title": "Фолюш",
+                        "description": "1 minutes"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Улица Лизы Чайкиной",
+                        "description": "3 minutes"
+                    },
+                    {
+                        "id": 3,
+                        "title": "Улица Декабристов",
+                        "description": "6 minutes"
+                    },
+                    {
+                        "id": 4,
+                        "title": "Улица Поповича",
+                        "description": "10 minutes"
+                    }
+                ],
+                "isSaved": false
+            }
+        },
+        {
             "id": 2,
-            "type": "foot",
-            "title": "6 min",
-            "description": "Go to'Фолюш' bus stop."
-          },
-          {
-            "id": 3,
-            "type": "bus",
-            "title": "15 min",
-            "description": "Go by bus for 15 minutes and get off at the 'Советская' bus stop."
-          },
-          {
-            "id": 4,
-            "type": "foot",
-            "title": "7 min",
-            "description": "Go to 'Универмаг'."
-          },
-          {
-            "id": 5,
-            "type": "end",
-            "title": "End point",
-            "description": "Улица Советская 18"
-          }
-        ],
-        "busStops": [
-          {
-            "id": 1,
-            "title": "Фолюш",
-            "description": "1 minutes"
-          },
-          {
-            "id": 2,
-            "title": "Улица Лизы Чайкиной",
-            "description": "3 minutes"
-          },
-          {
-            "id": 3,
-            "title": "Улица Декабристов",
-            "description": "6 minutes"
-          },
-          {
-            "id": 4,
-            "title": "Улица Поповича",
-            "description": "10 minutes"
-          }
-        ],
-        "isSaved": true
-      }
-    }
-  ],
-  "routes-geo": [
-    {
-      "id": "1",
-      "geoData": [
-        {
-          "type": "Feature",
-          "properties": {
-            "id": 1,
-            "type": "start"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              23.79417658,
-              53.6729683
-            ]
-          }
-        },
-        {
-          "type": "Feature",
-          "properties": {
-            "id": 2,
-            "type": "bus_stop"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              23.78851175,
-              53.66706981
-            ]
-          }
-        },
-        {
-          "type": "Feature",
-          "properties": {
-            "id": 3,
-            "type": "bus_stop"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              23.78439188,
-              53.66429825
-            ]
-          }
-        },
-        {
-          "type": "Feature",
-          "properties": {
-            "id": 4,
-            "type": "bus_stop"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              23.78190279,
-              53.65911062
-            ]
-          }
-        },
-        {
-          "type": "Feature",
-          "properties": {
-            "id": 5,
-            "type": "end"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              23.78194571,
-              53.65791534
-            ]
-          }
-        },
-        {
-          "type": "Feature",
-          "properties": {
-            "name": "Lines"
-          },
-          "geometry": {
-            "type": "LineString",
-            "coordinates": [
-              [
-                23.79417658,
-                53.6729683
-              ],
-              [
-                23.78851175,
-                53.66706981
-              ],
-              [
-                23.78439188,
-                53.66429825
-              ],
-              [
-                23.78190279,
-                53.65911062
-              ],
-              [
-                23.78194571,
-                53.65791534
-              ]
-            ]
-          }
+            "info": {
+                "busNumber": 3,
+                "from": "Фолюш",
+                "to": "Советская",
+                "routeId": 2,
+                "nearestBuses": [
+                    {
+                        "id": "1",
+                        "time": "12:32"
+                    },
+                    {
+                        "id": "2",
+                        "time": "12:45"
+                    },
+                    {
+                        "id": "3",
+                        "time": "12:50"
+                    },
+                    {
+                        "id": "4",
+                        "time": "13:00"
+                    }
+                ],
+                "instruction": [
+                    {
+                        "id": 1,
+                        "type": "start",
+                        "title": "Start point",
+                        "description": "Улица О.Соломовой 135"
+                    },
+                    {
+                        "id": 2,
+                        "type": "foot",
+                        "title": "6 min",
+                        "description": "Go to'Фолюш' bus stop."
+                    },
+                    {
+                        "id": 3,
+                        "type": "bus",
+                        "title": "15 min",
+                        "description": "Go by bus for 15 minutes and get off at the 'Советская' bus stop."
+                    },
+                    {
+                        "id": 4,
+                        "type": "foot",
+                        "title": "7 min",
+                        "description": "Go to 'Универмаг'."
+                    },
+                    {
+                        "id": 5,
+                        "type": "end",
+                        "title": "End point",
+                        "description": "Улица Советская 18"
+                    }
+                ],
+                "busStops": [
+                    {
+                        "id": 1,
+                        "title": "Фолюш",
+                        "description": "1 minutes"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Улица Лизы Чайкиной",
+                        "description": "3 minutes"
+                    },
+                    {
+                        "id": 3,
+                        "title": "Улица Декабристов",
+                        "description": "6 minutes"
+                    },
+                    {
+                        "id": 4,
+                        "title": "Улица Поповича",
+                        "description": "10 minutes"
+                    }
+                ],
+                "isSaved": true
+            }
         }
-      ]
-    }
-  ],
-  "points-info": [
-    {
-      "id": "1",
-      "info": {
-        "pointId": "1",
-        "coords": [23.78194571,53.65791534],
-        "type": "start",
-        "name": "Start Point",
-        "address": "Elnora Center, 25"
-      }
-    },
-    {
-      "id": "2",
-      "info": {
-        "pointId": "2",
-        "coords": [23.78194571,53.65791534],
-        "isSaved": true,
-        "type": "bus_stop",
-        "name": "Советская",
-        "buses": [
-          {
-            "id": "1",
-            "number": "23",
-            "time": "15",
-            "startPoint": "КСМ",
-            "endPoint": "Химволокно"
-          },
-          {
-            "id": "2",
-            "number": "3",
-            "time": "7",
-            "startPoint": "Девятовка",
-            "endPoint": "Фолюш"
-          },
-          {
-            "id": "3",
-            "number": "28",
-            "time": "19",
-            "startPoint": "Девятовка",
-            "endPoint": "Химволокно"
-          },
-          {
-            "id": "4",
-            "number": "23",
-            "time": "6",
-            "startPoint": "Колбасино",
-            "endPoint": "Вишневец"
-          }
-        ]
-      }
-    },
-    {
-      "id": "3",
-      "info": {
-        "pointId": "3",
-        "coords": [23.78194571,53.65791534],
-        "type": "bus_stop",
-        "name": "Улица Лизы Чайкиной",
-        "buses": [
-          {
-            "id": "1",
-            "number": "23",
-            "time": "26",
-            "startPoint": "КСМ",
-            "endPoint": "Химволокно"
-          },
-          {
-            "id": "2",
-            "number": "3",
-            "time": "7",
-            "startPoint": "Девятовка",
-            "endPoint": "Фолюш"
-          },
-          {
-            "id": "3",
-            "number": "28",
-            "time": "19",
-            "startPoint": "Девятовка",
-            "endPoint": "Химволокно"
-          },
-          {
-            "id": "4",
-            "number": "23",
-            "time": "6",
-            "startPoint": "Колбасино",
-            "endPoint": "Вишневец"
-          }
-        ]
-      }
-    },
-    {
-      "id": "4",
-      "info": {
-        "pointId": "4",
-        "coords": [23.78194571,53.65791534],
-        "isSaved": true,
-        "type": "bus_stop",
-        "name": "Фолюш",
-        "buses": [
-          {
-            "id": "1",
-            "number": "23",
-            "time": "15",
-            "startPoint": "КСМ",
-            "endPoint": "Химволокно"
-          },
-          {
-            "id": "2",
-            "number": "3",
-            "time": "7",
-            "startPoint": "Девятовка",
-            "endPoint": "Фолюш"
-          },
-          {
-            "id": "3",
-            "number": "28",
-            "time": "19",
-            "startPoint": "Девятовка",
-            "endPoint": "Химволокно"
-          },
-          {
-            "id": "4",
-            "number": "23",
-            "time": "6",
-            "startPoint": "Колбасино",
-            "endPoint": "Вишневец"
-          }
-        ]
-      }
-    },
-    {
-      "id": "5",
-      "info": {
-        "pointId": "5",
-        "coords": [23.78194571,53.65791534],
-        "type": "end",
-        "name": "End Point",
-        "address": "Elnora Center, 25"
-      }
-    }
-  ],
-  "user-info": {
-    "name": "Your Location",
-    "address": "Гродно, Улица О. Соломовой 135",
-    "busStops": [
-      {
-        "id": 2,
-        "name": "Университет Имени Янки Купалы",
-        "distance": 1000,
-        "timeToReach": "5",
-        "coords": [
-          53.6729683,
-          23.79417658
-        ]
-      },
-      {
-        "id": 3,
-        "name": "Девятовка",
-        "distance": 500,
-        "timeToReach": "2.5",
-        "coords": [
-          53.6729683,
-          23.79417658
-        ]
-      },
-      {
-        "id": 4,
-        "name": "Улица Советских Пограничников",
-        "distance": 750,
-        "timeToReach": "3.3",
-        "coords": [
-          53.6729683,
-          23.79417658
-        ]
-      },
-      {
-        "id": 5,
-        "name": "Площадь Советская",
-        "distance": 150,
-        "timeToReach": "1.5",
-        "coords": [
-          53.6729683,
-          23.79417658
-        ]
-      }
-    ]
-  },
-  "path": [
-    {
-      "type": "Feature",
-      "properties": {
-        "id": 2,
-        "type": "bus_stop"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          23.78439188,
-          53.66429825
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Lines"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            23.79417658,
-            53.6729683
-          ],
-          [
-            23.78851175,
-            53.66706981
-          ],
-          [
-            23.78439188,
-            53.66429825
-          ],
-          [
-            23.78190279,
-            53.65911062
-          ],
-          [
-            23.78194571,
-            53.65791534
-          ]
-        ]
-      }
-    }
-  ],
-  "nearest-bus-stops": [
-    {
-      "type": "Feature",
-      "properties": {
-        "id": 2,
-        "name": "bus stop",
-        "type": "bus_stop"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          23.79566252,
-          53.674214
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": 3,
-        "name": "bus stop",
-        "type": "bus_stop"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          23.79310906,
-          53.6724662
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": 4,
-        "name": "bus stop",
-        "type": "bus_stop"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          23.79532188,
-          53.67279511
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": 5,
-        "name": "bus stop",
-        "type": "bus_stop"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          23.7927711,
-          53.67343862
-        ]
-      }
-    }
-  ],
-  "user-favorites": {
-    "routes": [
-      {
-        "id": "1",
-        "from": "Вишневец",
-        "to": "Улица Врублевского",
-        "busNumber": "28",
-        "timeInTravel": "33"
-      },
-      {
-        "id": "2",
-        "from": "Фолюш",
-        "to": "Советская",
-        "busNumber": "2",
-        "timeInTravel": "25"
-      },
-      {
-        "id": "3",
-        "from": "Южный",
-        "to": "Улица Молодежная",
-        "busNumber": "3",
-        "timeInTravel": "15"
-      },
-      {
-        "id": "4",
-        "from": "Улица Репина",
-        "to": "Улица Пригородская",
-        "busNumber": "4",
-        "timeInTravel": "19"
-      }
     ],
-    "busStops": [
-      {
-        "id": 1,
-        "name": "Университет Имени Янки Купалы",
-        "distance": 1000,
-        "timeToReach": "5",
-        "coords": [
-          53.6729683,
-          23.79417658
+    "routes-geo": [
+        {
+            "id": "1",
+            "geoData": [
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "id": 1,
+                        "type": "start"
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            23.79417658,
+                            53.6729683
+                        ]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "id": 2,
+                        "type": "bus_stop"
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            23.78851175,
+                            53.66706981
+                        ]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "id": 3,
+                        "type": "bus_stop"
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            23.78439188,
+                            53.66429825
+                        ]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "id": 4,
+                        "type": "bus_stop"
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            23.78190279,
+                            53.65911062
+                        ]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "id": 5,
+                        "type": "end"
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            23.78194571,
+                            53.65791534
+                        ]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "name": "Lines"
+                    },
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                23.79417658,
+                                53.6729683
+                            ],
+                            [
+                                23.78851175,
+                                53.66706981
+                            ],
+                            [
+                                23.78439188,
+                                53.66429825
+                            ],
+                            [
+                                23.78190279,
+                                53.65911062
+                            ],
+                            [
+                                23.78194571,
+                                53.65791534
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "points-info": [
+        {
+            "id": "1",
+            "info": {
+                "pointId": "1",
+                "coords": [
+                    23.78194571,
+                    53.65791534
+                ],
+                "type": "start",
+                "name": "Start Point",
+                "address": "Elnora Center, 25"
+            }
+        },
+        {
+            "id": "2",
+            "info": {
+                "pointId": "2",
+                "coords": [
+                    23.78194571,
+                    53.65791534
+                ],
+                "isSaved": true,
+                "type": "bus_stop",
+                "name": "Советская",
+                "buses": [
+                    {
+                        "id": "1",
+                        "number": "23",
+                        "time": "15",
+                        "startPoint": "КСМ",
+                        "endPoint": "Химволокно"
+                    },
+                    {
+                        "id": "2",
+                        "number": "3",
+                        "time": "7",
+                        "startPoint": "Девятовка",
+                        "endPoint": "Фолюш"
+                    },
+                    {
+                        "id": "3",
+                        "number": "28",
+                        "time": "19",
+                        "startPoint": "Девятовка",
+                        "endPoint": "Химволокно"
+                    },
+                    {
+                        "id": "4",
+                        "number": "23",
+                        "time": "6",
+                        "startPoint": "Колбасино",
+                        "endPoint": "Вишневец"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "3",
+            "info": {
+                "pointId": "3",
+                "coords": [
+                    23.78194571,
+                    53.65791534
+                ],
+                "type": "bus_stop",
+                "name": "Улица Лизы Чайкиной",
+                "buses": [
+                    {
+                        "id": "1",
+                        "number": "23",
+                        "time": "26",
+                        "startPoint": "КСМ",
+                        "endPoint": "Химволокно"
+                    },
+                    {
+                        "id": "2",
+                        "number": "3",
+                        "time": "7",
+                        "startPoint": "Девятовка",
+                        "endPoint": "Фолюш"
+                    },
+                    {
+                        "id": "3",
+                        "number": "28",
+                        "time": "19",
+                        "startPoint": "Девятовка",
+                        "endPoint": "Химволокно"
+                    },
+                    {
+                        "id": "4",
+                        "number": "23",
+                        "time": "6",
+                        "startPoint": "Колбасино",
+                        "endPoint": "Вишневец"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "4",
+            "info": {
+                "pointId": "4",
+                "coords": [
+                    23.78194571,
+                    53.65791534
+                ],
+                "isSaved": true,
+                "type": "bus_stop",
+                "name": "Фолюш",
+                "buses": [
+                    {
+                        "id": "1",
+                        "number": "23",
+                        "time": "15",
+                        "startPoint": "КСМ",
+                        "endPoint": "Химволокно"
+                    },
+                    {
+                        "id": "2",
+                        "number": "3",
+                        "time": "7",
+                        "startPoint": "Девятовка",
+                        "endPoint": "Фолюш"
+                    },
+                    {
+                        "id": "3",
+                        "number": "28",
+                        "time": "19",
+                        "startPoint": "Девятовка",
+                        "endPoint": "Химволокно"
+                    },
+                    {
+                        "id": "4",
+                        "number": "23",
+                        "time": "6",
+                        "startPoint": "Колбасино",
+                        "endPoint": "Вишневец"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "5",
+            "info": {
+                "pointId": "5",
+                "coords": [
+                    23.78194571,
+                    53.65791534
+                ],
+                "type": "end",
+                "name": "End Point",
+                "address": "Elnora Center, 25"
+            }
+        }
+    ],
+    "user-info": {
+        "name": "Your Location",
+        "address": "Гродно, Улица О. Соломовой 135",
+        "busStops": [
+            {
+                "id": 2,
+                "name": "Университет Имени Янки Купалы",
+                "distance": 1000,
+                "timeToReach": "5",
+                "coords": [
+                    53.6729683,
+                    23.79417658
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Девятовка",
+                "distance": 500,
+                "timeToReach": "2.5",
+                "coords": [
+                    53.6729683,
+                    23.79417658
+                ]
+            },
+            {
+                "id": 4,
+                "name": "Улица Советских Пограничников",
+                "distance": 750,
+                "timeToReach": "3.3",
+                "coords": [
+                    53.6729683,
+                    23.79417658
+                ]
+            },
+            {
+                "id": 5,
+                "name": "Площадь Советская",
+                "distance": 150,
+                "timeToReach": "1.5",
+                "coords": [
+                    53.6729683,
+                    23.79417658
+                ]
+            }
         ]
-      },
-      {
-        "id": 2,
-        "name": "Девятовка",
-        "distance": 500,
-        "timeToReach": "2.5",
-        "coords": [
-          53.6729683,
-          23.79417658
+    },
+    "path": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 2,
+                "type": "bus_stop"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    23.78439188,
+                    53.66429825
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Lines"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        23.79417658,
+                        53.6729683
+                    ],
+                    [
+                        23.78851175,
+                        53.66706981
+                    ],
+                    [
+                        23.78439188,
+                        53.66429825
+                    ],
+                    [
+                        23.78190279,
+                        53.65911062
+                    ],
+                    [
+                        23.78194571,
+                        53.65791534
+                    ]
+                ]
+            }
+        }
+    ],
+    "nearest-bus-stops": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 2,
+                "name": "bus stop",
+                "type": "bus_stop"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    23.79566252,
+                    53.674214
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 3,
+                "name": "bus stop",
+                "type": "bus_stop"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    23.79310906,
+                    53.6724662
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 4,
+                "name": "bus stop",
+                "type": "bus_stop"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    23.79532188,
+                    53.67279511
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 5,
+                "name": "bus stop",
+                "type": "bus_stop"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    23.7927711,
+                    53.67343862
+                ]
+            }
+        }
+    ],
+    "user-favorites": {
+        "routes": [
+            {
+                "id": "1",
+                "from": "Вишневец",
+                "to": "Улица Врублевского",
+                "busNumber": "28",
+                "timeInTravel": "33"
+            },
+            {
+                "id": "2",
+                "from": "Фолюш",
+                "to": "Советская",
+                "busNumber": "2",
+                "timeInTravel": "25"
+            },
+            {
+                "id": "3",
+                "from": "Южный",
+                "to": "Улица Молодежная",
+                "busNumber": "3",
+                "timeInTravel": "15"
+            },
+            {
+                "id": "4",
+                "from": "Улица Репина",
+                "to": "Улица Пригородская",
+                "busNumber": "4",
+                "timeInTravel": "19"
+            }
+        ],
+        "busStops": [
+            {
+                "id": 1,
+                "name": "Университет Имени Янки Купалы",
+                "distance": 1000,
+                "timeToReach": "5",
+                "coords": [
+                    53.6729683,
+                    23.79417658
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Девятовка",
+                "distance": 500,
+                "timeToReach": "2.5",
+                "coords": [
+                    53.6729683,
+                    23.79417658
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Улица Советских Пограничников",
+                "distance": 750,
+                "timeToReach": "3.3",
+                "coords": [
+                    53.6729683,
+                    23.79417658
+                ]
+            },
+            {
+                "id": 4,
+                "name": "Площадь Советская",
+                "distance": 150,
+                "timeToReach": "1.5",
+                "coords": [
+                    53.6729683,
+                    23.79417658
+                ]
+            }
         ]
-      },
-      {
-        "id": 3,
-        "name": "Улица Советских Пограничников",
-        "distance": 750,
-        "timeToReach": "3.3",
-        "coords": [
-          53.6729683,
-          23.79417658
-        ]
-      },
-      {
-        "id": 4,
-        "name": "Площадь Советская",
-        "distance": 150,
-        "timeToReach": "1.5",
-        "coords": [
-          53.6729683,
-          23.79417658
-        ]
-      }
+    },
+    "bus-stops-geo": [
+        {
+            "id": 1,
+            "geoData": {
+                "type": "Feature",
+                "properties": {
+                    "id": 1,
+                    "type": "bus_stop"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        23.78851175,
+                        53.66706981
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "geoData": {
+                "type": "Feature",
+                "properties": {
+                    "id": 2,
+                    "type": "bus_stop"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        23.78439188,
+                        53.66429825
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "geoData": {
+                "type": "Feature",
+                "properties": {
+                    "id": 1,
+                    "type": "bus_stop"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        23.78851175,
+                        53.66706981
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "geoData": {
+                "type": "Feature",
+                "properties": {
+                    "id": 1,
+                    "type": "bus_stop"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        23.78851175,
+                        53.66706981
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "geoData": {
+                "type": "Feature",
+                "properties": {
+                    "id": 1,
+                    "type": "bus_stop"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        23.78851175,
+                        53.66706981
+                    ]
+                }
+            }
+        }
+    ],
+    "users": [
+        {
+            "email": "krivichaninds@gmail.com",
+            "userName": "Denis Krivichanin",
+            "isActive": false,
+            "id": 1
+        },
+        {
+            "email": "maksim@gmail.com",
+            "userName": "Maksim Shuba",
+            "isActive": false,
+            "id": 2
+        },
+        {
+            "userName": "Adam qwerty",
+            "email": "qwerty@gmail.com",
+            "isActive": true,
+            "id": 4
+        }
+    ],
+    "bus-stops-geo-data": [
+        {
+            "lat": 53.6685512,
+            "lng": 23.8021919,
+            "id": 320409795,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6651509,
+            "lng": 23.788953,
+            "id": 320409829,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6652295,
+            "lng": 23.7834212,
+            "id": 320409830,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.664239,
+            "lng": 23.7907901,
+            "id": 320409842,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6636533,
+            "lng": 23.8008549,
+            "id": 320409845,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6636668,
+            "lng": 23.798959,
+            "id": 320409848,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7053062,
+            "lng": 23.8580595,
+            "id": 320676302,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.665602,
+            "lng": 23.8268729,
+            "id": 347507534,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6979803,
+            "lng": 23.8195924,
+            "id": 352676263,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6969451,
+            "lng": 23.8026598,
+            "id": 352929479,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6981605,
+            "lng": 23.8101857,
+            "id": 352929480,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6973566,
+            "lng": 23.8205644,
+            "id": 353051092,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6911698,
+            "lng": 23.8251368,
+            "id": 353052064,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6853581,
+            "lng": 23.8291679,
+            "id": 353057025,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6818699,
+            "lng": 23.8404349,
+            "id": 387618810,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6781906,
+            "lng": 23.8411909,
+            "id": 387627658,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7030788,
+            "lng": 23.796707,
+            "id": 387715380,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7020461,
+            "lng": 23.7970426,
+            "id": 387715382,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6986378,
+            "lng": 23.7880858,
+            "id": 390970665,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6904355,
+            "lng": 23.8010744,
+            "id": 391056399,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6973444,
+            "lng": 23.8028118,
+            "id": 391427240,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6982091,
+            "lng": 23.8002106,
+            "id": 391427241,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.671451,
+            "lng": 23.8061881,
+            "id": 418977869,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.671553,
+            "lng": 23.8615027,
+            "id": 421950815,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.663856,
+            "lng": 23.8603503,
+            "id": 421962534,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6666476,
+            "lng": 23.8483277,
+            "id": 428642560,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6891282,
+            "lng": 23.8004176,
+            "id": 429379287,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6928061,
+            "lng": 23.8006021,
+            "id": 429379288,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6933871,
+            "lng": 23.8011837,
+            "id": 429379289,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6958588,
+            "lng": 23.7944971,
+            "id": 429379290,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6792075,
+            "lng": 23.8422316,
+            "id": 431330918,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6870281,
+            "lng": 23.8475274,
+            "id": 431335367,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6861085,
+            "lng": 23.845256,
+            "id": 431335369,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6856794,
+            "lng": 23.8353961,
+            "id": 431340008,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6910746,
+            "lng": 23.8363438,
+            "id": 431341287,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.699337,
+            "lng": 23.8172257,
+            "id": 431346173,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6781149,
+            "lng": 23.8363237,
+            "id": 445394314,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6769241,
+            "lng": 23.8379979,
+            "id": 445394323,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6875824,
+            "lng": 23.8350452,
+            "id": 445397980,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6987951,
+            "lng": 23.8087833,
+            "id": 456382905,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.683859,
+            "lng": 23.8055248,
+            "id": 457640339,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6741978,
+            "lng": 23.8044813,
+            "id": 457699017,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6736603,
+            "lng": 23.8037392,
+            "id": 457709643,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6759102,
+            "lng": 23.8014907,
+            "id": 457714319,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.675495,
+            "lng": 23.8029783,
+            "id": 457714320,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6742528,
+            "lng": 23.7955531,
+            "id": 457714321,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7065251,
+            "lng": 23.7956002,
+            "id": 462597932,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6517374,
+            "lng": 23.83218,
+            "id": 467926933,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6479887,
+            "lng": 23.8374874,
+            "id": 468000466,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6486566,
+            "lng": 23.8394933,
+            "id": 468000488,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6532169,
+            "lng": 23.8558982,
+            "id": 471704412,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6502513,
+            "lng": 23.8594154,
+            "id": 471704481,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6516431,
+            "lng": 23.855099,
+            "id": 471704609,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6755422,
+            "lng": 23.8510198,
+            "id": 483668126,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.676716,
+            "lng": 23.8433941,
+            "id": 483668131,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6947181,
+            "lng": 23.8351212,
+            "id": 483668152,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6971223,
+            "lng": 23.8317992,
+            "id": 483668159,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6981014,
+            "lng": 23.80762,
+            "id": 483675942,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6995581,
+            "lng": 23.8219578,
+            "id": 483740204,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6804979,
+            "lng": 23.8550355,
+            "id": 492603180,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6876755,
+            "lng": 23.8532089,
+            "id": 492603221,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6903525,
+            "lng": 23.8769202,
+            "id": 506553532,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6885294,
+            "lng": 23.8783017,
+            "id": 506553533,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6879691,
+            "lng": 23.8782161,
+            "id": 506553534,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6782644,
+            "lng": 23.8878937,
+            "id": 506553579,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6725076,
+            "lng": 23.8904877,
+            "id": 506553713,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6696088,
+            "lng": 23.8879052,
+            "id": 506553732,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6704789,
+            "lng": 23.8620997,
+            "id": 507052813,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6641255,
+            "lng": 23.8702271,
+            "id": 507053096,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6660068,
+            "lng": 23.8696199,
+            "id": 507053247,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6737676,
+            "lng": 23.8640219,
+            "id": 517455834,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6700041,
+            "lng": 23.8605638,
+            "id": 517535527,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6711272,
+            "lng": 23.8600751,
+            "id": 517535531,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6492548,
+            "lng": 23.8459297,
+            "id": 522814962,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6571558,
+            "lng": 23.8413289,
+            "id": 522934844,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6529324,
+            "lng": 23.8527638,
+            "id": 522934860,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6576162,
+            "lng": 23.8409018,
+            "id": 522934882,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6613107,
+            "lng": 23.8471948,
+            "id": 522934900,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6752797,
+            "lng": 23.8312459,
+            "id": 523866088,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6751579,
+            "lng": 23.8516567,
+            "id": 524212287,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6926499,
+            "lng": 23.8235083,
+            "id": 527169340,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6956407,
+            "lng": 23.8007199,
+            "id": 540085270,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7409778,
+            "lng": 23.8224204,
+            "id": 540450798,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7395939,
+            "lng": 23.8215182,
+            "id": 540450799,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7296194,
+            "lng": 23.8174151,
+            "id": 540450800,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.72934,
+            "lng": 23.8169673,
+            "id": 540450801,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7231085,
+            "lng": 23.8145683,
+            "id": 540450802,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7224492,
+            "lng": 23.8139446,
+            "id": 540450803,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7430259,
+            "lng": 23.8266453,
+            "id": 540450810,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7430098,
+            "lng": 23.8253393,
+            "id": 540450812,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7076157,
+            "lng": 23.8162003,
+            "id": 540468193,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7066361,
+            "lng": 23.8158803,
+            "id": 540468194,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7048087,
+            "lng": 23.8156511,
+            "id": 540468199,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7104013,
+            "lng": 23.8143716,
+            "id": 540468228,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7127556,
+            "lng": 23.8141094,
+            "id": 540468240,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7482681,
+            "lng": 23.8236332,
+            "id": 541216748,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7521829,
+            "lng": 23.839227,
+            "id": 541317153,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7523882,
+            "lng": 23.8384017,
+            "id": 541317339,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6403258,
+            "lng": 23.8441877,
+            "id": 550172056,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6412277,
+            "lng": 23.8448097,
+            "id": 550195828,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6436593,
+            "lng": 23.850626,
+            "id": 550400917,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7040683,
+            "lng": 23.8065815,
+            "id": 558675966,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7026579,
+            "lng": 23.8067991,
+            "id": 558676018,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7034197,
+            "lng": 23.8080681,
+            "id": 558676030,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6718505,
+            "lng": 23.7673669,
+            "id": 559449960,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6720507,
+            "lng": 23.7664253,
+            "id": 559449990,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6747765,
+            "lng": 23.7745424,
+            "id": 559488479,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6554305,
+            "lng": 23.7876032,
+            "id": 559614286,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7157641,
+            "lng": 23.8122421,
+            "id": 566474014,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7156606,
+            "lng": 23.8129338,
+            "id": 566477282,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7011408,
+            "lng": 23.84886,
+            "id": 571696869,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7006139,
+            "lng": 23.8505033,
+            "id": 571696879,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6950673,
+            "lng": 23.8542744,
+            "id": 571696980,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6983789,
+            "lng": 23.8551512,
+            "id": 571697053,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.699157,
+            "lng": 23.8545267,
+            "id": 571697067,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7012743,
+            "lng": 23.8497634,
+            "id": 571697087,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7064028,
+            "lng": 23.8493072,
+            "id": 571723336,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7076545,
+            "lng": 23.8498571,
+            "id": 571723353,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7101872,
+            "lng": 23.8494018,
+            "id": 571724656,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7120464,
+            "lng": 23.8497823,
+            "id": 571724659,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7072473,
+            "lng": 23.8390571,
+            "id": 571727605,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7108154,
+            "lng": 23.8396605,
+            "id": 571727611,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6999443,
+            "lng": 23.8584678,
+            "id": 572299808,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7042796,
+            "lng": 23.8586024,
+            "id": 572300012,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7053702,
+            "lng": 23.7957977,
+            "id": 574866391,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6829056,
+            "lng": 23.8067772,
+            "id": 575962840,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6960956,
+            "lng": 23.7972793,
+            "id": 577361981,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6431765,
+            "lng": 23.8599339,
+            "id": 598298392,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.642415,
+            "lng": 23.8605604,
+            "id": 598298393,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6649582,
+            "lng": 23.8610346,
+            "id": 648549185,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6923259,
+            "lng": 23.8348546,
+            "id": 660628859,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7077644,
+            "lng": 23.8401007,
+            "id": 660629167,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7049814,
+            "lng": 23.8181557,
+            "id": 661079466,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.704173,
+            "lng": 23.8168894,
+            "id": 661087659,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7004433,
+            "lng": 23.8301178,
+            "id": 674941480,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7138558,
+            "lng": 23.8260309,
+            "id": 687191676,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6494228,
+            "lng": 23.8445509,
+            "id": 700322741,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6323456,
+            "lng": 23.8911167,
+            "id": 721265675,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7082236,
+            "lng": 23.8045148,
+            "id": 721382302,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.652783,
+            "lng": 23.8521592,
+            "id": 724399827,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6565222,
+            "lng": 23.8573671,
+            "id": 724447433,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6702611,
+            "lng": 23.7486052,
+            "id": 736634019,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6734279,
+            "lng": 23.7480385,
+            "id": 736634023,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6723527,
+            "lng": 23.7477204,
+            "id": 736634034,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6694056,
+            "lng": 23.7416619,
+            "id": 736634047,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6697802,
+            "lng": 23.7453971,
+            "id": 736634066,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6431046,
+            "lng": 23.8690711,
+            "id": 752022868,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6516187,
+            "lng": 23.832986,
+            "id": 769817040,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6572242,
+            "lng": 23.8582971,
+            "id": 769817041,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6540794,
+            "lng": 23.8489765,
+            "id": 769817042,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6548899,
+            "lng": 23.8478977,
+            "id": 769817043,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6612069,
+            "lng": 23.8150988,
+            "id": 769847373,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6744936,
+            "lng": 23.8581635,
+            "id": 769847374,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.666929,
+            "lng": 23.8205087,
+            "id": 769847375,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6665231,
+            "lng": 23.8260198,
+            "id": 769847376,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6678104,
+            "lng": 23.8232635,
+            "id": 769847377,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6617871,
+            "lng": 23.817042,
+            "id": 769847378,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6620808,
+            "lng": 23.8309624,
+            "id": 769847379,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6592091,
+            "lng": 23.8361505,
+            "id": 769847380,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.66987,
+            "lng": 23.81755,
+            "id": 769847382,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6468153,
+            "lng": 23.8365368,
+            "id": 769847383,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6592607,
+            "lng": 23.8083655,
+            "id": 769847384,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.67473,
+            "lng": 23.8574,
+            "id": 769847385,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6694851,
+            "lng": 23.823427,
+            "id": 769847386,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6617799,
+            "lng": 23.8319242,
+            "id": 769847387,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6729553,
+            "lng": 23.8606046,
+            "id": 769847388,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6593181,
+            "lng": 23.8107284,
+            "id": 769847389,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6541434,
+            "lng": 23.8307637,
+            "id": 771956595,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6553766,
+            "lng": 23.831018,
+            "id": 771956997,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.65545,
+            "lng": 23.81967,
+            "id": 772146718,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6440158,
+            "lng": 23.7729793,
+            "id": 778512633,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6567654,
+            "lng": 23.7800574,
+            "id": 810018755,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6691713,
+            "lng": 23.7900698,
+            "id": 810018765,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6724723,
+            "lng": 23.7931264,
+            "id": 810018790,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6458901,
+            "lng": 23.7767225,
+            "id": 810057025,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6533896,
+            "lng": 23.7785107,
+            "id": 810057067,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.641189,
+            "lng": 23.7417665,
+            "id": 810198164,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6750173,
+            "lng": 23.7743765,
+            "id": 810327445,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6777435,
+            "lng": 23.8300794,
+            "id": 816814535,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6788017,
+            "lng": 23.8298334,
+            "id": 816859292,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6288318,
+            "lng": 23.8539712,
+            "id": 824217329,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6301728,
+            "lng": 23.8562698,
+            "id": 824217336,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6274816,
+            "lng": 23.8506997,
+            "id": 824217353,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6212215,
+            "lng": 23.8411415,
+            "id": 824217358,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6230996,
+            "lng": 23.8413588,
+            "id": 824217361,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6279842,
+            "lng": 23.8523772,
+            "id": 824462246,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6299872,
+            "lng": 23.8235424,
+            "id": 828093362,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6851376,
+            "lng": 23.8805223,
+            "id": 836147035,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6845325,
+            "lng": 23.8802135,
+            "id": 836148496,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7212639,
+            "lng": 23.813468,
+            "id": 847177176,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7539455,
+            "lng": 23.8240639,
+            "id": 847177180,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7119922,
+            "lng": 23.813781,
+            "id": 847177186,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6981876,
+            "lng": 23.8396241,
+            "id": 890949599,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6938445,
+            "lng": 23.8386628,
+            "id": 890949668,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.700262,
+            "lng": 23.8396533,
+            "id": 890949690,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6609902,
+            "lng": 23.830408,
+            "id": 917139972,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6772992,
+            "lng": 23.8303693,
+            "id": 969186894,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6436712,
+            "lng": 23.8402723,
+            "id": 969186897,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.690282,
+            "lng": 23.8658789,
+            "id": 969186900,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6904387,
+            "lng": 23.8640743,
+            "id": 969186903,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6795339,
+            "lng": 23.8544128,
+            "id": 969186904,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6895674,
+            "lng": 23.8572094,
+            "id": 969186910,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6449761,
+            "lng": 23.8392821,
+            "id": 969186914,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6834778,
+            "lng": 23.8546632,
+            "id": 969186915,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6763488,
+            "lng": 23.8432417,
+            "id": 969186916,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6853195,
+            "lng": 23.8542961,
+            "id": 969186924,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6431905,
+            "lng": 23.8489121,
+            "id": 969186925,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6899993,
+            "lng": 23.8468245,
+            "id": 969358804,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7152667,
+            "lng": 23.8493517,
+            "id": 969358821,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6891614,
+            "lng": 23.8464828,
+            "id": 969358826,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7113414,
+            "lng": 23.8594652,
+            "id": 969358849,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6954318,
+            "lng": 23.8554112,
+            "id": 969358852,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.714422,
+            "lng": 23.8584413,
+            "id": 969358856,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6714712,
+            "lng": 23.8545589,
+            "id": 969358860,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7161142,
+            "lng": 23.84862,
+            "id": 969358868,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6720524,
+            "lng": 23.8539894,
+            "id": 969358884,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6602473,
+            "lng": 23.8300394,
+            "id": 969358888,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.715868,
+            "lng": 23.8506385,
+            "id": 969358897,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6222168,
+            "lng": 23.8661301,
+            "id": 993522297,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6258405,
+            "lng": 23.8467081,
+            "id": 999272156,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6257832,
+            "lng": 23.8470407,
+            "id": 999407759,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.629348,
+            "lng": 23.8555999,
+            "id": 999466751,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6842957,
+            "lng": 23.8403849,
+            "id": 1015286529,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6707675,
+            "lng": 23.8025831,
+            "id": 1015286531,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6843049,
+            "lng": 23.8387755,
+            "id": 1015286532,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6715705,
+            "lng": 23.8040908,
+            "id": 1015286533,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6806717,
+            "lng": 23.8407743,
+            "id": 1015286535,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7005838,
+            "lng": 23.8191926,
+            "id": 1017096351,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6362952,
+            "lng": 23.8489129,
+            "id": 1030655684,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.635217,
+            "lng": 23.8506021,
+            "id": 1030655685,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7398308,
+            "lng": 23.8116182,
+            "id": 1176774196,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7185067,
+            "lng": 23.8078134,
+            "id": 1176774207,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.69018,
+            "lng": 23.8267966,
+            "id": 1194420972,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6537641,
+            "lng": 23.7942304,
+            "id": 1248149821,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6536873,
+            "lng": 23.7950624,
+            "id": 1248150148,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6705939,
+            "lng": 23.8113306,
+            "id": 1256409910,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6710566,
+            "lng": 23.8098216,
+            "id": 1256410412,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6712078,
+            "lng": 23.8212776,
+            "id": 1256772885,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6718593,
+            "lng": 23.8199528,
+            "id": 1256774191,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6757756,
+            "lng": 23.8329121,
+            "id": 1256779549,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6895372,
+            "lng": 23.8448494,
+            "id": 1256784537,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6991603,
+            "lng": 23.8400373,
+            "id": 1256845828,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.701904,
+            "lng": 23.8400464,
+            "id": 1271367429,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7116039,
+            "lng": 23.840061,
+            "id": 1290401320,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7154654,
+            "lng": 23.8396676,
+            "id": 1290405083,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7167357,
+            "lng": 23.8401143,
+            "id": 1290407694,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7160317,
+            "lng": 23.8408115,
+            "id": 1290407696,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6721248,
+            "lng": 23.7393211,
+            "id": 1326288764,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6606693,
+            "lng": 23.7342636,
+            "id": 1326302611,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6515981,
+            "lng": 23.7346474,
+            "id": 1326302637,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6518933,
+            "lng": 23.7343818,
+            "id": 1326432634,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6581372,
+            "lng": 23.8439646,
+            "id": 1326828671,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6725347,
+            "lng": 23.8157798,
+            "id": 1328437289,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6731748,
+            "lng": 23.8122519,
+            "id": 1328437318,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6561334,
+            "lng": 23.8007948,
+            "id": 1523242464,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.658576,
+            "lng": 23.8075994,
+            "id": 1523245557,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6653968,
+            "lng": 23.8199001,
+            "id": 1523246676,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6627425,
+            "lng": 23.783216,
+            "id": 1523250230,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6542386,
+            "lng": 23.779282,
+            "id": 1523251173,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6494734,
+            "lng": 23.7833626,
+            "id": 1523251556,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6500627,
+            "lng": 23.7841027,
+            "id": 1523252006,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.651212,
+            "lng": 23.7884645,
+            "id": 1523252293,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6513263,
+            "lng": 23.7874796,
+            "id": 1523252489,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6569692,
+            "lng": 23.8120149,
+            "id": 1523253307,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6581911,
+            "lng": 23.8142431,
+            "id": 1523253312,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6524791,
+            "lng": 23.807523,
+            "id": 1523253943,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6539066,
+            "lng": 23.8073567,
+            "id": 1523254214,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6512652,
+            "lng": 23.8106996,
+            "id": 1523254494,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6505333,
+            "lng": 23.8131234,
+            "id": 1523254861,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6504697,
+            "lng": 23.8150654,
+            "id": 1523255096,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6524711,
+            "lng": 23.8184103,
+            "id": 1523255315,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6520395,
+            "lng": 23.8159694,
+            "id": 1523255490,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6619299,
+            "lng": 23.803342,
+            "id": 1523257240,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6629697,
+            "lng": 23.8026954,
+            "id": 1523257242,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6481324,
+            "lng": 23.8091315,
+            "id": 1523259844,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6502146,
+            "lng": 23.8025468,
+            "id": 1523259846,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6494477,
+            "lng": 23.8037513,
+            "id": 1523259849,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6473809,
+            "lng": 23.8309384,
+            "id": 1523488140,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6459571,
+            "lng": 23.8241787,
+            "id": 1523488162,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6463619,
+            "lng": 23.8244004,
+            "id": 1523488164,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6472783,
+            "lng": 23.832631,
+            "id": 1523488166,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6371258,
+            "lng": 23.848286,
+            "id": 1523492652,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6369876,
+            "lng": 23.8558022,
+            "id": 1523494869,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.640233,
+            "lng": 23.8641074,
+            "id": 1523495751,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6739277,
+            "lng": 23.8652797,
+            "id": 1523499632,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6725186,
+            "lng": 23.8776393,
+            "id": 1523500354,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6731629,
+            "lng": 23.8721664,
+            "id": 1523500355,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6475106,
+            "lng": 23.8098946,
+            "id": 1545785655,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6727722,
+            "lng": 23.8730444,
+            "id": 1598365230,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6722739,
+            "lng": 23.8782057,
+            "id": 1598365253,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6671967,
+            "lng": 23.8011209,
+            "id": 1598365280,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7064756,
+            "lng": 23.8395822,
+            "id": 1638426900,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7009549,
+            "lng": 23.8414376,
+            "id": 1638426912,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7065553,
+            "lng": 23.8295504,
+            "id": 1638426916,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7064818,
+            "lng": 23.8274318,
+            "id": 1638426925,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6945118,
+            "lng": 23.7880155,
+            "id": 1648213200,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7054695,
+            "lng": 23.8591456,
+            "id": 1703461189,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7067213,
+            "lng": 23.8504604,
+            "id": 1703461238,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6557559,
+            "lng": 23.7852081,
+            "id": 1715874572,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6214513,
+            "lng": 23.8209868,
+            "id": 1729333393,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6524205,
+            "lng": 23.7944267,
+            "id": 1731282240,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6549158,
+            "lng": 23.7859567,
+            "id": 1731539385,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6356524,
+            "lng": 23.80867,
+            "id": 1751614949,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6372991,
+            "lng": 23.7978428,
+            "id": 1772031502,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6842259,
+            "lng": 23.8602007,
+            "id": 1775264966,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6850209,
+            "lng": 23.859812,
+            "id": 1775264970,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6254639,
+            "lng": 23.8073306,
+            "id": 1778441497,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7206435,
+            "lng": 23.8388313,
+            "id": 1782787378,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6242159,
+            "lng": 23.8134897,
+            "id": 1826098518,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6249639,
+            "lng": 23.8118261,
+            "id": 1826098520,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7055969,
+            "lng": 23.8227619,
+            "id": 1850620819,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6265648,
+            "lng": 23.8041046,
+            "id": 1942475218,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6359005,
+            "lng": 23.810973,
+            "id": 1942546407,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6295605,
+            "lng": 23.8221817,
+            "id": 1942546511,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6308502,
+            "lng": 23.8126599,
+            "id": 1942546767,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6914986,
+            "lng": 23.8376481,
+            "id": 2072145228,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6494105,
+            "lng": 23.8607439,
+            "id": 2072145229,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6906623,
+            "lng": 23.8347037,
+            "id": 2075107695,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.709164,
+            "lng": 23.8053849,
+            "id": 2075107696,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7092353,
+            "lng": 23.8045949,
+            "id": 2075107697,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.690215,
+            "lng": 23.7884031,
+            "id": 2079132685,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7006402,
+            "lng": 23.8284446,
+            "id": 2079132692,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6954153,
+            "lng": 23.792853,
+            "id": 2079132703,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6416926,
+            "lng": 23.8431647,
+            "id": 2079132714,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7013102,
+            "lng": 23.838135,
+            "id": 2079132727,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6753105,
+            "lng": 23.8619122,
+            "id": 2090886205,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.679154,
+            "lng": 23.8623705,
+            "id": 2090886206,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6803552,
+            "lng": 23.8630765,
+            "id": 2090886207,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6720714,
+            "lng": 23.8193852,
+            "id": 2194105380,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6952704,
+            "lng": 23.8459006,
+            "id": 2194294116,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6727796,
+            "lng": 23.7951941,
+            "id": 2194294117,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.673468,
+            "lng": 23.7928303,
+            "id": 2194294118,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6742048,
+            "lng": 23.7853558,
+            "id": 2194294119,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6745958,
+            "lng": 23.7844439,
+            "id": 2194294120,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6942767,
+            "lng": 23.8393342,
+            "id": 2194294121,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7006296,
+            "lng": 23.8588343,
+            "id": 2198107909,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6292384,
+            "lng": 23.8570016,
+            "id": 2198107910,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7190603,
+            "lng": 23.8081468,
+            "id": 2199954875,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7299782,
+            "lng": 23.7953657,
+            "id": 2199954877,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6890093,
+            "lng": 23.8365837,
+            "id": 2199954878,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6891062,
+            "lng": 23.8355098,
+            "id": 2199954879,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6764749,
+            "lng": 23.8929702,
+            "id": 2205158374,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6658766,
+            "lng": 23.9172566,
+            "id": 2207492011,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6671321,
+            "lng": 23.907958,
+            "id": 2207492012,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6566352,
+            "lng": 23.7804694,
+            "id": 2211711899,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6904942,
+            "lng": 23.8291592,
+            "id": 2222979844,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6963093,
+            "lng": 23.8334443,
+            "id": 2222979850,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7216959,
+            "lng": 23.8150305,
+            "id": 2264912745,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7241451,
+            "lng": 23.8255581,
+            "id": 2264912747,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7221997,
+            "lng": 23.8233402,
+            "id": 2264912748,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6895077,
+            "lng": 23.8257646,
+            "id": 2270953861,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6357553,
+            "lng": 23.8231929,
+            "id": 2270966736,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6353538,
+            "lng": 23.8229756,
+            "id": 2270966737,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6396521,
+            "lng": 23.8154554,
+            "id": 2270966738,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6888004,
+            "lng": 23.8550851,
+            "id": 2272091099,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6728254,
+            "lng": 23.8921021,
+            "id": 2272308047,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6774814,
+            "lng": 23.8923357,
+            "id": 2272308049,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7225786,
+            "lng": 23.8219711,
+            "id": 2272920723,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7197811,
+            "lng": 23.8396099,
+            "id": 2272920729,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7217496,
+            "lng": 23.8270443,
+            "id": 2272920736,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.634881,
+            "lng": 23.8518212,
+            "id": 2276410568,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6700958,
+            "lng": 23.7914571,
+            "id": 2277560662,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6341108,
+            "lng": 23.8513423,
+            "id": 2281093776,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6953571,
+            "lng": 23.7883766,
+            "id": 2281093779,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6537806,
+            "lng": 23.7914384,
+            "id": 2281093780,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.656414,
+            "lng": 23.8025554,
+            "id": 2286941687,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7142904,
+            "lng": 23.8255569,
+            "id": 2290682893,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6663653,
+            "lng": 23.7874498,
+            "id": 2296311715,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6385809,
+            "lng": 23.8137775,
+            "id": 2296368078,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6248854,
+            "lng": 23.812997,
+            "id": 2303076604,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6904967,
+            "lng": 23.871111,
+            "id": 2304012840,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6906097,
+            "lng": 23.8689652,
+            "id": 2304012841,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7136291,
+            "lng": 23.8670975,
+            "id": 2342024542,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7133391,
+            "lng": 23.8719436,
+            "id": 2342024681,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7153341,
+            "lng": 23.8574555,
+            "id": 2343656190,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6654665,
+            "lng": 23.9190127,
+            "id": 2343901440,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7543792,
+            "lng": 23.8246904,
+            "id": 2345811336,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6689473,
+            "lng": 23.8917123,
+            "id": 2347003865,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6635265,
+            "lng": 23.7841221,
+            "id": 2364941426,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6654786,
+            "lng": 23.7870896,
+            "id": 2365478997,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6562578,
+            "lng": 23.7831401,
+            "id": 2369278315,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6434019,
+            "lng": 23.870382,
+            "id": 2453208156,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6771025,
+            "lng": 23.8890765,
+            "id": 2567084046,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6804102,
+            "lng": 23.8957031,
+            "id": 2567086814,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6829179,
+            "lng": 23.8451479,
+            "id": 2574266485,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6449459,
+            "lng": 23.8585625,
+            "id": 2630823976,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6469405,
+            "lng": 23.8652956,
+            "id": 2631283640,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7146799,
+            "lng": 23.8597169,
+            "id": 2645279075,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7133669,
+            "lng": 23.8682051,
+            "id": 2660413107,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6850408,
+            "lng": 23.841992,
+            "id": 2690057477,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6372841,
+            "lng": 23.8571582,
+            "id": 2712199749,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6687527,
+            "lng": 23.845149,
+            "id": 2897668489,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6723387,
+            "lng": 23.8419701,
+            "id": 2904637408,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6722307,
+            "lng": 23.8491316,
+            "id": 2904639194,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6347864,
+            "lng": 23.9022826,
+            "id": 3018684260,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6318478,
+            "lng": 23.8932772,
+            "id": 3018684261,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6462455,
+            "lng": 23.8160865,
+            "id": 3124783484,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6796362,
+            "lng": 23.8347978,
+            "id": 3298249968,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6798022,
+            "lng": 23.835209,
+            "id": 3298249969,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6196045,
+            "lng": 23.8340726,
+            "id": 3401471833,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6222463,
+            "lng": 23.8176313,
+            "id": 3505724729,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7139517,
+            "lng": 23.8741672,
+            "id": 3596106953,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7104732,
+            "lng": 23.8598595,
+            "id": 3643501538,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6202109,
+            "lng": 23.7982195,
+            "id": 3649492665,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6208034,
+            "lng": 23.8102635,
+            "id": 3649492671,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6216211,
+            "lng": 23.8225144,
+            "id": 3649492703,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.622666,
+            "lng": 23.7994297,
+            "id": 3649492938,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6237615,
+            "lng": 23.8009828,
+            "id": 3649492986,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6264591,
+            "lng": 23.8023145,
+            "id": 3649493190,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6230405,
+            "lng": 23.8168913,
+            "id": 3649493203,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6665546,
+            "lng": 23.9107326,
+            "id": 3662389325,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.618201,
+            "lng": 23.8022658,
+            "id": 3759090825,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6164986,
+            "lng": 23.8071849,
+            "id": 3759090826,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6173131,
+            "lng": 23.8033226,
+            "id": 3759090827,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6190506,
+            "lng": 23.7982907,
+            "id": 3759090828,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6165368,
+            "lng": 23.8086655,
+            "id": 3759090829,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6198747,
+            "lng": 23.8091644,
+            "id": 3759108016,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6240487,
+            "lng": 23.8120344,
+            "id": 3759108017,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6324752,
+            "lng": 23.8975598,
+            "id": 3868543057,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.634301,
+            "lng": 23.8997699,
+            "id": 3868543257,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.662265,
+            "lng": 23.7920876,
+            "id": 4322891491,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6196939,
+            "lng": 23.8328934,
+            "id": 4414980954,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6583306,
+            "lng": 23.7895772,
+            "id": 4421796294,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6595305,
+            "lng": 23.790512,
+            "id": 4421800494,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6677658,
+            "lng": 23.7349999,
+            "id": 4593241590,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.669404,
+            "lng": 23.7407268,
+            "id": 4593253890,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.6672453,
+            "lng": 23.7351885,
+            "id": 4593256890,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7082918,
+            "lng": 23.8279728,
+            "id": 4680732154,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.700861,
+            "lng": 23.8342059,
+            "id": 4712848291,
+            "type": "bus_stop"
+        },
+        {
+            "lat": 53.7013052,
+            "lng": 23.836067,
+            "id": 4712869989,
+            "type": "bus_stop"
+        }
     ]
-  },
-  "bus-stops-geo": [
-    {
-      "id": 1,
-      "geoData": {
-        "type": "Feature",
-        "properties": {
-          "id": 1,
-          "type": "bus_stop"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            23.78851175,
-            53.66706981
-          ]
-        }
-      }
-    },
-    {
-      "id": 2,
-      "geoData": {
-        "type": "Feature",
-        "properties": {
-          "id": 2,
-          "type": "bus_stop"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            23.78439188,
-            53.66429825
-          ]
-        }
-      }
-    }
-  ],
-  "users": [
-    {
-      "email": "krivichaninds@gmail.com",
-      "userName": "Denis Krivichanin",
-      "isActive": false,
-      "id": 1
-    },
-    {
-      "email": "maksim@gmail.com",
-      "userName": "Maksim Shuba",
-      "isActive": false,
-      "id": 2
-    },
-    {
-      "userName": "Adam qwerty",
-      "email": "qwerty@gmail.com",
-      "isActive": true,
-      "id": 4
-    }
-  ]
 }

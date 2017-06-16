@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { isEmpty } from 'lodash';
 
 import MapComponent from '../../components/Map/Map';
 import PointInfo from '../../components/PointInfo/PointInfo';
+
+import Auth from '../../auth';
 
 import {
   toggleSideBar,
@@ -18,21 +19,23 @@ import {
   findNearestButStops,
   saveToFavorites,
   loadBusStopGeoData,
+  loadBusStopsGeoData,
 } from '../../actions/actions';
 
 import { calculateMapCenter } from '../../utils';
 
-import { getGeoData, getIsSidebarOpen, getMapPointInfo, getGeoDataMainPoint } from '../../reducers/map/map';
+import { getGeoData, getIsSidebarOpen, getMapPointInfo,
+  getGeoDataMainPoint, getClusterGeoData } from '../../reducers/map/map';
 
 import { getUserCoordinates } from '../../reducers/userLocation';
 
 export const MAP = 'map';
 
 class MapContainer extends Component {
-  componentDidMount() {
-    const { findUserLocation } = this.props.actions;
-    findUserLocation();
-  }
+  // componentDidMount() {
+  //   const { loadBusStopsGeoData } = this.props.actions;
+  //   loadBusStopsGeoData('Hrodna');
+  // }
 
   componentWillUnmount() {
     const { closeSideBar, closeMapPointInfo } = this.props.actions;
@@ -78,27 +81,25 @@ class MapContainer extends Component {
   }
 
   render() {
-    const { data, defaultCenter, zoom, maxZoom, minZoom, zoomControl, isSidebarOpen,
-      pointInfo, userCoordinates, mapCenter } = this.props;
-    const { toggleSideBar, findNearestButStops } = this.props.actions;
+    const { data, clusterData, isSidebarOpen, pointInfo, userCoordinates, mapCenter,
+      isUserRegistered } = this.props;
+    const { toggleSideBar, findNearestButStops, findUserLocation } = this.props.actions;
 
     return (
       <div>
         <MapComponent
           data={data}
-          defaultCenter={defaultCenter}
-          zoom={zoom}
-          maxZoom={maxZoom}
-          minZoom={minZoom}
-          zoomControl={zoomControl}
+          clusterData={clusterData}
           isSidebarOpen={isSidebarOpen}
           pointInfo={pointInfo}
           userCoordinates={userCoordinates}
-          mapCenter={isEmpty(mapCenter) ? defaultCenter : mapCenter}
+          mapCenter={mapCenter}
           toggleSideBar={toggleSideBar}
           findNearestButStops={findNearestButStops}
           getPointInfo={this.getMapPointInfo}
           getUserInfo={this.getUserPointInfo}
+          isUserRegistered={isUserRegistered}
+          findUserLocation={findUserLocation}
         />
         <PointInfo
           pointInfo={pointInfo}
@@ -119,10 +120,12 @@ const mapStateToProps = (state) => {
 
   return {
     data: getGeoData(state.map),
+    clusterData: getClusterGeoData(state.map),
     isSidebarOpen: getIsSidebarOpen(state.map),
     pointInfo: getMapPointInfo(state.map),
     userCoordinates: getUserCoordinates(state.userLocation),
     mapCenter: calculateMapCenter(geoDataMainPoint, userCoordinates),
+    isUserRegistered: Auth.isUserRegistered(),
   };
 };
 
@@ -138,6 +141,7 @@ const mapDispatchToProps = dispatch => ({
     saveToFavorites,
     closeSideBar,
     loadBusStopGeoData,
+    loadBusStopsGeoData,
   }, dispatch),
 });
 
@@ -146,15 +150,12 @@ MapContainer.propTypes = {
     PropTypes.arrayOf(PropTypes.shape),
     PropTypes.shape(),
   ]).isRequired,
+  clusterData: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   pointInfo: PropTypes.shape().isRequired,
-  mapCenter: PropTypes.arrayOf(PropTypes.number),
-  defaultCenter: PropTypes.arrayOf(PropTypes.number),
-  zoom: PropTypes.number,
-  maxZoom: PropTypes.number,
-  minZoom: PropTypes.number,
-  zoomControl: PropTypes.bool,
+  mapCenter: PropTypes.arrayOf(PropTypes.number).isRequired,
   isSidebarOpen: PropTypes.bool.isRequired,
-  userCoordinates: PropTypes.arrayOf(PropTypes.number),
+  userCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+  isUserRegistered: PropTypes.bool.isRequired,
   actions: PropTypes.shape({
     getPointInfo: PropTypes.func.isRequired,
     toggleSideBar: PropTypes.func.isRequired,
@@ -166,18 +167,13 @@ MapContainer.propTypes = {
     saveToFavorites: PropTypes.func.isRequired,
     closeSideBar: PropTypes.func.isRequired,
     loadBusStopGeoData: PropTypes.func.isRequired,
+    loadBusStopsGeoData: PropTypes.func.isRequired,
   }).isRequired,
 };
 
 MapContainer.defaultProps = {
   data: [],
   mapCenter: [],
-  defaultCenter: [53.66946, 23.824368],
-  zoom: 16,
-  maxZoom: 20,
-  minZoom: 11,
-  zoomControl: false,
-  userCoordinates: [],
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MapContainer);

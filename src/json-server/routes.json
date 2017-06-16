@@ -4,6 +4,7 @@
   "/api/points/:id/info": "/points-info/:id",
   "/api/user/info": "/user-info",
   "/api/user/favorites": "/user-favorites",
+  "/api/bus-stops/geo": "/bus-stops-geo-data",
   "/api/bus-stops/:id/geo": "/bus-stops-geo/:id",
   "/api/administration/users": "/users",
   "/api/path": "/path",

@@ -13,6 +13,7 @@ import {
   fetchRouteBetweenPoints,
   fetchNearestBusStops,
   fetchFavorites,
+  fetchBusStopsGeoData,
   fetchBusStopGeoData,
   fetchLoadUsers,
   fetchRegisterUser,
@@ -65,6 +66,8 @@ import {
   SIGN_UP,
   SIGN_UP_SUCCESS,
   SIGN_UP_FAILURE,
+  LOAD_BUS_STOPS_GEODATA,
+  LOAD_BUS_STOPS_GEODATA_SUCCESS,
   API_ERROR,
 } from '../actions/actions';
 
@@ -244,6 +247,20 @@ function* loadFavorites(action) {
   }
 }
 
+function* loadBusStopsGeoData(action) {
+  const { city } = action;
+  try {
+    yield put({ type: SEND_REQUEST });
+    const geoData = yield call(fetchBusStopsGeoData, city);
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: LOAD_BUS_STOPS_GEODATA_SUCCESS, geoData });
+    yield put(push('/map'));
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: API_ERROR, err });
+  }
+}
+
 function* loadBusStopGeoData(action) {
   const { busStopId, predicate } = action;
   try {
@@ -385,6 +402,7 @@ function* appSaga() {
   yield takeEvery(LOAD_ROUTE_BETWEEN_POINTS, loadRouteBetweenPoints);
   yield takeEvery(FIND_NEAREST_BUS_STOPS, findNearestBusStops);
   yield takeEvery(LOAD_FAVORITES, loadFavorites);
+  yield takeEvery(LOAD_BUS_STOPS_GEODATA, loadBusStopsGeoData);
   yield takeEvery(LOAD_BUS_STOP_GEODATA, loadBusStopGeoData);
   yield takeEvery(SAVE_TO_FAVORITES, saveToFavorites);
   yield takeEvery(REGISTER_USER, registerUser);

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Auth from '../auth';
 
 const apiErrorHandler = err => Promise.reject(err);
 
@@ -55,6 +56,10 @@ export const fetchFavorites = () =>
     .then(response => response.data)
     .catch(apiErrorHandler);
 
+export const fetchBusStopsGeoData = city =>
+  axios.get(`/api/bus-stops//geo?city=${city}`)
+    .then(response => response.data);
+
 export const fetchBusStopGeoData = busStopId =>
   axios.get(`/api/bus-stops/${busStopId}/geo`)
     .then(response => response.data);
@@ -82,7 +87,7 @@ export const fetchDeleteUser = id =>
 const setAccessToken = (response) => {
   const { authorize } = response.headers;
   if (authorize) {
-    axios.defaults.headers.common.Authorization = authorize;
+    Auth.setAccessToken(authorize);
   }
   return response;
 };

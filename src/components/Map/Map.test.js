@@ -6,6 +6,9 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <MapComponent
+      data={[]}
+      clusterData={[]}
+      mapCenter={[]}
       routeId="routeId"
       route={[]}
       isSidebarOpen={false}
@@ -13,5 +16,6 @@ it('renders without crashing', () => {
       toggleSideBar={() => {}}
       getUserInfo={() => {}}
       findNearestButStops={() => {}}
+      findUserLocation={() => {}}
     />, div);
 });

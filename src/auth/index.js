@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 class Auth {
 
@@ -29,13 +29,12 @@ class Auth {
     localStorage.setItem('userRole', role);
   }
 
-  static isUserRegistered = () => axios.defaults.headers.common.Authorization !== undefined
+  static isUserRegistered = () => localStorage.getItem('accessToken') !== null
 
   static isUserAdmin = () => localStorage.getItem('userRole') === 'ADMIN'
 
   static deauthenticateUser() {
     localStorage.clear();
-    delete axios.defaults.headers.common.Authorization;
   }
 
   static getAccessToken() {
@@ -52,6 +51,18 @@ class Auth {
 
   static getUserRole() {
     return localStorage.getItem('userRole');
+  }
+
+  static checkIsRegisteredAndRedirect() {
+    if (localStorage.getItem('accessToken') == null) {
+      browserHistory.push('/');
+    }
+  }
+
+  static checkIsAdminAndRedirect() {
+    if (localStorage.getItem('userRole') !== 'ADMIN') {
+      browserHistory.push('/');
+    }
   }
 }
 
