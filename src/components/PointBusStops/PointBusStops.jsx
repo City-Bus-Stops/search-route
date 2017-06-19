@@ -39,22 +39,15 @@ const PointBusStops = ({ busStops, loadBusStopGeoData }) => (
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
-              <Grid columns={2} doubling container>
+              <Grid doubling container>
                 <Grid.Row>
-                  <Grid.Column mobile={16} widescreen={8} computer={8} stretched>
+                  <Grid.Column mobile={16} widescreen={16} computer={16} stretched>
                     <Button
                       color="green"
                       onClick={() => loadBusStopGeoData(busStop.id)}
                     >
                       <Text>
                         Watch on the map
-                      </Text>
-                    </Button>
-                  </Grid.Column>
-                  <Grid.Column mobile={16} widescreen={8} computer={8} stretched>
-                    <Button color="yellow">
-                      <Text>
-                        Watch schedule
                       </Text>
                     </Button>
                   </Grid.Column>

@@ -10,6 +10,7 @@ import userLocation from './userLocation';
 import spinner from './spinner';
 import favorites from './favorites/favorites';
 import administration from './administration/administration';
+import schedule from './schedule';
 
 export default combineReducers({
   searchRoute,
@@ -21,4 +22,5 @@ export default combineReducers({
   form: formReducer.plugin(formReducers),
   favorites,
   administration,
+  schedule,
 });

@@ -1,3 +1,4 @@
+/* eslint-disable arrow-parens */
 import L from 'leaflet';
 import moment from 'moment';
 
@@ -51,3 +52,20 @@ export const prepareMarkersForClusterLayer = markers => markers.map(marker => ({
 }));
 
 export const findStartPointIndexInGeoData = geoData => geoData.findIndex(element => element.properties.type === 'start');
+
+export const getTimeFromMins = mins => moment.utc().hours(mins / 60).minutes(mins % 60).format('HH:mm');
+
+export const prepareTimeToSchedule = string => {
+  const minutes = string.split('&').map(times => times.split(','));
+  return {
+    workingDay: minutes[0].map(mins => getTimeFromMins(mins)),
+    dayOff: minutes[1].map(mins => getTimeFromMins(mins)),
+  };
+};
+
+export const getScheduleMinutesFromHour = (minutes, hour, isOffDay) => {
+  const day = isOffDay ? 'dayOff' : 'workingDay';
+  const preparedMinutes = prepareTimeToSchedule(minutes);
+  const filteredTimes = preparedMinutes[day].filter(time => Number(time.split(':')[0]) === hour);
+  return filteredTimes.map(time => Number(time.split(':')[1])).join('  ');
+};

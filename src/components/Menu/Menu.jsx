@@ -34,6 +34,12 @@ const MenuComponent = ({ pathname, username, onLogout, isUserRegistered, isAdmin
           </Link>
         </Menu.Item>
       }
+      <Menu.Item>
+        <Link to="/schedule/buses" className="menu-item" activeClassName="menu-item-active">
+          <Icon name="bus" />
+          Schedule
+        </Link>
+      </Menu.Item>
       {
         isUserRegistered &&
         isAdmin &&

@@ -36,16 +36,6 @@ const FavoriteBusStop = ({ busStop, loadBusStopGeoData, remove }) => (
                 Watch on the map <Icon link name="map outline" color="green" />
               </Button>
             </Grid.Column>
-            <Grid.Column mobile={8} widescreen={8} computer={8} stretched>
-              <Button
-                color="yellow"
-                floated="right"
-                basic
-                icon
-              >
-                Watch schedule <Icon link name="calendar outline" color="yellow" />
-              </Button>
-            </Grid.Column>
           </Grid.Row>
         </Grid>
       </Card.Content>

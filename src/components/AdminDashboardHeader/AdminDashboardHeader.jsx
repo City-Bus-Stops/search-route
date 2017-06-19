@@ -12,7 +12,7 @@ const AdminDashboardHeader = () => (
               <Icon name="users" color="green" /> Total Users
             </Card.Header>
             <Card.Description>
-              <Statistic color="green" value="2,204" />
+              <Statistic color="green" value="27" />
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
@@ -28,7 +28,7 @@ const AdminDashboardHeader = () => (
               <Icon name="dashboard" color="yellow" /> Total Connections
             </Card.Header>
             <Card.Description>
-              <Statistic color="yellow" value="7,325" />
+              <Statistic color="yellow" value="521" />
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
@@ -44,7 +44,7 @@ const AdminDashboardHeader = () => (
               <Icon name="bus" color="blue" /> Saved routes and bus stops
             </Card.Header>
             <Card.Description>
-              <Statistic color="blue" value="515" />
+              <Statistic color="blue" value="29" />
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
@@ -60,7 +60,7 @@ const AdminDashboardHeader = () => (
               <Icon name="signal" color="red" /> Requests per  day
             </Card.Header>
             <Card.Description>
-              <Statistic color="red" value="1,105" />
+              <Statistic color="red" value="58" />
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
