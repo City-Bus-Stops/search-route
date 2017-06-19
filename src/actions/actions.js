@@ -125,9 +125,10 @@ export const getRouteGeoData = (routeId, predicate) => ({
   predicate,
 });
 
-export const getPointInfo = (pointId, predicate) => ({
+export const getPointInfo = (pointId, coords, predicate) => ({
   type: LOAD_MAP_POINT_INFO,
   pointId,
+  coords,
   predicate,
 });
 

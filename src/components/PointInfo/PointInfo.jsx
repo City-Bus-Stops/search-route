@@ -50,7 +50,7 @@ const PointInfo = ({
                     color="green"
                     circular
                     link
-                    onClick={() => savePoint(pointInfo.pointId)}
+                    onClick={() => savePoint(pointInfo.id)}
                   />
               }
               </Grid.Column>
@@ -60,10 +60,6 @@ const PointInfo = ({
       </Modal.Header>
       <Modal.Content>
         <Grid>
-          <BusStopBuses
-            buses={pointInfo.buses}
-            getBusScheduleOnBusStop={getBusScheduleOnBusStop}
-          />
           {
             pointInfo.address &&
             <Grid.Row>
@@ -75,6 +71,10 @@ const PointInfo = ({
               </Grid.Column>
             </Grid.Row>
           }
+          <BusStopBuses
+            buses={pointInfo.buses}
+            getBusScheduleOnBusStop={getBusScheduleOnBusStop}
+          />
         </Grid>
         <PointBusStops
           busStops={pointInfo.busStops}

@@ -118,10 +118,6 @@ body {
 }
 
 @media (min-width: 1024px) {
-  .only-on-mobiles-and-tablet {
-    display: none!important;
-  }
-
   .leaflet-container-info {
     height: 45vh;
     width: 35vw;

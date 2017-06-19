@@ -26,7 +26,6 @@ const SearchRouteForm = ({ findUserAddress, searchRoute, handleSubmit }) => (
                     <Icon
                       link
                       name="location arrow"
-                      className="only-on-mobiles-and-tablet"
                       color="red"
                       onClick={() => findUserAddress('from')}
                     />
@@ -53,7 +52,6 @@ const SearchRouteForm = ({ findUserAddress, searchRoute, handleSubmit }) => (
                     <Icon
                       link
                       name="location arrow"
-                      className="only-on-mobiles-and-tablet"
                       color="red"
                       onClick={() => findUserAddress('to')}
                     />

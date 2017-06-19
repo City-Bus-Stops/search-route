@@ -43,9 +43,9 @@ class MapContainer extends Component {
     closeMapPointInfo(MAP);
   }
 
-  getMapPointInfo = (id) => {
+  getMapPointInfo = (id, coordinates) => {
     const { getPointInfo } = this.props.actions;
-    getPointInfo(id, MAP);
+    getPointInfo(id, coordinates, MAP);
   };
 
   getUserPointInfo = () => {

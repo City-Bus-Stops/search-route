@@ -65,7 +65,7 @@ const MapComponent = ({
             <MarkerClusterGroup
               markers={clusterData}
               wrapperOptions={{ enableDefaultStyle: true }}
-              onMarkerClick={marker => getPointInfo(marker.options.id)}
+              onMarkerClick={marker => getPointInfo(marker.options.id, marker._latlng)}
             />
             <GeoLayer
               data={data}

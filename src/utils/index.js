@@ -14,7 +14,10 @@ export const generateMarker = (type, latlng) => L.marker(latlng, { icon: generat
 
 export const pointToLayer = getMapPointInfo => (feature, latlng) =>
   generateMarker(feature.properties.type, latlng)
-    .on('click', () => getMapPointInfo(feature.properties.id));
+    .on('click', () => getMapPointInfo(
+      feature.properties.id,
+      { lat: feature.geometry.coordinates[1], lng: feature.geometry.coordinates[0] }),
+    );
 
 export const createWrapperReducer = (reducerFunction, predicate) => (state, action) => {
   const isInitializationCall = state === undefined;
