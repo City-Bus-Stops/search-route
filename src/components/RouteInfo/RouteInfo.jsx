@@ -45,7 +45,7 @@ const RouteInfo = ({ closeRouteInfo, routeInfo, saveRoute }) => (
                   color="green"
                   circular
                   link
-                  onClick={() => saveRoute(routeInfo.routeId)}
+                  onClick={() => saveRoute(routeInfo.id)}
                 />
             }
           </Grid.Column>
@@ -102,16 +102,18 @@ const RouteInfo = ({ closeRouteInfo, routeInfo, saveRoute }) => (
                             name={instructionIconTypes[step.type] || 'road'}
                             color={instructionIconColors[step.type] || 'blue'}
                           />
-                          <Step.Title className="initial-width">
-                            <span>
-                              {step.title}
-                            </span>
-                          </Step.Title>
-                          <Step.Description>
-                            <span className="font-size-15">
-                              {step.description}
-                            </span>
-                          </Step.Description>
+                          <Step.Content>
+                            <Step.Title className="initial-width">
+                              <span>
+                                {step.title}
+                              </span>
+                            </Step.Title>
+                            <Step.Description>
+                              <span className="font-size-15">
+                                {step.description}
+                              </span>
+                            </Step.Description>
+                          </Step.Content>
                         </Step>,
                       )
                     }

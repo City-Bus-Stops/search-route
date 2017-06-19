@@ -31,8 +31,8 @@ export const fetchRouteGeoData = routeId =>
     .then(response => response.data)
     .catch(apiErrorHandler);
 
-export const fetchMapPointInfo = pointId =>
-  axios.get(`/api/points/${pointId}/info`)
+export const fetchMapPointInfo = (pointId, coords) =>
+  axios.get(`/api/points/${pointId}/info?lat=${coords.lat}&lon=${coords.lng}`)
     .then(response => response.data)
     .catch(apiErrorHandler);
 
@@ -47,7 +47,7 @@ export const fetchRouteBetweenPoints = (startPoint, endPoint) =>
     .catch(apiErrorHandler);
 
 export const fetchNearestBusStops = coords =>
-  axios.get(`/api/nearest-bus-stops?lat=${coords.latitude}&lon=${coords.longitude}&distance=1000`)
+  axios.get(`/api/bus-stops/nearest/geo?lat=${coords.latitude}&lon=${coords.longitude}&distance=1000`)
     .then(response => response.data)
     .catch(apiErrorHandler);
 

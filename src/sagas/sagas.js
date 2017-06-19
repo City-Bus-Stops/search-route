@@ -90,9 +90,8 @@ function* findUserAddress(action) {
     const { location } = yield take(FIND_USER_LOCATION_SUCCESS);
     const { coords } = location;
     yield put({ type: SEND_REQUEST });
-    const response = yield call(fetchFindUserAddress, coords);
+    const { address } = yield call(fetchFindUserAddress, coords);
     yield put({ type: RECEIVE_RESPONSE });
-    const { address } = response;
     yield put({ type: FIND_USER_ADDRESS_SUCCESS, address, coords, field });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
@@ -104,9 +103,8 @@ function* searchRoute(action) {
   const { params: { from, to }, predicate } = action;
   try {
     yield put({ type: SEND_REQUEST });
-    const response = yield call(fetchSearchRoute, from, to);
+    const routes = yield call(fetchSearchRoute, from, to);
     yield put({ type: RECEIVE_RESPONSE });
-    const { routes } = response;
     yield put({ type: SEARCH_ROUTE_SUCCESS, routes, predicate });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
@@ -117,8 +115,7 @@ function* searchRoute(action) {
 function* loadRouteInfo(action) {
   const { routeId, predicate } = action;
   try {
-    const response = yield call(fetchRouteInfo, routeId);
-    const { info } = response;
+    const info = yield call(fetchRouteInfo, routeId);
     yield put({ type: LOAD_ROUTE_INFO_SUCCESS, info, routeId, predicate });
   } catch (err) {
     yield put({ type: API_ERROR, err });
@@ -145,10 +142,10 @@ function* watchPollRouteInfo() {
   }
 }
 
-function* pollPointInfo(pointId, predicate) {
+function* pollPointInfo(pointId, predicate, coords) {
   try {
     yield call(delay, 60000);
-    yield put({ type: LOAD_MAP_POINT_INFO, pointId, predicate });
+    yield put({ type: LOAD_MAP_POINT_INFO, pointId, predicate, coords });
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
     yield put({ type: API_ERROR, err });
@@ -157,9 +154,9 @@ function* pollPointInfo(pointId, predicate) {
 
 function* watchPollPointInfo() {
   while (true) {
-    const { pointId, predicate } = yield take(LOAD_MAP_POINT_INFO_SUCCESS);
+    const { pointId, predicate, coords } = yield take(LOAD_MAP_POINT_INFO_SUCCESS);
     yield race([
-      call(pollPointInfo, pointId, predicate),
+      call(pollPointInfo, pointId, predicate, coords),
       take(CLEAR_MAP_POINT_INFO),
     ]);
   }
@@ -169,7 +166,7 @@ function* loadRouteGeoData(action) {
   const { routeId } = action;
   try {
     yield put({ type: SEND_REQUEST });
-    const { geoData } = yield call(fetchRouteGeoData, routeId);
+    const geoData = yield call(fetchRouteGeoData, routeId);
     yield put({ type: RECEIVE_RESPONSE });
     yield put({ type: LOAD_ROUTE_GEODATA_SUCCESS, geoData });
     yield put(push('/map'));
@@ -180,11 +177,10 @@ function* loadRouteGeoData(action) {
 }
 
 function* loadMapPointInfo(action) {
-  const { pointId, predicate } = action;
+  const { pointId, predicate, coords } = action;
   try {
-    const response = yield call(fetchMapPointInfo, pointId);
-    const { info } = response;
-    yield put({ type: LOAD_MAP_POINT_INFO_SUCCESS, info, pointId, predicate });
+    const info = yield call(fetchMapPointInfo, pointId, coords);
+    yield put({ type: LOAD_MAP_POINT_INFO_SUCCESS, info, pointId, predicate, coords });
   } catch (err) {
     yield put({ type: API_ERROR, err });
   }
@@ -265,9 +261,9 @@ function* loadBusStopGeoData(action) {
   const { busStopId, predicate } = action;
   try {
     yield put({ type: SEND_REQUEST });
-    const { geoData } = yield call(fetchBusStopGeoData, busStopId);
+    const geoData = yield call(fetchBusStopGeoData, busStopId);
     yield put({ type: RECEIVE_RESPONSE });
-    yield put({ type: LOAD_BUS_STOP_GEODATA_SUCCESS, geoData, predicate });
+    yield put({ type: LOAD_BUS_STOP_GEODATA_SUCCESS, geoData: [geoData], predicate });
     yield put(push('/map'));
   } catch (err) {
     yield put({ type: RECEIVE_RESPONSE });
