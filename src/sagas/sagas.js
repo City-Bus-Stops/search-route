@@ -20,6 +20,9 @@ import {
   fetchDeleteUser,
   fetchLogin,
   fetchSignup,
+  fetchLoadBuses,
+  fetchLoadBusRoutes,
+  fetchLoadRouteBusStop,
 } from '../api/api';
 import {
   FIND_USER_LOCATION,
@@ -68,6 +71,12 @@ import {
   SIGN_UP_FAILURE,
   LOAD_BUS_STOPS_GEODATA,
   LOAD_BUS_STOPS_GEODATA_SUCCESS,
+  LOAD_BUSES,
+  LOAD_BUSES_SUCCESS,
+  LOAD_BUS_ROUTES,
+  LOAD_BUS_ROUTES_SUCCESS,
+  LOAD_ROUTE_BUS_STOP_SCHEDULE,
+  LOAD_ROUTE_BUS_STOP_SCHEDULE_SUCCESS,
   API_ERROR,
 } from '../actions/actions';
 
@@ -387,6 +396,44 @@ function* signup(action) {
   }
 }
 
+function* loadBuses() {
+  try {
+    yield put({ type: SEND_REQUEST });
+    const buses = yield call(fetchLoadBuses);
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: LOAD_BUSES_SUCCESS, buses });
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: API_ERROR, err });
+  }
+}
+
+function* loadBusRoutes(action) {
+  const { busId } = action;
+  try {
+    yield put({ type: SEND_REQUEST });
+    const data = yield call(fetchLoadBusRoutes, busId);
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: LOAD_BUS_ROUTES_SUCCESS, data });
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: API_ERROR, err });
+  }
+}
+
+function* loadRouteBusStopSchedule(action) {
+  const { routeId, busStopId } = action;
+  try {
+    yield put({ type: SEND_REQUEST });
+    const data = yield call(fetchLoadRouteBusStop, routeId, busStopId);
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: LOAD_ROUTE_BUS_STOP_SCHEDULE_SUCCESS, data });
+  } catch (err) {
+    yield put({ type: RECEIVE_RESPONSE });
+    yield put({ type: API_ERROR, err });
+  }
+}
+
 function* appSaga() {
   yield takeLatest(FIND_USER_LOCATION, findUserLocation);
   yield takeLatest(FIND_USER_ADDRESS, findUserAddress);
@@ -407,6 +454,9 @@ function* appSaga() {
   yield takeEvery(DELETE_USER, deleteUser);
   yield takeEvery(LOGIN, login);
   yield takeEvery(SIGN_UP, signup);
+  yield takeEvery(LOAD_BUSES, loadBuses);
+  yield takeEvery(LOAD_BUS_ROUTES, loadBusRoutes);
+  yield takeEvery(LOAD_ROUTE_BUS_STOP_SCHEDULE, loadRouteBusStopSchedule);
   yield fork(watchChangeFilter);
   yield [fork(watchPollRouteInfo), fork(watchPollPointInfo)];
 }

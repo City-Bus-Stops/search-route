@@ -71,10 +71,13 @@ const PointInfo = ({
               </Grid.Column>
             </Grid.Row>
           }
-          <BusStopBuses
-            buses={pointInfo.buses}
-            getBusScheduleOnBusStop={getBusScheduleOnBusStop}
-          />
+          {
+            pointInfo.buses &&
+            <BusStopBuses
+              buses={pointInfo.buses}
+              getBusScheduleOnBusStop={getBusScheduleOnBusStop}
+            />
+          }
         </Grid>
         <PointBusStops
           busStops={pointInfo.busStops}

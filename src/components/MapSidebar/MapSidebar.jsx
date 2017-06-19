@@ -31,6 +31,12 @@ const MapSidebar = ({ isSidebarOpen, toggleSideBar, isUserRegistered }) => (
             Home
           </Menu.Item>
         </Link>
+        <Link to="/schedule/buses" className="menu-item" activeClassName="menu-item-active">
+          <Menu.Item>
+            <Icon name="table" />
+            Schedule
+          </Menu.Item>
+        </Link>
         {
           isUserRegistered &&
           <Link to="/favorites" className="menu-item" activeClassName="menu-item-active">

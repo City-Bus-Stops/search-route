@@ -76,6 +76,14 @@ export const SET_FILTER = 'SET_FILTER';
 export const CHANGE_FILTER = 'CHANGE_FILTER';
 export const CLEAR_FILTER = 'CLEAR_FILTER';
 
+/** Schedule actions **/
+export const LOAD_BUSES = 'LOAD_BUSES';
+export const LOAD_BUSES_SUCCESS = 'LOAD_BUSES_SUCCESS';
+export const LOAD_BUS_ROUTES = 'LOAD_BUS_ROUTES';
+export const LOAD_BUS_ROUTES_SUCCESS = 'LOAD_BUS_ROUTES_SUCCESS';
+export const LOAD_ROUTE_BUS_STOP_SCHEDULE = 'LOAD_ROUTE_BUS_STOP_SCHEDULE';
+export const LOAD_ROUTE_BUS_STOP_SCHEDULE_SUCCESS = 'LOAD_ROUTE_BUS_STOP_SCHEDULE_SUCCESS';
+
 export const findUserLocation = () => ({
   type: FIND_USER_LOCATION,
 });
@@ -242,4 +250,20 @@ export const changeFilter = (filter, predicate) => ({
 export const clearFilter = predicate => ({
   type: CLEAR_FILTER,
   predicate,
+});
+
+export const loadBuses = () => ({
+  type: LOAD_BUSES,
+});
+
+
+export const loadBusRoutes = busId => ({
+  type: LOAD_BUS_ROUTES,
+  busId,
+});
+
+export const loadRouteBusStopSchedule = (routeId, busStopId) => ({
+  type: LOAD_ROUTE_BUS_STOP_SCHEDULE,
+  routeId,
+  busStopId,
 });

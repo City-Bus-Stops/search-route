@@ -102,3 +102,18 @@ export const fetchSignup = params =>
   axios.post('/api/auth/signup', params)
     .then(response => response.data)
     .catch(apiErrorHandler);
+
+export const fetchLoadBuses = () =>
+  axios.get('/api/schedule/routes')
+    .then(response => response.data)
+    .catch(apiErrorHandler);
+
+export const fetchLoadBusRoutes = busId =>
+  axios.get(`/api/schedule/routes/${busId}`)
+    .then(response => response.data)
+    .catch(apiErrorHandler);
+
+export const fetchLoadRouteBusStop = (routeId, busStopId) =>
+  axios.get(`/api/schedule/bus-stops/${busStopId}/routes/${routeId}`)
+    .then(response => response.data)
+    .catch(apiErrorHandler);

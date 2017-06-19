@@ -20,6 +20,9 @@ import MapContainer from './containers/Map/Map';
 import FavoritesContainer from './containers/Favorites/Favorites';
 import UsersAdministrationContainer from './containers/UsersAdministration/UsersAdministration';
 import DashboardContainer from './containers/Dashboard/Dashboard';
+import BusesContainer from './containers/Schedule/Buses/Buses';
+import BusRoutesContainer from './containers/Schedule/BusRoutes/BusRoutes';
+import RouteBusStopContainer from './containers/Schedule/RouteBusStop/RouteBusStop';
 import NotFound from './components/NotFound/NotFound';
 
 import configureStore from './configureStore';
@@ -49,6 +52,12 @@ ReactDOM.render(
           <IndexRedirect to="users" />
           <Route path="users" component={UsersAdministrationContainer} />
           <Route path="dashboard" component={DashboardContainer} />
+        </Route>
+        <Route path="schedule">
+          <Route path="buses" component={BusesContainer} />
+          <Route path="buses/:id" component={BusRoutesContainer} />
+          <Route path="buses/:id/bus-stops/:busStopId" component={RouteBusStopContainer} />
+          <Route path="bus-stops" component={BusesContainer} />
         </Route>
       </Route>
       <Route path="/" component={UserManagementContainer}>
