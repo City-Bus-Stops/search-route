@@ -65,7 +65,12 @@ export const fetchBusStopGeoData = busStopId =>
     .then(response => response.data);
 
 export const fetchLoadUsers = () =>
- axios.get('/api/administration/users')
+ axios.get('/api/administration/users', {
+   headers: {
+     Authorization: Auth.getAccessToken(),
+   },
+ },
+)
     .then(response => response.data)
     .catch(apiErrorHandler);
 
@@ -75,12 +80,18 @@ export const fetchRegisterUser = user =>
     ...user,
   }, {
     'Content-Type': 'application/json',
+    Authorization: Auth.getAccessToken(),
   })
     .then(response => response.data)
     .catch(apiErrorHandler);
 
 export const fetchDeleteUser = id =>
-  axios.delete(`/api/administration/users/${id}`)
+  axios.delete(`/api/administration/users/${id}`, {
+    headers: {
+      Authorization: Auth.getAccessToken(),
+    },
+  },
+ )
     .then(response => response.data)
     .catch(apiErrorHandler);
 

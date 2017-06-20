@@ -22,7 +22,7 @@ const UsersAdministrationTable = ({ users, deleteUser, changeUserStatus, addUser
                 users &&
                 users.map(user =>
                   <Table.Row key={user.id}>
-                    <Table.Cell>{user.userName}</Table.Cell>
+                    <Table.Cell>{user.username}</Table.Cell>
                     <Table.Cell>{user.email}</Table.Cell>
                     <Table.Cell>{user.lastLogin}</Table.Cell>
                     <Table.Cell>
